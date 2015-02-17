@@ -1,0 +1,27 @@
+{
+  "name": "reacttesting",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "preprocessor.js",
+    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"],
+    "testFileExtensions": [
+      "coffee",
+      "js"
+    ]
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "jest-cli": "~0.2.2",
+    "react-tools": "~0.12.2",
+    "coffee-react": "~2.4.1"
+  },
+  "dependencies": {
+    "react": "~0.12.2"
+  }
+}
