@@ -3,7 +3,10 @@
 
 // CheckboxWithLabel.js
 
-var React = require('react/addons');
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  var React = require('react/addons');
+}
+
 var CheckboxWithLabel = React.createClass({
   getInitialState: function() {
     return { isChecked: false };
@@ -24,4 +27,7 @@ var CheckboxWithLabel = React.createClass({
     );
   }
 });
-module.exports = CheckboxWithLabel;
+
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = CheckboxWithLabel;
+}
