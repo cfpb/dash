@@ -8,7 +8,9 @@
   },
   "jest": {
     "scriptPreprocessor": "preprocessor.js",
-    "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ],
     "testFileExtensions": [
       "coffee",
       "js"
@@ -22,6 +24,18 @@
     "coffee-react": "~2.4.1"
   },
   "dependencies": {
-    "react": "~0.12.2"
+    "coffee-react": "~2.4.1",
+    "gulp": "~3.8.11",
+    "gulp-concat": "~2.5.0",
+    "gulp-if": "^1.2.5",
+    "gulp-order": "^1.1.1",
+    "gulp-react": "^2.0.0",
+    "gulp-uglify": "^1.1.0",
+    "jest-cli": "~0.2.2",
+    "lazypipe": "^0.2.2",
+    "merge-stream": "^0.1.7",
+    "react": "~0.12.2",
+    "react-tools": "~0.12.2",
+    "yargs": "~3.0.4"
   }
 }

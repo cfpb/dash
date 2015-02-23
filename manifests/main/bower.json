@@ -1,0 +1,31 @@
+{
+  "name": "testing-react-main",
+  "version": "0.0.0",
+  "homepage": "",
+  "authors": [],
+  "license": "Apache 2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "react": "~0.12.2",
+    "jquery": "1.9.1"
+  },
+  "include": {
+    "js":
+    [ "dependencies/jquery/jquery.min.js"
+    , "dependencies/react/react.min.js"
+    , {"path": "dependencies/react/JSXTransformer.js", "dev": true}
+    , "src/copyright.min.js"
+    ]
+  , "jsx": 
+    [ "src/CheckboxWithLabel.js"
+    ]
+  , "css":
+    [
+    ]
+  }
+}

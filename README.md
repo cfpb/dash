@@ -30,7 +30,13 @@ To create a new set of javascript and css files:
     }
 
 * use the shim at src/dev_shim to seemlessly import all constituent files during development
-* run `gulp build` to build the minified files in the `./build` directory.
+* development files must be served by a webserver. 
+  You can use `python -m SimpleHTTPServer 8000` to do so.
+
+Build
+-----
+* run `gulp` to build the minified files in the `./build` directory.
+
 
 Dependencies
 ------------
