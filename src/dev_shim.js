@@ -107,9 +107,9 @@ function load_manifest(file_name, base_static_path, callback){
     for (type in types) {count++;}
     for (type in types) {
       var paths = manifest.include[type];
+      if (!add_type[type]) {continue;}
       add_type[type](paths, base_static_path, function() {if (--count <= 0) {return callback()}});
     }
-
   })
 }
 
@@ -118,7 +118,10 @@ function load_manifests(file_names, base_static_path, callback) {
   if (!count) {callback(); return dom_elms;}
   file_names.forEach(function(file_name) {
     load_manifest(file_name, base_static_path, function() {
-      if (--count <= 0) {return handle_onload()}
+      if (--count <= 0) {
+        if (callback) {callback();}
+        return handle_onload()
+      }
     });
   });
 }
