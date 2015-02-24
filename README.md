@@ -2,7 +2,6 @@ Installation
 ------------
 
 * `npm install -g gulp bower jest-cli`
-* `npm install`
 * `./frontendbuild.sh`
 
 Testing
