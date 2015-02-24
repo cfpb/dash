@@ -1,33 +1,17 @@
-var build = require('./build-utils').build;
-var react = require('gulp-react');
-var lazypipe = require('lazypipe');
-var uglify = require('gulp-uglify');
-var gulpif = require('gulp-if');
 var gulp = require('gulp');
+var less = require('gulp-less');
+var usemin = require('gulp-usemin');
+var uglify = require('gulp-uglify');
+var minifyCss = require('gulp-minify-css');
+var rev = require('gulp-rev');
 
-var js_initial_pipes = {
-  js: null,
-  jsx: lazypipe().pipe(react),
-}
-
-var css_initial_pipes = {
-  css: null,
-}
-
-var js_middle_pipes = lazypipe().pipe(function() {return gulpif(is_uncompressed, uglify());})
-
-
-gulp.task('build_styles', build('css', css_initial_pipes));
-
-gulp.task('build_scripts', build('js', js_initial_pipes, js_middle_pipes));
-
-
-
-gulp.task('build', ['build_styles', 'build_scripts']);
+gulp.task('build', function () {
+  return gulp.src('src/index.html')
+      .pipe(usemin({
+        less: [less(), minifyCss(), 'concat', rev()],
+        js: [uglify(), rev()]
+      }))
+      .pipe(gulp.dest('dist/'));
+});
 
 gulp.task('default', ['build']);
-
-
-function is_uncompressed(file) {
-  return file.path.indexOf('.min.') < 0;
-}
