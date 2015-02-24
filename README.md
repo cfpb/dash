@@ -1,10 +1,9 @@
 Installation
 ------------
 
-* `npm install -g gulp`
-* `npm install -g bower`
-* `npm install -g jest-cli`
-* `npm install .`
+* `npm install -g gulp bower jest-cli`
+* `npm install`
+* `./frontendbuild.sh`
 
 Testing
 -------
@@ -13,29 +12,15 @@ Testing
 
 Developing
 ----------
-To create a new set of javascript and css files:
 
-* create a new directory in ./manifests
-* place a bower.json in that directory
+* `cd src`
+* `python -m SimpleHTTPServer 8000`
 
-    # bower.json
-    {
-      "name": "portal",
-      ...
-      "include": {
-        "js": ["path1", "path2"...],
-        "jsx": ["path1", "path2"...],
-        "css": [...]
-      }
-    }
-
-* use the shim at src/dev_shim to seemlessly import all constituent files during development
-* development files must be served by a webserver. 
-  You can use `python -m SimpleHTTPServer 8000` to do so.
+If you're editing JavaScript, run `npm run watch` in a new tab to have Browserify auto-recompile files.
 
 Build
 -----
-* run `gulp` to build the minified files in the `./build` directory.
+* run `gulp` to build the minified files into the `dist` directory.
 
 
 Dependencies

@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run build",
+    "postinstall": "bower install",
     "test": "jest",
-    "build": "gulp & npm run build-js",
     "build-js": "browserify src/js/app.js -o src/bundle.js",
     "post-build": "onchange src/bundle.js -- npm test",
     "watch": "watchify src/js/app.js -d -o src/bundle.js -v & npm run post-build"
   },
   "jest": {
-    "scriptPreprocessor": "src/js/test_preprocessor.js",
+    "scriptPreprocessor": "test_preprocessor.js",
+    "rootDir": "src/js",
     "unmockedModulePathPatterns": [
       "node_modules/react"
     ],
