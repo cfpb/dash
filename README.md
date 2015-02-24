@@ -12,10 +12,8 @@ Testing
 Developing
 ----------
 
-* `cd src`
-* `python -m SimpleHTTPServer 8000`
-
-If you're editing JavaScript, run `npm run watch` in a new tab to have Browserify auto-recompile files.
+* Set up [`devdash`](https://github.com/cfpb/devdash#installation) so that http://localhost:8000 is correctly serving DevDash.
+* Run `npm run watch`. When files are edited, tests will be run and this repo will be copied over to the `devdash` directory to be served by nginx.
 
 Build
 -----
