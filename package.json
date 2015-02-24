@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run build",
     "test": "jest",
-    "build": "browserify src/js/app.js -o src/bundle.js",
+    "build": "gulp & npm run build-js",
+    "build-js": "browserify src/js/app.js -o src/bundle.js",
     "post-build": "onchange src/bundle.js -- npm test",
     "watch": "watchify src/js/app.js -d -o src/bundle.js -v & npm run post-build"
   },

@@ -1,0 +1,1570 @@
+[
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0019e7",
+        "_rev": "1-b40a0367c17205af776170576c99b022",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0019e7",
+        "roles": [],
+        "data": {
+            "username": "agarwalan"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "agarwalan",
+                "id": 8656948
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e001f1d",
+        "_rev": "1-d0c5ea4d9ab2173de6d1ad785d746ece",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e001f1d",
+        "roles": [],
+        "data": {
+            "username": "ajbush"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "ajbush",
+                "id": 6931351
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00249f",
+        "_rev": "1-f8fec84a65f21289dce534b6c7ded590",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00249f",
+        "roles": [],
+        "data": {
+            "username": "akiany"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "akiany",
+                "id": 589137
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e002608",
+        "_rev": "1-17f42540b2d5c49d2092ebcfe5201d1b",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e002608",
+        "roles": [],
+        "data": {
+            "username": "amycesal"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "amycesal",
+                "id": 1656046
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e002ccd",
+        "_rev": "1-da92d75166b845cacd5fe25723ef2dde",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e002ccd",
+        "roles": [],
+        "data": {
+            "username": "amymok"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "amymok",
+                "id": 2673022
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0036c3",
+        "_rev": "1-70098ccf966d456ebe47732b7d7d103e",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0036c3",
+        "roles": [],
+        "data": {
+            "username": "anselmbradford"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "anselmbradford",
+                "id": 704760
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e004675",
+        "_rev": "1-bb6ea5e1c90f398ec75c1539bbcb9b9c",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e004675",
+        "roles": [],
+        "data": {
+            "username": "ascott1"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "ascott1",
+                "id": 212533
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e005265",
+        "_rev": "1-981a2950b8f02c0ae58a7d4e5c8f74a0",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e005265",
+        "roles": [],
+        "data": {
+            "username": "awolfe76"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "awolfe76",
+                "id": 2932572
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e005e8f",
+        "_rev": "1-0dde95d32a15cd146f6ae3831a42e177",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e005e8f",
+        "roles": [],
+        "data": {
+            "username": "benguhin"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "benguhin",
+                "id": 6953063
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e006c84",
+        "_rev": "1-e6172767c302080435e78028e570ded4",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e006c84",
+        "roles": [],
+        "data": {
+            "username": "bradhicks"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "bradhicks",
+                "id": 10222493
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e006de3",
+        "_rev": "1-94384621fcf844fb7439a7907464d379",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e006de3",
+        "roles": [],
+        "data": {
+            "username": "brycestephens"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "brycestephens",
+                "id": 8524111
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e007b79",
+        "_rev": "1-20b34f2b310720c4f830c3933efc07f4",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e007b79",
+        "roles": [],
+        "data": {
+            "username": "Burton"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "Burton",
+                "id": 95155
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e007e82",
+        "_rev": "1-1e16bf3270df2109f3b206ef63cf1706",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e007e82",
+        "roles": [],
+        "data": {
+            "username": "caheberer"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "caheberer",
+                "id": 4739887
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e008bcd",
+        "_rev": "1-9f0e1463146fc2cda33526edbc3496f1",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e008bcd",
+        "roles": [],
+        "data": {
+            "username": "cfarm"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "cfarm",
+                "id": 702526
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00977d",
+        "_rev": "1-3d1ba943d8e244dc4fca8fd9692b07ce",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00977d",
+        "roles": [],
+        "data": {
+            "username": "CFPBadmin"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "CFPBadmin",
+                "id": 1581483
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00a23f",
+        "_rev": "1-fa97bee0a49a14d2ad62266c5afcda4c",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00a23f",
+        "roles": [],
+        "data": {
+            "username": "cfpbkhall"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "cfpbkhall",
+                "id": 4721478
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00b14f",
+        "_rev": "1-6df071a1ff62a3b72f03f1721cfd7378",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00b14f",
+        "roles": [],
+        "data": {
+            "username": "cjfont"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "cjfont",
+                "id": 534730
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00bd98",
+        "_rev": "1-84eeccbffde6ad0770cc09fbc5bed7e0",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00bd98",
+        "roles": [],
+        "data": {
+            "username": "cladana"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "cladana",
+                "id": 9851325
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00c5f5",
+        "_rev": "1-d940d3cf59154f169eb6a2a360a836ef",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00c5f5",
+        "roles": [],
+        "data": {
+            "username": "cmburke"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "cmburke",
+                "id": 10536264
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00d518",
+        "_rev": "3-3a8432126ddf313145ace67f043d10ff",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00d518",
+        "roles": ["gh|user"],
+        "data": {
+            "username": "contolini",
+            "contractor": false
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "contolini",
+                "id": 1060248
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858625215,
+                "a": "d+",
+                "k": [],
+                "v": {
+                    "username": "contolini",
+                    "contractor": false
+                },
+                "id": "f5ea6b77-19aa-41b7-8bd8-8c4d1d9755ac"
+            },
+            {
+                "u": "admin",
+                "dt": 1423858625241,
+                "a": "r+",
+                "k": "gh",
+                "v": "user",
+                "id": "87192b0e-829a-416d-92f1-8dbc644a3d8a"
+            }
+        ]
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00dce4",
+        "_rev": "1-d1f7ca089521c19c3bde3ef998afa87a",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00dce4",
+        "roles": [],
+        "data": {
+            "username": "danny8000"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "danny8000",
+                "id": 2364420
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00e845",
+        "_rev": "1-c3dd37662063bdeda6c0d78c96798b17",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00e845",
+        "roles": [],
+        "data": {
+            "username": "DarthDippy"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "DarthDippy",
+                "id": 710691
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00ecfc",
+        "_rev": "1-f5954a8f6519bb84148ae4480117a7c7",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00ecfc",
+        "roles": [],
+        "data": {
+            "username": "debseidner"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "debseidner",
+                "id": 9748138
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e00f4b3",
+        "_rev": "1-6c9f42618281ab2cac8e322cf59f2945",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e00f4b3",
+        "roles": [],
+        "data": {
+            "username": "designlanguage"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "designlanguage",
+                "id": 10562544
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e010194",
+        "_rev": "1-8e6050e57919678eb5fef4e3e6cf4368",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e010194",
+        "roles": [],
+        "data": {
+            "username": "dezzie"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "dezzie",
+                "id": 1301932
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e010457",
+        "_rev": "1-c5e0bc0d2724c0454c0557da5b053497",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e010457",
+        "roles": [],
+        "data": {
+            "username": "dgreisen-cfpb"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "dgreisen-cfpb",
+                "id": 6369769
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0109cd",
+        "_rev": "1-58fe914db3ad4676d17977cddee1c2fe",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0109cd",
+        "roles": [],
+        "data": {
+            "username": "Dnpizarro"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "Dnpizarro",
+                "id": 6852363
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e011278",
+        "_rev": "1-e5fed4f51d46127ab5620a7f81a0986c",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e011278",
+        "roles": [],
+        "data": {
+            "username": "doelleri"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "doelleri",
+                "id": 695452
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e012235",
+        "_rev": "1-bdc940c707d14462efd940b953904da0",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e012235",
+        "roles": [],
+        "data": {
+            "username": "doguin"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "doguin",
+                "id": 6944937
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0124b6",
+        "_rev": "1-8d8c4244f8d06547efa5063b81fc4bae",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0124b6",
+        "roles": [],
+        "data": {
+            "username": "dpford"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "dpford",
+                "id": 2790776
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01264f",
+        "_rev": "1-723a91a73b04e1cb9744d4dfbb063a07",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01264f",
+        "roles": [],
+        "data": {
+            "username": "duelj"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "duelj",
+                "id": 6873734
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e013611",
+        "_rev": "1-1d34d09e240edc0931952fd0cdfaccd0",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e013611",
+        "roles": [],
+        "data": {
+            "username": "elizbond"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "elizbond",
+                "id": 6798337
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01426d",
+        "_rev": "1-177543d3f04f89e40dddf96526afa3de",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01426d",
+        "roles": [],
+        "data": {
+            "username": "ericspry"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "ericspry",
+                "id": 2027141
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01500e",
+        "_rev": "1-400637a8114e79e44771191160bdbbc9",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01500e",
+        "roles": [],
+        "data": {
+            "username": "errosica"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "errosica",
+                "id": 8040511
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0152ee",
+        "_rev": "1-69aa529e1c7efa59b955c0507f0a5dad",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0152ee",
+        "roles": [],
+        "data": {
+            "username": "exafox"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "exafox",
+                "id": 138155
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0155be",
+        "_rev": "1-5b50f58384aa8ccd00556741de1a1751",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0155be",
+        "roles": [],
+        "data": {
+            "username": "feomike"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "feomike",
+                "id": 1706858
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0157c3",
+        "_rev": "1-7bf25446eedd526e8555872b0e7f43f5",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0157c3",
+        "roles": [],
+        "data": {
+            "username": "fna"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "fna",
+                "id": 446154
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e016405",
+        "_rev": "1-b0022f2baf3c56853427b18313cd605b",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e016405",
+        "roles": [],
+        "data": {
+            "username": "grapesmoker"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "grapesmoker",
+                "id": 1723233
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e016fe9",
+        "_rev": "1-eefcafde39a14b2a947e8acb1f16e445",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e016fe9",
+        "roles": [],
+        "data": {
+            "username": "henrygrover"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "henrygrover",
+                "id": 8118745
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01734d",
+        "_rev": "1-53e987b0d9e50da903fccf0354ecf60a",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01734d",
+        "roles": [],
+        "data": {
+            "username": "higs4281"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "higs4281",
+                "id": 515885
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e017dc6",
+        "_rev": "1-528b5304fc6b8d9d1ebed8cd9f1e47cc",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e017dc6",
+        "roles": [],
+        "data": {
+            "username": "himedlooff"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "himedlooff",
+                "id": 1093373
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0187e9",
+        "_rev": "1-8272fda6439023cdb5f492fdc2863e30",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0187e9",
+        "roles": [],
+        "data": {
+            "username": "hkeeler"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "hkeeler",
+                "id": 4269085
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0191c7",
+        "_rev": "1-d7328c2e69a6cc25cecc643f51376ed5",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0191c7",
+        "roles": [],
+        "data": {
+            "username": "huetingj"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "huetingj",
+                "id": 10562530
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e019abe",
+        "_rev": "1-ac10654e0ea4c2172f018a3b62ad0647",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e019abe",
+        "roles": [],
+        "data": {
+            "username": "ielerol"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "ielerol",
+                "id": 10562543
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e019f06",
+        "_rev": "1-af3865706c89ea4f3e68b1b89fbeae8b",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e019f06",
+        "roles": [],
+        "data": {
+            "username": "imuchnik"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "imuchnik",
+                "id": 1176337
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01a3ed",
+        "_rev": "1-63c8379fec2af015d98ee13164b0d49e",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01a3ed",
+        "roles": [],
+        "data": {
+            "username": "jameshupp"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "jameshupp",
+                "id": 6314097
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01abaf",
+        "_rev": "1-668afdca5bc999e2b206c899bde1790e",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01abaf",
+        "roles": [],
+        "data": {
+            "username": "jimmynotjim"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "jimmynotjim",
+                "id": 1280430
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01ae94",
+        "_rev": "1-2d6edd0c21a027996de3e207413691fb",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01ae94",
+        "roles": [],
+        "data": {
+            "username": "jmarin"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "jmarin",
+                "id": 438146
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01bb7c",
+        "_rev": "1-c2de99828fb31af2f08a750fc24b0433",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01bb7c",
+        "roles": [],
+        "data": {
+            "username": "jonathanwcrane"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "jonathanwcrane",
+                "id": 6143363
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01bb92",
+        "_rev": "1-009e232485ecbdc46c1a1ecb0974859d",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01bb92",
+        "roles": [],
+        "data": {
+            "username": "josephremy"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "josephremy",
+                "id": 8517444
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01c424",
+        "_rev": "1-fce23029b093580e853450c16b34648a",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01c424",
+        "roles": [],
+        "data": {
+            "username": "juidai"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "juidai",
+                "id": 6623411
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01d34e",
+        "_rev": "1-b8b8556bd3964232943107ce16d2ba35",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01d34e",
+        "roles": [],
+        "data": {
+            "username": "keelerr"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "keelerr",
+                "id": 10562537
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01d66d",
+        "_rev": "1-37965e26f49854f9ab791adf43edc144",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01d66d",
+        "roles": [],
+        "data": {
+            "username": "Kibrael"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "Kibrael",
+                "id": 8459164
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01dc1b",
+        "_rev": "1-c8ac2697bf70af52290d4efd38c7ac6d",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01dc1b",
+        "roles": [],
+        "data": {
+            "username": "KimberlyMunoz"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "KimberlyMunoz",
+                "id": 1860176
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01e0b9",
+        "_rev": "1-ea869ab7de76942e189398a25921fa56",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01e0b9",
+        "roles": [],
+        "data": {
+            "username": "klocraft"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "klocraft",
+                "id": 8646678
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01eee5",
+        "_rev": "1-efe30b93014509adce446dee8063e3df",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01eee5",
+        "roles": [],
+        "data": {
+            "username": "kurtw"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "kurtw",
+                "id": 1412978
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01ef1c",
+        "_rev": "1-8d63edf44ee95f987f5814fb80d57adc",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01ef1c",
+        "roles": [],
+        "data": {
+            "username": "kurzn"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "kurzn",
+                "id": 10562534
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01f86f",
+        "_rev": "1-44961ba13a3288c75271c88565c96bb2",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01f86f",
+        "roles": [],
+        "data": {
+            "username": "lesgou"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "lesgou",
+                "id": 9752096
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01fb19",
+        "_rev": "1-d32ba953f9052060c9cb5cf1bc555857",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01fb19",
+        "roles": [],
+        "data": {
+            "username": "LinuxBozo"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "LinuxBozo",
+                "id": 723420
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e01fe58",
+        "_rev": "1-1cd62e674c7085f097c3199a4cf48478",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e01fe58",
+        "roles": [],
+        "data": {
+            "username": "m3brown"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "m3brown",
+                "id": 2699164
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0208ce",
+        "_rev": "1-a963cf30e2a41fe7a0bcc855875d3e07",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0208ce",
+        "roles": [],
+        "data": {
+            "username": "marcesher"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "marcesher",
+                "id": 127017
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e020f58",
+        "_rev": "1-c9da82d9433a4562ea56109699a83951",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e020f58",
+        "roles": [],
+        "data": {
+            "username": "marteki"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "marteki",
+                "id": 1183435
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e021668",
+        "_rev": "1-67b911b29f69c6e1445ea7ea1411ce67",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e021668",
+        "roles": [],
+        "data": {
+            "username": "mebates"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "mebates",
+                "id": 6223901
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0222f0",
+        "_rev": "1-f95c72fe2ac6bef18a61eee33aa80b3d",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0222f0",
+        "roles": [],
+        "data": {
+            "username": "mehtadev17"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "mehtadev17",
+                "id": 6795712
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0230bb",
+        "_rev": "1-e4ab01b6b82d78aa4cd0795f1649df59",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0230bb",
+        "roles": [],
+        "data": {
+            "username": "mistergone"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "mistergone",
+                "id": 1490703
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0231af",
+        "_rev": "1-cb8b39752bbe34bb69478eea1f71dc17",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0231af",
+        "roles": [],
+        "data": {
+            "username": "mmarod"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "mmarod",
+                "id": 1711224
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e023ca7",
+        "_rev": "1-1f1b0f01ec3f54c58609718f85c98759",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e023ca7",
+        "roles": [],
+        "data": {
+            "username": "nataliafitzgerald"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "nataliafitzgerald",
+                "id": 6887128
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e023cb8",
+        "_rev": "1-1875d26c42d6643d054d5999e7acfc57",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e023cb8",
+        "roles": [],
+        "data": {
+            "username": "netplusdesign"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "netplusdesign",
+                "id": 2636152
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e024558",
+        "_rev": "1-ef3c0af2d8a77c3b1f97ddccc4f5b510",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e024558",
+        "roles": [],
+        "data": {
+            "username": "niqjohnson"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "niqjohnson",
+                "id": 1862695
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e024fc1",
+        "_rev": "1-7707e1d4483da018364c4a2c95a1a34a",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e024fc1",
+        "roles": [],
+        "data": {
+            "username": "npalmer"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "npalmer",
+                "id": 1020583
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0252d9",
+        "_rev": "1-d5bc8288ab8104b409a4671031ac0413",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0252d9",
+        "roles": [],
+        "data": {
+            "username": "ohsk"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "ohsk",
+                "id": 1689222
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e026206",
+        "_rev": "1-e09d59d956860ba594885419f2d84cf2",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e026206",
+        "roles": [],
+        "data": {
+            "username": "Ooblioob"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "Ooblioob",
+                "id": 5611927
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0267ea",
+        "_rev": "1-e4ebeb38dafef9cf477a538eb7176246",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0267ea",
+        "roles": [],
+        "data": {
+            "username": "OrlandoSoto"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "OrlandoSoto",
+                "id": 7442823
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e026e28",
+        "_rev": "1-95e5807570a236018e17df0b6bce5d1d",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e026e28",
+        "roles": [],
+        "data": {
+            "username": "pkaplan"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "pkaplan",
+                "id": 9807364
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0271f8",
+        "_rev": "1-1e4fd8301c9c4dafb414aadbe9403250",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0271f8",
+        "roles": [],
+        "data": {
+            "username": "poorgeek"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "poorgeek",
+                "id": 489299
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e027d3b",
+        "_rev": "1-bd6449862eae213ec24076ac08a3d33a",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e027d3b",
+        "roles": [],
+        "data": {
+            "username": "porterbot"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "porterbot",
+                "id": 10199649
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0284fc",
+        "_rev": "1-8e68238d7eb2f6bf47a67e209f70f56d",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0284fc",
+        "roles": [],
+        "data": {
+            "username": "psalaz"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "psalaz",
+                "id": 2796081
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02909a",
+        "_rev": "1-f33c2d6cf347cf98e0ab8d27e09bfd4b",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02909a",
+        "roles": [],
+        "data": {
+            "username": "rosskarchner"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "rosskarchner",
+                "id": 235397
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e029468",
+        "_rev": "1-d9cb80f25ade121a9301ea747c8f8cf9",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e029468",
+        "roles": [],
+        "data": {
+            "username": "schaferjh"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "schaferjh",
+                "id": 10562545
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e0299b5",
+        "_rev": "1-c7c3694c1aab0a8ed33a921adab456b7",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e0299b5",
+        "roles": [],
+        "data": {
+            "username": "Scotchester"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "Scotchester",
+                "id": 1044670
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e029b9e",
+        "_rev": "1-f04128cad20c5280f3aea8eb2ef92352",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e029b9e",
+        "roles": [],
+        "data": {
+            "username": "sebworks"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "sebworks",
+                "id": 1696212
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02a6e4",
+        "_rev": "1-88f1149bfcd6720c23bfcbc43f3c0217",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02a6e4",
+        "roles": [],
+        "data": {
+            "username": "sephcoster"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "sephcoster",
+                "id": 1028659
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02a889",
+        "_rev": "1-2c93312af7484a29df2c579ab05a5cde",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02a889",
+        "roles": [],
+        "data": {
+            "username": "sonnakim"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "sonnakim",
+                "id": 9451445
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02abc0",
+        "_rev": "1-fff430a896f59be72c6cdd7361a39fa0",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02abc0",
+        "roles": [],
+        "data": {
+            "username": "ssimpson"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "ssimpson",
+                "id": 4641687
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02b4ec",
+        "_rev": "1-f9798f29f92ad16b251b68fc8c8a76f7",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02b4ec",
+        "roles": [],
+        "data": {
+            "username": "stephanieosan"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "stephanieosan",
+                "id": 6433178
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02b935",
+        "_rev": "1-d631cee68a6a679f1a66a45ad46beb03",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02b935",
+        "roles": [],
+        "data": {
+            "username": "stevejameskent"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "stevejameskent",
+                "id": 533868
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02bd9d",
+        "_rev": "1-d404239643aa5165a110ae326cf8256f",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02bd9d",
+        "roles": [],
+        "data": {
+            "username": "virginiacc"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "virginiacc",
+                "id": 778171
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02c275",
+        "_rev": "2-6c4d4e5414accbdc9c9700654d64802d",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02c275",
+        "roles": ["gh:user"],
+        "data": {
+            "username": "virtix"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "virtix",
+                "id": 12570
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02d01c",
+        "_rev": "1-04bf84731a6c89f613cea51b2004ca52",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02d01c",
+        "roles": [],
+        "data": {
+            "username": "vizui"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "vizui",
+                "id": 3170948
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02df8e",
+        "_rev": "1-4e42729ec824157539d2f0ad5aed6576",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02df8e",
+        "roles": [],
+        "data": {
+            "username": "willbarton"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "willbarton",
+                "id": 10562538
+            }
+        },
+        "audit": []
+    },
+    {
+        "_id": "org.couchdb.user:c7a9d8c1c0516c0910f7b2013e02e6da",
+        "_rev": "1-c92f748634a26adca77f91c93766c907",
+        "type": "user",
+        "name": "c7a9d8c1c0516c0910f7b2013e02e6da",
+        "roles": [],
+        "data": {
+            "username": "wpears"
+        },
+        "rsrcs": {
+            "gh": {
+                "username": "wpears",
+                "id": 1558033
+            }
+        },
+        "audit": []
+    }
+]
