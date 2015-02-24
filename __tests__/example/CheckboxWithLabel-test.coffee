@@ -1,7 +1,7 @@
-jest.dontMock('../src/CheckboxWithLabel.js');
+jest.dontMock('../../src/example/CheckboxWithLabel.js');
 
 React = require('react/addons')
-CheckboxWithLabel = require('../src/CheckboxWithLabel.js')
+CheckboxWithLabel = require('../../src/example/CheckboxWithLabel.js')
 TestUtils = React.addons.TestUtils
 
 

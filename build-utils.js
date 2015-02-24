@@ -64,7 +64,7 @@ function build(extension, initial_pipelines, middle_pipeline) {
           return build_initial_pipe(manifest, initial_pipelines, middle_pipeline)
             .pipe(order(get_ordered_paths(manifest, initial_pipelines), {base: '.'}))
             .pipe(concat(file_name  + '.' + extension))
-            .pipe(gulp.dest('./build/'))
+            .pipe(gulp.dest('./build/' + extension + '/'))
             .on('end', function() {
               console.log('count', count);
               if (--count <= 0) {
