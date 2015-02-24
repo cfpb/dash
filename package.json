@@ -7,7 +7,9 @@
     "postinstall": "bower install",
     "test": "jest",
     "build-js": "browserify src/js/app.js -o src/bundle.js",
-    "post-build": "onchange src/bundle.js -- npm test",
+    "post-build": "onchange src/bundle.js -- npm run test-and-move",
+    "test-and-move": "npm run move-app & npm test",
+    "move-app": "cp -r src/* ../devdash/devdash/static && mv ../devdash/devdash/static/index.html ../devdash/devdash/static/dash.html",
     "watch": "watchify src/js/app.js -d -o src/bundle.js -v & npm run post-build"
   },
   "jest": {

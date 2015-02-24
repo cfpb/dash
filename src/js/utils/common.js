@@ -3,11 +3,11 @@ var $ = require('jquery');
 var common = {};
 
 common.getAllTeams = function() {
-  return $.get('/dummy-data/teams.json');
+  return $.get('/kratos/orgs/devdesign/teams');
 };
 
 common.getAllUsers = function() {
-  return $.get('/dummy-data/users.json');
+  return $.get('/kratos/users');
 };
 
 module.exports = common;

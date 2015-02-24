@@ -63,6 +63,7 @@ var App = React.createClass({
     // console.log(JSON.stringify(this.state.teams));
     return (
       <div>
+        <h1>Teams</h1>
         <TeamList teams={this.state.teams} users={this.state.users} />
       </div>
     );
