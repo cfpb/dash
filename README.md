@@ -13,11 +13,13 @@ Developing
 ----------
 
 * Set up [`devdash`](https://github.com/cfpb/devdash#installation) so that http://localhost:8000 is correctly serving DevDash.
-* Run `npm run watch`. When files are edited, tests will be run and this repo will be copied over to the `devdash` directory to be served by nginx.
+* `cd` back to this repo and `npm run watch`
+
+When files are edited, tests will be run and this repo will be copied over to the `devdash` directory to be served by nginx. Reload http://localhost:8000 to see your changes.
 
 Build
 -----
-* run `gulp` to build the minified files into the `dist` directory.
+* Run `gulp` to build the minified files into the `dist` directory.
 
 
 Dependencies
