@@ -1,7 +1,7 @@
 Installation
 ------------
 
-* `npm install -g gulp bower jest-cli`
+* `npm install -g gulp bower jest-cli browserify watchify`
 * `./frontendbuild.sh`
 
 Testing
