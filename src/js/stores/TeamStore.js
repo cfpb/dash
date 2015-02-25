@@ -11,12 +11,13 @@
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
-var TodoConstants = require('../constants/TodoConstants');
+//var TodoConstants = require('../constants/TodoConstants');
 var assign = require('object-assign');
+var common = require('../utils/common');
 
 var CHANGE_EVENT = 'change';
 
-var _todos = {};
+
 
 /**
  * Create a TODO item.
@@ -76,7 +77,7 @@ function destroyCompleted() {
   }
 }
 
-var TodoStore = assign({}, EventEmitter.prototype, {
+var TeamStore = assign({}, EventEmitter.prototype, {
 
   /**
    * Tests whether all the remaining TODO items are marked as completed.
@@ -91,12 +92,9 @@ var TodoStore = assign({}, EventEmitter.prototype, {
     return true;
   },
 
-  /**
-   * Get the entire collection of TODOs.
-   * @return {object}
-   */
+  
   getAll: function() {
-    return _todos;
+    return common.getAllTeams();
   },
 
   emitChange: function() {
@@ -173,4 +171,4 @@ AppDispatcher.register(function(action) {
   }
 });
 
-module.exports = TodoStore;
+module.exports = TeamStore;

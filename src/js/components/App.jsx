@@ -18,17 +18,14 @@ var TeamList = require('./TeamList.jsx');
 var React = require('react');
 var common = require('../utils/common');
 var $ = require('jquery');
-// var TodoStore = require('../stores/TodoStore');
+var TeamStore = require('../stores/TeamStore');
 
 /**
  * Retrieve the current TODO data from the TodoStore
  */
-// function getTodoState() {
-//   return {
-//     allTodos: TodoStore.getAll(),
-//     areAllComplete: TodoStore.areAllComplete()
-//   };
-// }
+ function getAllTeams() {
+   return  TeamStore.getAll();
+ }
 
 var App = React.createClass({
 
@@ -40,8 +37,8 @@ var App = React.createClass({
   },
 
   componentDidMount: function() {
-    // TodoStore.addChangeListener(this._onChange);
-    var getTeams = common.getAllTeams();
+    //TeamStore.addChangeListener(this._onChange);
+    var getTeams = getAllTeams();
     var getUsers = common.getAllUsers();
     var p = $.when( getTeams, getUsers );
     p.then(function( teams, users ) {
