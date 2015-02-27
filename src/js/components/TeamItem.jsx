@@ -1,5 +1,6 @@
 var React = require('react');
 var UserList = require('./UserList.jsx');
+var TeamActions = require('../actions/TeamActions');
 
 var TeamItem = React.createClass({
 
@@ -18,4 +19,5 @@ var TeamItem = React.createClass({
   }
 
 });
+
 module.exports = TeamItem;

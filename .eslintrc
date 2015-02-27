@@ -1,0 +1,21 @@
+settings:
+  ecmascript: 6
+  jsx: true
+
+env:
+  browser: true
+  node: true
+
+rules:
+  eqeqeq: 0
+  no-irregular-whitespace: 2
+  no-multi-spaces: 2
+  no-space-before-semi: 2
+  curly: 2
+  strict: 0
+  quotes: "single"
+  semi: true
+  no-use-before-define: true
+  no-unused-vars: false
+  no-multi-str: false
+  no-underscore-dangle: false
