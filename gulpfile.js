@@ -52,7 +52,7 @@ gulp.task('usemin', ['clean', 'bundle'], function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('move-app', ['build'], function() {
+gulp.task('move-app', function() {
   return gulp.src('./src/**/*')
     .pipe(cache('move'))
     .pipe(gulp.dest('../devdash/devdash/static'));
@@ -64,5 +64,4 @@ gulp.task('watch', function() {
 
 gulp.task('test', ['lint', 'jest']);
 gulp.task('build', ['usemin']);
-gulp.task('deploy', ['move-app']);
 gulp.task('default', ['test', 'build']);
