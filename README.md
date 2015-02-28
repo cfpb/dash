@@ -20,10 +20,3 @@ When files are edited, tests will be run and this repo will be copied over to th
 Build
 -----
 * Run `gulp` to build the minified files into the `dist` directory.
-
-Dependencies
-------------
-Specify dependencies in your bower.json.
-When you modify dependencies,
-enter the directery with you bower.json and run `bower install`.
-This will install the dependencies to /dependencies.
