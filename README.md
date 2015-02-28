@@ -1,8 +1,7 @@
 Installation
 ------------
 
-* `npm install -g gulp bower jest-cli`
-* `npm install`
+* `npm install -g gulp bower jest-cli browserify watchify`
 * `./frontendbuild.sh`
 
 Testing
@@ -13,14 +12,14 @@ Testing
 Developing
 ----------
 
-* `cd src`
-* `python -m SimpleHTTPServer 8000`
+* Set up [`devdash`](https://github.com/cfpb/devdash#installation) so that http://localhost:8000 is correctly serving DevDash.
+* `cd` back to this repo and `npm run watch`
 
-If you're editing JavaScript, run `npm run watch` in a new tab to have Browserify auto-recompile files.
+When files are edited, tests will be run and this repo will be copied over to the `devdash` directory to be served by nginx. Reload http://localhost:8000 to see your changes.
 
 Build
 -----
-* run `gulp` to build the minified files into the `dist` directory.
+* Run `gulp` to build the minified files into the `dist` directory.
 
 
 Dependencies
