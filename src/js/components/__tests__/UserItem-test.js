@@ -10,7 +10,7 @@ describe('Individual user item', function() {
     var TestUtils = React.addons.TestUtils;
 
     var userItem = TestUtils.renderIntoDocument(
-   		<UserItem name="Barbara Toothsmith" />
+      <UserItem name="Barbara Toothsmith" />
     );
 
     expect(userItem.getDOMNode().textContent).toEqual('Barbara Toothsmith');

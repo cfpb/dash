@@ -4,8 +4,8 @@ var TeamActions = require('../actions/TeamActions');
 
 var TeamItem = React.createClass({
 
-  _addUser: function( opts ) {
-      TeamActions.addUser( opts );
+  _addUser: function(opts) {
+    TeamActions.addUser(opts);
   },
 
   render: function() {

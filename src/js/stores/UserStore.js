@@ -33,10 +33,14 @@ var UserStore = assign({}, EventEmitter.prototype, {
 
 // Register callback to handle all updates
 AppDispatcher.register(function(action) {
+
   var text;
 
-  switch(action.actionType) {
+  switch (action.actionType) {
+    case 'foo':
+      break;
   }
+
 });
 
 module.exports = UserStore;

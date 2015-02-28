@@ -1,5 +1,3 @@
-"use strict";
-
 jest.autoMockOff();
 
 describe('AppDispatcher', function() {
@@ -61,7 +59,7 @@ describe('AppDispatcher', function() {
 
     waitsFor(function() {
       return listener1Done;
-    }, "Not all subscribers were properly called", 500);
+    }, 'Not all subscribers were properly called', 500);
 
     runs(function() {
       expect(listener1Done).toBe(true);

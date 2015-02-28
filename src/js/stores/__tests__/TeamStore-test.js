@@ -7,7 +7,7 @@ describe('TeamStore', function() {
   var TeamStore;
 
   beforeEach(function() {
-     TeamStore = require('../TeamStore');
+    TeamStore = require('../TeamStore');
   });
 
   it('should call common to get all teams', function(){

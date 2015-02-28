@@ -37,13 +37,13 @@ var App = React.createClass({
     //TeamStore.addChangeListener(this._onChange);
     var getTeams = getAllTeams();
     var getUsers = getAllUsers();
-    var p = $.when( getTeams, getUsers );
-    p.then(function( teams, users ) {
+    var p = $.when(getTeams, getUsers);
+    p.then(function(teams, users) {
       this.setState({
         teams: teams[0],
         users: users[0]
       });
-    }.bind( this ));
+    }.bind(this));
   },
 
   render: function() {

@@ -9,64 +9,66 @@ var CHANGE_EVENT = 'change';
 var _teams = {};
 
 /**
- * Create a TODO item.
+ * Create a Team item.
  * @param  {string} text The content of the TODO
  */
 function create(text) {
 
 }
-function destroy(id) {
-    delete _teams[id];
-}
-function addUser(userId){
- var userPromise=common.addUser(userId);
- userPromise.done(
 
- )
+function destroy(id) {
+  delete _teams[id];
+}
+
+function addUser(userId){
+  var userPromise = common.addUser(userId);
+  userPromise.done(
+
+  )
 }
 
 var TeamStore = assign({}, EventEmitter.prototype, {
 
-    getAll: function () {
-        return common.getAllTeams();
-    },
+  getAll: function() {
+    return common.getAllTeams();
+  },
 
-    emitChange: function () {
-        this.emit(CHANGE_EVENT);
-    },
+  emitChange: function() {
+    this.emit(CHANGE_EVENT);
+  },
 
-    addChangeListener: function (callback) {
-        this.on(CHANGE_EVENT, callback);
-    },
+  addChangeListener: function(callback) {
+    this.on(CHANGE_EVENT, callback);
+  },
 
-    removeChangeListener: function (callback) {
-        this.removeListener(CHANGE_EVENT, callback);
-    }
+  removeChangeListener: function(callback) {
+    this.removeListener(CHANGE_EVENT, callback);
+  }
 });
 
 // Register callback to handle all updates
-AppDispatcher.register(function (action) {
-    var text;
+AppDispatcher.register(function(action) {
+  var text;
 
-    switch (action.actionType) {
-        case TeamConstants.TEAM_CREATE:
-            create(teamName);
-            TeamStore.emitChange();
-            break;
+  switch (action.actionType) {
+    case TeamConstants.TEAM_CREATE:
+      create();
+      TeamStore.emitChange();
+      break;
 
-        case TeamStore.TEAM_DESTROY:
-            destroy(teamId);
-            TeamStore.emitChange();
-            break;
+    case TeamStore.TEAM_DESTROY:
+      destroy();
+      TeamStore.emitChange();
+      break;
 
-        case TeamStore.TEAM_ADD_USER_START:
-            addUser(userId);
-            TeamStore.emitChange();
-            break;
+    case TeamStore.TEAM_ADD_USER_START:
+      addUser();
+      TeamStore.emitChange();
+      break;
 
-        default:
-        // no op
-    }
+    default:
+    // no op
+  }
 });
 
 module.exports = TeamStore;

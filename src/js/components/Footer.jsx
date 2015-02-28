@@ -42,12 +42,13 @@ var Footer = React.createClass({
     // Undefined and thus not rendered if no completed items are left.
     var clearCompletedButton;
     if (completed) {
-      clearCompletedButton =
+      clearCompletedButton = (
         <button
           id="clear-completed"
           onClick={this._onClearCompletedClick}>
           Clear completed ({completed})
-        </button>;
+        </button>
+      )
     }
 
     return (

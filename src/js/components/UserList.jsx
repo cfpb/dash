@@ -6,9 +6,8 @@ var UserList = React.createClass({
   componentWillMount: function() {
 
     var users = this.props.users;
-    // console.log(JSON.stringify(users));
 
-    users = users.map( function( user ) {
+    users = users.map(function(user) {
       return <UserItem name={user.data.username} key={user.name} />;
     });
 

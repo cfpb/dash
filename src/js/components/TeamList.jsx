@@ -9,9 +9,9 @@ var TeamList = React.createClass({
     var teams = this.props.teams,
         users = this.props.users;
 
-    teams = teams.map( function(team) {
-      var members = users.filter( function(val, i) {
-        return $.inArray( val.name, team.roles.member.members ) > -1;
+    teams = teams.map(function(team) {
+      var members = users.filter(function(val, i) {
+        return $.inArray(val.name, team.roles.member.members) > -1;
       });
       return <TeamItem name={team.name} users={members} key={team.name} />;
     });
