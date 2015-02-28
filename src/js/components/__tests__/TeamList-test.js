@@ -1,7 +1,5 @@
-/** @jsx React.DOM */
-
 jest.dontMock('../TeamList.jsx')
-  .dontMock('jquery');
+    .dontMock('jquery');
 
 describe('List of teams', function() {
   it('should contain some teams', function() {

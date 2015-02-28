@@ -12,7 +12,7 @@ var TeamItem = React.createClass({
     return (
       <div className="team-item">
         <div className="team-name">{this.props.name}</div>
-        <button onClick="{this._addUser}">Add User</button>
+        <button onClick={this._addUser}>Add User</button>
         <UserList users={this.props.users} />
       </div>
     )

@@ -22,9 +22,7 @@ function destroy(id) {
 
 function addUser(userId){
   var userPromise = common.addUser(userId);
-  userPromise.done(
-
-  )
+  userPromise.done();
 }
 
 var TeamStore = assign({}, EventEmitter.prototype, {
