@@ -20,8 +20,13 @@ function destroy(id) {
   delete _teams[id];
 }
 
-function addUser(userId){
+function addUser(userId) {
   var userPromise = common.addUser(userId);
+  userPromise.done();
+}
+
+function removeUser(opts) {
+  var userPromise = common.removeUser(opts);
   userPromise.done();
 }
 
@@ -54,16 +59,20 @@ AppDispatcher.register(function(action) {
       TeamStore.emitChange();
       break;
 
-    case TeamStore.TEAM_DESTROY:
+    case TeamConstants.TEAM_DESTROY:
       destroy();
       TeamStore.emitChange();
       break;
 
-    case TeamStore.TEAM_ADD_USER_START:
+    case TeamConstants.TEAM_ADD_USER_START:
       addUser();
       TeamStore.emitChange();
       break;
 
+    case TeamConstants.TEAM_REMOVE_USER_START:
+      removeUser(action.data);
+      TeamStore.emitChange();
+      break;
     default:
     // no op
   }

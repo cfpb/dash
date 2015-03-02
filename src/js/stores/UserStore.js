@@ -1,6 +1,6 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
-//var UserConstants = require('../constants/UserConstants');
+var UserConstants = require('../constants/UserConstants');
 var assign = require('object-assign');
 var common = require('../utils/common');
 
@@ -37,7 +37,7 @@ AppDispatcher.register(function(action) {
   var text;
 
   switch (action.actionType) {
-    case 'foo':
+    case '':
       break;
   }
 

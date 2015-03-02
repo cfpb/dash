@@ -54,7 +54,7 @@ var TeamActions = {
       userId: opts.userId
     });
 
-    var userPromise = common.addUser(opts);
+    var userPromise = common.removeUser(opts);
     userPromise.done(function(data) {
       AppDispatcher.dispatch({
         actionType: TeamConstants.TEAM_REMOVE_USER_COMPLETE,

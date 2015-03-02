@@ -19,6 +19,7 @@ var filter = require('gulp-filter');
 
 var onError = function(err) {
   gutil.beep();
+  return err;
 };
 
 gulp.task('lint', function() {
