@@ -1,0 +1,2278 @@
+[
+    {
+        "_id": "team_cf",
+        "_rev": "1-a782c7296f79590dee3eac17018b7bae",
+        "name": "cf",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "f92e784c-4ad8-4bc1-9930-0ac4e92e474e",
+                        "gh_id": 17405777,
+                        "name": "capital-framework",
+                        "full_name": "cfpb/capital-framework"
+                    },
+                    {
+                        "id": "1fa96d7a-474c-4a62-86d8-0ad0e3f5abbf",
+                        "gh_id": 16995338,
+                        "name": "cf-buttons",
+                        "full_name": "cfpb/cf-buttons"
+                    },
+                    {
+                        "id": "0a3cfbcc-b466-41f9-8c65-8e98d0829fd1",
+                        "gh_id": 16770875,
+                        "name": "cf-colors",
+                        "full_name": "cfpb/cf-colors"
+                    },
+                    {
+                        "id": "a27c7e2c-56ac-49ae-891d-51357460a7e1",
+                        "gh_id": 16779983,
+                        "name": "cf-component-demo",
+                        "full_name": "cfpb/cf-component-demo"
+                    },
+                    {
+                        "id": "61a0c3d8-314e-4f6e-ab60-84b573ca1fde",
+                        "gh_id": 22661381,
+                        "name": "cf-core",
+                        "full_name": "cfpb/cf-core"
+                    },
+                    {
+                        "id": "cdd3c294-2efd-486c-986f-4132b571d3c4",
+                        "gh_id": 17947467,
+                        "name": "cf-demo",
+                        "full_name": "cfpb/cf-demo"
+                    },
+                    {
+                        "id": "2696bf0d-d559-477d-9bf4-493ab418e753",
+                        "gh_id": 17381059,
+                        "name": "cf-expandables",
+                        "full_name": "cfpb/cf-expandables"
+                    },
+                    {
+                        "id": "a5bf8f52-b6dc-4d6f-8192-21fe90d9420c",
+                        "gh_id": 16995492,
+                        "name": "cf-forms",
+                        "full_name": "cfpb/cf-forms"
+                    },
+                    {
+                        "id": "a4462c16-e48f-42af-83c8-968a8c805c98",
+                        "gh_id": 16781027,
+                        "name": "cf-grid",
+                        "full_name": "cfpb/cf-grid"
+                    },
+                    {
+                        "id": "15fe478c-06ab-4a4c-bbe8-8022d2c6a2e3",
+                        "gh_id": 17829824,
+                        "name": "cf-grunt-config",
+                        "full_name": "cfpb/cf-grunt-config"
+                    },
+                    {
+                        "id": "12a7b39b-554e-4869-816b-5af4b383e848",
+                        "gh_id": 17982261,
+                        "name": "cf-icons",
+                        "full_name": "cfpb/cf-icons"
+                    },
+                    {
+                        "id": "c730a9b4-04e0-438e-a8bd-a342918b53f1",
+                        "gh_id": 25983791,
+                        "name": "cf-layout",
+                        "full_name": "cfpb/cf-layout"
+                    },
+                    {
+                        "id": "2df907c8-156e-4b09-ac83-d0583f2f7531",
+                        "gh_id": 17380692,
+                        "name": "cf-pagination",
+                        "full_name": "cfpb/cf-pagination"
+                    },
+                    {
+                        "id": "f03ee1ef-17ab-48c2-afff-696da42deb30",
+                        "gh_id": 17714672,
+                        "name": "cf-tables",
+                        "full_name": "cfpb/cf-tables"
+                    },
+                    {
+                        "id": "6f40bada-60db-466a-9382-2a6016cce6f9",
+                        "gh_id": 17714686,
+                        "name": "cf-tabs",
+                        "full_name": "cfpb/cf-tabs"
+                    },
+                    {
+                        "id": "ec425b34-eca5-4911-a617-2beac9544604",
+                        "gh_id": 16995219,
+                        "name": "cf-typography",
+                        "full_name": "cfpb/cf-typography"
+                    },
+                    {
+                        "id": "e20736a9-ba53-4974-b183-b656141d735f",
+                        "gh_id": 25829090,
+                        "name": "generator-cf",
+                        "full_name": "cfpb/generator-cf"
+                    },
+                    {
+                        "id": "879317dc-fa8a-4226-9d17-a5fad6df319b",
+                        "gh_id": 18224686,
+                        "name": "normalize-legacy-addon",
+                        "full_name": "cfpb/normalize-legacy-addon"
+                    }
+                ],
+                "data": {
+                    "admin": 1103640,
+                    "write": 1224120
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02bd9d"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301089,
+                "a": "t+",
+                "id": "43b83b5b-64b3-4555-8fa0-3b00597b8bfc",
+                "r": {
+                    "_id": "team_cf",
+                    "name": "cf",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "f92e784c-4ad8-4bc1-9930-0ac4e92e474e",
+                                    "gh_id": 17405777,
+                                    "name": "capital-framework",
+                                    "full_name": "cfpb/capital-framework"
+                                },
+                                {
+                                    "id": "1fa96d7a-474c-4a62-86d8-0ad0e3f5abbf",
+                                    "gh_id": 16995338,
+                                    "name": "cf-buttons",
+                                    "full_name": "cfpb/cf-buttons"
+                                },
+                                {
+                                    "id": "0a3cfbcc-b466-41f9-8c65-8e98d0829fd1",
+                                    "gh_id": 16770875,
+                                    "name": "cf-colors",
+                                    "full_name": "cfpb/cf-colors"
+                                },
+                                {
+                                    "id": "a27c7e2c-56ac-49ae-891d-51357460a7e1",
+                                    "gh_id": 16779983,
+                                    "name": "cf-component-demo",
+                                    "full_name": "cfpb/cf-component-demo"
+                                },
+                                {
+                                    "id": "61a0c3d8-314e-4f6e-ab60-84b573ca1fde",
+                                    "gh_id": 22661381,
+                                    "name": "cf-core",
+                                    "full_name": "cfpb/cf-core"
+                                },
+                                {
+                                    "id": "cdd3c294-2efd-486c-986f-4132b571d3c4",
+                                    "gh_id": 17947467,
+                                    "name": "cf-demo",
+                                    "full_name": "cfpb/cf-demo"
+                                },
+                                {
+                                    "id": "2696bf0d-d559-477d-9bf4-493ab418e753",
+                                    "gh_id": 17381059,
+                                    "name": "cf-expandables",
+                                    "full_name": "cfpb/cf-expandables"
+                                },
+                                {
+                                    "id": "a5bf8f52-b6dc-4d6f-8192-21fe90d9420c",
+                                    "gh_id": 16995492,
+                                    "name": "cf-forms",
+                                    "full_name": "cfpb/cf-forms"
+                                },
+                                {
+                                    "id": "a4462c16-e48f-42af-83c8-968a8c805c98",
+                                    "gh_id": 16781027,
+                                    "name": "cf-grid",
+                                    "full_name": "cfpb/cf-grid"
+                                },
+                                {
+                                    "id": "15fe478c-06ab-4a4c-bbe8-8022d2c6a2e3",
+                                    "gh_id": 17829824,
+                                    "name": "cf-grunt-config",
+                                    "full_name": "cfpb/cf-grunt-config"
+                                },
+                                {
+                                    "id": "12a7b39b-554e-4869-816b-5af4b383e848",
+                                    "gh_id": 17982261,
+                                    "name": "cf-icons",
+                                    "full_name": "cfpb/cf-icons"
+                                },
+                                {
+                                    "id": "c730a9b4-04e0-438e-a8bd-a342918b53f1",
+                                    "gh_id": 25983791,
+                                    "name": "cf-layout",
+                                    "full_name": "cfpb/cf-layout"
+                                },
+                                {
+                                    "id": "2df907c8-156e-4b09-ac83-d0583f2f7531",
+                                    "gh_id": 17380692,
+                                    "name": "cf-pagination",
+                                    "full_name": "cfpb/cf-pagination"
+                                },
+                                {
+                                    "id": "f03ee1ef-17ab-48c2-afff-696da42deb30",
+                                    "gh_id": 17714672,
+                                    "name": "cf-tables",
+                                    "full_name": "cfpb/cf-tables"
+                                },
+                                {
+                                    "id": "6f40bada-60db-466a-9382-2a6016cce6f9",
+                                    "gh_id": 17714686,
+                                    "name": "cf-tabs",
+                                    "full_name": "cfpb/cf-tabs"
+                                },
+                                {
+                                    "id": "ec425b34-eca5-4911-a617-2beac9544604",
+                                    "gh_id": 16995219,
+                                    "name": "cf-typography",
+                                    "full_name": "cfpb/cf-typography"
+                                },
+                                {
+                                    "id": "e20736a9-ba53-4974-b183-b656141d735f",
+                                    "gh_id": 25829090,
+                                    "name": "generator-cf",
+                                    "full_name": "cfpb/generator-cf"
+                                },
+                                {
+                                    "id": "879317dc-fa8a-4226-9d17-a5fad6df319b",
+                                    "gh_id": 18224686,
+                                    "name": "normalize-legacy-addon",
+                                    "full_name": "cfpb/normalize-legacy-addon"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02bd9d"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_cf.gov",
+        "_rev": "1-4dc1f20a4876e5c08e705f07157e25a3",
+        "name": "cf.gov",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "9f3195cd-f2ff-498a-b4fe-fae5dbc91f1c",
+                        "gh_id": 19584896,
+                        "name": "cfgov-sheer-templates",
+                        "full_name": "cfpb/cfgov-sheer-templates"
+                    },
+                    {
+                        "id": "0e1ee498-67dd-4947-a758-7a1c24afb06c",
+                        "gh_id": 20078049,
+                        "name": "cfpb-wp-cli",
+                        "full_name": "cfpb/cfpb-wp-cli"
+                    },
+                    {
+                        "id": "88637ad8-7951-40bd-bb7a-8c43ceea4055",
+                        "gh_id": 20657754,
+                        "name": "cms-toolkit",
+                        "full_name": "cfpb/cms-toolkit"
+                    },
+                    {
+                        "id": "f7d7db86-c388-416d-b45d-d18514a0f237",
+                        "gh_id": 30264969,
+                        "name": "decision-stacker",
+                        "full_name": "cfpb/decision-stacker"
+                    },
+                    {
+                        "id": "101d0276-a83d-4cf0-81e2-03dbcb7da4b3",
+                        "gh_id": 16779646,
+                        "name": "django-hud",
+                        "full_name": "cfpb/django-hud"
+                    },
+                    {
+                        "id": "d47f26df-cf90-427d-9d81-3248608e3622",
+                        "gh_id": 16779660,
+                        "name": "find-a-housing-counselor",
+                        "full_name": "cfpb/find-a-housing-counselor"
+                    },
+                    {
+                        "id": "4fd29b1c-b702-47dd-b243-befa8aa550ea",
+                        "gh_id": 17415896,
+                        "name": "open-graph-control",
+                        "full_name": "cfpb/open-graph-control"
+                    }
+                ],
+                "data": {
+                    "admin": 1174955,
+                    "write": 1174965
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e00249f", "c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e0230bb", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02bd9d", "c7a9d8c1c0516c0910f7b2013e0124b6", "c7a9d8c1c0516c0910f7b2013e0157c3", "c7a9d8c1c0516c0910f7b2013e01eee5", "c7a9d8c1c0516c0910f7b2013e01fe58", "c7a9d8c1c0516c0910f7b2013e026206", "c7a9d8c1c0516c0910f7b2013e0267ea", "c7a9d8c1c0516c0910f7b2013e02a6e4"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301093,
+                "a": "t+",
+                "id": "5c29c93a-c506-46a4-9676-4a084c358525",
+                "r": {
+                    "_id": "team_cf.gov",
+                    "name": "cf.gov",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "9f3195cd-f2ff-498a-b4fe-fae5dbc91f1c",
+                                    "gh_id": 19584896,
+                                    "name": "cfgov-sheer-templates",
+                                    "full_name": "cfpb/cfgov-sheer-templates"
+                                },
+                                {
+                                    "id": "0e1ee498-67dd-4947-a758-7a1c24afb06c",
+                                    "gh_id": 20078049,
+                                    "name": "cfpb-wp-cli",
+                                    "full_name": "cfpb/cfpb-wp-cli"
+                                },
+                                {
+                                    "id": "88637ad8-7951-40bd-bb7a-8c43ceea4055",
+                                    "gh_id": 20657754,
+                                    "name": "cms-toolkit",
+                                    "full_name": "cfpb/cms-toolkit"
+                                },
+                                {
+                                    "id": "f7d7db86-c388-416d-b45d-d18514a0f237",
+                                    "gh_id": 30264969,
+                                    "name": "decision-stacker",
+                                    "full_name": "cfpb/decision-stacker"
+                                },
+                                {
+                                    "id": "101d0276-a83d-4cf0-81e2-03dbcb7da4b3",
+                                    "gh_id": 16779646,
+                                    "name": "django-hud",
+                                    "full_name": "cfpb/django-hud"
+                                },
+                                {
+                                    "id": "d47f26df-cf90-427d-9d81-3248608e3622",
+                                    "gh_id": 16779660,
+                                    "name": "find-a-housing-counselor",
+                                    "full_name": "cfpb/find-a-housing-counselor"
+                                },
+                                {
+                                    "id": "4fd29b1c-b702-47dd-b243-befa8aa550ea",
+                                    "gh_id": 17415896,
+                                    "name": "open-graph-control",
+                                    "full_name": "cfpb/open-graph-control"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e00249f", "c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e0230bb", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02bd9d", "c7a9d8c1c0516c0910f7b2013e0124b6", "c7a9d8c1c0516c0910f7b2013e0157c3", "c7a9d8c1c0516c0910f7b2013e01eee5", "c7a9d8c1c0516c0910f7b2013e01fe58", "c7a9d8c1c0516c0910f7b2013e026206", "c7a9d8c1c0516c0910f7b2013e0267ea", "c7a9d8c1c0516c0910f7b2013e02a6e4"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_click-to-comment",
+        "_rev": "1-374a656341691bab5cb3c39f76b0d994",
+        "name": "click-to-comment",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "e48fa0dd-b119-446f-aa86-472238ea573e",
+                        "gh_id": 17146056,
+                        "name": "click-to-comment",
+                        "full_name": "cfpb/click-to-comment"
+                    }
+                ],
+                "data": {
+                    "admin": 702878,
+                    "write": 1224119
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e02bd9d"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301093,
+                "a": "t+",
+                "id": "fb22501c-caf3-4509-b0d5-22a36742f31f",
+                "r": {
+                    "_id": "team_click-to-comment",
+                    "name": "click-to-comment",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "e48fa0dd-b119-446f-aa86-472238ea573e",
+                                    "gh_id": 17146056,
+                                    "name": "click-to-comment",
+                                    "full_name": "cfpb/click-to-comment"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e02bd9d"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_collab",
+        "_rev": "1-a5d00ab963bd40d5582e6ff8ea15edfe",
+        "name": "collab",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "1a6c2075-455d-4d3a-884e-040b0bac9294",
+                        "gh_id": 15971137,
+                        "name": "collab",
+                        "full_name": "cfpb/collab"
+                    },
+                    {
+                        "id": "91487ccf-6b50-4fa7-acf8-ff045d4e2961",
+                        "gh_id": 19836078,
+                        "name": "collab-form-builder",
+                        "full_name": "cfpb/collab-form-builder"
+                    },
+                    {
+                        "id": "9040cb1a-45a7-4147-9eab-f15c0fbec3ac",
+                        "gh_id": 20265624,
+                        "name": "collab-mystery-meet",
+                        "full_name": "cfpb/collab-mystery-meet"
+                    },
+                    {
+                        "id": "c1fc5a72-790a-4f28-9bc6-a77630ffdbed",
+                        "gh_id": 15971592,
+                        "name": "collab-news",
+                        "full_name": "cfpb/collab-news"
+                    },
+                    {
+                        "id": "3c92c161-411e-4b3a-b202-8e1d6d8a12bd",
+                        "gh_id": 15971583,
+                        "name": "collab-staff-directory",
+                        "full_name": "cfpb/collab-staff-directory"
+                    },
+                    {
+                        "id": "78bc1342-687f-4431-9e07-b97221eaf49a",
+                        "gh_id": 12160904,
+                        "name": "django-widgeter",
+                        "full_name": "cfpb/django-widgeter"
+                    },
+                    {
+                        "id": "2e64bfde-a2ce-4bb8-9a74-7164f941d23b",
+                        "gh_id": 8860406,
+                        "name": "idea-box",
+                        "full_name": "cfpb/idea-box"
+                    }
+                ],
+                "data": {
+                    "admin": 642773,
+                    "write": 1012635
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e01abaf", "c7a9d8c1c0516c0910f7b2013e02abc0", "c7a9d8c1c0516c0910f7b2013e0124b6", "c7a9d8c1c0516c0910f7b2013e01fe58", "c7a9d8c1c0516c0910f7b2013e02a6e4"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301093,
+                "a": "t+",
+                "id": "cddbb914-4003-4c90-afe4-8ae8f63b87e2",
+                "r": {
+                    "_id": "team_collab",
+                    "name": "collab",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "1a6c2075-455d-4d3a-884e-040b0bac9294",
+                                    "gh_id": 15971137,
+                                    "name": "collab",
+                                    "full_name": "cfpb/collab"
+                                },
+                                {
+                                    "id": "91487ccf-6b50-4fa7-acf8-ff045d4e2961",
+                                    "gh_id": 19836078,
+                                    "name": "collab-form-builder",
+                                    "full_name": "cfpb/collab-form-builder"
+                                },
+                                {
+                                    "id": "9040cb1a-45a7-4147-9eab-f15c0fbec3ac",
+                                    "gh_id": 20265624,
+                                    "name": "collab-mystery-meet",
+                                    "full_name": "cfpb/collab-mystery-meet"
+                                },
+                                {
+                                    "id": "c1fc5a72-790a-4f28-9bc6-a77630ffdbed",
+                                    "gh_id": 15971592,
+                                    "name": "collab-news",
+                                    "full_name": "cfpb/collab-news"
+                                },
+                                {
+                                    "id": "3c92c161-411e-4b3a-b202-8e1d6d8a12bd",
+                                    "gh_id": 15971583,
+                                    "name": "collab-staff-directory",
+                                    "full_name": "cfpb/collab-staff-directory"
+                                },
+                                {
+                                    "id": "78bc1342-687f-4431-9e07-b97221eaf49a",
+                                    "gh_id": 12160904,
+                                    "name": "django-widgeter",
+                                    "full_name": "cfpb/django-widgeter"
+                                },
+                                {
+                                    "id": "2e64bfde-a2ce-4bb8-9a74-7164f941d23b",
+                                    "gh_id": 8860406,
+                                    "name": "idea-box",
+                                    "full_name": "cfpb/idea-box"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e01abaf", "c7a9d8c1c0516c0910f7b2013e02abc0", "c7a9d8c1c0516c0910f7b2013e0124b6", "c7a9d8c1c0516c0910f7b2013e01fe58", "c7a9d8c1c0516c0910f7b2013e02a6e4"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_design",
+        "_rev": "1-290467f52bec9ba1b8b20709402569ae",
+        "name": "design",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "40a9c00a-91b4-470a-8c23-dd3ae2a9fefa",
+                        "gh_id": 15075854,
+                        "name": "design-manual",
+                        "full_name": "cfpb/design-manual"
+                    }
+                ],
+                "data": {
+                    "admin": 600359,
+                    "write": 1118280
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e001f1d", "c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e005e8f", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e00dce4", "c7a9d8c1c0516c0910f7b2013e0109cd", "c7a9d8c1c0516c0910f7b2013e01264f", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e021668", "c7a9d8c1c0516c0910f7b2013e0230bb", "c7a9d8c1c0516c0910f7b2013e023ca7", "c7a9d8c1c0516c0910f7b2013e0252d9", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02b4ec", "c7a9d8c1c0516c0910f7b2013e010194", "c7a9d8c1c0516c0910f7b2013e013611"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301095,
+                "a": "t+",
+                "id": "59413e03-3a5e-4017-818e-2da86af64f61",
+                "r": {
+                    "_id": "team_design",
+                    "name": "design",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "40a9c00a-91b4-470a-8c23-dd3ae2a9fefa",
+                                    "gh_id": 15075854,
+                                    "name": "design-manual",
+                                    "full_name": "cfpb/design-manual"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e001f1d", "c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e005e8f", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e00dce4", "c7a9d8c1c0516c0910f7b2013e0109cd", "c7a9d8c1c0516c0910f7b2013e01264f", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e021668", "c7a9d8c1c0516c0910f7b2013e0230bb", "c7a9d8c1c0516c0910f7b2013e023ca7", "c7a9d8c1c0516c0910f7b2013e0252d9", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02b4ec", "c7a9d8c1c0516c0910f7b2013e010194", "c7a9d8c1c0516c0910f7b2013e013611"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_econ",
+        "_rev": "1-3250d2d79acad424f33a0c9c62e65704",
+        "name": "econ",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "68dcef95-e68d-472a-90eb-7b913692326f",
+                        "gh_id": 25365197,
+                        "name": "SolvingMicroDSOPs",
+                        "full_name": "cfpb/SolvingMicroDSOPs"
+                    }
+                ],
+                "data": {
+                    "admin": 1080355,
+                    "write": 1224118
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e024fc1", "c7a9d8c1c0516c0910f7b2013e0299b5"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301096,
+                "a": "t+",
+                "id": "972b1b05-58e7-4ef1-bda7-83922b15a8d7",
+                "r": {
+                    "_id": "team_econ",
+                    "name": "econ",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "68dcef95-e68d-472a-90eb-7b913692326f",
+                                    "gh_id": 25365197,
+                                    "name": "SolvingMicroDSOPs",
+                                    "full_name": "cfpb/SolvingMicroDSOPs"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e024fc1", "c7a9d8c1c0516c0910f7b2013e0299b5"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_eregs",
+        "_rev": "1-1a3657d56d5daf332d89fe3fd371b995",
+        "name": "eregs",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "41ba9e8d-2590-441e-8910-0092017593da",
+                        "gh_id": 22834612,
+                        "name": "eRegulations",
+                        "full_name": "cfpb/eRegulations"
+                    },
+                    {
+                        "id": "7456e5e1-c9ff-462c-9b06-996f5d81abf5",
+                        "gh_id": 9153642,
+                        "name": "regulations-core",
+                        "full_name": "cfpb/regulations-core"
+                    },
+                    {
+                        "id": "97222953-ce84-4fda-812c-0b9839438730",
+                        "gh_id": 9153617,
+                        "name": "regulations-parser",
+                        "full_name": "cfpb/regulations-parser"
+                    },
+                    {
+                        "id": "33bb6828-0be6-4058-a8eb-339cb8fbb910",
+                        "gh_id": 9153725,
+                        "name": "regulations-site",
+                        "full_name": "cfpb/regulations-site"
+                    }
+                ],
+                "data": {
+                    "admin": 468374,
+                    "write": 1211752
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e016405", "c7a9d8c1c0516c0910f7b2013e01dc1b", "c7a9d8c1c0516c0910f7b2013e00e845", "c7a9d8c1c0516c0910f7b2013e0267ea"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301096,
+                "a": "t+",
+                "id": "d4ca891f-98ca-4222-8ec2-0b3552d68153",
+                "r": {
+                    "_id": "team_eregs",
+                    "name": "eregs",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "41ba9e8d-2590-441e-8910-0092017593da",
+                                    "gh_id": 22834612,
+                                    "name": "eRegulations",
+                                    "full_name": "cfpb/eRegulations"
+                                },
+                                {
+                                    "id": "7456e5e1-c9ff-462c-9b06-996f5d81abf5",
+                                    "gh_id": 9153642,
+                                    "name": "regulations-core",
+                                    "full_name": "cfpb/regulations-core"
+                                },
+                                {
+                                    "id": "97222953-ce84-4fda-812c-0b9839438730",
+                                    "gh_id": 9153617,
+                                    "name": "regulations-parser",
+                                    "full_name": "cfpb/regulations-parser"
+                                },
+                                {
+                                    "id": "33bb6828-0be6-4058-a8eb-339cb8fbb910",
+                                    "gh_id": 9153725,
+                                    "name": "regulations-site",
+                                    "full_name": "cfpb/regulations-site"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e016405", "c7a9d8c1c0516c0910f7b2013e01dc1b", "c7a9d8c1c0516c0910f7b2013e00e845", "c7a9d8c1c0516c0910f7b2013e0267ea"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_fl",
+        "_rev": "1-b39ea26fc81426896486d9bcd3b1f11b",
+        "name": "fl",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "80f18f04-d062-4baa-bc23-cc4c73cf696d",
+                        "gh_id": 19860601,
+                        "name": "mapusaurus",
+                        "full_name": "cfpb/mapusaurus"
+                    }
+                ],
+                "data": {
+                    "admin": 830069,
+                    "write": 1118480
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e00dce4", "c7a9d8c1c0516c0910f7b2013e0208ce", "c7a9d8c1c0516c0910f7b2013e0252d9", "c7a9d8c1c0516c0910f7b2013e00e845", "c7a9d8c1c0516c0910f7b2013e0222f0", "c7a9d8c1c0516c0910f7b2013e02a6e4"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301097,
+                "a": "t+",
+                "id": "26c8307f-4619-4d55-834a-7c3b31964253",
+                "r": {
+                    "_id": "team_fl",
+                    "name": "fl",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "80f18f04-d062-4baa-bc23-cc4c73cf696d",
+                                    "gh_id": 19860601,
+                                    "name": "mapusaurus",
+                                    "full_name": "cfpb/mapusaurus"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e00dce4", "c7a9d8c1c0516c0910f7b2013e0208ce", "c7a9d8c1c0516c0910f7b2013e0252d9", "c7a9d8c1c0516c0910f7b2013e00e845", "c7a9d8c1c0516c0910f7b2013e0222f0", "c7a9d8c1c0516c0910f7b2013e02a6e4"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_flapjack",
+        "_rev": "1-ca205dd3e0651ccca688390f9651d963",
+        "name": "flapjack",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "b19d958f-13df-44bc-bf07-1e28f9d28207",
+                        "gh_id": 18852566,
+                        "name": "cfgov-refresh",
+                        "full_name": "cfpb/cfgov-refresh"
+                    },
+                    {
+                        "id": "7f9cb162-1957-46af-89a1-2d5b389e4aec",
+                        "gh_id": 14899860,
+                        "name": "wp-json-api",
+                        "full_name": "cfpb/wp-json-api"
+                    }
+                ],
+                "data": {
+                    "admin": 785965,
+                    "write": 1001258
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e001f1d", "c7a9d8c1c0516c0910f7b2013e0036c3", "c7a9d8c1c0516c0910f7b2013e01264f", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e01a3ed", "c7a9d8c1c0516c0910f7b2013e01abaf", "c7a9d8c1c0516c0910f7b2013e01c424", "c7a9d8c1c0516c0910f7b2013e0208ce", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e029468", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e029b9e", "c7a9d8c1c0516c0910f7b2013e02bd9d", "c7a9d8c1c0516c0910f7b2013e02df8e", "c7a9d8c1c0516c0910f7b2013e0124b6"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301098,
+                "a": "t+",
+                "id": "06393cf9-63eb-460f-865b-c2b6af9c8438",
+                "r": {
+                    "_id": "team_flapjack",
+                    "name": "flapjack",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "b19d958f-13df-44bc-bf07-1e28f9d28207",
+                                    "gh_id": 18852566,
+                                    "name": "cfgov-refresh",
+                                    "full_name": "cfpb/cfgov-refresh"
+                                },
+                                {
+                                    "id": "7f9cb162-1957-46af-89a1-2d5b389e4aec",
+                                    "gh_id": 14899860,
+                                    "name": "wp-json-api",
+                                    "full_name": "cfpb/wp-json-api"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e001f1d", "c7a9d8c1c0516c0910f7b2013e0036c3", "c7a9d8c1c0516c0910f7b2013e01264f", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e01a3ed", "c7a9d8c1c0516c0910f7b2013e01abaf", "c7a9d8c1c0516c0910f7b2013e01c424", "c7a9d8c1c0516c0910f7b2013e0208ce", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e029468", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e029b9e", "c7a9d8c1c0516c0910f7b2013e02bd9d", "c7a9d8c1c0516c0910f7b2013e02df8e", "c7a9d8c1c0516c0910f7b2013e0124b6"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_front-end",
+        "_rev": "1-be68f3334b9a1261c98b5564cdf0f517",
+        "name": "front-end",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "f9b7f4d2-eec6-4d89-8083-97dd83d7ba43",
+                        "gh_id": 30654847,
+                        "name": "front-end",
+                        "full_name": "cfpb/front-end"
+                    }
+                ],
+                "data": {
+                    "admin": 1290068,
+                    "write": 1290069
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e0036c3", "c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e005265", "c7a9d8c1c0516c0910f7b2013e008bcd", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e019f06", "c7a9d8c1c0516c0910f7b2013e01abaf", "c7a9d8c1c0516c0910f7b2013e01dc1b", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e029b9e", "c7a9d8c1c0516c0910f7b2013e02e6da", "c7a9d8c1c0516c0910f7b2013e0230bb", "c7a9d8c1c0516c0910f7b2013e02a6e4"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301099,
+                "a": "t+",
+                "id": "6f8c23cb-f7d8-4efe-87fc-021474916610",
+                "r": {
+                    "_id": "team_front-end",
+                    "name": "front-end",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "f9b7f4d2-eec6-4d89-8083-97dd83d7ba43",
+                                    "gh_id": 30654847,
+                                    "name": "front-end",
+                                    "full_name": "cfpb/front-end"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e0036c3", "c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e005265", "c7a9d8c1c0516c0910f7b2013e008bcd", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e019f06", "c7a9d8c1c0516c0910f7b2013e01abaf", "c7a9d8c1c0516c0910f7b2013e01dc1b", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e029b9e", "c7a9d8c1c0516c0910f7b2013e02e6da", "c7a9d8c1c0516c0910f7b2013e0230bb", "c7a9d8c1c0516c0910f7b2013e02a6e4"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_github.io",
+        "_rev": "1-48bd322e5083fcfc249dfee10d05caed",
+        "name": "github.io",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "63aeabd7-3959-46ed-a6a6-de3c6aeced9c",
+                        "gh_id": 12575239,
+                        "name": "cfpb.github.io",
+                        "full_name": "cfpb/cfpb.github.io"
+                    }
+                ],
+                "data": {
+                    "admin": 491415,
+                    "write": 1224117
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02abc0", "c7a9d8c1c0516c0910f7b2013e02b4ec"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301099,
+                "a": "t+",
+                "id": "943778b0-3dbe-446d-9fb6-797d12a090fe",
+                "r": {
+                    "_id": "team_github.io",
+                    "name": "github.io",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "63aeabd7-3959-46ed-a6a6-de3c6aeced9c",
+                                    "gh_id": 12575239,
+                                    "name": "cfpb.github.io",
+                                    "full_name": "cfpb/cfpb.github.io"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02abc0", "c7a9d8c1c0516c0910f7b2013e02b4ec"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_hmda",
+        "_rev": "1-8dd53cbc24e8bf6b4b3d2208a540afaa",
+        "name": "hmda",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "027b1df3-e29b-4f6f-9595-655ea6b1224d",
+                        "gh_id": 26927081,
+                        "name": "hmda-edit-check-api",
+                        "full_name": "cfpb/hmda-edit-check-api"
+                    },
+                    {
+                        "id": "2fd1d23a-637c-4fae-a662-2528354af9af",
+                        "gh_id": 20239087,
+                        "name": "hmda-fan",
+                        "full_name": "cfpb/hmda-fan"
+                    },
+                    {
+                        "id": "3ff7c7b8-b382-47e5-af4e-ee42813f0788",
+                        "gh_id": 26650305,
+                        "name": "hmda-pilot",
+                        "full_name": "cfpb/hmda-pilot"
+                    },
+                    {
+                        "id": "666c19b5-a879-455d-822b-31bab2a23276",
+                        "gh_id": 26885919,
+                        "name": "hmda-rule-engine",
+                        "full_name": "cfpb/hmda-rule-engine"
+                    },
+                    {
+                        "id": "b79ff31d-f0f1-4e85-8815-6a5d421d58da",
+                        "gh_id": 26885032,
+                        "name": "hmda-rule-spec",
+                        "full_name": "cfpb/hmda-rule-spec"
+                    },
+                    {
+                        "id": "6c34f4ca-e734-4bdf-85c8-dff9b358a840",
+                        "gh_id": 8223180,
+                        "name": "hmda-tools",
+                        "full_name": "cfpb/hmda-tools"
+                    },
+                    {
+                        "id": "88c2948e-eb1f-40bc-9f35-8188ed13e681",
+                        "gh_id": 28139547,
+                        "name": "hmda-viz-prototype",
+                        "full_name": "cfpb/hmda-viz-prototype"
+                    },
+                    {
+                        "id": "2c1ab38a-7e4f-4b24-b189-e2e465248ad5",
+                        "gh_id": 23331506,
+                        "name": "pilot_pilot",
+                        "full_name": "cfpb/pilot_pilot"
+                    }
+                ],
+                "data": {
+                    "admin": 846485,
+                    "write": 1105051
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e005265", "c7a9d8c1c0516c0910f7b2013e01426d", "c7a9d8c1c0516c0910f7b2013e0155be", "c7a9d8c1c0516c0910f7b2013e01d66d", "c7a9d8c1c0516c0910f7b2013e00bd98", "c7a9d8c1c0516c0910f7b2013e00ecfc", "c7a9d8c1c0516c0910f7b2013e011278", "c7a9d8c1c0516c0910f7b2013e016fe9", "c7a9d8c1c0516c0910f7b2013e01ae94", "c7a9d8c1c0516c0910f7b2013e01f86f", "c7a9d8c1c0516c0910f7b2013e01fb19", "c7a9d8c1c0516c0910f7b2013e0231af", "c7a9d8c1c0516c0910f7b2013e026e28", "c7a9d8c1c0516c0910f7b2013e0271f8", "c7a9d8c1c0516c0910f7b2013e027d3b", "c7a9d8c1c0516c0910f7b2013e0284fc", "c7a9d8c1c0516c0910f7b2013e02b935", "c7a9d8c1c0516c0910f7b2013e02d01c"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301099,
+                "a": "t+",
+                "id": "c082e96d-9661-497b-88f0-cd1d7a2037cb",
+                "r": {
+                    "_id": "team_hmda",
+                    "name": "hmda",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "027b1df3-e29b-4f6f-9595-655ea6b1224d",
+                                    "gh_id": 26927081,
+                                    "name": "hmda-edit-check-api",
+                                    "full_name": "cfpb/hmda-edit-check-api"
+                                },
+                                {
+                                    "id": "2fd1d23a-637c-4fae-a662-2528354af9af",
+                                    "gh_id": 20239087,
+                                    "name": "hmda-fan",
+                                    "full_name": "cfpb/hmda-fan"
+                                },
+                                {
+                                    "id": "3ff7c7b8-b382-47e5-af4e-ee42813f0788",
+                                    "gh_id": 26650305,
+                                    "name": "hmda-pilot",
+                                    "full_name": "cfpb/hmda-pilot"
+                                },
+                                {
+                                    "id": "666c19b5-a879-455d-822b-31bab2a23276",
+                                    "gh_id": 26885919,
+                                    "name": "hmda-rule-engine",
+                                    "full_name": "cfpb/hmda-rule-engine"
+                                },
+                                {
+                                    "id": "b79ff31d-f0f1-4e85-8815-6a5d421d58da",
+                                    "gh_id": 26885032,
+                                    "name": "hmda-rule-spec",
+                                    "full_name": "cfpb/hmda-rule-spec"
+                                },
+                                {
+                                    "id": "6c34f4ca-e734-4bdf-85c8-dff9b358a840",
+                                    "gh_id": 8223180,
+                                    "name": "hmda-tools",
+                                    "full_name": "cfpb/hmda-tools"
+                                },
+                                {
+                                    "id": "88c2948e-eb1f-40bc-9f35-8188ed13e681",
+                                    "gh_id": 28139547,
+                                    "name": "hmda-viz-prototype",
+                                    "full_name": "cfpb/hmda-viz-prototype"
+                                },
+                                {
+                                    "id": "2c1ab38a-7e4f-4b24-b189-e2e465248ad5",
+                                    "gh_id": 23331506,
+                                    "name": "pilot_pilot",
+                                    "full_name": "cfpb/pilot_pilot"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e005265", "c7a9d8c1c0516c0910f7b2013e01426d", "c7a9d8c1c0516c0910f7b2013e0155be", "c7a9d8c1c0516c0910f7b2013e01d66d", "c7a9d8c1c0516c0910f7b2013e00bd98", "c7a9d8c1c0516c0910f7b2013e00ecfc", "c7a9d8c1c0516c0910f7b2013e011278", "c7a9d8c1c0516c0910f7b2013e016fe9", "c7a9d8c1c0516c0910f7b2013e01ae94", "c7a9d8c1c0516c0910f7b2013e01f86f", "c7a9d8c1c0516c0910f7b2013e01fb19", "c7a9d8c1c0516c0910f7b2013e0231af", "c7a9d8c1c0516c0910f7b2013e026e28", "c7a9d8c1c0516c0910f7b2013e0271f8", "c7a9d8c1c0516c0910f7b2013e027d3b", "c7a9d8c1c0516c0910f7b2013e0284fc", "c7a9d8c1c0516c0910f7b2013e02b935", "c7a9d8c1c0516c0910f7b2013e02d01c"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_hmda-grasshopper",
+        "_rev": "1-f071c41f6e94e97bfa83807dfd436b6c",
+        "name": "hmda-grasshopper",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "5c12f126-08a2-4b97-bda3-aeee06b813c3",
+                        "gh_id": 30085164,
+                        "name": "grasshopper",
+                        "full_name": "cfpb/grasshopper"
+                    }
+                ],
+                "data": {
+                    "admin": 1263269,
+                    "write": 1263268
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e005265", "c7a9d8c1c0516c0910f7b2013e01426d", "c7a9d8c1c0516c0910f7b2013e0155be", "c7a9d8c1c0516c0910f7b2013e0187e9", "c7a9d8c1c0516c0910f7b2013e01ae94", "c7a9d8c1c0516c0910f7b2013e01d66d", "c7a9d8c1c0516c0910f7b2013e02e6da", "c7a9d8c1c0516c0910f7b2013e00ecfc", "c7a9d8c1c0516c0910f7b2013e01f86f", "c7a9d8c1c0516c0910f7b2013e023cb8"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301101,
+                "a": "t+",
+                "id": "e61ace53-650c-40d3-99b4-3cdb0d561afb",
+                "r": {
+                    "_id": "team_hmda-grasshopper",
+                    "name": "hmda-grasshopper",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "5c12f126-08a2-4b97-bda3-aeee06b813c3",
+                                    "gh_id": 30085164,
+                                    "name": "grasshopper",
+                                    "full_name": "cfpb/grasshopper"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e005265", "c7a9d8c1c0516c0910f7b2013e01426d", "c7a9d8c1c0516c0910f7b2013e0155be", "c7a9d8c1c0516c0910f7b2013e0187e9", "c7a9d8c1c0516c0910f7b2013e01ae94", "c7a9d8c1c0516c0910f7b2013e01d66d", "c7a9d8c1c0516c0910f7b2013e02e6da", "c7a9d8c1c0516c0910f7b2013e00ecfc", "c7a9d8c1c0516c0910f7b2013e01f86f", "c7a9d8c1c0516c0910f7b2013e023cb8"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_o&m",
+        "_rev": "1-489fb0a90def2871db174cc308c1244f",
+        "name": "o&m",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "fa47451b-cea5-4372-b26e-c73224d4d6ed",
+                        "gh_id": 3275720,
+                        "name": "django-nudge",
+                        "full_name": "cfpb/django-nudge"
+                    },
+                    {
+                        "id": "ed40e07e-e0a8-4e17-9a8c-b6bd6d2a6d0c",
+                        "gh_id": 16622165,
+                        "name": "grunt-cfpb-internal",
+                        "full_name": "cfpb/grunt-cfpb-internal"
+                    },
+                    {
+                        "id": "0506d4dd-3068-4922-8a07-c3da0574fa36",
+                        "gh_id": 22697854,
+                        "name": "hmdapolis",
+                        "full_name": "cfpb/hmdapolis"
+                    },
+                    {
+                        "id": "78d60e5c-aaf8-4203-b516-2d6a68c8776b",
+                        "gh_id": 30362343,
+                        "name": "publish_eccu",
+                        "full_name": "cfpb/publish_eccu"
+                    },
+                    {
+                        "id": "c66bc719-0ebd-4eef-a38b-e4009b8460c3",
+                        "gh_id": 3970880,
+                        "name": "transit_subsidy",
+                        "full_name": "cfpb/transit_subsidy"
+                    }
+                ],
+                "data": {
+                    "admin": 1174981,
+                    "write": 1174997
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e0299b5"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301102,
+                "a": "t+",
+                "id": "245af0c3-5dfb-4ad9-a337-7403e6290b9a",
+                "r": {
+                    "_id": "team_o&m",
+                    "name": "o&m",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "fa47451b-cea5-4372-b26e-c73224d4d6ed",
+                                    "gh_id": 3275720,
+                                    "name": "django-nudge",
+                                    "full_name": "cfpb/django-nudge"
+                                },
+                                {
+                                    "id": "ed40e07e-e0a8-4e17-9a8c-b6bd6d2a6d0c",
+                                    "gh_id": 16622165,
+                                    "name": "grunt-cfpb-internal",
+                                    "full_name": "cfpb/grunt-cfpb-internal"
+                                },
+                                {
+                                    "id": "0506d4dd-3068-4922-8a07-c3da0574fa36",
+                                    "gh_id": 22697854,
+                                    "name": "hmdapolis",
+                                    "full_name": "cfpb/hmdapolis"
+                                },
+                                {
+                                    "id": "78d60e5c-aaf8-4203-b516-2d6a68c8776b",
+                                    "gh_id": 30362343,
+                                    "name": "publish_eccu",
+                                    "full_name": "cfpb/publish_eccu"
+                                },
+                                {
+                                    "id": "c66bc719-0ebd-4eef-a38b-e4009b8460c3",
+                                    "gh_id": 3970880,
+                                    "name": "transit_subsidy",
+                                    "full_name": "cfpb/transit_subsidy"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e017dc6", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e0299b5"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_oah",
+        "_rev": "1-9d014ea1e1503dc88db4d8154390871a",
+        "name": "oah",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "fc674c0c-e1b7-4394-9791-4a8dce84d2ac",
+                        "gh_id": 20699597,
+                        "name": "amortize",
+                        "full_name": "cfpb/amortize"
+                    },
+                    {
+                        "id": "dd4efb78-750f-442e-9477-044e6c948d78",
+                        "gh_id": 22080633,
+                        "name": "format-usd",
+                        "full_name": "cfpb/format-usd"
+                    },
+                    {
+                        "id": "c023319e-5f59-451d-9674-ae44b0896681",
+                        "gh_id": 19713395,
+                        "name": "fuzzy-state-search",
+                        "full_name": "cfpb/fuzzy-state-search"
+                    },
+                    {
+                        "id": "d03acde4-e108-4b73-90b9-6c7346a9c9dd",
+                        "gh_id": 22126010,
+                        "name": "is-money-usd",
+                        "full_name": "cfpb/is-money-usd"
+                    },
+                    {
+                        "id": "7d1a5d40-c2cc-449d-9dce-cb92e6016850",
+                        "gh_id": 24247460,
+                        "name": "jumbo-mortgage",
+                        "full_name": "cfpb/jumbo-mortgage"
+                    },
+                    {
+                        "id": "af9346cd-d9c3-4ff9-b553-84b737df5d14",
+                        "gh_id": 18607438,
+                        "name": "loan-calc",
+                        "full_name": "cfpb/loan-calc"
+                    },
+                    {
+                        "id": "99d0cd14-91f8-43d4-8a95-989c37a9dbbb",
+                        "gh_id": 22698273,
+                        "name": "objectified",
+                        "full_name": "cfpb/objectified"
+                    },
+                    {
+                        "id": "a22b81c0-b2dc-4108-9fbd-40646686a996",
+                        "gh_id": 22358320,
+                        "name": "overall-loan-cost",
+                        "full_name": "cfpb/overall-loan-cost"
+                    },
+                    {
+                        "id": "e78ec337-90d8-4318-b8db-e0d12d7606c9",
+                        "gh_id": 15999442,
+                        "name": "owning-a-home",
+                        "full_name": "cfpb/owning-a-home"
+                    },
+                    {
+                        "id": "0ebcbce4-4de0-4d3b-aab9-e219f2d86a7b",
+                        "gh_id": 22351113,
+                        "name": "owning-a-home-api",
+                        "full_name": "cfpb/owning-a-home-api"
+                    },
+                    {
+                        "id": "18e82a97-ea3f-49ee-a619-e0e5982b9fc2",
+                        "gh_id": 22768398,
+                        "name": "stay-positive",
+                        "full_name": "cfpb/stay-positive"
+                    },
+                    {
+                        "id": "439cae4b-1220-4dc7-a283-d1e689ef5cc6",
+                        "gh_id": 22082995,
+                        "name": "unformat-usd",
+                        "full_name": "cfpb/unformat-usd"
+                    }
+                ],
+                "data": {
+                    "admin": 710566,
+                    "write": 1118494
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e00249f", "c7a9d8c1c0516c0910f7b2013e002ccd", "c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e008bcd", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e0191c7", "c7a9d8c1c0516c0910f7b2013e021668", "c7a9d8c1c0516c0910f7b2013e0230bb", "c7a9d8c1c0516c0910f7b2013e02a889", "c7a9d8c1c0516c0910f7b2013e02b4ec", "c7a9d8c1c0516c0910f7b2013e00a23f", "c7a9d8c1c0516c0910f7b2013e0157c3", "c7a9d8c1c0516c0910f7b2013e0267ea"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301102,
+                "a": "t+",
+                "id": "8c7d3e45-57bd-486b-a7fb-1f96d9afcaad",
+                "r": {
+                    "_id": "team_oah",
+                    "name": "oah",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "fc674c0c-e1b7-4394-9791-4a8dce84d2ac",
+                                    "gh_id": 20699597,
+                                    "name": "amortize",
+                                    "full_name": "cfpb/amortize"
+                                },
+                                {
+                                    "id": "dd4efb78-750f-442e-9477-044e6c948d78",
+                                    "gh_id": 22080633,
+                                    "name": "format-usd",
+                                    "full_name": "cfpb/format-usd"
+                                },
+                                {
+                                    "id": "c023319e-5f59-451d-9674-ae44b0896681",
+                                    "gh_id": 19713395,
+                                    "name": "fuzzy-state-search",
+                                    "full_name": "cfpb/fuzzy-state-search"
+                                },
+                                {
+                                    "id": "d03acde4-e108-4b73-90b9-6c7346a9c9dd",
+                                    "gh_id": 22126010,
+                                    "name": "is-money-usd",
+                                    "full_name": "cfpb/is-money-usd"
+                                },
+                                {
+                                    "id": "7d1a5d40-c2cc-449d-9dce-cb92e6016850",
+                                    "gh_id": 24247460,
+                                    "name": "jumbo-mortgage",
+                                    "full_name": "cfpb/jumbo-mortgage"
+                                },
+                                {
+                                    "id": "af9346cd-d9c3-4ff9-b553-84b737df5d14",
+                                    "gh_id": 18607438,
+                                    "name": "loan-calc",
+                                    "full_name": "cfpb/loan-calc"
+                                },
+                                {
+                                    "id": "99d0cd14-91f8-43d4-8a95-989c37a9dbbb",
+                                    "gh_id": 22698273,
+                                    "name": "objectified",
+                                    "full_name": "cfpb/objectified"
+                                },
+                                {
+                                    "id": "a22b81c0-b2dc-4108-9fbd-40646686a996",
+                                    "gh_id": 22358320,
+                                    "name": "overall-loan-cost",
+                                    "full_name": "cfpb/overall-loan-cost"
+                                },
+                                {
+                                    "id": "e78ec337-90d8-4318-b8db-e0d12d7606c9",
+                                    "gh_id": 15999442,
+                                    "name": "owning-a-home",
+                                    "full_name": "cfpb/owning-a-home"
+                                },
+                                {
+                                    "id": "0ebcbce4-4de0-4d3b-aab9-e219f2d86a7b",
+                                    "gh_id": 22351113,
+                                    "name": "owning-a-home-api",
+                                    "full_name": "cfpb/owning-a-home-api"
+                                },
+                                {
+                                    "id": "18e82a97-ea3f-49ee-a619-e0e5982b9fc2",
+                                    "gh_id": 22768398,
+                                    "name": "stay-positive",
+                                    "full_name": "cfpb/stay-positive"
+                                },
+                                {
+                                    "id": "439cae4b-1220-4dc7-a283-d1e689ef5cc6",
+                                    "gh_id": 22082995,
+                                    "name": "unformat-usd",
+                                    "full_name": "cfpb/unformat-usd"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e00249f", "c7a9d8c1c0516c0910f7b2013e002ccd", "c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e008bcd", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e0191c7", "c7a9d8c1c0516c0910f7b2013e021668", "c7a9d8c1c0516c0910f7b2013e0230bb", "c7a9d8c1c0516c0910f7b2013e02a889", "c7a9d8c1c0516c0910f7b2013e02b4ec", "c7a9d8c1c0516c0910f7b2013e00a23f", "c7a9d8c1c0516c0910f7b2013e0157c3", "c7a9d8c1c0516c0910f7b2013e0267ea"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_policy",
+        "_rev": "1-a7658c4b5204f5b9c0296ae46cf2ae73",
+        "name": "policy",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "9e7ad151-e8f3-4b2d-93cf-b7d387defd57",
+                        "gh_id": 20326064,
+                        "name": "open-source-project-template",
+                        "full_name": "cfpb/open-source-project-template"
+                    },
+                    {
+                        "id": "38c6feff-7f0a-46f3-8ec9-99d76a6beba3",
+                        "gh_id": 13473305,
+                        "name": "source-code-policy",
+                        "full_name": "cfpb/source-code-policy"
+                    }
+                ],
+                "data": {
+                    "admin": 850981,
+                    "write": 1224116
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02c275"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301103,
+                "a": "t+",
+                "id": "13942b1b-24a7-4f1d-97d9-5fa78390f26f",
+                "r": {
+                    "_id": "team_policy",
+                    "name": "policy",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "9e7ad151-e8f3-4b2d-93cf-b7d387defd57",
+                                    "gh_id": 20326064,
+                                    "name": "open-source-project-template",
+                                    "full_name": "cfpb/open-source-project-template"
+                                },
+                                {
+                                    "id": "38c6feff-7f0a-46f3-8ec9-99d76a6beba3",
+                                    "gh_id": 13473305,
+                                    "name": "source-code-policy",
+                                    "full_name": "cfpb/source-code-policy"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02c275"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_qu",
+        "_rev": "1-df5dbbeeffac4ed699619fdc59ba9789",
+        "name": "qu",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "d39dd7bc-6cf5-4896-9efa-5dffbfc0bcaf",
+                        "gh_id": 12241595,
+                        "name": "api",
+                        "full_name": "cfpb/api"
+                    },
+                    {
+                        "id": "3a439c87-6afb-4421-8008-4a4a3826e03f",
+                        "gh_id": 12575239,
+                        "name": "cfpb.github.io",
+                        "full_name": "cfpb/cfpb.github.io"
+                    },
+                    {
+                        "id": "129e4ba4-26d3-4cc2-8ccb-c80a88b324c4",
+                        "gh_id": 8626067,
+                        "name": "qu",
+                        "full_name": "cfpb/qu"
+                    }
+                ],
+                "data": {
+                    "admin": 354056,
+                    "write": 814205
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e0208ce", "c7a9d8c1c0516c0910f7b2013e010194", "c7a9d8c1c0516c0910f7b2013e01500e", "c7a9d8c1c0516c0910f7b2013e01fe58", "c7a9d8c1c0516c0910f7b2013e0222f0", "c7a9d8c1c0516c0910f7b2013e02a6e4"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301104,
+                "a": "t+",
+                "id": "23e942b3-c00a-4b7d-832c-932dc025c3c1",
+                "r": {
+                    "_id": "team_qu",
+                    "name": "qu",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "d39dd7bc-6cf5-4896-9efa-5dffbfc0bcaf",
+                                    "gh_id": 12241595,
+                                    "name": "api",
+                                    "full_name": "cfpb/api"
+                                },
+                                {
+                                    "id": "3a439c87-6afb-4421-8008-4a4a3826e03f",
+                                    "gh_id": 12575239,
+                                    "name": "cfpb.github.io",
+                                    "full_name": "cfpb/cfpb.github.io"
+                                },
+                                {
+                                    "id": "129e4ba4-26d3-4cc2-8ccb-c80a88b324c4",
+                                    "gh_id": 8626067,
+                                    "name": "qu",
+                                    "full_name": "cfpb/qu"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e0208ce", "c7a9d8c1c0516c0910f7b2013e010194", "c7a9d8c1c0516c0910f7b2013e01500e", "c7a9d8c1c0516c0910f7b2013e01fe58", "c7a9d8c1c0516c0910f7b2013e0222f0", "c7a9d8c1c0516c0910f7b2013e02a6e4"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_research",
+        "_rev": "1-8131016ec0c219e02123934d61137f13",
+        "name": "research",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "d278ff2b-87e7-4afa-bb32-c1f319f9056f",
+                        "gh_id": 23435142,
+                        "name": "proxy-methodology",
+                        "full_name": "cfpb/proxy-methodology"
+                    }
+                ],
+                "data": {
+                    "admin": 975805,
+                    "write": 1224121
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e0019e7", "c7a9d8c1c0516c0910f7b2013e006de3", "c7a9d8c1c0516c0910f7b2013e01bb92", "c7a9d8c1c0516c0910f7b2013e0299b5"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301104,
+                "a": "t+",
+                "id": "cb869e4e-11e8-48de-82cb-f42ba0c22ccd",
+                "r": {
+                    "_id": "team_research",
+                    "name": "research",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "d278ff2b-87e7-4afa-bb32-c1f319f9056f",
+                                    "gh_id": 23435142,
+                                    "name": "proxy-methodology",
+                                    "full_name": "cfpb/proxy-methodology"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e0019e7", "c7a9d8c1c0516c0910f7b2013e006de3", "c7a9d8c1c0516c0910f7b2013e01bb92", "c7a9d8c1c0516c0910f7b2013e0299b5"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_sheer",
+        "_rev": "1-45fa1e76aeb78a5cb77dae720089d5a7",
+        "name": "sheer",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "2406ef3d-8e32-4223-8fc3-6f26860066c2",
+                        "gh_id": 11128693,
+                        "name": "sheer",
+                        "full_name": "cfpb/sheer"
+                    },
+                    {
+                        "id": "1c59c49c-e1f0-4dd7-8196-c35d0a2d5209",
+                        "gh_id": 27400126,
+                        "name": "shortstack",
+                        "full_name": "cfpb/shortstack"
+                    }
+                ],
+                "data": {
+                    "admin": 896269,
+                    "write": 1224115
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e0124b6", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02c275"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301106,
+                "a": "t+",
+                "id": "5629ab1b-709f-414d-9be0-bef05d730b9f",
+                "r": {
+                    "_id": "team_sheer",
+                    "name": "sheer",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "2406ef3d-8e32-4223-8fc3-6f26860066c2",
+                                    "gh_id": 11128693,
+                                    "name": "sheer",
+                                    "full_name": "cfpb/sheer"
+                                },
+                                {
+                                    "id": "1c59c49c-e1f0-4dd7-8196-c35d0a2d5209",
+                                    "gh_id": 27400126,
+                                    "name": "shortstack",
+                                    "full_name": "cfpb/shortstack"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e004675", "c7a9d8c1c0516c0910f7b2013e0124b6", "c7a9d8c1c0516c0910f7b2013e02909a", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e02c275"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    },
+    {
+        "_id": "team_tools",
+        "_rev": "1-f30130c93825972623807d99ef468a66",
+        "name": "tools",
+        "rsrcs": {
+            "gh": {
+                "assets": [
+                    {
+                        "id": "ceec66c8-3d42-4dbe-805c-a2faddd5c2cb",
+                        "gh_id": 8520426,
+                        "name": "clouseau",
+                        "full_name": "cfpb/clouseau"
+                    },
+                    {
+                        "id": "0744f3d5-69eb-472a-b1c4-de3fd63a27bf",
+                        "gh_id": 23197327,
+                        "name": "devdash",
+                        "full_name": "cfpb/devdash"
+                    },
+                    {
+                        "id": "47045f77-6936-40a1-894f-11bb57b0fa92",
+                        "gh_id": 22758220,
+                        "name": "django-api-test",
+                        "full_name": "cfpb/django-api-test"
+                    },
+                    {
+                        "id": "b1f0202c-dd63-4c9d-ab4d-799738a9fb10",
+                        "gh_id": 8854905,
+                        "name": "django-cache-tools",
+                        "full_name": "cfpb/django-cache-tools"
+                    },
+                    {
+                        "id": "d85ba712-0d8b-451f-a48c-95ef34c94863",
+                        "gh_id": 23197241,
+                        "name": "django-rest-framework-selectserializer",
+                        "full_name": "cfpb/django-rest-framework-selectserializer"
+                    },
+                    {
+                        "id": "6255540a-632a-4bf8-8502-8b95b68a256d",
+                        "gh_id": 14559867,
+                        "name": "DOCter",
+                        "full_name": "cfpb/DOCter"
+                    },
+                    {
+                        "id": "50aa1de7-f5c4-44c5-9b70-62055390c739",
+                        "gh_id": 25831198,
+                        "name": "dotfiles",
+                        "full_name": "cfpb/dotfiles"
+                    },
+                    {
+                        "id": "6c2188cf-b686-441b-80b3-2131970f4ce4",
+                        "gh_id": 5113432,
+                        "name": "ec2mapper",
+                        "full_name": "cfpb/ec2mapper"
+                    },
+                    {
+                        "id": "4b9ea7d0-a909-473f-a717-5261003bd3f2",
+                        "gh_id": 29865247,
+                        "name": "email-templates",
+                        "full_name": "cfpb/email-templates"
+                    },
+                    {
+                        "id": "826ccb1d-cf0a-416f-8238-9739398ba6c6",
+                        "gh_id": 22044220,
+                        "name": "generator-node-cfpb",
+                        "full_name": "cfpb/generator-node-cfpb"
+                    },
+                    {
+                        "id": "2e52447b-33db-461d-aca2-2d0c7e771ab5",
+                        "gh_id": 17216762,
+                        "name": "github-wiki-search",
+                        "full_name": "cfpb/github-wiki-search"
+                    },
+                    {
+                        "id": "f475cca5-b0ac-4bf5-bad6-b43b7fcb7b64",
+                        "gh_id": 15610845,
+                        "name": "jmeter-bootstrap",
+                        "full_name": "cfpb/jmeter-bootstrap"
+                    },
+                    {
+                        "id": "1d7c5783-9506-424b-9551-23f594ef2b16",
+                        "gh_id": 28594056,
+                        "name": "kratos",
+                        "full_name": "cfpb/kratos"
+                    },
+                    {
+                        "id": "7a8d5ad3-2fee-4909-9671-15c5139c7f69",
+                        "gh_id": 29747093,
+                        "name": "porchlight",
+                        "full_name": "cfpb/porchlight"
+                    },
+                    {
+                        "id": "b057dbcf-06c7-4329-8757-ce2aefc90f42",
+                        "gh_id": 29690080,
+                        "name": "sentia",
+                        "full_name": "cfpb/sentia"
+                    }
+                ],
+                "data": {
+                    "admin": 1128927,
+                    "write": 974216
+                },
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "roles": {
+            "member": {
+                "members": ["c7a9d8c1c0516c0910f7b2013e00b14f", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e010457", "c7a9d8c1c0516c0910f7b2013e01264f", "c7a9d8c1c0516c0910f7b2013e0187e9", "c7a9d8c1c0516c0910f7b2013e019f06", "c7a9d8c1c0516c0910f7b2013e01ef1c", "c7a9d8c1c0516c0910f7b2013e0208ce", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e029b9e", "c7a9d8c1c0516c0910f7b2013e02df8e", "c7a9d8c1c0516c0910f7b2013e00e845", "c7a9d8c1c0516c0910f7b2013e0109cd", "c7a9d8c1c0516c0910f7b2013e0124b6", "c7a9d8c1c0516c0910f7b2013e01fe58", "c7a9d8c1c0516c0910f7b2013e0222f0", "c7a9d8c1c0516c0910f7b2013e023cb8", "c7a9d8c1c0516c0910f7b2013e026206", "c7a9d8c1c0516c0910f7b2013e02a6e4"],
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            },
+            "admin": {
+                "perms": {
+                    "add": false,
+                    "remove": false
+                }
+            }
+        },
+        "audit": [
+            {
+                "u": "admin",
+                "dt": 1423858301107,
+                "a": "t+",
+                "id": "53fc4f20-c057-4d15-871f-9652398e490a",
+                "r": {
+                    "_id": "team_tools",
+                    "name": "tools",
+                    "rsrcs": {
+                        "gh": {
+                            "assets": [
+                                {
+                                    "id": "ceec66c8-3d42-4dbe-805c-a2faddd5c2cb",
+                                    "gh_id": 8520426,
+                                    "name": "clouseau",
+                                    "full_name": "cfpb/clouseau"
+                                },
+                                {
+                                    "id": "0744f3d5-69eb-472a-b1c4-de3fd63a27bf",
+                                    "gh_id": 23197327,
+                                    "name": "devdash",
+                                    "full_name": "cfpb/devdash"
+                                },
+                                {
+                                    "id": "47045f77-6936-40a1-894f-11bb57b0fa92",
+                                    "gh_id": 22758220,
+                                    "name": "django-api-test",
+                                    "full_name": "cfpb/django-api-test"
+                                },
+                                {
+                                    "id": "b1f0202c-dd63-4c9d-ab4d-799738a9fb10",
+                                    "gh_id": 8854905,
+                                    "name": "django-cache-tools",
+                                    "full_name": "cfpb/django-cache-tools"
+                                },
+                                {
+                                    "id": "d85ba712-0d8b-451f-a48c-95ef34c94863",
+                                    "gh_id": 23197241,
+                                    "name": "django-rest-framework-selectserializer",
+                                    "full_name": "cfpb/django-rest-framework-selectserializer"
+                                },
+                                {
+                                    "id": "6255540a-632a-4bf8-8502-8b95b68a256d",
+                                    "gh_id": 14559867,
+                                    "name": "DOCter",
+                                    "full_name": "cfpb/DOCter"
+                                },
+                                {
+                                    "id": "50aa1de7-f5c4-44c5-9b70-62055390c739",
+                                    "gh_id": 25831198,
+                                    "name": "dotfiles",
+                                    "full_name": "cfpb/dotfiles"
+                                },
+                                {
+                                    "id": "6c2188cf-b686-441b-80b3-2131970f4ce4",
+                                    "gh_id": 5113432,
+                                    "name": "ec2mapper",
+                                    "full_name": "cfpb/ec2mapper"
+                                },
+                                {
+                                    "id": "4b9ea7d0-a909-473f-a717-5261003bd3f2",
+                                    "gh_id": 29865247,
+                                    "name": "email-templates",
+                                    "full_name": "cfpb/email-templates"
+                                },
+                                {
+                                    "id": "826ccb1d-cf0a-416f-8238-9739398ba6c6",
+                                    "gh_id": 22044220,
+                                    "name": "generator-node-cfpb",
+                                    "full_name": "cfpb/generator-node-cfpb"
+                                },
+                                {
+                                    "id": "2e52447b-33db-461d-aca2-2d0c7e771ab5",
+                                    "gh_id": 17216762,
+                                    "name": "github-wiki-search",
+                                    "full_name": "cfpb/github-wiki-search"
+                                },
+                                {
+                                    "id": "f475cca5-b0ac-4bf5-bad6-b43b7fcb7b64",
+                                    "gh_id": 15610845,
+                                    "name": "jmeter-bootstrap",
+                                    "full_name": "cfpb/jmeter-bootstrap"
+                                },
+                                {
+                                    "id": "1d7c5783-9506-424b-9551-23f594ef2b16",
+                                    "gh_id": 28594056,
+                                    "name": "kratos",
+                                    "full_name": "cfpb/kratos"
+                                },
+                                {
+                                    "id": "7a8d5ad3-2fee-4909-9671-15c5139c7f69",
+                                    "gh_id": 29747093,
+                                    "name": "porchlight",
+                                    "full_name": "cfpb/porchlight"
+                                },
+                                {
+                                    "id": "b057dbcf-06c7-4329-8757-ce2aefc90f42",
+                                    "gh_id": 29690080,
+                                    "name": "sentia",
+                                    "full_name": "cfpb/sentia"
+                                }
+                            ]
+                        }
+                    },
+                    "roles": {
+                        "member": {
+                            "members": ["c7a9d8c1c0516c0910f7b2013e00b14f", "c7a9d8c1c0516c0910f7b2013e00d518", "c7a9d8c1c0516c0910f7b2013e010457", "c7a9d8c1c0516c0910f7b2013e01264f", "c7a9d8c1c0516c0910f7b2013e0187e9", "c7a9d8c1c0516c0910f7b2013e019f06", "c7a9d8c1c0516c0910f7b2013e01ef1c", "c7a9d8c1c0516c0910f7b2013e0208ce", "c7a9d8c1c0516c0910f7b2013e0299b5", "c7a9d8c1c0516c0910f7b2013e029b9e", "c7a9d8c1c0516c0910f7b2013e02df8e", "c7a9d8c1c0516c0910f7b2013e00e845", "c7a9d8c1c0516c0910f7b2013e0109cd", "c7a9d8c1c0516c0910f7b2013e0124b6", "c7a9d8c1c0516c0910f7b2013e01fe58", "c7a9d8c1c0516c0910f7b2013e0222f0", "c7a9d8c1c0516c0910f7b2013e023cb8", "c7a9d8c1c0516c0910f7b2013e026206", "c7a9d8c1c0516c0910f7b2013e02a6e4"]
+                        }
+                    }
+                }
+            }
+        ],
+        "enforce": []
+    }
+]
