@@ -13,9 +13,20 @@ var watch = require('gulp-watch');
 var cache = require('gulp-cached');
 var rimraf = require('gulp-rimraf');
 var rename = require('gulp-rename');
+var gutil = require('gulp-util');
+var plumber = require('gulp-plumber');
+var filter = require('gulp-filter');
+
+var onError = function(err) {
+  gutil.beep();
+  console.log(err);
+};
 
 gulp.task('lint', function() {
   return gulp.src(['./src/js/**/*.jsx', './src/js/**/*.js', './gulpfile.js', '!./src/js/bundle.js'])
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(cache('lint'))
     .pipe(eslint())
     .pipe(eslint.failOnError());
@@ -23,6 +34,9 @@ gulp.task('lint', function() {
 
 gulp.task('jest', function() {
   return gulp.src('')
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(jest(meta.jest));
 });
 
@@ -42,7 +56,7 @@ gulp.task('bundle', function() {
     .pipe(gulp.dest('./src/'));
 });
 
-gulp.task('usemin', ['clean', 'bundle'], function() {
+gulp.task('build', ['clean', 'bundle'], function() {
   return gulp.src('./src/index.html')
     .pipe(cache('usemin'))
     .pipe(usemin({
@@ -52,16 +66,18 @@ gulp.task('usemin', ['clean', 'bundle'], function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('move-app', function() {
+gulp.task('deploy', ['bundle'], function() {
   return gulp.src('./src/**/*')
     .pipe(cache('move'))
-    .pipe(gulp.dest('../devdash/devdash/static'));
+    .pipe(gulp.dest('../devdash/devdash/static'))
+    .pipe(filter('index.html'))
+    .pipe(rename('dash.html'))
+    .pipe(gulp.dest('../devdash/devdash/static'))
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['./src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['test', 'move-app']);
+  gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['test', 'deploy']);
 });
 
 gulp.task('test', ['lint', 'jest']);
-gulp.task('build', ['usemin']);
 gulp.task('default', ['test', 'build']);
