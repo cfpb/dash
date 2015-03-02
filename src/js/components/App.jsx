@@ -49,7 +49,6 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        Sup
         <h1>Teams</h1>
         <TeamList teams={this.state.teams} users={this.state.users} />
       </div>

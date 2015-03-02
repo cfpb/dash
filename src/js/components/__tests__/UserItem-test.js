@@ -1,7 +1,3 @@
-/** @jsx React.DOM */
-
-// __tests__/UserItem-test.js
-
 jest.dontMock('../UserItem.jsx');
 describe('Individual user item', function() {
   it('should load a div', function() {
@@ -13,6 +9,8 @@ describe('Individual user item', function() {
       <UserItem name="Barbara Toothsmith" />
     );
 
-    expect(userItem.getDOMNode().textContent).toEqual('Barbara Toothsmith');
+    var secondNodeInComponent = userItem.getDOMNode().childNodes[1];
+    expect(secondNodeInComponent.className).toEqual('user-name');
+    expect(secondNodeInComponent.textContent).toEqual('Barbara Toothsmith');
   });
 });

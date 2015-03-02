@@ -19,7 +19,6 @@ var filter = require('gulp-filter');
 
 var onError = function(err) {
   gutil.beep();
-  console.log(err);
 };
 
 gulp.task('lint', function() {
@@ -76,7 +75,7 @@ gulp.task('deploy', ['bundle'], function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['test', 'deploy']);
+  gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['deploy', 'test']);
 });
 
 gulp.task('test', ['lint', 'jest']);

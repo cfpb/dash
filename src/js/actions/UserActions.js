@@ -1,5 +1,5 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
-var TeamConstants = require('../constants/TeamConstants');
+var TeamConstants = require('../constants/UserConstants');
 var common = require('../utils/common');
 
 var TeamActions = {
@@ -38,26 +38,6 @@ var TeamActions = {
     userPromise.done(function(data) {
       AppDispatcher.dispatch({
         actionType: TeamConstants.TEAM_ADD_USER_COMPLETE,
-        teamName: '',
-        userId: ''
-      });
-    });
-  },
-
-  removeUser: function(opts) {
-    opts = opts || {};
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_REMOVE_USER_START,
-      orgName: opts.orgName,
-      teamName: opts.teamName,
-      roleType: opts.roleType,
-      userId: opts.userId
-    });
-
-    var userPromise = common.addUser(opts);
-    userPromise.done(function(data) {
-      AppDispatcher.dispatch({
-        actionType: TeamConstants.TEAM_REMOVE_USER_COMPLETE,
         teamName: '',
         userId: ''
       });
