@@ -26,6 +26,7 @@ function addUser(userId) {
 }
 
 function removeUser(opts) {
+  console.log('store', opts);
   var userPromise = common.removeUser(opts);
   userPromise.done();
 }
@@ -70,7 +71,8 @@ AppDispatcher.register(function(action) {
       break;
 
     case TeamConstants.TEAM_REMOVE_USER_START:
-      removeUser(action.data);
+      console.log('action', action);
+      removeUser(action.payload);
       TeamStore.emitChange();
       break;
     default:
