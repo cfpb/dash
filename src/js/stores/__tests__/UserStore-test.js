@@ -10,7 +10,7 @@ describe('UserStore', function() {
     UserStore = require('../UserStore');
   });
 
-  it('should call common to get all teams', function(){
+  it('should call common to get all teams', function() {
     var common = require('../../utils/common');
     UserStore.getAll();
     expect(common.getAllUsers).toBeCalled();

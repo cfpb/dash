@@ -4,23 +4,26 @@ var resources = ('resources');
 var common = {};
 
 common.getAllTeams = function() {
-  return $.get(resources.ALL_TEAMS);
+  return $.get('/kratos/orgs/devdesign/teams');
+  //return $.get(resources.routes.ALL_TEAMS);
 };
 
 common.getAllUsers = function() {
-  return $.get(resources.ALL_USERS);
+  return $.get('/kratos/users');
+  //return $.get(resources.routes.ALL_USERS);
 };
 
 common.addUser = function(opts) {
-  return $.ajax({
-    url: resources.TEAM_USER_ACTION(opts),
-    type: 'PUT'
-  });
+  return $.get('/kratos/users');
+  //return $.ajax({
+  //  url: resources.routes.TEAM_USER_ACTION(opts),
+  //  type: 'PUT'
+  //});
 };
 
 common.removeUser = function(opts) {
   return $.ajax({
-    url: resources.TEAM_USER_ACTION(opts),
+    url: resources.routes.TEAM_USER_ACTION(opts),
     type: 'DELETE'
   });
 };
