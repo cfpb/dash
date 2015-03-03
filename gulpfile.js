@@ -16,6 +16,7 @@ var rename = require('gulp-rename');
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var filter = require('gulp-filter');
+var cover = require('gulp-coverage');
 
 var onError = function(err) {
   gutil.beep();
@@ -23,7 +24,7 @@ var onError = function(err) {
 };
 
 gulp.task('lint', function() {
-  return gulp.src(['./src/js/**/*.jsx', './src/js/**/*.js', './gulpfile.js', '!./src/js/bundle.js'])
+  return gulp.src(['./src/js/**/*.jsx', './src/js/**/*.js', './src/js/**/**/*.js', './gulpfile.js', '!./src/js/bundle.js'])
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -37,7 +38,14 @@ gulp.task('jest', function() {
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(jest(meta.jest));
+    .pipe(cover.instrument({
+      pattern: ['**/__tests__/*.js'],
+      debugDirectory: 'debug'
+    }))
+    .pipe(jest(meta.jest))
+    .pipe(cover.gather())
+    .pipe(cover.format())
+    .pipe(gulp.dest('reports'));
 });
 
 gulp.task('clean', function() {
