@@ -1,21 +1,16 @@
-jest.dontMock('../resources.js');
-
+jest.dontMock('../resources');
 
 describe('resources functions tests', function() {
-  xit('should create a correct team request url from opt', function() {
-    var resources = require('../resources.js');
+  it('should create a correct team request url from opt', function() {
+    var resources = require('../resources');
     var opts = {
       orgName: 'org',
       teamName: 'teamName',
       roleType: 'role',
       userId: 'userId'
     };
-
-    console.log(resources);
-    var expectedUrl = '/kratos/orgs/org/teams/team/roles/role/userId',
-      actualUrl = resources.TEAM_USER_ACTION(opts);
-
+    var expectedUrl = '/kratos/orgs/org/teams/teamName/roles/role/userId',
+      actualUrl = resources.routes.TEAM_USER_ACTION(opts);
     expect(actualUrl).toBe(expectedUrl);
   });
-
 });

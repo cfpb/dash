@@ -1,12 +1,13 @@
 jest.dontMock('../UserItem.jsx');
 describe('Individual user item', function() {
-  var React, UserItem, TestUtils, userItem;
+  var React, UserItem, TestUtils, userItem, userData;
   beforeEach(function() {
     React = require('react/addons');
     UserItem = require('../UserItem.jsx');
     TestUtils = React.addons.TestUtils;
+    userData = {'team': {'_id': 'team_tools', 'name': 'tools'}};
     userItem = TestUtils.renderIntoDocument(
-      <UserItem name="Barbara Toothsmith"/>
+      <UserItem userData={userData} name="Barbara Toothsmith"/>
     );
   });
   it('should load a div', function() {
