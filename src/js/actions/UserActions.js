@@ -2,7 +2,7 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var TeamConstants = require('../constants/UserConstants');
 var common = require('../utils/common');
 
-var TeamActions = {
+var UserActions = {
 
   /**
    * @param  {string} text
@@ -46,4 +46,4 @@ var TeamActions = {
 
 };
 
-module.exports = TeamActions;
+module.exports = UserActions;

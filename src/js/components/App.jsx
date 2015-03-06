@@ -11,6 +11,7 @@ var common = require('../utils/common');
 var $ = require('jquery');
 var TeamStore = require('../stores/TeamStore');
 var UserStore = require('../stores/UserStore');
+var CurrentUserInfo = require('./CurrentUserInfo.jsx');
 
 /**
  * Retrieve the current TODO data from the TodoStore
@@ -19,7 +20,7 @@ function getAllTeams() {
   return TeamStore.getAll();
 }
 
-function getAllUsers(){
+function getAllUsers() {
   return UserStore.getAll();
 }
 
@@ -49,6 +50,7 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
+        <CurrentUserInfo/>
         <h1>Teams</h1>
         <TeamList teams={this.state.teams} users={this.state.users} />
       </div>
