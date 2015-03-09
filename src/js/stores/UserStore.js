@@ -11,14 +11,13 @@ var UserStore = assign({}, EventEmitter.prototype, {
   getAll: function() {
     return common.getAllUsers();
   },
-
+  getCurrentUser: function(){
+    return common.getCurrentUserInfo();
+  },
   emitChange: function() {
     this.emit(CHANGE_EVENT);
   },
 
-  /**
-   * @param {function} callback
-   */
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },

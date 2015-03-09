@@ -24,5 +24,8 @@ common.removeUser = function(opts) {
     type: 'DELETE'
   });
 };
+common.getCurrentUserInfo = function(){
+  return $.get(resources.routes.CURRENT_USER_INFO)
+};
 
 module.exports = common;

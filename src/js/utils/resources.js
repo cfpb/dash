@@ -5,7 +5,8 @@ var resources = {
       return resources.baseUrl + '/orgs/' + opts.orgName + '/teams/' + opts.teamName + '/roles/' + opts.roleType + '/' + opts.userId;
     },
     ALL_TEAMS: '/kratos/orgs/devdesign/teams',
-    ALL_USERS: '/kratos/users'
+    ALL_USERS: '/kratos/users',
+    CURRENT_USER_INFO: '/kratos/user'
   }
 };
 module.exports = resources;
