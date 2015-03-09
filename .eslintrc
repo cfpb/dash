@@ -35,3 +35,4 @@ rules:
   space-in-brackets: [2, "never"]
   react/wrap-multilines: 1
   new-cap: 0
+  no-console: 2

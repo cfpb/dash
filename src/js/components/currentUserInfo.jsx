@@ -11,8 +11,7 @@ var CurrentUserInfo = React.createClass({
 
   getInitialState: function() {
     return {
-      username: 'currentUser',
-      roles: []
+      loggedIn: false
     };
   },
 
@@ -20,22 +19,36 @@ var CurrentUserInfo = React.createClass({
     var userPromise = getUser();
     userPromise.then(function(user) {
       this.setState({
+        loggedIn: true,
         username: user.data.username,
         roles: user.roles
       })
     }.bind(this));
+    userPromise.fail(function(user) {
+      this.setState({
+        loggedIn: false
+      })
+    }.bind(this));
   },
   render: function() {
-    return <div className="current-user">
-      <span className="cf-icon cf-icon-user">
+    var userInfo;
+    if (this.state.loggedIn) {
+      userInfo = <div className="current-user">
+        <span className="cf-icon cf-icon-user">
         {this.state.username}</span>
-
-      <span className="user-role_role">
+        <div className="user-role_role">
                  {this.state.roles[0]}
-      </span>
-    </div>
+        </div>
+      </div>;
+    } else {
+      userInfo = <div>go to hell</div>
+    }
+    return (
+      <div>
+    {userInfo}
+      </div>
+    )
   }
-
 });
 
 module.exports = CurrentUserInfo;

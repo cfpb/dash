@@ -26,7 +26,6 @@ function addUser(userId) {
 }
 
 function removeUser(opts) {
-  console.log('store', opts);
   var userPromise = common.removeUser(opts);
   userPromise.done();
 }

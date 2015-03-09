@@ -38,7 +38,6 @@ describe('List of teams', function() {
     );
 
     var numTeams = TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'team-item').length;
-    console.log(TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'team-item'));
     expect(numTeams).toEqual(2);
 
   });
