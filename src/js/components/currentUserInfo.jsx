@@ -26,14 +26,13 @@ var CurrentUserInfo = React.createClass({
     }.bind(this));
   },
   render: function() {
-    return <div>
-      <span class="cf-icon cf-icon-user"></span>
-        {this.state.username}
-      <div class="user-role">
-        <span class="user-role_role">
+    return <div className="current-user">
+      <span className="cf-icon cf-icon-user">
+        {this.state.username}</span>
+
+      <span className="user-role_role">
                  {this.state.roles[0]}
-        </span>
-      </div>
+      </span>
     </div>
   }
 

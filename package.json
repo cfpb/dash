@@ -13,11 +13,18 @@
     "scriptPreprocessor": "test_preprocessor.js",
     "rootDir": "src/js",
     "unmockedModulePathPatterns": [
-      "node_modules/react"
+      "node_modules/react",
+      "node_modules/react/addons",
+      "node_modules/react-tools"
     ],
     "testFileExtensions": [
       "coffee",
       "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "react"
     ]
   },
   "browserify": {
