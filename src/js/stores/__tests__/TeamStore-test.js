@@ -16,5 +16,4 @@ describe('TeamStore', function() {
     TeamStore.getAll();
     expect(common.getAllTeams).toBeCalled();
   });
-
 });

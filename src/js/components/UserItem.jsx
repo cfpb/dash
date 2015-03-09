@@ -4,7 +4,6 @@ var TeamActions = require('../actions/TeamActions');
 var UserItem = React.createClass({
 
   handleClick: function() {
-    console.log(this.props.userData);
     var opts = {
       orgName: 'devdesign',
       teamName: this.props.userData.team.name,
