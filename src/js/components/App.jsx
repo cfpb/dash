@@ -13,9 +13,7 @@ var TeamStore = require('../stores/TeamStore');
 var UserStore = require('../stores/UserStore');
 var CurrentUserInfo = require('./CurrentUserInfo.jsx');
 
-/**
- * Retrieve the current TODO data from the TodoStore
- */
+
 function getAllTeams() {
   return TeamStore.getAll();
 }
@@ -28,10 +26,8 @@ function getCurrentUser() {
   return UserStore.getCurrentUser();
 }
 
-function getTeams(teams, currentUser) {
-  return teams.filter(function(team) {
-    return $.inArray(currentUser.name, team.roles.member.members) > -1;
-  });
+function filterTeams(teams, currentUser){
+  return TeamStore.getFilteredTeams(teams, currentUser);
 }
 
 var App = React.createClass({
@@ -56,14 +52,16 @@ var App = React.createClass({
     //TeamStore.addChangeListener(this._onChange);
     var getItAll = $.when(getAllTeams(), getAllUsers(), getCurrentUser());
     getItAll.then(function(teams, users, currentUser) {
+      var filteredTeams = filterTeams(teams[0], currentUser[0]);
       this.setState({
         allUsers: users[0],
         allTeams: teams[0],
+        otherTeams: filteredTeams.otherTeams,
         user: {
-          teams: getTeams(teams[0], currentUser[0]),
           loggedIn: true,
           id: currentUser[0].name,
           username: currentUser[0].data.username,
+          teams: filteredTeams.myTeams,
           roles: currentUser[0].roles
         }
       });
@@ -77,8 +75,8 @@ var App = React.createClass({
       <div className='team-list'>
         <h2>My Teams</h2>
         <TeamList teams={s.user.teams} users={s.allUsers} />
-        <h2>All Teams</h2>
-        <TeamList teams={s.allTeams} users={s.allUsers} />
+        <h2>All Other Teams</h2>
+        <TeamList teams={s.otherTeams} users={s.allUsers} />
       </div>
     ) : null;
     return (

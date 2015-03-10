@@ -3,6 +3,7 @@ var EventEmitter = require('events').EventEmitter;
 var TeamConstants = require('../constants/TeamConstants');
 var assign = require('object-assign');
 var common = require('../utils/common');
+var $ = require('jquery');
 
 var CHANGE_EVENT = 'change';
 
@@ -35,6 +36,21 @@ var TeamStore = assign({}, EventEmitter.prototype, {
   getAll: function() {
     return common.getAllTeams();
   },
+  getFilteredTeams: function(teams, currentUser) {
+    var myTeams = [],
+      otherTeams = [];
+    teams.forEach(function(team) {
+      if ($.inArray(currentUser.name, team.roles.member.members) > -1) {
+        myTeams.push(team);
+      } else {
+        otherTeams.push(team);
+      }
+    });
+    return {
+      myTeams: myTeams,
+      otherTeams: otherTeams
+    }
+  },
 
   emitChange: function() {
     this.emit(CHANGE_EVENT);
@@ -42,7 +58,8 @@ var TeamStore = assign({}, EventEmitter.prototype, {
 
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
-  },
+  }
+  ,
 
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);

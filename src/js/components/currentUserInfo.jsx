@@ -11,12 +11,12 @@ var CurrentUserInfo = React.createClass({
     if (this.props.loggedIn) {
       userInfo = (
         <div>
-          <span className='cf-icon cf-icon-user'>
+          <div className='cf-icon cf-icon-user'>
             {this.props.username}
-          </span>
-          <span className='user-role_role'>
+          </div>
+          <div className='user-role_role'>
             {this.props.roles}
-          </span>
+          </div>
           <Button href='/logout' label='Log out' type='secondary' />
         </div>
       );
