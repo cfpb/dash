@@ -1,5 +1,6 @@
 var React = require('react');
 var TeamActions = require('../actions/TeamActions');
+var Icon = require('./Icon.jsx')
 
 var UserItem = React.createClass({
 
@@ -18,9 +19,11 @@ var UserItem = React.createClass({
 
   render: function() {
     return (
-      <li className="user-item">
-        <button onClick={this.handleClick}>Remove user</button>
-        <span className="user-name">{this.props.name}</span>
+      <li className='user-item'>
+        <a href='#' onClick={this.handleClick}>
+          <Icon type='delete-round' />
+        </a>
+        <span className='user-name'>{this.props.name}</span>
       </li>
     )
   }

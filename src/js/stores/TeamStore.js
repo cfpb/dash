@@ -73,6 +73,7 @@ AppDispatcher.register(function(action) {
       removeUser(action.payload);
       TeamStore.emitChange();
       break;
+
     default:
     // no op
   }

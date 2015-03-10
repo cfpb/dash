@@ -7,7 +7,7 @@ describe('Individual user item', function() {
     TestUtils = React.addons.TestUtils;
     userData = {'team': {'_id': 'team_tools', 'name': 'tools'}};
     userItem = TestUtils.renderIntoDocument(
-      <UserItem userData={userData} name="Barbara Toothsmith"/>
+      <UserItem userData={userData} name='Barbara Toothsmith'/>
     );
   });
   it('should load a div', function() {
