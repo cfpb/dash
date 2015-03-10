@@ -4,10 +4,21 @@ var TeamItem = require('./TeamItem.jsx');
 
 var TeamList = React.createClass({
 
+  propTypes: {
+    teams: React.PropTypes.array.isRequired,
+    users: React.PropTypes.array.isRequired
+  },
+  getDefaultProps: function() {
+    return {
+      teams: [],
+      users: []
+    };
+  },
+
   render: function() {
 
     var teams = this.props.teams,
-      users = this.props.users;
+        users = this.props.users;
 
     teams = teams.map(function(team) {
       var members = users.filter(function(val, i) {

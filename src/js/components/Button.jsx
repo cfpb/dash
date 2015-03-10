@@ -3,6 +3,7 @@ var React = require('react');
 var Button = React.createClass({
   propTypes: {
     label: React.PropTypes.string.isRequired,
+    href: React.PropTypes.string.isRequired,
     type: React.PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.array
@@ -15,12 +16,11 @@ var Button = React.createClass({
     };
   },
   render: function() {
-    var types = this.props.type instanceof Array ? this.props.type.join(' ') : this.props.type;
-    types = 'btn ' + types;
+    var types = this.props.type instanceof Array
+              ? 'btn btn__' + this.props.type.join(' btn__')
+              : 'btn btn__' + this.props.type;
     return (
-      <button className={types}>
-        {this.props.label}
-      </button>
+      <a href={this.props.href} className={types}>{this.props.label}</a>
     );
   }
 });

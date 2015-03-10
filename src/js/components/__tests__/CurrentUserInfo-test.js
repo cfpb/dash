@@ -21,7 +21,7 @@ describe('Current user', function() {
       return d.promise();
     });
     var currentUserInfo = TestUtils.renderIntoDocument(
-      <CurrentUserInfo />
+      <CurrentUserInfo username={user.data.username} roles={user.roles} loggedIn='true' />
     );
     var userNode = currentUserInfo.getDOMNode();
     expect(userNode.className).toEqual('current-user');

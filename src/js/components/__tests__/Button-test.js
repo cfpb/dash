@@ -9,7 +9,7 @@ describe('A button', function() {
 
   it('should have a default label', function() {
     var button = TestUtils.renderIntoDocument(
-      <Button />
+      <Button href='#' />
     );
     var node = button.getDOMNode();
     expect(node.textContent).toEqual('Click here!');
@@ -17,19 +17,19 @@ describe('A button', function() {
 
   it('should accept a type and pass it to its class', function() {
     var button = TestUtils.renderIntoDocument(
-      <Button label='i heart buttons' type='foo' />
+      <Button href='#' label='i heart buttons' type='foo' />
     );
     var node = button.getDOMNode();
-    expect(node.className).toEqual('btn foo');
+    expect(node.className).toEqual('btn btn__foo');
   });
 
   it('should accept multiple types and pass them to its class', function() {
     var arr = ['foo', 'bar'];
     var button = TestUtils.renderIntoDocument(
-      <Button label='i heart buttons' type={arr} />
+      <Button href='#' label='i heart buttons' type={arr} />
     );
     var node = button.getDOMNode();
-    expect(node.className).toEqual('btn foo bar');
+    expect(node.className).toEqual('btn btn__foo btn__bar');
   });
 
 });

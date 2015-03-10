@@ -24,35 +24,68 @@ function getAllUsers() {
   return UserStore.getAll();
 }
 
+function getCurrentUser() {
+  return UserStore.getCurrentUser();
+}
+
+function getTeams(teams, currentUser) {
+  return teams.filter(function(team) {
+    return $.inArray(currentUser.name, team.roles.member.members) > -1;
+  });
+}
+
 var App = React.createClass({
 
   getInitialState: function() {
     // return getTodoState();
     return {
-      teams: [],
-      users: []
+      allUsers: [],
+      allTeams: [],
+      user: {
+        loggedIn: false,
+        id: null,
+        username: 'Anonymous',
+        teams: [],
+        roles: []
+      }
     }
   },
 
   componentDidMount: function() {
+
     //TeamStore.addChangeListener(this._onChange);
-    var getTeams = getAllTeams();
-    var getUsers = getAllUsers();
-    var p = $.when(getTeams, getUsers);
-    p.then(function(teams, users) {
+    var getItAll = $.when(getAllTeams(), getAllUsers(), getCurrentUser());
+    getItAll.then(function(teams, users, currentUser) {
       this.setState({
-        teams: teams[0],
-        users: users[0]
+        allUsers: users[0],
+        allTeams: teams[0],
+        user: {
+          teams: getTeams(teams[0], currentUser[0]),
+          loggedIn: true,
+          id: currentUser[0].name,
+          username: currentUser[0].data.username,
+          roles: currentUser[0].roles
+        }
       });
     }.bind(this));
+
   },
 
   render: function() {
+    var s = this.state;
+    var teams = s.user.loggedIn ? (
+      <div className='team-list'>
+        <h2>My Teams</h2>
+        <TeamList teams={s.user.teams} users={s.allUsers} />
+        <h2>All Teams</h2>
+        <TeamList teams={s.allTeams} users={s.allUsers} />
+      </div>
+    ) : null;
     return (
       <div>
-        <CurrentUserInfo/>
-        <h1>Teams</h1>
-        <TeamList teams={this.state.teams} users={this.state.users} />
+        <h1>Dev Dash</h1>
+        <CurrentUserInfo loggedIn={s.user.loggedIn} username={s.user.username} roles={s.user.roles} />
+        {teams}
       </div>
     );
   }
