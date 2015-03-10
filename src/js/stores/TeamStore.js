@@ -70,7 +70,6 @@ AppDispatcher.register(function(action) {
       break;
 
     case TeamConstants.TEAM_REMOVE_USER_START:
-      console.log('action', action);
       removeUser(action.payload);
       TeamStore.emitChange();
       break;

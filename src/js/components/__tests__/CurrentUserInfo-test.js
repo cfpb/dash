@@ -11,8 +11,7 @@ describe('Current user', function() {
     var user = {
       data: {
         username: 'boo'
-      }
-      ,
+      },
       roles: ['admin']
     };
 
@@ -22,12 +21,12 @@ describe('Current user', function() {
       return d.promise();
     });
     var currentUserInfo = TestUtils.renderIntoDocument(
-      <CurrentUserInfo/>
+      <CurrentUserInfo />
     );
-    var userNode = currentUserInfo.getDOMNode().childNodes[0];
+    var userNode = currentUserInfo.getDOMNode();
     expect(userNode.className).toEqual('current-user');
-    expect(userNode.childNodes[0].textContent).toEqual('boo');
-    expect(userNode.childNodes[1].textContent).toEqual('admin');
+    expect(userNode.childNodes[0].childNodes[0].textContent).toEqual('boo');
+    expect(userNode.childNodes[0].childNodes[1].textContent).toEqual('admin');
   });
 
   it('should render login button whe user is not authd', function() {
@@ -43,9 +42,9 @@ describe('Current user', function() {
       return d.promise();
     });
     var currentUserInfo = TestUtils.renderIntoDocument(
-      <CurrentUserInfo/>
+      <CurrentUserInfo />
     );
-    var userNode = currentUserInfo.getDOMNode().childNodes[0];
-    expect(userNode.childNodes[0].textContent).toEqual('go to hell');
+    var userNode = currentUserInfo.getDOMNode();
+    expect(userNode.childNodes[0].childNodes[0].textContent).toEqual('Log into DevDash');
   });
 });

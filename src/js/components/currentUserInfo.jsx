@@ -1,6 +1,7 @@
 var React = require('react');
 var common = require('../utils/common');
 var UserStore = require('../stores/UserStore');
+var Button = require('./Button.jsx');
 var $ = require('jquery');
 
 function getUser() {
@@ -33,19 +34,20 @@ var CurrentUserInfo = React.createClass({
   render: function() {
     var userInfo;
     if (this.state.loggedIn) {
-      userInfo = <div className="current-user">
+      userInfo = <div>
         <span className="cf-icon cf-icon-user">
-        {this.state.username}</span>
-        <div className="user-role_role">
-                 {this.state.roles[0]}
-        </div>
+          {this.state.username}
+        </span>
+        <span className="user-role_role">
+          {this.state.roles[0]}
+        </span>
       </div>;
     } else {
-      userInfo = <div>go to hell</div>
+      userInfo = <Button label='Log into DevDash' type='link' />
     }
     return (
-      <div>
-    {userInfo}
+      <div className='current-user'>
+        {userInfo}
       </div>
     )
   }
