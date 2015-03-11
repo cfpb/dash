@@ -6,4 +6,5 @@ echo "gulp $(gulp --version)"
 echo "browserify $(browserify --version)"
 
 npm install
+npm test
 gulp build
