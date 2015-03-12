@@ -1,0 +1,3 @@
+install:
+  - npm install -g gulp bower jest-cli browserify
+  - ./frontendbuild.sh
