@@ -34,6 +34,6 @@ describe('TeamStore', function() {
     expect(result.myTeams).toContain(teams[3]);
 
     expect(otherUserTeam.myTeams.length).toEqual(0);
-    expect(otherUserTeam.otherTeams.length).toEqual(5);
+    expect(otherUserTeam.otherTeams.length).toEqual(4);
   });
 });

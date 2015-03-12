@@ -1,5 +1,5 @@
 jest.dontMock('../TeamList.jsx')
-    .dontMock('jquery');
+  .dontMock('jquery');
 
 describe('List of teams', function() {
   it('should contain some teams', function() {
@@ -8,9 +8,16 @@ describe('List of teams', function() {
     var TestUtils = React.addons.TestUtils;
 
     var teams = [
-        {'name': 'foo1',
+        {
+          'name': 'foo1',
           'roles': {
             'member': {
+              'members': [
+                'c7a9d8c1c0516c0910f7b2013e004675',
+                'c7a9d8c1c0516c0910f7b2013e00d518',
+                'c7a9d8c1c0516c0910f7b2013e02bd9d']
+            },
+            'admin': {
               'members': [
                 'c7a9d8c1c0516c0910f7b2013e004675',
                 'c7a9d8c1c0516c0910f7b2013e00d518',
@@ -18,9 +25,16 @@ describe('List of teams', function() {
             }
           }
         },
-        {'name': 'foo2',
+        {
+          'name': 'foo2',
           'roles': {
             'member': {
+              'members': [
+                'c7a9d8c1c0516c0910f7b2013e004675',
+                'c7a9d8c1c0516c0910f7b2013e00d518',
+                'c7a9d8c1c0516c0910f7b2013e02bd9d']
+            },
+            'admin': {
               'members': [
                 'c7a9d8c1c0516c0910f7b2013e004675',
                 'c7a9d8c1c0516c0910f7b2013e00d518',
