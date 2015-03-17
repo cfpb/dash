@@ -13,6 +13,7 @@ var UserItem = React.createClass({
     }
     this._removeUser(opts);
   },
+
   _removeUser: function(opts) {
     TeamActions.removeUser(opts);
   },

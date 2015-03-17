@@ -1,6 +1,7 @@
 var React = require('react');
 var $ = require('jquery');
 var TeamItem = require('./TeamItem.jsx');
+var TeamStore = require('../stores/TeamStore');
 
 var TeamList = React.createClass({
 
@@ -27,6 +28,7 @@ var TeamList = React.createClass({
       var adminMembers = users.filter(function(val, i) {
         return $.inArray(val.name, team.roles.admin.members) > -1;
       });
+      var assets = TeamStore.getTeamAssets(team);
 
       function addTeams(members) {
         return members.map(function(member) {
@@ -40,7 +42,7 @@ var TeamList = React.createClass({
       userMembers = addTeams(userMembers);
       adminMembers = addTeams(adminMembers);
 
-      return <TeamItem name={team.name} memberUsers={userMembers} adminUsers={adminMembers} key={team.name} />;
+      return <TeamItem name={team.name} memberUsers={userMembers} adminUsers={adminMembers} assets={assets} key={team.name} />;
     });
 
     return (

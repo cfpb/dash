@@ -36,9 +36,12 @@ var TeamStore = assign({}, EventEmitter.prototype, {
   getAll: function() {
     return common.getAllTeams();
   },
+
   getFilteredTeams: function(teams, currentUser) {
     var myTeams = [],
-      otherTeams = [];
+        otherTeams = [],
+        assets;
+
     teams.forEach(function(team) {
       if ($.inArray(currentUser.name, team.roles.member.members) > -1) {
         myTeams.push(team);
@@ -46,10 +49,15 @@ var TeamStore = assign({}, EventEmitter.prototype, {
         otherTeams.push(team);
       }
     });
+
     return {
       myTeams: myTeams,
       otherTeams: otherTeams
     }
+  },
+
+  getTeamAssets: function(team) {
+    return team.rsrcs.gh ? team.rsrcs.gh.assets : [];
   },
 
   emitChange: function() {
@@ -58,8 +66,7 @@ var TeamStore = assign({}, EventEmitter.prototype, {
 
   addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
-  }
-  ,
+  },
 
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);

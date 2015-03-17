@@ -26,8 +26,7 @@ describe('Individual team item', function() {
           'name': 'c7a9d8c1c0516c0910f7b2013e01500e',
           'data': {'username': 'errosica'}
         }
-      ]
-      ;
+      ];
 
     var teamItem = TestUtils.renderIntoDocument(
       <TeamItem name={name} adminUsers={adminUsers} memberUsers={memberUsers} key={name} />

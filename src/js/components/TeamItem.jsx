@@ -1,5 +1,6 @@
 var React = require('react');
 var UserList = require('./UserList.jsx');
+var AssetList = require('./AssetList.jsx');
 var Button = require('./Button.jsx');
 var Icon = require('./Icon.jsx');
 var TeamActions = require('../actions/TeamActions');
@@ -9,6 +10,10 @@ var TeamItem = React.createClass({
 
   _addUser: function(opts) {
     TeamActions.addUser(opts);
+  },
+
+  _addAsset: function(opts) {
+    TeamActions.addAsset(opts);
   },
 
   _toggleSection: function(event) {
@@ -26,19 +31,30 @@ var TeamItem = React.createClass({
           <Icon type="user" /><span>admin, user</span>
         </div>
         <div className="admins-and-members">
+
           <div onClick={this.props.adminUsers.length ? this._toggleSection : null}>
             <Button className="admins-header" type="link" label={'Admin (' + this.props.adminUsers.length + ')'} />
           </div>
           <div className="admins-list hidden">
             <UserList users={this.props.adminUsers} />
           </div>
+
           <div onClick={this.props.memberUsers.length ? this._toggleSection : null}>
-            <Button className="members-header" type="link" label={'Member (' + this.props.memberUsers.length + ')'} onClick={this._toggleSection} />
+            <Button className="members-header" type="link" label={'Member (' + this.props.memberUsers.length + ')'} />
           </div>
           <div className="members-list hidden">
             <UserList users={this.props.memberUsers} />
             <Button label="Add User" onClick={this._addUser} />
           </div>
+
+          <div onClick={this.props.assets.length ? this._toggleSection : null}>
+            <Button className="assets-header" type="link" label={'Asset (' + this.props.assets.length + ')'} />
+          </div>
+          <div className="asset-list hidden">
+            <AssetList assets={this.props.assets} />
+            <Button label="Add Asset" onClick={this._addAsset} />
+          </div>
+
         </div>
       </div>
     )

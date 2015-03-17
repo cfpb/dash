@@ -36,4 +36,36 @@ describe('TeamStore', function() {
     expect(otherUserTeam.myTeams.length).toEqual(0);
     expect(otherUserTeam.otherTeams.length).toEqual(4);
   });
+
+  it('should extract assets from teams', function() {
+
+    /* eslint-disable */
+    var team = {
+      rsrcs: {
+        gh: {
+          assets: [
+            {
+              id: 'id-1',
+              gh_id: 1,
+              name: 'repo_name',
+              full_name: 'url/repo_name'
+            },
+            {
+              id: 'id-2',
+              gh_id: 2,
+              name: 'repo_name2',
+              full_name: 'url/repo_name2'
+            }
+          ]
+        }
+      }
+    };
+    /* eslint-enable */
+
+    var result = TeamStore.getTeamAssets(team);
+
+    expect(result.length).toEqual(2);
+    expect(result).toContain(team.rsrcs.gh.assets[0]);
+
+  });
 });
