@@ -12,6 +12,7 @@ var TeamItem = React.createClass({
   },
 
   _toggleSection: function(event) {
+    event.preventDefault();
     $(event.target).parent().next().slideToggle();
   },
 
