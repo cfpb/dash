@@ -18,7 +18,7 @@ var TeamList = React.createClass({
   render: function() {
 
     var teams = this.props.teams,
-      users = this.props.users;
+        users = this.props.users;
 
     teams = teams.map(function(team) {
       var userMembers = users.filter(function(val, i) {
@@ -39,6 +39,7 @@ var TeamList = React.createClass({
 
       userMembers = addTeams(userMembers);
       adminMembers = addTeams(adminMembers);
+
       return <TeamItem name={team.name} memberUsers={userMembers} adminUsers={adminMembers} key={team.name} />;
     });
 
