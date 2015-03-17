@@ -7,18 +7,37 @@ describe('List of teams', function() {
     var TeamList = require('../TeamList.jsx');
     var TestUtils = React.addons.TestUtils;
 
+    /* eslint-disable */
     var teams = [
         {
-          'name': 'foo1',
-          'roles': {
-            'member': {
-              'members': [
+          name: 'foo1',
+          rsrcs: {
+            gh: {
+              assets: [
+                {
+                  id: 'id-1',
+                  gh_id: 1,
+                  name: 'repo_name',
+                  full_name: 'url/repo_name'
+                },
+                {
+                  id: 'id-2',
+                  gh_id: 2,
+                  name: 'repo_name2',
+                  full_name: 'url/repo_name2'
+                }
+              ]
+            }
+          },
+          roles: {
+            member: {
+              members: [
                 'c7a9d8c1c0516c0910f7b2013e004675',
                 'c7a9d8c1c0516c0910f7b2013e00d518',
                 'c7a9d8c1c0516c0910f7b2013e02bd9d']
             },
-            'admin': {
-              'members': [
+            admin: {
+              members: [
                 'c7a9d8c1c0516c0910f7b2013e004675',
                 'c7a9d8c1c0516c0910f7b2013e00d518',
                 'c7a9d8c1c0516c0910f7b2013e02bd9d']
@@ -26,26 +45,44 @@ describe('List of teams', function() {
           }
         },
         {
-          'name': 'foo2',
-          'roles': {
-            'member': {
-              'members': [
+          name: 'foo2',
+          rsrcs: {
+            gh: {
+              assets: [
+                {
+                  id: 'id-1',
+                  gh_id: 1,
+                  name: 'repo_name',
+                  full_name: 'url/repo_name'
+                },
+                {
+                  id: 'id-2',
+                  gh_id: 2,
+                  name: 'repo_name2',
+                  full_name: 'url/repo_name2'
+                }
+              ]
+            }
+          },
+          roles: {
+            member: {
+              members: [
                 'c7a9d8c1c0516c0910f7b2013e004675',
                 'c7a9d8c1c0516c0910f7b2013e00d518',
                 'c7a9d8c1c0516c0910f7b2013e02bd9d']
             },
-            'admin': {
-              'members': [
+            admin: {
+              members: [
                 'c7a9d8c1c0516c0910f7b2013e004675',
                 'c7a9d8c1c0516c0910f7b2013e00d518',
                 'c7a9d8c1c0516c0910f7b2013e02bd9d']
             }
           }
         }
-      ],
-      users = [
-        {'name': 'c7a9d8c1c0516c0910f7b2013e0019e7', 'data': {'username': 'agarwalan'}}
       ];
+    
+    var users = [{name: 'c7a9d8c1c0516c0910f7b2013e0019e7', data: {username: 'agarwalan'}}];
+    /* eslint-enable */
 
     var teamList = TestUtils.renderIntoDocument(
       <TeamList teams={teams} users={users} />
