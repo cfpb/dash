@@ -25,14 +25,18 @@ var TeamItem = React.createClass({
           <Icon type="user" /><span>admin, user</span>
         </div>
         <div className="admins-and-members">
-          <h2 className="admins-header" onClick={this._toggleSection}>Admins ({this.props.adminUsers.length})</h2>
+          <div onClick={this.props.adminUsers.length ? this._toggleSection : null}>
+            <Button className="admins-header" type="link" label={'Admin (' + this.props.adminUsers.length + ')'} />
+          </div>
           <div className="admins-list hidden">
             <UserList users={this.props.adminUsers} />
           </div>
-          <h2 className="members-header" onClick={this._toggleSection}>Members ({this.props.memberUsers.length})</h2>
+          <div onClick={this.props.memberUsers.length ? this._toggleSection : null}>
+            <Button className="members-header" type="link" label={'Member (' + this.props.memberUsers.length + ')'} onClick={this._toggleSection} />
+          </div>
           <div className="members-list hidden">
             <UserList users={this.props.memberUsers} />
-            <Button href="#" label="Add User" onClick={this._addUser} />
+            <Button label="Add User" onClick={this._addUser} />
           </div>
         </div>
       </div>

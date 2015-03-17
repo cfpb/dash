@@ -12,6 +12,7 @@ var Button = React.createClass({
   getDefaultProps: function() {
     return {
       label: 'Click here!',
+      href: '#',
       type: ''
     };
   },
