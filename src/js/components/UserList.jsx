@@ -5,18 +5,13 @@ var UserList = React.createClass({
 
   componentWillMount: function() {
 
-    var memberUsers = this.props.memberUsers,
-      adminUsers = this.props.adminUsers;
+    var users = this.props.users;
 
-    memberUsers = memberUsers.map(function(user) {
-      return <UserItem userData={user} name={user.data.username} key={user.name} />;
-    });
-    adminUsers = adminUsers.map(function(user) {
+    users = users.map(function(user) {
       return <UserItem userData={user} name={user.data.username} key={user.name} />;
     });
     this.setState({
-      memberUsers: memberUsers,
-      adminUsers: adminUsers
+      users: users
     });
   },
 
@@ -24,13 +19,8 @@ var UserList = React.createClass({
 
     return (
       <div>
-        <h2>Users</h2>
         <ul className="user-list">
-          {this.state.memberUsers}
-        </ul>
-        <h2>Admins</h2>
-        <ul>
-          {this.state.adminUsers}
+          {this.state.users}
         </ul>
       </div>
     )

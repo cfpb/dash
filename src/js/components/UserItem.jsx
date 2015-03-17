@@ -1,6 +1,6 @@
 var React = require('react');
 var TeamActions = require('../actions/TeamActions');
-var Icon = require('./Icon.jsx')
+var Icon = require('./Icon.jsx');
 
 var UserItem = React.createClass({
 
