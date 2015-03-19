@@ -16,6 +16,7 @@ var rename = require('gulp-rename');
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var filter = require('gulp-filter');
+var coveralls = require('gulp-coveralls');
 
 var onError = function(err) {
   gutil.beep();
@@ -37,7 +38,12 @@ gulp.task('jest', function() {
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(jest(meta.jest))
+    .pipe(jest(meta.jest));
+});
+
+gulp.task('coverage', ['jest'], function() {
+  return gulp.src('./coverage/lcov.info')
+    .pipe(coveralls());
 });
 
 gulp.task('clean', function() {
@@ -79,5 +85,5 @@ gulp.task('watch', function() {
   gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['deploy', 'test']);
 });
 
-gulp.task('test', ['lint', 'jest']);
+gulp.task('test', ['lint', 'coverage']);
 gulp.task('default', ['test', 'build']);
