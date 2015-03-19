@@ -1,6 +1,6 @@
 # Dash
 
-[![Build Status](https://travis-ci.org/contolini/dash.svg?branch=master)](https://travis-ci.org/contolini/dash) [![Coverage Status](https://coveralls.io/contolini/contolini/dash/badge.svg)](https://coveralls.io/r/contolini/dash)
+[![Build Status](https://travis-ci.org/cfpb/dash.svg?branch=master)](https://travis-ci.org/cfpb/dash) [![Coverage Status](https://coveralls.io/repos/cfpb/dash/badge.svg?branch=master)](https://coveralls.io/r/cfpb/dash?branch=master)
 
 ## Installation
 
