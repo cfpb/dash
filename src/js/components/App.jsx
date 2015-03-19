@@ -74,7 +74,7 @@ var App = React.createClass({
     var teams = s.user.loggedIn ? (
       <div className='team-list'>
         <h2>My Teams</h2>
-        <TeamList teams={s.user.teams} users={s.allUsers} />
+        <TeamList teams={s.user.teams} users={s.allUsers} currentUserId={s.user.id} />
         <h2>All Other Teams</h2>
         <TeamList teams={s.otherTeams} users={s.allUsers} />
       </div>

@@ -22,13 +22,22 @@ var TeamItem = React.createClass({
   },
 
   render: function() {
+
+    var roles = [];
+
+    if (this.props.roles) {
+      for (var role in this.props.roles) {
+        roles.push(role);
+      }
+    }
+
     return (
       <div className="team-item">
         <h2 className="team-name">
           {this.props.name}
         </h2>
         <div className="user-role">
-          <Icon type="user" /><span>admin, user</span>
+          <Icon type="user" /><span>{roles.join(', ')}</span>
         </div>
         <div className="admins-and-members">
 
