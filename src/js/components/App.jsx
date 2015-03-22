@@ -4,14 +4,13 @@
  */
 
 // var Footer = require('./Footer.jsx');
-// var Header = require('./Header.jsx');
+var Header = require('./Header.jsx');
 var TeamList = require('./TeamList.jsx');
 var React = require('react');
 var common = require('../utils/common');
 var $ = require('jquery');
 var TeamStore = require('../stores/TeamStore');
 var UserStore = require('../stores/UserStore');
-var CurrentUserInfo = require('./CurrentUserInfo.jsx');
 
 
 function getAllTeams() {
@@ -72,18 +71,24 @@ var App = React.createClass({
   render: function() {
     var s = this.state;
     var teams = s.user.loggedIn ? (
-      <div className='team-list'>
-        <h2>My Teams</h2>
+      <div id='my-teams'>
+        <h1>My Teams</h1>
         <TeamList teams={s.user.teams} users={s.allUsers} currentUserId={s.user.id} />
-        <h2>All Other Teams</h2>
+        <h1>All Other Teams</h1>
         <TeamList teams={s.otherTeams} users={s.allUsers} />
       </div>
     ) : null;
     return (
       <div>
-        <h1>Dev Dash</h1>
-        <CurrentUserInfo loggedIn={s.user.loggedIn} username={s.user.username} roles={s.user.roles} />
-        {teams}
+        <Header loggedIn={s.user.loggedIn} username={s.user.username} roles={s.user.roles} />
+        <main className="content" id="main" role="main">
+          <div className="content_bar"></div>
+          <div className="content_wrapper">
+            <div className="content_main">
+              {teams}
+            </div>
+          </div>
+        </main>
       </div>
     );
   }

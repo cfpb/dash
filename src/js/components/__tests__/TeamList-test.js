@@ -93,7 +93,7 @@ describe('List of teams', function() {
       <TeamList teams={teams} users={users} />
     );
 
-    var numTeams = TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'team-item').length;
+    var numTeams = TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'teams_item').length;
     expect(numTeams).toEqual(2);
 
   });

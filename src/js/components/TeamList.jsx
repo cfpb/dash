@@ -56,7 +56,7 @@ var TeamList = React.createClass({
     });
 
     return (
-      <div className="team-list">
+      <div className="teams">
         {teams}
       </div>
     )

@@ -48,6 +48,6 @@ describe('Individual team item', function() {
       <TeamItem name={name} adminUsers={adminUsers} memberUsers={memberUsers} assets={assets} key={name} />
     );
 
-    expect(teamItem.getDOMNode().className).toEqual('team-item');
+    expect(teamItem.getDOMNode().className).toEqual('teams_item');
   });
 });

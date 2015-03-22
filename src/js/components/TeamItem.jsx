@@ -32,40 +32,47 @@ var TeamItem = React.createClass({
     }
 
     return (
-      <div className="team-item">
-        <h2 className="team-name">
-          {this.props.name}
-        </h2>
-        <div className="user-role">
-          <Icon type="user" /><span>{roles.join(', ')}</span>
+      <section className="teams_item">
+        <div className="expandable expandable__padded expandable__team">
+
+          <h1 className="expandable_label">
+            {this.props.name}
+          </h1>
+          <div className="expandable_role corner-badge corner-badge__user">
+            <span className="corner-badge_label">{roles.join(', ')}</span>
+          </div>
+          <div className="expandable_actions">
+
+            <div className="expandable_header-left">
+              <div className="expandable_header-link" onClick={this.props.adminUsers.length ? this._toggleSection : null}>
+                <Button className="admins-header" type={['link', 'secondary']} label={'Admin (' + this.props.adminUsers.length + ')'} />
+              </div>
+              <div className="admins-list hidden">
+                <UserList users={this.props.adminUsers} />
+              </div>
+
+              <div className="expandable_header-link" onClick={this.props.memberUsers.length ? this._toggleSection : null}>
+                <Button className="members-header" type={['link', 'secondary']} label={'Member (' + this.props.memberUsers.length + ')'} />
+              </div>
+              <div className="members-list hidden">
+                <UserList users={this.props.memberUsers} />
+                <Button label="Add User" onClick={this._addUser} />
+              </div>
+            </div>
+
+            <div className="expandable_header-right">
+              <div onClick={this.props.assets.length ? this._toggleSection : null}>
+                <Button className="assets-header" type={['link', 'secondary']} label={'Asset (' + this.props.assets.length + ')'} />
+              </div>
+              <div className="assets-list hidden">
+                <AssetList assets={this.props.assets} />
+                <Button label="Add Asset" onClick={this._addAsset} />
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div className="admins-and-members">
-
-          <div onClick={this.props.adminUsers.length ? this._toggleSection : null}>
-            <Button className="admins-header" type="link" label={'Admin (' + this.props.adminUsers.length + ')'} />
-          </div>
-          <div className="admins-list hidden">
-            <UserList users={this.props.adminUsers} />
-          </div>
-
-          <div onClick={this.props.memberUsers.length ? this._toggleSection : null}>
-            <Button className="members-header" type="link" label={'Member (' + this.props.memberUsers.length + ')'} />
-          </div>
-          <div className="members-list hidden">
-            <UserList users={this.props.memberUsers} />
-            <Button label="Add User" onClick={this._addUser} />
-          </div>
-
-          <div onClick={this.props.assets.length ? this._toggleSection : null}>
-            <Button className="assets-header" type="link" label={'Asset (' + this.props.assets.length + ')'} />
-          </div>
-          <div className="asset-list hidden">
-            <AssetList assets={this.props.assets} />
-            <Button label="Add Asset" onClick={this._addAsset} />
-          </div>
-
-        </div>
-      </div>
+      </section>
     )
   }
 
