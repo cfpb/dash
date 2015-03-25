@@ -14,7 +14,9 @@ describe('UserStore', function() {
     var common = require('../../utils/common'),
         resources = require('../../utils/resources');
     UserStore.getAll();
+    UserStore.getCurrentUser();
     expect(common.getAllUsers).toBeCalled();
+    expect(common.getCurrentUserInfo).toBeCalled();
   });
 
 });

@@ -14,13 +14,14 @@ var UserStore = assign({}, EventEmitter.prototype, {
   getCurrentUser: function(){
     return common.getCurrentUserInfo();
   },
-  emitChange: function() {
-    this.emit(CHANGE_EVENT);
-  },
-
-  addChangeListener: function(callback) {
-    this.on(CHANGE_EVENT, callback);
-  },
+  //copy and paste shame, not being used right now
+  //emitChange: function() {
+  //  this.emit(CHANGE_EVENT);
+  //},
+  //
+  //addChangeListener: function(callback) {
+  //  this.on(CHANGE_EVENT, callback);
+  //},
 
   /**
    * @param {function} callback
@@ -33,12 +34,11 @@ var UserStore = assign({}, EventEmitter.prototype, {
 // Register callback to handle all updates
 AppDispatcher.register(function(action) {
 
-  var text;
-
-  switch (action.actionType) {
-    case '':
-      break;
-  }
+//this is copy and paste
+  //switch (action.actionType) {
+  //  case '':
+  //    break;
+  //}
 
 });
 
