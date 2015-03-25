@@ -19,40 +19,15 @@ var TeamList = React.createClass({
   render: function() {
 
     var teams = this.props.teams,
-        users = this.props.users,
-        currentUserId = this.props.currentUserId,
-        roles = {};
+      users = this.props.users,
+      currentUserId = this.props.currentUserId;
 
     teams = teams.map(function(team) {
-      var userMembers = users.filter(function(user, i) {
-        return $.inArray(user.name, team.roles.member.members) > -1;
-      });
-      var adminMembers = users.filter(function(user, i) {
-        return $.inArray(user.name, team.roles.admin.members) > -1;
-      });
-      var assets = TeamStore.getTeamAssets(team);
 
-      function addTeams(members) {
-        return members.map(function(member) {
-          member.team = {};
-          member.team._id = team._id;
-          member.team.name = team.name;
-          return member;
-        });
-      }
+      var constructedTeam = TeamStore.constructTeamAndUserMetadata(team, users, currentUserId);
+      constructedTeam.assets = TeamStore.getTeamAssets(team);
 
-      userMembers = addTeams(userMembers);
-      adminMembers = addTeams(adminMembers);
-
-      if (currentUserId && $.inArray(currentUserId, team.roles.member.members) > -1) {
-        roles.member = true;
-      }
-
-      if (currentUserId && $.inArray(currentUserId, team.roles.admin.members) > -1) {
-        roles.admin = true;
-      }
-
-      return <TeamItem name={team.name} memberUsers={userMembers} adminUsers={adminMembers} roles={roles} assets={assets} key={team.name} />;
+      return <TeamItem name={constructedTeam.name} memberUsers={constructedTeam.userMembers} adminUsers={constructedTeam.adminMembers} roles={constructedTeam.roles} assets={constructedTeam.assets} key={constructedTeam.name} />;
     });
 
     return (
