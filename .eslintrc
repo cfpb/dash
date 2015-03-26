@@ -1,0 +1,38 @@
+ecmaFeatures:
+  ecmascript: 6
+  jsx: true
+
+env:
+  browser: true
+  node: true
+  jasmine: true
+
+globals:
+  $: true
+  jest: true
+
+plugins: [react]
+
+rules:
+  eqeqeq: 0
+  indent: [2, 2]
+  no-irregular-whitespace: 2
+  no-space-before-semi: 2
+  no-trailing-spaces: 2
+  no-multi-spaces: 2
+  no-space-before-semi: 2
+  curly: 2
+  strict: 0
+  quotes: [2, "single"]
+  space-after-keywords: [2, "always"]
+  semi: true
+  no-use-before-define: true
+  no-unused-vars: false
+  no-multi-str: false
+  no-underscore-dangle: false
+  space-before-function-parentheses: [2, "never"]
+  space-in-parens: [1, "never"]
+  space-in-brackets: [2, "never"]
+  react/wrap-multilines: 1
+  new-cap: 0
+  no-console: 2

@@ -1,46 +1,25 @@
-Installation
-------------
+# Dash
 
-* `npm install -g gulp`
-* `npm install -g bower`
-* `npm install -g jest-cli`
-* `npm install .`
+[![Build Status](https://travis-ci.org/contolini/dash.svg?branch=master)](https://travis-ci.org/contolini/dash) [![Coverage Status](https://coveralls.io/repos/contolini/dash/badge.svg?branch=master)](https://coveralls.io/r/contolini/dash?branch=master)
 
-Testing
--------
+## Installation
+
+* `npm install -g gulp bower jest-cli browserify`
+* `./frontendbuild.sh`
+
+## Testing
 
 * `npm test`
 
-Developing
-----------
-To create a new set of javascript and css files:
+[Jest](http://facebook.github.io/jest/) is used. Tests are located in `__test__` directories in `src`.
 
-* create a new directory in ./manifests
-* place a bower.json in that directory
+## Developing
 
-    # bower.json
-    {
-      "name": "portal",
-      ...
-      "include": {
-        "js": ["path1", "path2"...],
-        "jsx": ["path1", "path2"...],
-        "css": [...]
-      }
-    }
+* Set up [`devdash`](https://github.com/cfpb/devdash#installation) so that [http://localhost:8000](http://localhost:8000) is correctly serving DevDash.
+* `cd` back to this repo and `npm run watch`
 
-* use the shim at src/dev_shim to seemlessly import all constituent files during development
-* development files must be served by a webserver. 
-  You can use `python -m SimpleHTTPServer 8000` to do so.
+When files are edited, tests will be run and this repo will be copied over to the `devdash` directory to be served by nginx. Reload http://localhost:8000 to see your changes.
 
-Build
------
-* run `gulp` to build the minified files in the `./build` directory.
+## Build
 
-
-Dependencies
-------------
-Specify dependencies in your bower.json.
-When you modify dependencies,
-enter the directery with you bower.json and run `bower install`.
-This will install the dependencies to /dependencies.
+* Run `gulp` to build the minified files into the `dist` directory.
