@@ -7,7 +7,7 @@ var UserItem = React.createClass({
   handleClick: function() {
     var opts = {
       orgName: 'devdesign',
-      teamName: this.props.userData.team.name,
+      teamName: this.props.teamName,
       roleType: 'member',
       userId: this.props.userData.name
     }
