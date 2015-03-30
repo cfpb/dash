@@ -119,9 +119,8 @@ describe('TeamStore', function() {
     var member = {},
       members = [member];
     var result = TeamStore.addTeamNames(team, members);
-
-    expect(result[0].team.name).toBe(team.name);
-    expect(result[0].team._id).toBe(team._id);
+    expect(result[0].teams[0].name).toBe(team.name);
+    expect(result[0].teams[0]._id).toBe(team._id);
   });
 
   it('registers a callback with the dispatcher', function() {

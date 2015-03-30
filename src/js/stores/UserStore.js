@@ -13,7 +13,8 @@ var UserStore = assign({}, EventEmitter.prototype, {
   },
   getCurrentUser: function(){
     return common.getCurrentUserInfo();
-  },
+  }
+  //,
   //copy and paste shame, not being used right now
   //emitChange: function() {
   //  this.emit(CHANGE_EVENT);
@@ -26,9 +27,9 @@ var UserStore = assign({}, EventEmitter.prototype, {
   /**
    * @param {function} callback
    */
-  removeChangeListener: function(callback) {
-    this.removeListener(CHANGE_EVENT, callback);
-  }
+  //removeChangeListener: function(callback) {
+  //  this.removeListener(CHANGE_EVENT, callback);
+  //}
 });
 
 // Register callback to handle all updates

@@ -18,7 +18,7 @@ function create(text) {
 }
 
 function destroy(id) {
- // delete _teams[id];
+  // delete _teams[id];
 }
 
 function addUser(userId) {
@@ -57,9 +57,8 @@ var TeamStore = assign({}, EventEmitter.prototype, {
   },
   addTeamNames: function(team, members) {
     return members.map(function(member) {
-      member.team = {};
-      member.team._id = team._id;
-      member.team.name = team.name;
+      member.teams = member.teams ? member.teams : [];
+      member.teams.push(team)
       return member;
     });
   },
@@ -91,36 +90,14 @@ var TeamStore = assign({}, EventEmitter.prototype, {
   getTeamAssets: function(team) {
     return team.rsrcs.gh ? team.rsrcs.gh.assets : [];
   },
-
   emitChange: function() {
     this.emit(CHANGE_EVENT);
   }
-  // These funstions are not used right now
-  //addChangeListener: function(callback) {
-  //  this.on(CHANGE_EVENT, callback);
-  //},
-  //
-  //removeChangeListener: function(callback) {
-  //  this.removeListener(CHANGE_EVENT, callback);
-  //}
 });
 
 // Register callback to handle all updates
 AppDispatcher.register(function(action) {
-  var text;
-
   switch (action.actionType) {
-    //TODO: implement properly, killing out coverage right now
-    //case TeamConstants.TEAM_CREATE:
-    //  create();
-    //  TeamStore.emitChange();
-    //  break;
-    //
-    //case TeamConstants.TEAM_DESTROY:
-    //  destroy(action.id);
-    //  TeamStore.emitChange();
-    //  break;
-
     case TeamConstants.TEAM_ADD_USER_START:
       addUser();
       TeamStore.emitChange();
