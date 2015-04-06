@@ -1,13 +1,19 @@
 var _ = require('lodash');
 var Backbone = require('backbone');
-Backbone.$ = require('jquery');
+var $ = require('jquery');
+Backbone.$ = $;
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
-var User = Backbone.Model.extend({})
+window.$ = $;
 
-var UserStore = Backbone.Collection.extend({
-  model: User,
-  url: '/kratos/users',
+$(document).ajaxError(function (event, xhr) {
+  if (xhr.status == 401) {
+    loggedInStore.set('loggedIn', false);
+  }
+});
+
+var LoggedInStore = Backbone.Model.extend({
+  url: function() {return '/kratos/user';},
   initialize: function(attrs, opts) {
     AppDispatcher.register(_.bind(this.handleAction));
     this.fetch();
@@ -20,8 +26,13 @@ var UserStore = Backbone.Collection.extend({
     if (actionHandler) {
       return actionHandler.call(this, action);
     }
-  }
+  },
+  isLoggedIn: function() {
+    return this.get('loggedIn') || true;
+  },
+
 })
 
-userStore = new UserStore();
-module.exports = userStore;
+var loggedInStore = new LoggedInStore();
+
+module.exports = loggedInStore;

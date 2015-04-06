@@ -82,8 +82,8 @@ gulp.task('deploy', ['bundle'], function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['deploy', 'test']);
+  gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['deploy']);
 });
 
-gulp.task('test', ['lint', 'coverage']);
+gulp.task('test', ['lint']);
 gulp.task('default', ['test', 'build']);

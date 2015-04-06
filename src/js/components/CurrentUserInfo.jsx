@@ -8,18 +8,22 @@ var $ = require('jquery');
 var CurrentUserInfo = React.createClass({
 
   render: function() {
+    var loggedInUser = this.props.loggedInUser;
+    var roles = loggedInUser.get('roles') || [];
+    var userData = loggedInUser.get('data') || {};
     var userInfo;
-    if (this.props.loggedIn) {
+
+    if (loggedInUser.isLoggedIn()) {
       userInfo = (
         <span className="masthead_user user-meta">
           <span className="user-meta_item user-meta_item__first">
             <span className="user-meta_name">
               <Icon type="user" />
-              {this.props.username}
+              {userData.username}
             </span>
             <div>
               <span className="user-role">
-                {this.props.roles}
+                {roles.join(', ')}
               </span>
             </div>
           </span>
@@ -31,6 +35,7 @@ var CurrentUserInfo = React.createClass({
     } else {
       userInfo = <Button href='/login' label='Log into DevDash' />
     }
+
     return (
       <div className='current-user'>
         {userInfo}

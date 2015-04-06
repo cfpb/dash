@@ -5,6 +5,7 @@ var Icon = require('./Icon.jsx');
 var Header = React.createClass({
 
   render: function() {
+    var loggedInUser = this.props.loggedInUser;
     return (
       <header className="masthead wrapper wrapper__match-content" role="banner">
         <h1 className="masthead_logo">
@@ -12,7 +13,7 @@ var Header = React.createClass({
           DevDash
         </h1>
         <div className="masthead_user user-meta">
-          <CurrentUserInfo loggedIn={this.props.loggedIn} username={this.props.username} roles={this.props.roles} />
+          <CurrentUserInfo loggedInUser={loggedInUser} />
         </div>
       </header>
     );
