@@ -56,7 +56,7 @@ gulp.task('bundle', function() {
     var b = browserify(filename);
     return b.bundle();
   });
-  return gulp.src('./src/js/app.js')
+  return gulp.src('./src/js/app.jsx')
     .pipe(browserified)
     .pipe(rename('bundle.js'))
     .pipe(gulp.dest('./src/'));

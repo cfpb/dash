@@ -11,6 +11,7 @@ var Home = require('./Home.jsx');
 var _ = require('lodash');
 var $ = require('jquery');
 var Backbone = require('backbone');
+var Router = require('react-router');
 
 // function getAllTeams() {
 //   return TeamStore.getAll();
@@ -115,15 +116,15 @@ var App = React.createClass({
     // }
   },
   render: function() {
-    var Body = <div></div>;
+    // var Body = <div></div>;
 
-    if (this.isReady()) {
-      Body = <div>
-        <Home />
-      </div>;
-    } else if (this.state.loggedInUser.isLoggedIn()) {
-      Body = <div>Loading...</div>;
-    }
+    // if (this.isReady()) {
+    //   Body = <div>
+        
+    //   </div>;
+    // } else if (this.state.loggedInUser.isLoggedIn()) {
+    //   Body = <div>Loading...</div>;
+    // }
     
     return (
       <div>
@@ -132,7 +133,7 @@ var App = React.createClass({
           <div className="content_bar"></div>
           <div className="content_wrapper">
             <div className="content_main">
-              {Body}
+              <Router.RouteHandler/>
             </div>
           </div>
         </main>
