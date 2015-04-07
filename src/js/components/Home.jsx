@@ -1,20 +1,14 @@
 var React = require('react');
-var actions = require('../actions/NavigationActions');
+var Router = require('react-router');
+var Link = Router.Link;
 
 var Home = React.createClass({
-  componentDidMount: function() {
-
-  },
-  _handleClick: function(e) {
-    e.preventDefault();
-    actions.navigate(e.target.getAttribute('href'));
-  },
   render: function() {
     return (
       <ul>
-        <li><a href="./teams" onClick={this._handleClick}>Check out your teams!</a></li>
-        <li><a href="./users" onClick={this._handleClick}>Check out all dem users!</a></li>
-        <li><a href="./resources" onClick={this._handleClick}>Resources!</a></li>
+        <li><Link to="teams">Teams page</Link></li>
+        <li><Link to="users">Users page</Link></li>
+        <li><Link to="resources">Resources page</Link></li>
       </ul>
     );
   }

@@ -34,14 +34,12 @@ var App = React.createClass({
     teamStore: require('../stores/TeamStore'),
     userStore: require('../stores/UserStore'),
     loggedInStore: require('../stores/LoggedInStore'),
-    routeStore: require('../stores/RouteStore')
   },
   getAppState: function() {
     return {
       teams: this.stores.teamStore.getState(),
       users: this.stores.userStore.getState(),
       loggedInUser: this.stores.loggedInStore.getState(),
-      route: this.stores.routeStore.getState()
     };
   },
   getInitialState: function() {
@@ -101,31 +99,18 @@ var App = React.createClass({
     this.setState(this.getAppState())
   },
 
-  getBody: function() {
-    var route = this.state.route;
-
-    // var pages = {
-    //   '': {
-    //     comp: <Home />
-    //     children: {
-    //       teams: {
-    //         comp: <TeamList teams={this.state.teams} />
-    //       }
-    //     }
-    //   }
-    // }
-  },
   render: function() {
-    // var Body = <div></div>;
+    var state = this.state;
+    var Body = <div></div>;
 
-    // if (this.isReady()) {
-    //   Body = <div>
-        
-    //   </div>;
-    // } else if (this.state.loggedInUser.isLoggedIn()) {
-    //   Body = <div>Loading...</div>;
-    // }
-    
+    if (this.isReady()) {
+      Body = <div>
+        <Router.RouteHandler {...this.state} />
+      </div>;
+    } else if (this.state.loggedInUser.isLoggedIn()) {
+      Body = <div>Loading...</div>;
+    }
+
     return (
       <div>
         <Header loggedInUser={this.state.loggedInUser} />
@@ -133,7 +118,7 @@ var App = React.createClass({
           <div className="content_bar"></div>
           <div className="content_wrapper">
             <div className="content_main">
-              <Router.RouteHandler/>
+              {Body}
             </div>
           </div>
         </main>

@@ -25,7 +25,7 @@ var UserStore = Backbone.Collection.extend({
     this.on('all', handler, ctx);
   },
   getState: function() {
-    return this.models;
+    return this;
   }
 
 })

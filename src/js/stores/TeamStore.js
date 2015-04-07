@@ -3,7 +3,9 @@ var Backbone = require('backbone');
 Backbone.$ = require('jquery');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
-var Team = Backbone.Model.extend({})
+var Team = Backbone.Model.extend({
+  idAttribute: '_id'
+});
 
 var TeamStore = Backbone.Collection.extend({
   model: Team,
@@ -25,11 +27,12 @@ var TeamStore = Backbone.Collection.extend({
     this.on('all', handler, ctx);
   },
   getState: function() {
-    return this.models;
+    return this;
   },
 })
 
 teamStore = new TeamStore();
+window.teamStore = teamStore;
 module.exports = teamStore;
 
 

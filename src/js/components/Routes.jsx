@@ -4,18 +4,28 @@ var Route = Router.Route;
 
 var App = require('./App.jsx')
 var Home = require('./Home.jsx');
-var TeamList = require('./TeamList.jsx');
-
-var routes = (
-  <Route name="app" path="/" handler={App}>
+var TeamPage = require('./TeamPage.jsx');
+var TeamsPage = require('./TeamsPage.jsx');
+var UserList = require('./UserList.jsx');
+  
+var PassThrough = React.createClass({
+  render: function() {
+    return <Router.RouteHandler {...this.props} />;
+  }
+});
+var Routes = (
+  <Route name="app" path="/static/" handler={App}>
+    <Router.DefaultRoute handler={Home} />
+    <Route name="teams" handler={PassThrough}>
+      <Route name="team" path=":teamId" handler={TeamPage} />
+      <Router.DefaultRoute handler={TeamsPage} />
+    </Route>
+    <Route name="users" handler={UserList} />
+    <Route name="resources" handler={TeamsPage} />
   </Route>
 );
 
-module.exports = {data: routes};
-
-// Router.run(Routes, function (Handler) {
-//   React.render(<Handler/>, document.getElementById('app'));
-// });
+module.exports = Routes;
 
 // var pages = {
     //   '': {
