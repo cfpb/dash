@@ -9,7 +9,7 @@ var UserStore = Backbone.Collection.extend({
   model: User,
   url: '/kratos/users',
   initialize: function(attrs, opts) {
-    AppDispatcher.register(_.bind(this.handleAction));
+    AppDispatcher.register(_.bind(this.handleAction, this));
     this.fetch();
   },
   actions: {
@@ -20,7 +20,14 @@ var UserStore = Backbone.Collection.extend({
     if (actionHandler) {
       return actionHandler.call(this, action);
     }
+  },
+  onChange: function(handler, ctx) {
+    this.on('all', handler, ctx);
+  },
+  getState: function() {
+    return this.models;
   }
+
 })
 
 userStore = new UserStore();

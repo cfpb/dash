@@ -9,7 +9,7 @@ var TeamStore = Backbone.Collection.extend({
   model: Team,
   url: '/kratos/orgs/devdesign/teams',
   initialize: function(attrs, opts) {
-    AppDispatcher.register(_.bind(this.handleAction));
+    AppDispatcher.register(_.bind(this.handleAction, this));
     this.fetch();
   },
   actions: {
@@ -20,7 +20,13 @@ var TeamStore = Backbone.Collection.extend({
     if (actionHandler) {
       return actionHandler.call(this, action);
     }
-  }
+  },
+  onChange: function(handler, ctx) {
+    this.on('all', handler, ctx);
+  },
+  getState: function() {
+    return this.models;
+  },
 })
 
 teamStore = new TeamStore();

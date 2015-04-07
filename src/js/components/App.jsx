@@ -7,11 +7,9 @@
 var Header = require('./Header.jsx');
 // var TeamList = require('./TeamList.jsx');
 var React = require('react');
-// var common = require('../utils/common');
+var Home = require('./Home.jsx');
+var _ = require('lodash');
 var $ = require('jquery');
-var TeamStore = require('../stores/TeamStore');
-var UserStore = require('../stores/UserStore');
-var LoggedInStore = require('../stores/LoggedInStore');
 var Backbone = require('backbone');
 
 // function getAllTeams() {
@@ -31,11 +29,18 @@ var Backbone = require('backbone');
 // }
 
 var App = React.createClass({
+  stores: {
+    teamStore: require('../stores/TeamStore'),
+    userStore: require('../stores/UserStore'),
+    loggedInStore: require('../stores/LoggedInStore'),
+    routeStore: require('../stores/RouteStore')
+  },
   getAppState: function() {
     return {
-      teams: TeamStore.models,
-      users: UserStore.models,
-      loggedInUser: LoggedInStore
+      teams: this.stores.teamStore.getState(),
+      users: this.stores.userStore.getState(),
+      loggedInUser: this.stores.loggedInStore.getState(),
+      route: this.stores.routeStore.getState()
     };
   },
   getInitialState: function() {
@@ -59,12 +64,11 @@ var App = React.createClass({
   //     }
   //   }
   // },
-
   componentDidMount: function() {
-    TeamStore.on('all', this._onChange)
-    UserStore.on('change', this._onChange)
-    LoggedInStore.on('change', this._onChange)
-
+    var that = this;
+    _.each(this.stores, function(store) {
+      store.onChange(that._onChange, that);
+    })
     //TeamStore.addChangeListener(this._onChange);
     // var getItAll = $.when(getAllTeams(), getAllUsers(), getCurrentUser());
     // getItAll.then(function(teams, users, currentUser) {
@@ -86,22 +90,38 @@ var App = React.createClass({
   },
 
   componentWillUnmount: function() {
-    TeamStore.off('change', this._onChange);
-    UserStore.off('change', this._onChange);
-    LoggedInStore.off('change', this._onChange);
+    var that = this;
+    _.each(this.stores, function(store) {
+      store.off(null, null, that)
+    })
   },
 
   _onChange: function() {
-    console.log('change happened!')
     this.setState(this.getAppState())
   },
 
+  getBody: function() {
+    var route = this.state.route;
+
+    // var pages = {
+    //   '': {
+    //     comp: <Home />
+    //     children: {
+    //       teams: {
+    //         comp: <TeamList teams={this.state.teams} />
+    //       }
+    //     }
+    //   }
+    // }
+  },
   render: function() {
-    var Body;
+    var Body = <div></div>;
 
     if (this.isReady()) {
-      Body = <h1>hello: {this.state.teams.length} teams, {this.state.users.length} users.</h1>;
-    } else {
+      Body = <div>
+        <Home />
+      </div>;
+    } else if (this.state.loggedInUser.isLoggedIn()) {
       Body = <div>Loading...</div>;
     }
     

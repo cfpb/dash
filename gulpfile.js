@@ -76,9 +76,6 @@ gulp.task('deploy', ['bundle'], function() {
   return gulp.src('./src/**/*')
     .pipe(cache('move'))
     .pipe(gulp.dest('../devdash/devdash/static'))
-    .pipe(filter('index.html'))
-    .pipe(rename('dash.html'))
-    .pipe(gulp.dest('../devdash/devdash/static'))
 });
 
 gulp.task('watch', function() {

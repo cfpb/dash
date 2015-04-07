@@ -15,7 +15,7 @@ $(document).ajaxError(function (event, xhr) {
 var LoggedInStore = Backbone.Model.extend({
   url: function() {return '/kratos/user';},
   initialize: function(attrs, opts) {
-    AppDispatcher.register(_.bind(this.handleAction));
+    AppDispatcher.register(_.bind(this.handleAction, this));
     this.fetch();
   },
   actions: {
@@ -28,9 +28,14 @@ var LoggedInStore = Backbone.Model.extend({
     }
   },
   isLoggedIn: function() {
-    return this.get('loggedIn') || true;
+    return (this.get('loggedIn') === undefined) ? true : this.get('loggedIn');
   },
-
+  onChange: function(handler, ctx) {
+    this.on('change', handler, ctx);
+  },
+  getState: function() {
+    return this;
+  }
 })
 
 var loggedInStore = new LoggedInStore();
