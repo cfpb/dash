@@ -4,7 +4,24 @@ Backbone.$ = require('jquery');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
 var Team = Backbone.Model.extend({
-  idAttribute: '_id'
+  idAttribute: '_id',
+  getMembersByRole: function(role) {
+    var UserStore = require('./UserStore')
+    var roleData = this.get('roles')[role] || {};
+    var memberNames = roleData.members || [];
+    var members = UserStore.filter(function(user) {
+      return memberNames.indexOf(user.get('name')) >= 0;
+    });
+    return members;
+  },
+  getMembersSortedByRole: function() {
+    var UserStore = require('./UserStore')
+    var members = {};
+    for (var role in this.get('roles')) {
+      members[role] = this.getMembersByRole(role);
+    }
+    return members;
+  }
 });
 
 var TeamStore = Backbone.Collection.extend({
@@ -32,6 +49,7 @@ var TeamStore = Backbone.Collection.extend({
 })
 
 teamStore = new TeamStore();
+window.teamStore = teamStore;
 module.exports = teamStore;
 
 
