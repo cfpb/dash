@@ -32,7 +32,6 @@ var TeamStore = Backbone.Collection.extend({
 })
 
 teamStore = new TeamStore();
-window.teamStore = teamStore;
 module.exports = teamStore;
 
 

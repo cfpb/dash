@@ -4,7 +4,7 @@ var Icon = require('./Icon.jsx');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var TeamItem = React.createClass({
+var TeamListItem = React.createClass({
 
   render: function() {
 
@@ -17,4 +17,4 @@ var TeamItem = React.createClass({
 
 });
 
-module.exports = TeamItem;
+module.exports = TeamListItem;

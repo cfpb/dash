@@ -1,25 +1,25 @@
 var React = require('react');
 
-var TeamList = React.createClass({
-
+var TeamPage = React.createClass({
   contextTypes: {
     router: React.PropTypes.func
   },
   propTypes: {
-    teams: React.PropTypes.array.isRequired
+    teams: React.PropTypes.object.isRequired
   },
-  
   render: function() {
 
     var teamId = this.context.router.getCurrentParams().teamId;
-    var team = this.props.teams.get('team_' + teamId);
+    var team = this.props.teams.length
+             ? this.props.teams.get('team_' + teamId).get('name')
+             : '';
 
     return (
-      <h1>{team.get('name')}</h1>
+      <h1>{team}</h1>
     )
 
   }
 
 });
 
-module.exports = TeamList;
+module.exports = TeamPage;

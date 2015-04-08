@@ -3,11 +3,11 @@ var $ = require('jquery');
 var TeamStore = require('../stores/TeamStore');
 var TeamListItem = require('./TeamListItem.jsx')
 
-var TeamList = React.createClass({
+var TeamsPage = React.createClass({
 
   propTypes: {
-    teams: React.PropTypes.array.isRequired,
-    users: React.PropTypes.array.isRequired,
+    teams: React.PropTypes.object.isRequired,
+    users: React.PropTypes.object.isRequired,
     loggedInUser: React.PropTypes.object.isRequired
   },
 
@@ -16,7 +16,7 @@ var TeamList = React.createClass({
     var teams = this.props.teams;
 
     teams = teams.models.map(function(team) {
-      return <TeamListItem team={team} key={team.name} />;
+      return <TeamListItem team={team} key={team.get('name')} />;
     });
 
     return (
@@ -29,4 +29,4 @@ var TeamList = React.createClass({
 
 });
 
-module.exports = TeamList;
+module.exports = TeamsPage;

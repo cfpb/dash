@@ -17,6 +17,7 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var filter = require('gulp-filter');
 var coveralls = require('gulp-coveralls');
+var source = require('vinyl-source-stream');
 
 var onError = function(err) {
   gutil.beep();
@@ -52,13 +53,12 @@ gulp.task('clean', function() {
 });
 
 gulp.task('bundle', function() {
-  var browserified = transform(function(filename) {
-    var b = browserify(filename);
-    return b.bundle();
-  });
-  return gulp.src('./src/js/app.jsx')
-    .pipe(browserified)
-    .pipe(rename('bundle.js'))
+  return browserify({
+      debug: true,
+      entries: './src/js/app.jsx'
+    })
+    .bundle()
+    .pipe(source('bundle.js'))
     .pipe(gulp.dest('./src/'));
 });
 

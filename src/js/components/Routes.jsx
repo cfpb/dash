@@ -7,16 +7,11 @@ var Home = require('./Home.jsx');
 var TeamPage = require('./TeamPage.jsx');
 var TeamsPage = require('./TeamsPage.jsx');
 var UserList = require('./UserList.jsx');
-  
-var PassThrough = React.createClass({
-  render: function() {
-    return <Router.RouteHandler {...this.props} />;
-  }
-});
+
 var Routes = (
-  <Route name="app" path="/static/" handler={App}>
+  <Route name="app" path="/" handler={App}>
     <Router.DefaultRoute handler={Home} />
-    <Route name="teams" handler={PassThrough}>
+    <Route name="teams">
       <Route name="team" path=":teamId" handler={TeamPage} />
       <Router.DefaultRoute handler={TeamsPage} />
     </Route>
@@ -26,13 +21,3 @@ var Routes = (
 );
 
 module.exports = Routes;
-
-// var pages = {
-    //   '': {
-    //     comp: <Home />
-    //     children: {
-    //       teams: {
-    //         comp: <TeamList teams={this.state.teams} />
-    //       }
-    //     }
-    //   }
