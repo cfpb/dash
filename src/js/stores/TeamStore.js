@@ -14,6 +14,15 @@ var Team = Backbone.Model.extend({
     });
     return members;
   },
+  getNonMembersByRole: function(role) {
+    var UserStore = require('./UserStore')
+    var roleData = this.get('roles')[role] || {};
+    var memberNames = roleData.members || [];
+    var members = UserStore.filter(function(user) {
+      return memberNames.indexOf(user.get('name')) < 0;
+    });
+    return members;
+  },
   getMembersSortedByRole: function() {
     var UserStore = require('./UserStore')
     var members = {};

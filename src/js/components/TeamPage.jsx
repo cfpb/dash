@@ -1,6 +1,8 @@
 var React = require('react');
 var _ = require('lodash');
 var UserList = require('./UserList.jsx');
+var Icon = require('./Icon.jsx');
+var AddUser = require('./AddUser.jsx');
 
 var TeamPage = React.createClass({
   contextTypes: {
@@ -17,15 +19,17 @@ var TeamPage = React.createClass({
       return (<div />);
     }
     teamName = team.get('name');
+    debugger;
+    var allMembers = team.getMembersSortedByRole();
 
-    var members = team.getMembersSortedByRole()
-
-    var Members = _.map(members, function(users, role) {
+    var Members = _.map(allMembers, function(members, role) {
+      var nonMembers = team.getNonMembersByRole(role) || [];
       return (
         <div>
           <h3>{role}</h3>
-          <UserList users={users} />
-          </div>
+          <AddUser users={nonMembers} />
+          <UserList users={members} />
+        </div>
       )
     });
 
