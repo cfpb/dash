@@ -12,7 +12,7 @@ var Routes = (
   <Route name="app" path="/" handler={App}>
     <Router.DefaultRoute handler={Home} />
     <Route name="teams">
-      <Route name="team" path=":teamId" handler={TeamPage} />
+      <Route name="team" path=":teamName" handler={TeamPage} />
       <Router.DefaultRoute handler={TeamsPage} />
     </Route>
     <Route name="users" handler={UserList} />

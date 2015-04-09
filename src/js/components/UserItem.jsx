@@ -1,6 +1,7 @@
 var React = require('react');
 var TeamActions = require('../actions/TeamActions');
 var Icon = require('./Icon.jsx');
+var RemoveItem = require('./RemoveItem.jsx');
 
 var UserItem = React.createClass({
 
@@ -17,14 +18,15 @@ var UserItem = React.createClass({
   // _removeUser: function(opts) {
   //   TeamActions.removeUser(opts);
   // },
-
+  handleRemove: function(e) {
+    console.log('Remove User!');
+  },
   render: function() {
     var name = this.props.user.get('data').username;
+    deleteIcon = (this.props.canRemove) ? <RemoveItem teamName={this.props.teamName} role={this.props.role} userId={this.props.user.id} /> : '';
     return (
       <li className='user-item'>
-        <a href='#' onClick={this.handleClick}>
-          <Icon type='delete-round' />
-        </a>
+        {deleteIcon}
         <span className='user-name'>{name}</span>
       </li>
     )

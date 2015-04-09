@@ -13,22 +13,23 @@ var TeamPage = React.createClass({
   },
   render: function() {
 
-    var teamId = this.context.router.getCurrentParams().teamId;
-    var team = this.props.teams.get('team_' + teamId);
+    var teamName = this.context.router.getCurrentParams().teamName;
+    var team = this.props.teams.get(teamName);
     if (!team) {
       return (<div />);
     }
-    teamName = team.get('name');
-    debugger;
     var allMembers = team.getMembersSortedByRole();
 
     var Members = _.map(allMembers, function(members, role) {
       var nonMembers = team.getNonMembersByRole(role) || [];
+      var canAdd = team.get('roles')[role].perms.add;
+      var canRemove = team.get('roles')[role].perms.remove;
+      var addUser = (canAdd) ? <AddUser users={nonMembers} teamName={teamName} role={role} /> : ''
       return (
         <div>
           <h3>{role}</h3>
-          <AddUser users={nonMembers} />
-          <UserList users={members} />
+          {addUser}
+          <UserList users={members} canRemove={canRemove} teamName={teamName} role={role} />
         </div>
       )
     });

@@ -4,8 +4,9 @@ var UserItem = require('./UserItem.jsx');
 var UserList = React.createClass({
 
   render: function() {
+    var that = this;
     var Users = this.props.users.map(function(user) {
-      return <UserItem user={user} key={user.get('name')}/>;
+      return <UserItem user={user} key={user.get('name')} canRemove={that.props.canRemove} teamName={that.props.teamName} role={that.props.role} />;
     });
     return (
       <div>

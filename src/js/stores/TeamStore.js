@@ -2,9 +2,10 @@ var _ = require('lodash');
 var Backbone = require('backbone');
 Backbone.$ = require('jquery');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
+var common = require('../utils/common');
 
 var Team = Backbone.Model.extend({
-  idAttribute: '_id',
+  idAttribute: 'name',
   getMembersByRole: function(role) {
     var UserStore = require('./UserStore')
     var roleData = this.get('roles')[role] || {};
@@ -30,6 +31,19 @@ var Team = Backbone.Model.extend({
       members[role] = this.getMembersByRole(role);
     }
     return members;
+  },
+  addMember: function(action) {
+    var that = this;
+    common.teamAddMember(action).done(function(newTeamData) {
+      that.set(newTeamData);
+    });
+  },
+  removeMember: function(action) {
+    var that = this;
+    common.teamRemoveMember(action).done(function(newTeamData) {
+      that.set(newTeamData);
+    });
+
   }
 });
 
@@ -41,7 +55,20 @@ var TeamStore = Backbone.Collection.extend({
     this.fetch();
   },
   actions: {
-
+    TEAM_ADD_MEMBER: function(action) {
+      var team = this.get(action.teamName);
+      if (!team) {
+        throw new Error('team "' + action.teamName + '" does not exist.');
+      }
+      team.addMember(action)
+    },
+    TEAM_REMOVE_MEMBER: function(action) {
+      var team = this.get(action.teamName);
+      if (!team) {
+        throw new Error('team "' + action.teamName + '" does not exist.');
+      }
+      team.removeMember(action)
+    }
   },
   handleAction: function(action) {
     var actionHandler = this.actions[action.actionType];

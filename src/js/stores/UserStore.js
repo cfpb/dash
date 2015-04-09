@@ -3,7 +3,9 @@ var Backbone = require('backbone');
 Backbone.$ = require('jquery');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
-var User = Backbone.Model.extend({})
+var User = Backbone.Model.extend({
+  idAttribute: 'name',
+})
 
 var UserStore = Backbone.Collection.extend({
   model: User,
@@ -31,4 +33,5 @@ var UserStore = Backbone.Collection.extend({
 })
 
 userStore = new UserStore();
+window.userStore = userStore;
 module.exports = userStore;

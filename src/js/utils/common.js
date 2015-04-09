@@ -3,6 +3,10 @@ var resources = require('./resources');
 
 var common = {};
 
+$(document).ajaxError(function (event, xhr) {
+  console.log('AJAX ERROR!', xhr)
+});
+
 common.getAllTeams = function() {
   return $.get(resources.routes.ALL_TEAMS);
 };
@@ -11,16 +15,18 @@ common.getAllUsers = function() {
   return $.get(resources.routes.ALL_USERS);
 };
 
-common.addUser = function(opts) {
+common.teamAddMember = function(action) {
   return $.ajax({
-    url: resources.routes.TEAM_USER_ACTION(opts),
+    url: resources.routes.teamMember(action),
+    dataType: 'json',
     type: 'PUT'
   });
 };
 
-common.removeUser = function(opts) {
+common.teamRemoveMember = function(action) {
   return $.ajax({
-    url: resources.routes.TEAM_USER_ACTION(opts),
+    url: resources.routes.teamMember(action),
+    dataType: 'json',
     type: 'DELETE'
   });
 };

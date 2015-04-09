@@ -1,8 +1,9 @@
 var resources = {
   baseUrl: '/kratos',
+  orgName: 'devdesign',
   routes: {
-    TEAM_USER_ACTION: function(opts) {
-      return resources.baseUrl + '/orgs/' + opts.orgName + '/teams/' + opts.teamName + '/roles/' + opts.roleType + '/' + opts.userId;
+    teamMember: function(action) {
+      return resources.baseUrl + '/orgs/' + resources.orgName + '/teams/' + action.teamName + '/roles/' + action.roleName + '/' + action.userId;
     },
     ALL_TEAMS: '/kratos/orgs/devdesign/teams',
     ALL_USERS: '/kratos/users',

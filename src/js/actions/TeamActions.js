@@ -1,6 +1,7 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var TeamConstants = require('../constants/TeamConstants');
 var common = require('../utils/common');
+var _ = require('lodash');
 
 var TeamActions = {
 
@@ -24,47 +25,16 @@ var TeamActions = {
     });
   },
 
-  addUser: function(opts) {
-    opts = opts || {};
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_ADD_USER_START,
-      orgName: opts.orgName,
-      teamName: opts.teamName,
-      roleType: opts.roleType,
-      userId: opts.userId
-    });
-
-    var userPromise = common.addUser(opts);
-    userPromise.done(function(data) {
-      AppDispatcher.dispatch({
-        actionType: TeamConstants.TEAM_ADD_USER_COMPLETE,
-        teamName: '',
-        userId: ''
-      });
-    });
+  addMember: function(opts) {
+    action = _.pick((opts || {}), 'teamName', 'roleName', 'userId')
+    action.actionType = TeamConstants.TEAM_ADD_MEMBER;
+    AppDispatcher.dispatch(action);
   },
 
-  removeUser: function(opts) {
-
-    opts = opts || {};
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_REMOVE_USER_START,
-      payload: {
-        orgName: opts.orgName,
-        teamName: opts.teamName,
-        roleType: opts.roleType,
-        userId: opts.userId
-      }
-    });
-
-    var userPromise = common.removeUser(opts);
-    userPromise.done(function(data) {
-      AppDispatcher.dispatch({
-        actionType: TeamConstants.TEAM_REMOVE_USER_COMPLETE,
-        teamName: '',
-        userId: ''
-      });
-    });
+  removeMember: function(opts) {
+    action = _.pick((opts || {}), 'teamName', 'roleName', 'userId')
+    action.actionType = TeamConstants.TEAM_REMOVE_MEMBER;
+    AppDispatcher.dispatch(action);
   }
 
 };

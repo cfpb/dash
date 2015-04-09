@@ -36,7 +36,7 @@ var LoggedInStore = Backbone.Model.extend({
   getState: function() {
     return this;
   }
-})
+});
 
 var loggedInStore = new LoggedInStore();
 
