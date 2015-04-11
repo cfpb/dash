@@ -5,7 +5,7 @@ var Button = require('./Button.jsx');
 var TeamActions = require('../actions/TeamActions');
 var _ = require('lodash');
 
-var RemoveItem = React.createClass({
+var RemoveUser = React.createClass({
   getInitialState: function() {
     return {
       isConfirming: false
@@ -20,7 +20,7 @@ var RemoveItem = React.createClass({
   handleRemove: function(e) {
     TeamActions.removeMember({
       teamName: this.props.teamName,
-      roleName: this.props.role,
+      roleName: this.props.roleName,
       userId: this.props.userId,
     });
 
@@ -39,11 +39,11 @@ var RemoveItem = React.createClass({
     } else {
       return (
         <div>
-          <Icon type='delete' onClick={this.handleConfirm} />
+          <Icon type='minus-round' color='red' onClick={this.handleConfirm} />
         </div>
       );
     }
   }
 });
 
-module.exports = RemoveItem;
+module.exports = RemoveUser;

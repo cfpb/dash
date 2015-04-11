@@ -9,7 +9,7 @@ var TeamsPage = require('./TeamsPage.jsx');
 var UserList = require('./UserList.jsx');
 
 var Routes = (
-  <Route name="app" path="/" handler={App}>
+  <Route name="home" path="/" handler={App}>
     <Router.DefaultRoute handler={Home} />
     <Route name="teams">
       <Route name="team" path=":teamName" handler={TeamPage} />

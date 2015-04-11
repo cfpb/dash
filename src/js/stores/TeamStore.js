@@ -43,7 +43,18 @@ var Team = Backbone.Model.extend({
     common.teamRemoveMember(action).done(function(newTeamData) {
       that.set(newTeamData);
     });
-
+  },
+  addAsset: function(action) {
+    var that = this;
+    common.teamAddAsset(action).done(function(newTeamData) {
+      that.set(newTeamData);
+    });
+  },
+  removeAsset: function(action) {
+    var that = this;
+    common.teamRemoveAsset(action).done(function(newTeamData) {
+      that.set(newTeamData);
+    });
   }
 });
 
@@ -60,14 +71,28 @@ var TeamStore = Backbone.Collection.extend({
       if (!team) {
         throw new Error('team "' + action.teamName + '" does not exist.');
       }
-      team.addMember(action)
+      team.addMember(action);
     },
     TEAM_REMOVE_MEMBER: function(action) {
       var team = this.get(action.teamName);
       if (!team) {
         throw new Error('team "' + action.teamName + '" does not exist.');
       }
-      team.removeMember(action)
+      team.removeMember(action);
+    },
+    TEAM_ADD_ASSET: function(action) {
+      var team = this.get(action.teamName);
+      if (!team) {
+        throw new Error('team "' + action.teamName + '" does not exist.');
+      }
+      team.addAsset(action);
+    },
+    TEAM_REMOVE_ASSET: function(action) {
+      var team = this.get(action.teamName);
+      if (!team) {
+        throw new Error('team "' + action.teamName + '" does not exist.');
+      }
+      team.removeAsset(action);
     }
   },
   handleAction: function(action) {

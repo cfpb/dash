@@ -26,17 +26,28 @@ var TeamActions = {
   },
 
   addMember: function(opts) {
-    action = _.pick((opts || {}), 'teamName', 'roleName', 'userId')
+    action = _.pick((opts || {}), 'teamName', 'roleName', 'userId');
     action.actionType = TeamConstants.TEAM_ADD_MEMBER;
     AppDispatcher.dispatch(action);
   },
 
   removeMember: function(opts) {
-    action = _.pick((opts || {}), 'teamName', 'roleName', 'userId')
+    action = _.pick((opts || {}), 'teamName', 'roleName', 'userId');
     action.actionType = TeamConstants.TEAM_REMOVE_MEMBER;
     AppDispatcher.dispatch(action);
-  }
+  },
 
+  addAsset: function(opts) {
+    action = _.pick((opts || {}), 'teamName', 'resourceName', 'assetData');
+    action.actionType = TeamConstants.TEAM_ADD_ASSET;
+    AppDispatcher.dispatch(action);
+  },
+
+  removeAsset: function(opts) {
+    action = _.pick((opts || {}), 'teamName', 'resourceName', 'assetId');
+    action.actionType = TeamConstants.TEAM_REMOVE_ASSET;
+    AppDispatcher.dispatch(action);
+  }
 };
 
 module.exports = TeamActions;

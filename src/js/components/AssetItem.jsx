@@ -1,28 +1,16 @@
 var React = require('react');
-var Button = require('./Button.jsx');
+var TeamActions = require('../actions/TeamActions');
 var Icon = require('./Icon.jsx');
-var $ = require('jquery');
+var RemoveAsset = require('./RemoveAsset.jsx');
 
 var AssetItem = React.createClass({
-
-  handleClick: function() {
-    var opts = {
-      name: this.props.name
-    }
-    this._removeAsset(opts);
-  },
-
-  _removeAsset: function(opts) {
-    // TeamActions.removeUser(opts);
-  },
-
   render: function() {
+    var name = this.props.asset.name;
+    deleteIcon = (this.props.canRemove) ? <RemoveAsset teamName={this.props.teamName} resourceName={this.props.resourceName} assetId={this.props.asset.id} /> : '';
     return (
-      <li className='asset-item'>
-        <a href='#' onClick={this.handleClick}>
-          <Icon type='delete-round' />
-        </a>
-        <span className='asset-name'>{this.props.name}</span>
+      <li className='user-item'>
+        {deleteIcon}
+        <span className='user-name'>{name}</span>
       </li>
     )
   }

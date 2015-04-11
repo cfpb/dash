@@ -15,5 +15,7 @@ module.exports = keyMirror({
     TEAM_CREATE: null,
     TEAM_DESTROY: null,
     TEAM_ADD_MEMBER: null,
-    TEAM_REMOVE_MEMBER: null
+    TEAM_REMOVE_MEMBER: null,
+    TEAM_ADD_ASSET: null,
+    TEAM_REMOVE_ASSET: null
 });

@@ -3,6 +3,8 @@ var _ = require('lodash');
 var UserList = require('./UserList.jsx');
 var Icon = require('./Icon.jsx');
 var AddUser = require('./AddUser.jsx');
+var AddAsset = require('./AddAsset.jsx');
+var AssetList = require('./AssetList.jsx');
 
 var TeamPage = React.createClass({
   contextTypes: {
@@ -20,25 +22,41 @@ var TeamPage = React.createClass({
     }
     var allMembers = team.getMembersSortedByRole();
 
-    var Members = _.map(allMembers, function(members, role) {
-      var nonMembers = team.getNonMembersByRole(role) || [];
-      var canAdd = team.get('roles')[role].perms.add;
-      var canRemove = team.get('roles')[role].perms.remove;
-      var addUser = (canAdd) ? <AddUser users={nonMembers} teamName={teamName} role={role} /> : ''
+    var Members = _.map(allMembers, function(members, roleName) {
+      var nonMembers = team.getNonMembersByRole(roleName) || [];
+      var canAdd = team.get('roles')[roleName].perms.add;
+      var canRemove = team.get('roles')[roleName].perms.remove;
+      var addUser = (canAdd) ? <AddUser users={nonMembers} teamName={teamName} roleName={roleName} /> : '';
       return (
         <div>
-          <h3>{role}</h3>
+          <h3>{roleName}</h3>
           {addUser}
-          <UserList users={members} canRemove={canRemove} teamName={teamName} role={role} />
+          <UserList users={members} canRemove={canRemove} teamName={teamName} roleName={roleName} />
         </div>
       )
     });
 
+    var allAssets = team.get('rsrcs')
+
+    var Assets = _.map(allAssets, function(resource, resourceName) {
+      var canAdd = resource.perms.add;
+      var canRemove = resource.perms.remove;
+      var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceName={resourceName} /> : '';
+      return (
+        <div>
+          <h3>{resourceName}</h3>
+          {addAsset}
+          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={resource.assets} />
+        </div>
+      )
+    })
     return (
       <div>
         <h1>{teamName}</h1>
         <h2>Members</h2>
         {Members}
+        <h2>Assets</h2>
+        {Assets}
       </div> 
     )
 

@@ -17,8 +17,12 @@ var Icon = React.createClass({
               ? 'cf-icon cf-icon-' + this.props.type.join(' cf-icon-')
               : 'cf-icon cf-icon-' + this.props.type;
     types = this.props.disabled ? types + ' disabled' : types;
+    var style = {};
+    if (this.props.color) {
+      style.color = this.props.color;
+    }
     return (
-      <span onClick={this.props.onClick} className={types}></span>
+      <span onClick={this.props.onClick} className={types} style={style}></span>
     );
   }
 });

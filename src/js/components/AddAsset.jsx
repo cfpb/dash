@@ -4,10 +4,11 @@ var Icon = require('./Icon.jsx');
 var TeamActions = require('../actions/TeamActions');
 var _ = require('lodash');
 
-var AddUser = React.createClass({
+var AddAsset = React.createClass({
   getInitialState: function() {
     return {
-      isOpen: false
+      isOpen: false,
+      assetName: ''
     }
   },
   handleOpen: function() {
@@ -18,35 +19,26 @@ var AddUser = React.createClass({
     this.setState({isOpen: false});
   },
   handleAdd: function(e) {
-    if (!this.state.selectedUser) {
+    if (this.state.assetName.length < 3) {
       return;
     }
-    TeamActions.addMember({
+    TeamActions.addAsset({
       teamName: this.props.teamName,
-      roleName: this.props.roleName,
-      userId: this.state.selectedUser.id
+      resourceName: this.props.resourceName,
+      assetData: {new: this.state.assetName}
     });
     this.setState({isOpen: false});
   },
-  getUserByUsername: function(username) {
-    return _.find(this.props.users, function(user) {
-      return user.get('data').username == username;
-    });
-  },
   onChange: function(e) {
-    var typeAheadvalue = (e.target) ? e.target.value : e;
-    this.state.selectedUser = this.getUserByUsername(typeAheadvalue);
-    this.setState(this.state)
+    this.state.assetName = e.target.value;
+    this.setState(this.state);
   },
   render: function() {
-    var users = this.props.users.map(function(user) {
-      return user.get('data').username;
-    });
     if (this.state.isOpen) {
       return (
         <div>
-          <ReactTypeahead.Typeahead ref='typeahead' options={users} onChange={this.onChange} onOptionSelected={this.onChange}/>
-          <Icon type='plus' disabled={!this.state.selectedUser} onClick={this.handleAdd} />
+          <input ref='input' onChange={this.onChange} />
+          <Icon type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd} />
           <Icon type='delete' onClick={this.handleClose} />
         </div>
       );
@@ -60,4 +52,4 @@ var AddUser = React.createClass({
   }
 });
 
-module.exports = AddUser;
+module.exports = AddAsset;
