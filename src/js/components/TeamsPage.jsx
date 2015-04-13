@@ -28,7 +28,7 @@ var TeamsPage = React.createClass({
 
     return (
       <div>
-        <Breadcrumbs />
+        <Breadcrumbs excludes={['Teams']} breadcrumbName="Teams" />
         <ul className="teams">
           {addTeam}
           {teams}

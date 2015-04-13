@@ -12,7 +12,7 @@ var TeamListItem = React.createClass({
 
     return (
       <li>
-        <Link to="team" params={{teamName: this.props.team.get('name')}}>{this.props.team.get('name')}</Link>
+        <Link to="Team" params={{teamName: this.props.team.get('name')}}>{this.props.team.get('name')}</Link>
       </li>
     )
   }

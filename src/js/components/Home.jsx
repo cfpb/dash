@@ -7,11 +7,11 @@ var Home = React.createClass({
   render: function() {
     return (
       <div>
-        <Breadcrumbs />
+        <Breadcrumbs breadcrumbName='Home' />
         <ul>
-          <li><Link to="teams">Teams page</Link></li>
-          <li><Link to="users">Users page</Link></li>
-          <li><Link to="resources">Resources page</Link></li>
+          <li><Link to="Teams">Teams page</Link></li>
+          <li><Link to="Users">Users page</Link></li>
+          <li><Link to="Resources">Resources page</Link></li>
         </ul>
       </div>
     );

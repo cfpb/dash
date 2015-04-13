@@ -11,7 +11,7 @@ var Header = React.createClass({
       <header className="masthead wrapper wrapper__match-content" role="banner">
         <h1 className="masthead_logo">
           <Icon type="web-round" />
-          <Link to="home">DevDash</Link>
+          <Link to="Home">DevDash</Link>
         </h1>
         <div className="masthead_user user-meta">
           <CurrentUserInfo loggedInUser={loggedInUser} />

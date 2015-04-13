@@ -54,7 +54,7 @@ var TeamPage = React.createClass({
     })
     return (
       <div>
-        <Breadcrumbs />
+        <Breadcrumbs breadcrumbName={teamName} />
         <h1>{teamName}</h1>
         <h2>Members</h2>
         {Members}
