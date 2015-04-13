@@ -4,6 +4,7 @@ var TeamStore = require('../stores/TeamStore');
 var TeamListItem = require('./TeamListItem.jsx');
 var AddTeam = require('./AddTeam.jsx');
 var LoggedInUser = require('../stores/LoggedInStore');
+var Breadcrumbs = require('react-breadcrumbs');
 
 var TeamsPage = React.createClass({
 
@@ -26,10 +27,13 @@ var TeamsPage = React.createClass({
     });
 
     return (
-      <ul className="teams">
-        {addTeam}
-        {teams}
-      </ul>
+      <div>
+        <Breadcrumbs />
+        <ul className="teams">
+          {addTeam}
+          {teams}
+        </ul>
+      </div>
     )
 
   }
