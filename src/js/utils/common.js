@@ -4,7 +4,7 @@ var resources = require('./resources');
 var common = {};
 
 $(document).ajaxError(function (event, xhr) {
-  console.log('AJAX ERROR!', xhr)
+  console.log('AJAX ERROR! Here\'s the response:', xhr)
 });
 
 common.getAllTeams = function() {
@@ -20,7 +20,7 @@ common.teamCreate = function(action) {
     url: resources.routes.team(action),
     dataType: 'json',
     type: 'PUT'
-  });  
+  });
 }
 
 common.teamAddMember = function(action) {

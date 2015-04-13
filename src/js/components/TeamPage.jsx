@@ -42,11 +42,12 @@ var TeamPage = React.createClass({
       var canAdd = resource.perms.add;
       var canRemove = resource.perms.remove;
       var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceName={resourceName} /> : '';
+      var assets = resource.assets || [];
       return (
         <div>
           <h3>{resourceName}</h3>
           {addAsset}
-          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={resource.assets} />
+          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={assets} />
         </div>
       )
     })

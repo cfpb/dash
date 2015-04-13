@@ -11,7 +11,6 @@ var AddUser = React.createClass({
     }
   },
   handleOpen: function() {
-    console.log('open!');
     this.setState({isOpen: true});
   },
   handleClose: function() {

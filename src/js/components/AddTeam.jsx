@@ -8,7 +8,7 @@ var AddAsset = React.createClass({
   getInitialState: function() {
     return {
       isOpen: false,
-      assetName: ''
+      teamName: ''
     }
   },
   handleOpen: function() {
@@ -18,18 +18,16 @@ var AddAsset = React.createClass({
     this.setState({isOpen: false});
   },
   handleAdd: function(e) {
-    if (this.state.assetName.length < 3) {
+    if (this.state.teamName.length < 3) {
       return;
     }
-    TeamActions.addAsset({
-      teamName: this.props.teamName,
-      resourceName: this.props.resourceName,
-      assetData: {new: this.state.assetName}
+    TeamActions.create({
+      teamName: this.state.teamName
     });
     this.setState({isOpen: false});
   },
   onChange: function(e) {
-    this.state.assetName = e.target.value;
+    this.state.teamName = e.target.value;
     this.setState(this.state);
   },
   render: function() {
@@ -37,7 +35,7 @@ var AddAsset = React.createClass({
       return (
         <div>
           <input ref='input' onChange={this.onChange} />
-          <Icon type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd} />
+          <Icon type='plus' disabled={this.state.teamName.length < 3} onClick={this.handleAdd} />
           <Icon type='delete' onClick={this.handleClose} />
         </div>
       );

@@ -1,7 +1,8 @@
 var React = require('react');
 var $ = require('jquery');
 var TeamStore = require('../stores/TeamStore');
-var TeamListItem = require('./TeamListItem.jsx')
+var TeamListItem = require('./TeamListItem.jsx');
+var AddTeam = require('./AddTeam.jsx');
 
 var TeamsPage = React.createClass({
 
@@ -21,6 +22,7 @@ var TeamsPage = React.createClass({
 
     return (
       <ul className="teams">
+        <AddTeam />
         {teams}
       </ul>
     )

@@ -8,11 +8,10 @@ var TeamActions = {
   /**
    * @param  {string} text
    */
-  create: function(text) {
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_CREATE,
-      text: text
-    });
+  create: function(opts) {
+    action = _.pick((opts || {}), 'teamName');
+    action.actionType = TeamConstants.TEAM_CREATE;
+    AppDispatcher.dispatch(action);
   },
 
   /**

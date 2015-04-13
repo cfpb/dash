@@ -3,13 +3,13 @@ var resources = {
   orgName: 'devdesign',
   routes: {
     team: function(action) {
-      resources.baseUrl + '/orgs/' + resources.orgName + '/teams/' + action.teamName
+      return resources.baseUrl + '/orgs/' + resources.orgName + '/teams/' + action.teamName
     },
     teamMember: function(action) {
-      return resources.routes.team + '/roles/' + action.roleName + '/' + action.userId;
+      return resources.routes.team(action) + '/roles/' + action.roleName + '/' + action.userId;
     },
     teamAddAsset: function(action) {
-      return resources.routes.team + '/resources/' + action.resourceName;
+      return resources.routes.team(action) + '/resources/' + action.resourceName;
     },
     teamRemoveAsset: function(action) {
       return resources.routes.teamAddAsset(action) + '/' + action.assetId;
@@ -19,4 +19,5 @@ var resources = {
     CURRENT_USER_INFO: '/kratos/user'
   }
 };
+window.resources = resources;
 module.exports = resources;

@@ -93,7 +93,19 @@ var TeamStore = Backbone.Collection.extend({
         throw new Error('team "' + action.teamName + '" does not exist.');
       }
       team.removeAsset(action);
+    },
+    TEAM_CREATE: function(action) {
+      if (!action.teamName) {
+        throw new Error('Please provide a team name.');
+      }
+      this.createTeam(action)
     }
+  },
+  createTeam: function(action) {
+    var that = this;
+    common.teamCreate(action).done(function(newTeamData) {
+      that.add(newTeamData);
+    });
   },
   handleAction: function(action) {
     var actionHandler = this.actions[action.actionType];
