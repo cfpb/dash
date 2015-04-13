@@ -3,6 +3,7 @@ var $ = require('jquery');
 var TeamStore = require('../stores/TeamStore');
 var TeamListItem = require('./TeamListItem.jsx');
 var AddTeam = require('./AddTeam.jsx');
+var LoggedInUser = require('../stores/LoggedInStore');
 
 var TeamsPage = React.createClass({
 
@@ -14,15 +15,19 @@ var TeamsPage = React.createClass({
 
   render: function() {
 
+    var canAdd = LoggedInUser.get('perms').team.add;
+    var canRemove = LoggedInUser.get('perms').team.remove;
+
+    var addTeam = (canAdd) ? <AddTeam /> : '';
     var teams = this.props.teams;
 
     teams = teams.models.map(function(team) {
-      return <TeamListItem team={team} key={team.get('name')} />;
+      return <TeamListItem team={team} canRemove={canRemove} key={team.get('name')} />;
     });
 
     return (
       <ul className="teams">
-        <AddTeam />
+        {addTeam}
         {teams}
       </ul>
     )

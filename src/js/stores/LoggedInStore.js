@@ -39,5 +39,5 @@ var LoggedInStore = Backbone.Model.extend({
 });
 
 var loggedInStore = new LoggedInStore();
-
+window.loggedInStore = loggedInStore;
 module.exports = loggedInStore;
