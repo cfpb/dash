@@ -142,9 +142,9 @@ describe('TeamStore', function() {
   });
   it('should make a request to add a user', function() {
 
-    var done = jest.genMockFunction().mockImplementation(function() {
-      return '';
-    });
+    //var done = jest.genMockFunction().mockImplementation(function() {
+    //  return '';
+    //});
     common.addUser.mockImplementation(function() {
       return {
         done: function() {

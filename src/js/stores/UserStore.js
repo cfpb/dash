@@ -2,14 +2,15 @@ var _ = require('lodash');
 var Backbone = require('backbone');
 Backbone.$ = require('jquery');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
+var resources = require('../utils/resources');
 
 var User = Backbone.Model.extend({
-  idAttribute: 'name',
+  idAttribute: 'name'
 })
 
 var UserStore = Backbone.Collection.extend({
   model: User,
-  url: '/kratos/users',
+  url: resources.ALL_USERS,
   initialize: function(attrs, opts) {
     AppDispatcher.register(_.bind(this.handleAction, this));
     this.fetch();
@@ -32,6 +33,4 @@ var UserStore = Backbone.Collection.extend({
 
 })
 
-userStore = new UserStore();
-window.userStore = userStore;
-module.exports = userStore;
+module.exports = UserStore;

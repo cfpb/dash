@@ -11,18 +11,20 @@ var _ = require('lodash');
 var $ = require('jquery');
 var Backbone = require('backbone');
 var Router = require('react-router');
+var TeamStore = require('../stores/TeamStore');
+var UserStore = require('../stores/UserStore');
 
 var App = React.createClass({
   stores: {
-    teamStore: require('../stores/TeamStore'),
-    userStore: require('../stores/UserStore'),
-    loggedInStore: require('../stores/LoggedInStore'),
+    teamStore: new TeamStore(),
+    userStore: new UserStore(),
+    loggedInStore: require('../stores/LoggedInStore')
   },
   getAppState: function() {
     return {
       teams: this.stores.teamStore.getState(),
       users: this.stores.userStore.getState(),
-      loggedInUser: this.stores.loggedInStore.getState(),
+      loggedInUser: this.stores.loggedInStore.getState()
     };
   },
   getInitialState: function() {
@@ -30,8 +32,7 @@ var App = React.createClass({
   },
   isReady: function() {
     return this.state.users.length &&
-           this.state.loggedInUser.get('name') &&
-           true
+      this.state.loggedInUser.get('name')
   },
   componentDidMount: function() {
     var that = this;

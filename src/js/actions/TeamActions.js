@@ -3,49 +3,39 @@ var TeamConstants = require('../constants/TeamConstants');
 var common = require('../utils/common');
 var _ = require('lodash');
 
+
+function dispatch(action, actionType) {
+  action.actionType = actionType;
+  AppDispatcher.dispatch(action);
+}
+
 var TeamActions = {
 
   /**
    * @param  {string} text
    */
   create: function(opts) {
-    action = _.pick((opts || {}), 'teamName');
-    action.actionType = TeamConstants.TEAM_CREATE;
-    AppDispatcher.dispatch(action);
-  },
-
-  /**
-   * @param  {string} id
-   */
-  destroy: function(id) {
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_DESTROY,
-      id: id
-    });
+    var action = _.pick((opts || {}), 'teamName');
+    dispatch(action, TeamConstants.TEAM_CREATE);
   },
 
   addMember: function(opts) {
-    action = _.pick((opts || {}), 'teamName', 'roleName', 'userId');
-    action.actionType = TeamConstants.TEAM_ADD_MEMBER;
-    AppDispatcher.dispatch(action);
+    var action = _.pick((opts || {}), 'teamName', 'roleName', 'userId');
+    dispatch(action, TeamConstants.TEAM_ADD_MEMBER);
   },
-
   removeMember: function(opts) {
-    action = _.pick((opts || {}), 'teamName', 'roleName', 'userId');
-    action.actionType = TeamConstants.TEAM_REMOVE_MEMBER;
-    AppDispatcher.dispatch(action);
+    var action = _.pick((opts || {}), 'teamName', 'roleName', 'userId');
+    dispatch(action, TeamConstants.TEAM_REMOVE_MEMBER);
   },
 
   addAsset: function(opts) {
-    action = _.pick((opts || {}), 'teamName', 'resourceName', 'assetData');
-    action.actionType = TeamConstants.TEAM_ADD_ASSET;
-    AppDispatcher.dispatch(action);
+    var action = _.pick((opts || {}), 'teamName', 'resourceName', 'assetData');
+    dispatch(action, TeamConstants.TEAM_ADD_ASSET);
   },
 
   removeAsset: function(opts) {
-    action = _.pick((opts || {}), 'teamName', 'resourceName', 'assetId');
-    action.actionType = TeamConstants.TEAM_REMOVE_ASSET;
-    AppDispatcher.dispatch(action);
+    var action = _.pick((opts || {}), 'teamName', 'resourceName', 'assetId');
+    dispatch(action, TeamConstants.TEAM_REMOVE_ASSET);
   }
 };
 

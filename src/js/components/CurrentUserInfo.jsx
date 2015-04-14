@@ -1,6 +1,5 @@
 var React = require('react');
 var common = require('../utils/common');
-var UserStore = require('../stores/UserStore');
 var Icon = require('./Icon.jsx');
 var Button = require('./Button.jsx');
 var $ = require('jquery');

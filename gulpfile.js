@@ -82,5 +82,5 @@ gulp.task('watch', function() {
   gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['deploy']);
 });
 
-gulp.task('test', ['lint']);
+gulp.task('test', ['jest']);
 gulp.task('default', ['test', 'build']);
