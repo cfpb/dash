@@ -60,7 +60,7 @@ var TeamPage = React.createClass({
         {Members}
         <h2>Assets</h2>
         {Assets}
-      </div> 
+      </div>
     )
 
   }

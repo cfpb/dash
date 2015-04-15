@@ -3,29 +3,30 @@ var Backbone = require('backbone');
 Backbone.$ = require('jquery');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var common = require('../utils/common');
+var resources = require('../utils/resources');
+var UserStore = require('./UserStore');
+var utils = require('../utils/storeUtils');
 
 var Team = Backbone.Model.extend({
+  store: new UserStore(),
   idAttribute: 'name',
   getMembersByRole: function(role) {
-    var UserStore = require('./UserStore')
     var roleData = this.get('roles')[role] || {};
     var memberNames = roleData.members || [];
-    var members = UserStore.filter(function(user) {
+    var members = this.store.filter(function(user) {
       return memberNames.indexOf(user.get('name')) >= 0;
     });
     return members;
   },
   getNonMembersByRole: function(role) {
-    var UserStore = require('./UserStore')
     var roleData = this.get('roles')[role] || {};
     var memberNames = roleData.members || [];
-    var members = UserStore.filter(function(user) {
+    var members = this.store.filter(function(user) {
       return memberNames.indexOf(user.get('name')) < 0;
     });
     return members;
   },
   getMembersSortedByRole: function() {
-    var UserStore = require('./UserStore')
     var members = {};
     for (var role in this.get('roles')) {
       members[role] = this.getMembersByRole(role);
@@ -60,9 +61,9 @@ var Team = Backbone.Model.extend({
 
 var TeamStore = Backbone.Collection.extend({
   model: Team,
-  url: '/kratos/orgs/devdesign/teams',
+  url: resources.routes.ALL_TEAMS,
   initialize: function(attrs, opts) {
-    AppDispatcher.register(_.bind(this.handleAction, this));
+    AppDispatcher.register(this.handleAction);
     this.fetch();
   },
   actions: {
@@ -106,22 +107,10 @@ var TeamStore = Backbone.Collection.extend({
     common.teamCreate(action).done(function(newTeamData) {
       that.add(newTeamData);
     });
-  },
-  handleAction: function(action) {
-    var actionHandler = this.actions[action.actionType];
-    if (actionHandler) {
-      return actionHandler.call(this, action);
-    }
-  },
-  onChange: function(handler, ctx) {
-    this.on('all', handler, ctx);
-  },
-  getState: function() {
-    return this;
-  },
-})
+  }
+});
 
-teamStore = new TeamStore();
-window.teamStore = teamStore;
-module.exports = teamStore;
+_.extend(TeamStore, utils);
+
+module.exports = TeamStore;
 
