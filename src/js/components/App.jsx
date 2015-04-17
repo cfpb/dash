@@ -13,48 +13,49 @@ var Backbone = require('backbone');
 var Router = require('react-router');
 var TeamStore = require('../stores/TeamStore');
 var UserStore = require('../stores/UserStore');
+var LoggedInStore = require('../stores/LoggedInStore');
 
 var App = React.createClass({
   stores: {
     teamStore: new TeamStore(),
     userStore: new UserStore(),
-    loggedInStore: require('../stores/LoggedInStore')
+    loggedInStore: new LoggedInStore()
   },
-  getAppState: function () {
+  getAppState: function() {
     return {
       teams: this.stores.teamStore.getState(),
       users: this.stores.userStore.getState(),
       loggedInUser: this.stores.loggedInStore.getState()
     };
   },
-  getInitialState: function () {
+  getInitialState: function() {
     return this.getAppState();
   },
-  isReady: function () {
+  isReady: function() {
     return this.state.users.length &&
       this.state.loggedInUser.get('name') &&
       true;
 
   },
-  componentDidMount: function () {
+  componentDidMount: function() {
     var that = this;
-    _.each(this.stores, function (store) {
+    _.each(this.stores, function( store ) {
       store.onChange(that._onChange, that);
     })
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount: function() {
     var that = this;
-    _.each(this.stores, function (store) {
+    _.each(this.stores, function( store ) {
       store.off(null, null, that)
     })
   },
 
-  _onChange: function () {
+  _onChange: function() {
     this.setState(this.getAppState())
   },
 
-  render: function () {
+  render: function() {
     var Body = <div></div>;
 
     if (this.isReady()) {

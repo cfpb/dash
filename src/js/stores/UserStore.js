@@ -21,6 +21,5 @@ var UserStore = Backbone.Collection.extend({
   actions: {}
 });
 
-_.extend(UserStore, utils);
-
+_.extend(UserStore.prototype, utils);
 module.exports = UserStore;

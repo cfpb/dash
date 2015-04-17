@@ -28,17 +28,5 @@ describe('UserStore', function() {
   });
 
   //move to future storeUtils-test.js
-  xit('should handle actions', function() {
-    //spyOn(UserStore.prototype, 'fetch');
 
-
-    var handler = function(){return 'sandwich'};
-    var user = new UserStore();
-    var action = {actionType: 'foo'};
-    user.actions = {foo: handler};
-    console.log(user);
-    var test = user.handleAction(action);
-    expect(test).toBe('sandwich');
-
-  });
 });

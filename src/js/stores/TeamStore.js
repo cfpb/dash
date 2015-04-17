@@ -110,7 +110,7 @@ var TeamStore = Backbone.Collection.extend({
   }
 });
 
-_.extend(TeamStore, utils);
+_.extend(TeamStore.prototype, utils);
 
 module.exports = TeamStore;
 

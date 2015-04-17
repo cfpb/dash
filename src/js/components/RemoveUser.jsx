@@ -17,7 +17,7 @@ var RemoveUser = React.createClass({
   handleCancel: function() {
     this.setState({isConfirming: false});
   },
-  handleRemove: function(e) {
+  handleRemove: function( e ) {
     TeamActions.removeMember({
       teamName: this.props.teamName,
       roleName: this.props.roleName,

@@ -6,13 +6,6 @@ var utils = require('../utils/storeUtils');
 var resources = require('../utils/resources');
 
 
-
-//$(document).ajaxError(function( event, xhr ) {
-//  if (xhr.status == 401) {
-//    LoggedInStore.set('loggedIn', false);
-//  }
-//});
-
 var LoggedInStore = Backbone.Model.extend({
   url: resources.routes.CURRENT_USER_INFO,
 
@@ -20,10 +13,15 @@ var LoggedInStore = Backbone.Model.extend({
     AppDispatcher.register(this.handleAction);
     this.fetch();
   },
-  actions: {}
+  actions: {},
+  isLoggedIn: function() {
+    return (this.get('loggedIn') === undefined) ? true : this.get('loggedIn');
+  }
+
 });
 
-_.extend(LoggedInStore, utils);
 
+
+_.extend(LoggedInStore.prototype, utils);
 
 module.exports = LoggedInStore;
