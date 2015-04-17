@@ -3,7 +3,6 @@ var $ = require('jquery');
 var TeamStore = require('../stores/TeamStore');
 var TeamListItem = require('./TeamListItem.jsx');
 var AddTeam = require('./AddTeam.jsx');
-var LoggedInUser = require('../stores/LoggedInStore');
 var Breadcrumbs = require('react-breadcrumbs');
 
 var TeamsPage = React.createClass({
@@ -16,8 +15,8 @@ var TeamsPage = React.createClass({
 
   render: function() {
 
-    var canAdd = LoggedInUser.get('perms').team.add;
-    var canRemove = LoggedInUser.get('perms').team.remove;
+    var canAdd = this.props.loggedInUser.get('perms').team.add;
+    var canRemove = this.props.loggedInUser.get('perms').team.remove;
 
     var addTeam = (canAdd) ? <AddTeam /> : '';
     var teams = this.props.teams;

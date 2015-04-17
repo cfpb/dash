@@ -25,23 +25,7 @@ var UserActions = {
   },
 
   addUser: function(opts) {
-    opts = opts || {};
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_ADD_USER_START,
-      orgName: opts.orgName,
-      teamName: opts.teamName,
-      roleType: opts.roleType,
-      userId: opts.userId
-    });
-
-    var userPromise = common.addUser(opts);
-    userPromise.done(function(data) {
-      AppDispatcher.dispatch({
-        actionType: TeamConstants.TEAM_ADD_USER_COMPLETE,
-        teamName: '',
-        userId: ''
-      });
-    });
+   
   }
 
 };

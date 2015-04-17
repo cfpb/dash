@@ -22,7 +22,7 @@ var AddAsset = React.createClass({
       return;
     }
     TeamActions.addAsset({
-      teamName: this.props.teamName,
+      id: this.props.teamName,
       resourceName: this.props.resourceName,
       assetData: {new: this.state.assetName}
     });

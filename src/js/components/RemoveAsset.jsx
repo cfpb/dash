@@ -19,7 +19,7 @@ var RemoveAsset = React.createClass({
   },
   handleRemove: function(e) {
     TeamActions.removeAsset({
-      teamName: this.props.teamName,
+      id: this.props.teamName,
       resourceName: this.props.resourceName,
       assetId: this.props.assetId,
     });

@@ -1,25 +1,14 @@
-var _ = require('lodash');
-var Backbone = require('backbone');
-Backbone.$ = require('jquery');
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+var Store = require('./Store');
 var resources = require('../utils/resources');
-var utils = require('../utils/storeUtils');
 
-
-var User = Backbone.Model.extend({
+var User = Store.Backbone.Model.extend({
+  name: 'User',
   idAttribute: 'name'
 });
 
-var UserStore = Backbone.Collection.extend({
+var UserStore = Store.Collection.extend({
   model: User,
-  url: resources.routes.ALL_USERS,
-  initialize: function( attrs, opts ) {
-
-    AppDispatcher.register(this.handleAction);
-    this.fetch();
-  },
-  actions: {}
+  url: resources.routes.ALL_USERS
 });
 
-_.extend(UserStore.prototype, utils);
 module.exports = UserStore;

@@ -1,8 +1,3 @@
-/**
- * This component operates as a "Controller-View".  It listens for changes in
- * the TodoStore and passes the new data to its children.
- */
-
 // var Footer = require('./Footer.jsx');
 var Header = require('./Header.jsx');
 var React = require('react');
@@ -11,16 +6,10 @@ var _ = require('lodash');
 var $ = require('jquery');
 var Backbone = require('backbone');
 var Router = require('react-router');
-var TeamStore = require('../stores/TeamStore');
-var UserStore = require('../stores/UserStore');
-var LoggedInStore = require('../stores/LoggedInStore');
+var stores = require('../stores');
 
 var App = React.createClass({
-  stores: {
-    teamStore: new TeamStore(),
-    userStore: new UserStore(),
-    loggedInStore: new LoggedInStore()
-  },
+  stores: stores,
   getAppState: function() {
     return {
       teams: this.stores.teamStore.getState(),
@@ -35,7 +24,6 @@ var App = React.createClass({
     return this.state.users.length &&
       this.state.loggedInUser.get('name') &&
       true;
-
   },
   componentDidMount: function() {
     var that = this;

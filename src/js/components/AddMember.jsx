@@ -4,7 +4,7 @@ var Icon = require('./Icon.jsx');
 var TeamActions = require('../actions/TeamActions');
 var _ = require('lodash');
 
-var AddUser = React.createClass({
+var AddMember = React.createClass({
   getInitialState: function() {
     return {
       isOpen: false
@@ -21,7 +21,7 @@ var AddUser = React.createClass({
       return;
     }
     TeamActions.addMember({
-      teamName: this.props.teamName,
+      id: this.props.teamName,
       roleName: this.props.roleName,
       userId: this.state.selectedUser.id
     });
@@ -59,4 +59,4 @@ var AddUser = React.createClass({
   }
 });
 
-module.exports = AddUser;
+module.exports = AddMember;

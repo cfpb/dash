@@ -1,8 +1,8 @@
 var React = require('react');
 var _ = require('lodash');
-var UserList = require('./UserList.jsx');
+var MemberList = require('./MemberList.jsx');
 var Icon = require('./Icon.jsx');
-var AddUser = require('./AddUser.jsx');
+var AddMember = require('./AddMember.jsx');
 var AddAsset = require('./AddAsset.jsx');
 var AssetList = require('./AssetList.jsx');
 var Breadcrumbs = require('react-breadcrumbs');
@@ -27,12 +27,12 @@ var TeamPage = React.createClass({
       var nonMembers = team.getNonMembersByRole(roleName) || [];
       var canAdd = team.get('roles')[roleName].perms.add;
       var canRemove = team.get('roles')[roleName].perms.remove;
-      var addUser = (canAdd) ? <AddUser users={nonMembers} teamName={teamName} roleName={roleName} /> : '';
+      var addMember = (canAdd) ? <AddMember users={nonMembers} teamName={teamName} roleName={roleName} /> : '';
       return (
         <div>
           <h3>{roleName}</h3>
-          {addUser}
-          <UserList users={members} canRemove={canRemove} teamName={teamName} roleName={roleName} />
+          {addMember}
+          <MemberList users={members} canRemove={canRemove} teamName={teamName} roleName={roleName} />
         </div>
       )
     });

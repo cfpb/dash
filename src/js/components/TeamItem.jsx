@@ -1,5 +1,5 @@
 var React = require('react');
-var UserList = require('./UserList.jsx');
+var MemberList = require('./MemberList.jsx');
 var AssetList = require('./AssetList.jsx');
 var Button = require('./Button.jsx');
 var Icon = require('./Icon.jsx');
@@ -48,14 +48,14 @@ var TeamItem = React.createClass({
                 <Button className="admins-header" type={['link', 'secondary']} label={'Admin (' + this.props.adminUsers.length + ')'} />
               </div>
               <div className="admins-list hidden">
-                <UserList users={this.props.adminUsers} teamName={this.props.name}/>
+                <MemberList users={this.props.adminUsers} teamName={this.props.name}/>
               </div>
 
               <div className="expandable_header-link" onClick={this.props.memberUsers.length ? this._toggleSection : null}>
                 <Button className="members-header" type={['link', 'secondary']} label={'Member (' + this.props.memberUsers.length + ')'} />
               </div>
               <div className="members-list hidden">
-                <UserList users={this.props.memberUsers} teamName={this.props.name}/>
+                <MemberList users={this.props.memberUsers} teamName={this.props.name}/>
                 <Button label="Add User" onClick={this._addUser} />
               </div>
             </div>

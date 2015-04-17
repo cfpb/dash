@@ -1,19 +1,17 @@
-var _ = require('lodash');
-var Backbone = require('backbone');
-Backbone.$ = require('jquery');
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+var Store = require('./Store');
 var common = require('../utils/common');
 var resources = require('../utils/resources');
-var UserStore = require('./UserStore');
-var utils = require('../utils/storeUtils');
 
-var Team = Backbone.Model.extend({
-  store: new UserStore(),
+var Team = Store.Backbone.Model.extend({
+  constructor: function () {
+    this.userStore = require('./userStore')
+  },
+  name: 'Team',
   idAttribute: 'name',
   getMembersByRole: function(role) {
     var roleData = this.get('roles')[role] || {};
     var memberNames = roleData.members || [];
-    var members = this.store.filter(function(user) {
+    var members = this.userStore.filter(function(user) {
       return memberNames.indexOf(user.get('name')) >= 0;
     });
     return members;
@@ -21,7 +19,7 @@ var Team = Backbone.Model.extend({
   getNonMembersByRole: function(role) {
     var roleData = this.get('roles')[role] || {};
     var memberNames = roleData.members || [];
-    var members = this.store.filter(function(user) {
+    var members = this.userStore.filter(function(user) {
       return memberNames.indexOf(user.get('name')) < 0;
     });
     return members;
@@ -33,68 +31,39 @@ var Team = Backbone.Model.extend({
     }
     return members;
   },
-  addMember: function(action) {
-    var that = this;
-    common.teamAddMember(action).done(function(newTeamData) {
-      that.set(newTeamData);
-    });
-  },
-  removeMember: function(action) {
-    var that = this;
-    common.teamRemoveMember(action).done(function(newTeamData) {
-      that.set(newTeamData);
-    });
-  },
-  addAsset: function(action) {
-    var that = this;
-    common.teamAddAsset(action).done(function(newTeamData) {
-      that.set(newTeamData);
-    });
-  },
-  removeAsset: function(action) {
-    var that = this;
-    common.teamRemoveAsset(action).done(function(newTeamData) {
-      that.set(newTeamData);
-    });
+  actions: {
+    TEAM_ADD_MEMBER: function(action) {
+      var that = this;
+      common.teamAddMember(action).done(function(newTeamData) {
+        that.set(newTeamData);
+      });
+    },
+    TEAM_REMOVE_MEMBER: function(action) {
+      var that = this;
+      common.teamRemoveMember(action).done(function(newTeamData) {
+        that.set(newTeamData);
+      });
+    },
+    TEAM_ADD_ASSET: function(action) {
+      var that = this;
+      common.teamAddAsset(action).done(function(newTeamData) {
+        that.set(newTeamData);
+      });
+    },
+    TEAM_REMOVE_ASSET: function(action) {
+      var that = this;
+      common.teamRemoveAsset(action).done(function(newTeamData) {
+        that.set(newTeamData);
+      });
+    }
+
   }
 });
 
-var TeamStore = Backbone.Collection.extend({
+var TeamStore = Store.Collection.extend({
   model: Team,
   url: resources.routes.ALL_TEAMS,
-  initialize: function(attrs, opts) {
-    AppDispatcher.register(this.handleAction);
-    this.fetch();
-  },
   actions: {
-    TEAM_ADD_MEMBER: function(action) {
-      var team = this.get(action.teamName);
-      if (!team) {
-        throw new Error('team "' + action.teamName + '" does not exist.');
-      }
-      team.addMember(action);
-    },
-    TEAM_REMOVE_MEMBER: function(action) {
-      var team = this.get(action.teamName);
-      if (!team) {
-        throw new Error('team "' + action.teamName + '" does not exist.');
-      }
-      team.removeMember(action);
-    },
-    TEAM_ADD_ASSET: function(action) {
-      var team = this.get(action.teamName);
-      if (!team) {
-        throw new Error('team "' + action.teamName + '" does not exist.');
-      }
-      team.addAsset(action);
-    },
-    TEAM_REMOVE_ASSET: function(action) {
-      var team = this.get(action.teamName);
-      if (!team) {
-        throw new Error('team "' + action.teamName + '" does not exist.');
-      }
-      team.removeAsset(action);
-    },
     TEAM_CREATE: function(action) {
       if (!action.teamName) {
         throw new Error('Please provide a team name.');
@@ -110,7 +79,4 @@ var TeamStore = Backbone.Collection.extend({
   }
 });
 
-_.extend(TeamStore.prototype, utils);
-
 module.exports = TeamStore;
-
