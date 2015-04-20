@@ -15,7 +15,7 @@ var storeUtils = {
   getState: function() {
     return this;
   }
-}
+};
 
 modelStoreUtils = _.extend(storeUtils, {
   handleAction: function( action ) {
@@ -48,5 +48,5 @@ collectionStoreUtils = _.extend(storeUtils, {
 module.exports = {
   Model: Backbone.Model.extend(modelStoreUtils),
   Collection: Backbone.Collection.extend(collectionStoreUtils),
-  Backbone: Backbone,
+  Backbone: Backbone
 }

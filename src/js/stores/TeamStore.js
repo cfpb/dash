@@ -3,8 +3,9 @@ var common = require('../utils/common');
 var resources = require('../utils/resources');
 
 var Team = Store.Backbone.Model.extend({
-  constructor: function () {
-    this.userStore = require('./userStore')
+  initialize: function () {
+    var stores = require('./');
+    this.userStore = stores.userStore;
   },
   name: 'Team',
   idAttribute: 'name',

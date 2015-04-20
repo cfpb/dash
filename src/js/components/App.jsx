@@ -3,8 +3,6 @@ var Header = require('./Header.jsx');
 var React = require('react');
 var Home = require('./Home.jsx');
 var _ = require('lodash');
-var $ = require('jquery');
-var Backbone = require('backbone');
 var Router = require('react-router');
 var stores = require('../stores');
 
@@ -31,14 +29,12 @@ var App = React.createClass({
       store.onChange(that._onChange, that);
     })
   },
-
   componentWillUnmount: function() {
     var that = this;
     _.each(this.stores, function( store ) {
       store.off(null, null, that)
     })
   },
-
   _onChange: function() {
     this.setState(this.getAppState())
   },
