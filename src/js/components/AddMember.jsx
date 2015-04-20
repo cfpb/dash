@@ -32,6 +32,11 @@ var AddMember = React.createClass({
       return user.get('data').username == username;
     });
   },
+  onKeyDown: function(e) {
+    if (e.keyCode === 13) {
+      this.handleAdd();
+    }
+  },
   onChange: function(e) {
     var typeAheadvalue = (e.target) ? e.target.value : e;
     this.state.selectedUser = this.getUserByUsername(typeAheadvalue);
@@ -44,7 +49,7 @@ var AddMember = React.createClass({
     if (this.state.isOpen) {
       return (
         <div>
-          <ReactTypeahead.Typeahead ref='typeahead' options={users} onChange={this.onChange} onOptionSelected={this.onChange}/>
+          <ReactTypeahead.Typeahead ref='typeahead' options={users} onChange={this.onChange} onKeyDown={this.onKeyDown} onOptionSelected={this.onChange}/>
           <Icon type='plus' disabled={!this.state.selectedUser} onClick={this.handleAdd} />
           <Icon type='delete' onClick={this.handleClose} />
         </div>

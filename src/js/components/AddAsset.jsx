@@ -28,6 +28,11 @@ var AddAsset = React.createClass({
     });
     this.setState({isOpen: false});
   },
+  onKeyDown: function(e) {
+    if (e.keyCode === 13) {
+      this.handleAdd();
+    }
+  },
   onChange: function(e) {
     this.state.assetName = e.target.value;
     this.setState(this.state);
@@ -36,8 +41,8 @@ var AddAsset = React.createClass({
     if (this.state.isOpen) {
       return (
         <div>
-          <input ref='input' onChange={this.onChange} />
-          <Icon type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd} />
+          <input ref='input' onChange={this.onChange} onKeyDown={this.onKeyDown} />
+          <Icon type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd}/>
           <Icon type='delete' onClick={this.handleClose} />
         </div>
       );
