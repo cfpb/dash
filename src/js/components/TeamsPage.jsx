@@ -1,6 +1,6 @@
 var React = require('react');
 var $ = require('jquery');
-var TeamStore = require('../stores/TeamStore');
+var TeamStore = require('../stores/LoggedInUserStore');
 var TeamListItem = require('./TeamListItem.jsx');
 var AddTeam = require('./AddTeam.jsx');
 var Breadcrumbs = require('react-breadcrumbs');
@@ -21,7 +21,7 @@ var TeamsPage = React.createClass({
     var addTeam = (canAdd) ? <AddTeam /> : '';
     var teams = this.props.teams;
 
-    teams = teams.models.map(function(team) {
+    teams = teams.models.map(function( team ) {
       return <TeamListItem team={team} canRemove={canRemove} key={team.get('name')} />;
     });
 
@@ -34,9 +34,7 @@ var TeamsPage = React.createClass({
         </ul>
       </div>
     )
-
   }
-
 });
 
 module.exports = TeamsPage;

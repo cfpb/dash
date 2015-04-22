@@ -1,18 +1,15 @@
+var common = require('../../utils/common');
+var resources = require('../../utils/resources');
+var userStore = require('../userStore');
 var Store = require('./Store');
-var common = require('../utils/common');
-var resources = require('../utils/resources');
 
-var Team = Store.Backbone.Model.extend({
-  initialize: function () {
-    var stores = require('./');
-    this.userStore = stores.userStore;
-  },
+var Team = Store.backbone.Model.extend({
   name: 'Team',
   idAttribute: 'name',
   getMembersByRole: function(role) {
     var roleData = this.get('roles')[role] || {};
     var memberNames = roleData.members || [];
-    var members = this.userStore.filter(function(user) {
+    var members = userStore.filter(function(user) {
       return memberNames.indexOf(user.get('name')) >= 0;
     });
     return members;
@@ -20,7 +17,7 @@ var Team = Store.Backbone.Model.extend({
   getNonMembersByRole: function(role) {
     var roleData = this.get('roles')[role] || {};
     var memberNames = roleData.members || [];
-    var members = this.userStore.filter(function(user) {
+    var members = userStore.filter(function(user) {
       return memberNames.indexOf(user.get('name')) < 0;
     });
     return members;

@@ -1,5 +1,4 @@
 var React = require('react');
-var common = require('../utils/common');
 var Icon = require('./Icon.jsx');
 var Button = require('./Button.jsx');
 var $ = require('jquery');
@@ -8,11 +7,12 @@ var CurrentUserInfo = React.createClass({
 
   render: function() {
     var loggedInUser = this.props.loggedInUser;
-    var roles = loggedInUser.get('roles') || [];
-    var userData = loggedInUser.get('data') || {};
+
     var userInfo;
 
     if (loggedInUser.isLoggedIn()) {
+      var roles = loggedInUser.get('roles') || [];
+      var userData = loggedInUser.get('data') || {};
       userInfo = (
         <span className="masthead_user user-meta">
           <span className="user-meta_item user-meta_item__first">

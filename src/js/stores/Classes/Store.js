@@ -1,14 +1,14 @@
 var _ = require('lodash');
-var Backbone = require('backbone');
-Backbone.$ = require('jquery');
-var AppDispatcher = require('../dispatcher/AppDispatcher');
+var backbone = require('backbone');
+backbone.$ = require('jquery');
+var AppDispatcher = require('../../dispatcher/AppDispatcher');
 
 var storeUtils = {
   initialize: function( attrs, opts ) {
     AppDispatcher.register(_.bind(this.handleAction, this));
     this.fetch();
   },
-  actions : {},
+  actions: {},
   onChange: function( handler, ctx ) {
     this.on('all', handler, ctx);
   },
@@ -17,24 +17,22 @@ var storeUtils = {
   }
 };
 
-modelStoreUtils = _.extend(storeUtils, {
+var modelStoreUtils = _.extend({}, storeUtils, {
   handleAction: function( action ) {
-    actions = this.actions;
+    var actions = this.actions;
     var actionHandler = actions[action.actionType];
     if (actionHandler) {
       return actionHandler.call(this, action);
     }
-  },
+  }
 });
 
-collectionStoreUtils = _.extend(storeUtils, {
-  handleAction: function(action) {
+var collectionStoreUtils = _.extend({}, storeUtils, {
+  handleAction: function( action ) {
+    console.log("invoked function", action);
     if (action.id) {
-      var team = this.get(action.id);
-      if (!team) {
-        throw new Error(this.model.name + ' "' + action.id + '" does not exist.');
-      }
-      actions = team.actions;
+      var model = this.get(action.id);
+      actions = (model) ? model.actions : {};
     } else {
       actions = this.actions;
     }
@@ -46,7 +44,7 @@ collectionStoreUtils = _.extend(storeUtils, {
 });
 
 module.exports = {
-  Model: Backbone.Model.extend(modelStoreUtils),
-  Collection: Backbone.Collection.extend(collectionStoreUtils),
-  Backbone: Backbone
+  Model: backbone.Model.extend(modelStoreUtils),
+  Collection: backbone.Collection.extend(collectionStoreUtils),
+  backbone: backbone
 }

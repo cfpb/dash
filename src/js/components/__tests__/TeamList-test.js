@@ -1,5 +1,5 @@
 jest.dontMock('../TeamList.jsx')
-    .dontMock('../../stores/TeamStore.js')
+    .dontMock('../../stores/LoggedInUserStore.js')
     .dontMock('jquery');
 
 describe('List of teams', function() {

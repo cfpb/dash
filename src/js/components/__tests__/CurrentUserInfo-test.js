@@ -1,50 +1,44 @@
-jest.dontMock('../CurrentUserInfo.jsx')
-  .dontMock('../../stores/UserStore');
+jest.dontMock('../CurrentUserInfo.jsx');
+jest.dontMock('../Button.jsx');
 
 describe('Current user', function() {
-  it('should render user name and role', function() {
+  it('should render username and roles if user is logged in', function() {
     var React = require('react/addons');
     var CurrentUserInfo = require('../CurrentUserInfo.jsx');
     var TestUtils = React.addons.TestUtils;
-    var UserStore = require('../../stores/UserStore');
-    var $ = require('jquery');
-    var user = {
-      data: {
-        username: 'boo'
+    var loggedInUser = {
+      isLoggedIn: function() {
+        return true;
       },
-      roles: ['admin']
+      'get': function( param ) {
+        return {
+          roles: ['admin', 'member'],
+          data: {username: 'Mo'}
+        }[param]
+      }
     };
-
-    spyOn(UserStore, 'getCurrentUser').andCallFake(function(req) {
-      var d = $.Deferred();
-      d.resolve(user);
-      return d.promise();
-    });
     var currentUserInfo = TestUtils.renderIntoDocument(
-      <CurrentUserInfo username={user.data.username} roles={user.roles} loggedIn='true' />
+      <CurrentUserInfo loggedInUser={loggedInUser} />
     );
     var userNode = currentUserInfo.getDOMNode();
     expect(userNode.className).toEqual('current-user');
-    expect(userNode.childNodes[0].childNodes[0].childNodes[0].textContent).toEqual('boo');
-    expect(userNode.childNodes[0].childNodes[0].childNodes[1].textContent).toEqual('admin');
+    expect(userNode.childNodes[0].childNodes[0].childNodes[0].textContent).toEqual('Mo');
+    expect(userNode.childNodes[0].childNodes[0].childNodes[1].textContent).toEqual('admin, member');
   });
 
   it('should render login button whe user is not authd', function() {
     var React = require('react/addons');
     var CurrentUserInfo = require('../CurrentUserInfo.jsx');
     var TestUtils = React.addons.TestUtils;
-    var UserStore = require('../../stores/UserStore');
-    var $ = require('jquery');
-
-    spyOn(UserStore, 'getCurrentUser').andCallFake(function(req) {
-      var d = $.Deferred();
-      d.reject();
-      return d.promise();
-    });
+    var loggedInUser = {
+      isLoggedIn: function() {
+        return false;
+      }
+    };
     var currentUserInfo = TestUtils.renderIntoDocument(
-      <CurrentUserInfo />
+      <CurrentUserInfo loggedInUser={loggedInUser} />
     );
     var userNode = currentUserInfo.getDOMNode();
-    expect(userNode.childNodes[0].childNodes[0].textContent).toEqual('Log into DevDash');
+    expect(userNode.textContent).toEqual('Log into DevDash');
   });
 });

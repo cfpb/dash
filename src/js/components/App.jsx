@@ -4,16 +4,22 @@ var React = require('react');
 var Home = require('./Home.jsx');
 var _ = require('lodash');
 var Router = require('react-router');
-var stores = require('../stores');
+var teamStore = require('../stores/teamStore');
+var userStore = require('../stores/userStore');
+var loggedInUserStore = require('../stores/loggedInUserStore');
 
 var App = React.createClass({
-  stores: stores,
+  stores: {
+    teams: teamStore,
+    users: userStore,
+    loggedInUser: loggedInUserStore
+  },
   getAppState: function() {
-    return {
-      teams: this.stores.teamStore.getState(),
-      users: this.stores.userStore.getState(),
-      loggedInUser: this.stores.loggedInStore.getState()
-    };
+    var state = {};
+    _.each(this.stores, function( store, storeName ) {
+      state[storeName] = store.getState()
+    });
+    return state;
   },
   getInitialState: function() {
     return this.getAppState();

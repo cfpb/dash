@@ -1,7 +1,7 @@
 var Store = require('./Store');
-var resources = require('../utils/resources');
+var resources = require('../../utils/resources');
 
-var User = Store.Backbone.Model.extend({
+var User = Store.backbone.Model.extend({
   name: 'User',
   idAttribute: 'name'
 });

@@ -1,9 +1,9 @@
 jest.dontMock('../../constants/UserConstants');
-jest.dontMock('../UserStore');
+jest.dontMock('../LoggedInUserStore');
 jest.dontMock('object-assign');
 
 
-describe('UserStore', function() {
+describe('LoggedInUserStore', function() {
 
   var UserStore, Backbone;
 
@@ -11,19 +11,19 @@ describe('UserStore', function() {
   beforeEach(function() {
     Backbone = require('backbone');
     Backbone.$ = require('jquery');
-    UserStore = require('../UserStore');
+    UserStore = require('../LoggedInUserStore');
   });
   describe('foo', function() {
     it('should get all users', function() {
       spyOn(UserStore.prototype, 'fetch');
-      var result = new UserStore();
+      var result = new LoggedInUserStore();
       expect(result.fetch).toHaveBeenCalled();
     });
   });
 
   it('should get all users', function() {
     spyOn(UserStore.prototype, 'fetch');
-    var result = new UserStore();
+    var result = new LoggedInUserStore();
     expect(result.fetch).toHaveBeenCalled();
   });
 
