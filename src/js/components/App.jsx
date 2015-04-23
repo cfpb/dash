@@ -7,6 +7,7 @@ var Router = require('react-router');
 var teamStore = require('../stores/teamStore');
 var userStore = require('../stores/userStore');
 var loggedInUserStore = require('../stores/loggedInUserStore');
+var Breadcrumbs = require('react-breadcrumbs');
 
 var App = React.createClass({
   stores: {
@@ -63,7 +64,8 @@ var App = React.createClass({
           <div className="content_bar"></div>
           <div className="content_wrapper">
             <div className="content_main">
-              {Body}
+              <Breadcrumbs excludes={['Teams']}/>
+       {Body}
             </div>
           </div>
         </main>

@@ -5,13 +5,13 @@ var MemberList = React.createClass({
 
   render: function() {
     var that = this;
-    var Users = this.props.users.map(function(user) {
+    var Members = this.props.users.map(function( user ) {
       return <MemberItem user={user} key={user.get('name')} canRemove={that.props.canRemove} teamName={that.props.teamName} roleName={that.props.roleName} />;
     });
     return (
       <div>
         <ul className="user-list">
-          {Users}
+          {Members}
         </ul>
       </div>
     )

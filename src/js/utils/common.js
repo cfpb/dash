@@ -3,9 +3,11 @@ var resources = require('./resources');
 
 var common = {};
 
+if ($(document)) {
 $(document).ajaxError(function (event, xhr) {
   console.log('AJAX ERROR! Here\'s the response:', xhr)
 });
+}
 
 common.getAllTeams = function() {
   return $.get(resources.routes.ALL_TEAMS);

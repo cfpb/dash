@@ -1,16 +1,21 @@
-jest.dontMock('../TeamList.jsx')
-    .dontMock('../../stores/LoggedInUserStore.js')
-    .dontMock('jquery');
+jest.dontMock('../TeamsPage.jsx')
+  .dontMock('react-breadcrumbs');
 
-describe('List of teams', function() {
-  it('should contain some teams', function() {
-    var React = require('react/addons');
-    var TeamList = require('../TeamList.jsx');
-    var TestUtils = React.addons.TestUtils;
+var TeamsPage = require('../TeamsPage.jsx');
 
-    /* eslint-disable */
-    var teams = [
+describe('Page of teams', function() {
+  var React,
+    TestUtils,
+    teams;
+  beforeEach(function() {
+    React = require('react/addons');
+    TestUtils = React.addons.TestUtils;
+    teams = {
+      models: [
         {
+          get: function( name ) {
+            return this.name;
+          },
           name: 'foo1',
           rsrcs: {
             gh: {
@@ -48,6 +53,9 @@ describe('List of teams', function() {
           }
         },
         {
+          get: function( name ) {
+            return 'foo'
+          },
           name: 'foo2',
           rsrcs: {
             gh: {
@@ -84,17 +92,56 @@ describe('List of teams', function() {
             }
           }
         }
-      ];
-    
-    var users = [{name: 'c7a9d8c1c0516c0910f7b2013e0019e7', data: {username: 'agarwalan'}}];
-    /* eslint-enable */
-
-    var teamList = TestUtils.renderIntoDocument(
-      <TeamList teams={teams} users={users} />
-    );
-
-    var numTeams = TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'teams_item').length;
-    expect(numTeams).toEqual(2);
+      ]
+    };
 
   });
+  it('should contain some teams and should AddAsset component', function() {
+    var loggedInUser = {
+      get: function( param ) {
+        return {
+
+          team: {
+            add: true,
+            remove: true
+          }
+
+        };
+      }
+    };
+
+    var teamList = TestUtils.renderIntoDocument(
+      <TeamsPage teams={teams} loggedInUser={loggedInUser} />
+    );
+
+    var teamsPageComponent = TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'teams')[0].props.children;
+    var numTeams = teamsPageComponent[1].length;
+
+    var canAdd = teamsPageComponent[0];
+
+    expect(numTeams).toEqual(2);
+    expect(canAdd.type.displayName).toBe('AddAsset');
+  });
+
+  it('should not contain AddAsset if user is not logged in', function() {
+    var loggedInUser = {
+      get: function( param ) {
+        return {
+          team: {
+            add: false,
+            remove: true
+          }
+        };
+      }
+    };
+
+    var teamList = TestUtils.renderIntoDocument(
+      <TeamsPage teams={teams} loggedInUser={loggedInUser} />
+    );
+    var teamsPageComponent = TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'teams')[0].props.children;
+
+    var canAdd = teamsPageComponent[0];
+    expect(canAdd).toBe('');
+  });
+
 });

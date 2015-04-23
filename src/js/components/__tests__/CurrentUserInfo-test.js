@@ -1,6 +1,8 @@
 jest.dontMock('../CurrentUserInfo.jsx');
 jest.dontMock('../Button.jsx');
 
+var Button = require('../Button.jsx');
+
 describe('Current user', function() {
   it('should render username and roles if user is logged in', function() {
     var React = require('react/addons');

@@ -1,6 +1,4 @@
 var React = require('react');
-var $ = require('jquery');
-var TeamStore = require('../stores/LoggedInUserStore');
 var TeamListItem = require('./TeamListItem.jsx');
 var AddTeam = require('./AddTeam.jsx');
 var Breadcrumbs = require('react-breadcrumbs');
@@ -9,7 +7,6 @@ var TeamsPage = React.createClass({
 
   propTypes: {
     teams: React.PropTypes.object.isRequired,
-    users: React.PropTypes.object.isRequired,
     loggedInUser: React.PropTypes.object.isRequired
   },
 
@@ -27,7 +24,6 @@ var TeamsPage = React.createClass({
 
     return (
       <div>
-        <Breadcrumbs excludes={['Teams']} breadcrumbName="Teams" />
         <ul className="teams">
           {addTeam}
           {teams}

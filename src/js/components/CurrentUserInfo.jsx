@@ -34,7 +34,6 @@ var CurrentUserInfo = React.createClass({
     } else {
       userInfo = <Button href='/login' label='Log into DevDash' />
     }
-
     return (
       <div className='current-user'>
         {userInfo}

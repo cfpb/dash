@@ -5,7 +5,6 @@ var Icon = require('./Icon.jsx');
 var AddMember = require('./AddMember.jsx');
 var AddAsset = require('./AddAsset.jsx');
 var AssetList = require('./AssetList.jsx');
-var Breadcrumbs = require('react-breadcrumbs');
 
 var TeamPage = React.createClass({
   contextTypes: {
@@ -54,7 +53,6 @@ var TeamPage = React.createClass({
     })
     return (
       <div>
-        <Breadcrumbs breadcrumbName={teamName} />
         <h1>{teamName}</h1>
         <h2>Members</h2>
         {Members}
