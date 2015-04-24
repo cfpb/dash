@@ -55,9 +55,5 @@ describe('CollectionStore', function() {
     expect(collectionStore.models[0].actions.sandwich).toHaveBeenCalled();
   });
 
-  //it('should throw an error if team does not exist', function(){
-  //  var Store = require('../Classes/Store');
-  //
-  //});
 });
 

@@ -1,4 +1,5 @@
-jest.dontMock('../LoggedInStore');
+jest.dontMock('../Classes/LoggedInStore');
+jest.dontMock('../Classes/Store');
 jest.dontMock('object-assign');
 
 describe('LoggedInStore', function() {
@@ -8,7 +9,8 @@ describe('LoggedInStore', function() {
   beforeEach(function() {
     Backbone = require('backbone');
     Backbone.$ = require('jquery');
-    LoggedInStore = require('../LoggedInStore');
+    LoggedInStore = require('../Classes/LoggedInStore');
+
   });
 
   it('should get logged in user', function() {

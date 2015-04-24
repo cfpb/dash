@@ -30,10 +30,7 @@ describe('List of users', function() {
     );
 
     var numUsers = TestUtils.scryRenderedDOMComponentsWithClass(userList, 'user-list');
-    console.log(numUsers[0].props.children.length);
-   expect(numUsers[0].props.children.length).toEqual(3);
-    //
-    //var numAdmins = TestUtils.scryRenderedDOMComponentsWithClass(adminList, 'user-list');
-    //expect(numAdmins).toEqual(4);
+    expect(numUsers[0].props.children.length).toEqual(3);
+
   });
 });

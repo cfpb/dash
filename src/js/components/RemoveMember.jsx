@@ -21,7 +21,7 @@ var RemoveMember = React.createClass({
     TeamActions.removeMember({
       id: this.props.teamName,
       roleName: this.props.roleName,
-      userId: this.props.userId,
+      userId: this.props.userId
     });
 
   },
@@ -38,7 +38,7 @@ var RemoveMember = React.createClass({
       )
     } else {
       return (
-        <div>
+        <div className="remove-component">
           <Icon type='minus-round' color='red' onClick={this.handleConfirm} />
         </div>
       );

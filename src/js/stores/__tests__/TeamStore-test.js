@@ -1,5 +1,7 @@
 jest.dontMock('../../constants/TeamConstants');
-jest.dontMock('../TeamStore');
+jest.dontMock('../Classes/TeamStore');
+jest.dontMock('../Classes/Store');
+
 jest.dontMock('object-assign');
 
 describe('TeamStore', function() {
@@ -29,7 +31,7 @@ describe('TeamStore', function() {
 
 
   beforeEach(function() {
-    TeamStore = require('../TeamStore');
+    TeamStore = require('../Classes/TeamStore');
     common = require('../../utils/common');
     Backbone = require('backbone');
     Backbone.$ = require('jquery');
