@@ -4,13 +4,13 @@ describe('resources functions tests', function() {
   it('should create a correct team request url from opt', function() {
     var resources = require('../resources');
     var opts = {
-      orgName: 'org',
+     // orgName: 'org',
       teamName: 'teamName',
-      roleType: 'role',
+      roleName: 'role',
       userId: 'userId'
     };
-    var expectedUrl = '/kratos/orgs/org/teams/teamName/roles/role/userId',
-      actualUrl = resources.routes.TEAM_USER_ACTION(opts);
+    var expectedUrl = '/kratos/orgs/devdesign/teams/teamName/roles/role/userId',
+      actualUrl = resources.routes.teamMember(opts);
     expect(actualUrl).toBe(expectedUrl);
   });
 });

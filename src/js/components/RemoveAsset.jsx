@@ -38,7 +38,7 @@ var RemoveAsset = React.createClass({
       )
     } else {
       return (
-        <div>
+        <div className='remove-asset'>
           <Icon type='minus-round' color='red' onClick={this.handleConfirm} />
         </div>
       );

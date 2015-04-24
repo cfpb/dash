@@ -1,21 +1,40 @@
 jest.dontMock('../AssetItem.jsx');
-
+jest.dontMock('../RemoveAsset.jsx');
+var React, AssetItem, TestUtils, asset;
 describe('Individual asset item', function() {
-  it('should load a div', function() {
-    var React = require('react/addons');
-    var AssetItem = require('../AssetItem.jsx');
-    var TestUtils = React.addons.TestUtils;
+  beforeEach(function() {
+    React = require('react/addons');
+    AssetItem = require('../AssetItem.jsx');
+    TestUtils = React.addons.TestUtils;
 
-    var asset = {
-      name: 'foo',
-      repo: 'bar/baz',
-      id: 'quaz'
-    }
+    asset = {
+      asset: {
+        name: 'foo',
+        repo: 'bar/baz',
+        id: 'quaz'
+      }
+    };
+  });
+  it('should load a div and display remove icon', function() {
+
+    var canRemove = true;
 
     var assetItem = TestUtils.renderIntoDocument(
-      <AssetItem name={asset.name} repo={asset.full_name} id={asset.id} />
+      <AssetItem asset={asset} canRemove={canRemove} teamName={"foo"} resourceId={'123'} />
     );
-
+    var removeAsset = assetItem.getDOMNode().childNodes[0];
+    expect(removeAsset.className).toBe('remove-asset')
     expect(assetItem.getDOMNode().className).toEqual('asset-item');
+  });
+
+  it('should not display remove icon', function() {
+
+    var canRemove = false;
+
+    var assetItem = TestUtils.renderIntoDocument(
+      <AssetItem asset={asset} canRemove={canRemove} teamName={"foo"} resourceId={'123'} />
+    );
+    var removeAsset = assetItem.getDOMNode().childNodes[0];
+    expect(removeAsset.className).toBe('')
   });
 });

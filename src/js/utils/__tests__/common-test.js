@@ -23,10 +23,10 @@ describe('User functions/actions', function() {
     common.getAllUsers();
     expect($.get).toBeCalledWith(resources.routes.ALL_USERS);
 
-    common.addUser(opts);
+    common.teamAddMember(opts);
     expect($.ajax).toBeCalled();
 
-    common.removeUser(opts);
+    common.teamRemoveMember(opts);
     expect($.ajax).toBeCalled();
 
     common.getCurrentUserInfo();
