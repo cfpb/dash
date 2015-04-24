@@ -11,7 +11,6 @@ var Home = React.createClass({
         <ul>
           <li><Link to="Teams">Teams page</Link></li>
           <li><Link to="Users">Users page</Link></li>
-          <li><Link to="Resources">Resources page</Link></li>
         </ul>
       </div>
     );

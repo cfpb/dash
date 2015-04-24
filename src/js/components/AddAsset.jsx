@@ -40,7 +40,7 @@ var AddAsset = React.createClass({
   render: function() {
     if (this.state.isOpen) {
       return (
-        <div>
+        <div className="add-asset-search">
           <input ref='input' onChange={this.onChange} onKeyDown={this.onKeyDown} />
           <Icon type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd}/>
           <Icon type='delete' onClick={this.handleClose} />
@@ -48,7 +48,7 @@ var AddAsset = React.createClass({
       );
     } else {
       return (
-        <div>
+        <div className="add-asset">
           <Icon type='plus' onClick={this.handleOpen} />
         </div>
       )

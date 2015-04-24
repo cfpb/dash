@@ -5,6 +5,7 @@ var Icon = require('./Icon.jsx');
 var AddMember = require('./AddMember.jsx');
 var AddAsset = require('./AddAsset.jsx');
 var AssetList = require('./AssetList.jsx');
+var resources = require('../utils/resources');
 
 var TeamPage = React.createClass({
   contextTypes: {
@@ -22,7 +23,7 @@ var TeamPage = React.createClass({
     }
     var allMembers = team.getMembersSortedByRole();
 
-    var Members = _.map(allMembers, function(members, roleName) {
+    var Members = _.map(allMembers, function( members, roleName ) {
       var nonMembers = team.getNonMembersByRole(roleName) || [];
       var canAdd = team.get('roles')[roleName].perms.add;
       var canRemove = team.get('roles')[roleName].perms.remove;
@@ -38,14 +39,14 @@ var TeamPage = React.createClass({
 
     var allAssets = team.get('rsrcs')
 
-    var Assets = _.map(allAssets, function(resource, resourceName) {
+    var Assets = _.map(allAssets, function( resource, resourceName ) {
       var canAdd = resource.perms.add;
       var canRemove = resource.perms.remove;
       var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceName={resourceName} /> : '';
       var assets = resource.assets || [];
       return (
         <div>
-          <h3>{resourceName}</h3>
+          <h3>{resources.teamResources[resourceName].assetTitle}</h3>
           {addAsset}
           <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={assets} />
         </div>

@@ -5,7 +5,7 @@ describe('resources functions tests', function() {
     var resources = require('../resources');
     var opts = {
      // orgName: 'org',
-      teamName: 'teamName',
+      id: 'teamName',
       roleName: 'role',
       userId: 'userId'
     };

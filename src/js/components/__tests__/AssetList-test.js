@@ -25,7 +25,7 @@ describe('List of assets', function() {
     /* eslint-enable */
 
     var assetList = TestUtils.renderIntoDocument(
-      <AssetList assets={assets} />
+      <AssetList assets={assets} resourceName={'gh'} />
     );
 
     var numAssets = TestUtils.scryRenderedDOMComponentsWithClass(assetList, 'asset-list');

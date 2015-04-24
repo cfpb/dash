@@ -1,5 +1,4 @@
 jest.dontMock('../../utils/common');
-//.dontMock('../../utils/resources');
 
 describe('Get all teams method', function() {
   it('should call the teams URL', function() {
