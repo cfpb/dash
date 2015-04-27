@@ -17,7 +17,7 @@ var AddAsset = React.createClass({
   handleClose: function() {
     this.setState({isOpen: false});
   },
-  handleAdd: function(e) {
+  handleAdd: function( e ) {
     if (this.state.assetName.length < 3) {
       return;
     }
@@ -28,12 +28,12 @@ var AddAsset = React.createClass({
     });
     this.setState({isOpen: false});
   },
-  onKeyDown: function(e) {
-    if (e.keyCode === 13) {
+  onKeyDown: function( e ) {
+    if (e.key === 'Enter') {
       this.handleAdd();
     }
   },
-  onChange: function(e) {
+  onChange: function( e ) {
     this.state.assetName = e.target.value;
     this.setState(this.state);
   },
@@ -42,14 +42,14 @@ var AddAsset = React.createClass({
       return (
         <div className="add-asset-search">
           <input ref='input' onChange={this.onChange} onKeyDown={this.onKeyDown} />
-          <Icon type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd}/>
-          <Icon type='delete' onClick={this.handleClose} />
+          <Icon  ref="plus-icon" type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd}/>
+          <Icon ref="minus-icon" type='delete' onClick={this.handleClose} />
         </div>
       );
     } else {
       return (
         <div className="add-asset">
-          <Icon type='plus' onClick={this.handleOpen} />
+          <Icon ref="plus-icon" type='plus' onClick={this.handleOpen} />
         </div>
       )
     }
