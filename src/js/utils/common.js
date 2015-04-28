@@ -4,9 +4,9 @@ var resources = require('./resources');
 var common = {};
 
 if ($(document)) {
-$(document).ajaxError(function (event, xhr) {
-  console.log('AJAX ERROR! Here\'s the response:', xhr)
-});
+  $(document).ajaxError(function( event, xhr ) {
+    console.log('AJAX ERROR! Here\'s the response:', xhr)
+  });
 }
 
 common.getAllTeams = function() {
@@ -17,7 +17,7 @@ common.getAllUsers = function() {
   return $.get(resources.routes.ALL_USERS);
 };
 
-common.teamCreate = function(action) {
+common.teamCreate = function( action ) {
   return $.ajax({
     url: resources.routes.team(action),
     dataType: 'json',
@@ -25,7 +25,7 @@ common.teamCreate = function(action) {
   });
 }
 
-common.teamAddMember = function(action) {
+common.teamAddMember = function( action ) {
   return $.ajax({
     url: resources.routes.teamMember(action),
     dataType: 'json',
@@ -33,7 +33,7 @@ common.teamAddMember = function(action) {
   });
 };
 
-common.teamRemoveMember = function(action) {
+common.teamRemoveMember = function( action ) {
   return $.ajax({
     url: resources.routes.teamMember(action),
     dataType: 'json',
@@ -41,7 +41,7 @@ common.teamRemoveMember = function(action) {
   });
 };
 
-common.teamAddAsset = function(action) {
+common.teamAddAsset = function( action ) {
   return $.ajax({
     url: resources.routes.teamAddAsset(action),
     dataType: 'json',
@@ -51,7 +51,7 @@ common.teamAddAsset = function(action) {
   });
 };
 
-common.teamRemoveAsset = function(action) {
+common.teamRemoveAsset = function( action ) {
   return $.ajax({
     url: resources.routes.teamRemoveAsset(action),
     dataType: 'json',
@@ -59,8 +59,18 @@ common.teamRemoveAsset = function(action) {
   });
 };
 
-common.getCurrentUserInfo = function(){
+common.getCurrentUserInfo = function() {
   return $.get(resources.routes.CURRENT_USER_INFO)
 };
+
+common.userData = function( action ) {
+  return $.ajax({
+    url: resources.userData(action),
+    method: 'POST',
+    dataType: 'json',
+    contentType: 'application/json',
+    data: JSON.stringify(action.data)
+  })
+}
 
 module.exports = common;

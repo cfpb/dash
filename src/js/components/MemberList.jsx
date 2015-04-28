@@ -11,7 +11,7 @@ var MemberList = React.createClass({
     return (
       <div>
         <ul className="user-list">
-          {Members}
+           {Members}
         </ul>
       </div>
     )

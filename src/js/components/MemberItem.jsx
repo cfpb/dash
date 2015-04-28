@@ -3,10 +3,12 @@ var TeamActions = require('../actions/TeamActions');
 var Icon = require('./Icon.jsx');
 var RemoveMember = require('./RemoveMember.jsx');
 
-var MemberItem = React.createClass({
+var Router = require('react-router');
+var Link = Router.Link;
 
-  handleRemove: function(e) {
-    console.log('Remove User!');
+var MemberItem = React.createClass({
+  contextTypes: {
+    router: React.PropTypes.func
   },
   render: function() {
     var name = this.props.user.get('data').username;
@@ -14,11 +16,12 @@ var MemberItem = React.createClass({
     return (
       <li className='user-item'>
         {deleteIcon}
-        <span className='user-name'>{name}</span>
+        <Link to="User" params={{userId: this.props.user.id}}>
+          <span className='user-name'>{name}</span>
+        </Link>
       </li>
     )
   }
-
 });
 
 module.exports = MemberItem;

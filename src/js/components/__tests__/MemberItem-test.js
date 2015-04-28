@@ -1,11 +1,20 @@
+
+jest.dontMock('react-router-stub');
 jest.dontMock('../MemberItem.jsx');
 jest.dontMock('../RemoveMember.jsx');
+jest.dontMock('../RemoveMember.jsx');
+//jest.dontMock('react-router');
+
 describe('Individual user item', function() {
-  var React, UserItem, TestUtils, userItem, userData, canRemove;
+  var React, MemberItem, TestUtils, userItem, userData, canRemove, Link;
+
   beforeEach(function() {
+    reactRouterStub = require('react-router-stub');
     React = require('react/addons');
     MemberItem = require('../MemberItem.jsx');
     TestUtils = React.addons.TestUtils;
+    Router=require('react-router');
+    Link =Router.Link;
     userData = {
       get: function( param ) {
         return {username: 'Barbara Toothsmith'};

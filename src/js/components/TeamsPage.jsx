@@ -1,7 +1,6 @@
 var React = require('react');
 var TeamListItem = require('./TeamListItem.jsx');
 var AddTeam = require('./AddTeam.jsx');
-var Breadcrumbs = require('react-breadcrumbs');
 
 var TeamsPage = React.createClass({
 

@@ -14,6 +14,9 @@ var resources = {
     teamRemoveAsset: function( action ) {
       return resources.routes.teamAddAsset(action) + '/' + action.assetId;
     },
+    userData: function( action ) {
+      return resources.baseUrl + '/users/' + action.id + '/data/' + (action.path || '');
+    },
     ALL_TEAMS: '/kratos/orgs/devdesign/teams',
     ALL_USERS: '/kratos/users',
     CURRENT_USER_INFO: '/kratos/user'
