@@ -1,13 +1,11 @@
-jest.dontMock('react-router-stub');
 jest.dontMock('../MemberItem.jsx');
 jest.dontMock('../RemoveMember.jsx');
-jest.dontMock('../RemoveMember.jsx');
+
 
 describe('Individual user item', function() {
-  var React, reactRouterStub, MemberItem, TestUtils, userItem, userData, canRemove, Link;
+  var React, MemberItem, TestUtils, userItem, userData, canRemove, Link;
 
   beforeEach(function() {
-    reactRouterStub = require('react-router-stub');
     React = require('react/addons');
     MemberItem = require('../MemberItem.jsx');
     TestUtils = React.addons.TestUtils;
@@ -20,20 +18,17 @@ describe('Individual user item', function() {
   });
   it('should load a div with user and delete icon', function() {
     canRemove = true;
-    userItem = reactRouterStub.render(MemberItem, {
-      user: userData,
-      canRemove: canRemove,
-      teamName: 'foo',
-      roleName: 'member'
-    });
+    userItem = TestUtils.renderIntoDocument(
+      <MemberItem user={userData} canRemove={canRemove} teamName={"foo"} roleName={"member"} />
+    );
     var secondNodeInComponent = userItem.getDOMNode().childNodes[1];
     var removeIcon = userItem.getDOMNode().childNodes[0];
     expect(removeIcon.className).toBe('remove-component')
-    expect(secondNodeInComponent.className).toEqual('user-name');
+    expect(secondNodeInComponent.className).toEqual('user-link');
     expect(secondNodeInComponent.textContent).toEqual('Barbara Toothsmith');
   });
 
-  xit('should not have delete icon', function() {
+  it('should not have delete icon', function() {
     canRemove = false;
     userItem = TestUtils.renderIntoDocument(
       <MemberItem user={userData} canRemove={canRemove}/>
