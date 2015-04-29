@@ -1,27 +1,41 @@
 var React = require('react');
 var Button = require('./Button.jsx');
+var UserActions = require('../actions/UserActions.js');
+var _ = require('lodash');
+
 var UserPage = React.createClass({
     contextTypes: {
       router: React.PropTypes.func
     },
-    getInitialState:function(){
-      
+    handleClick: function( e ) {
+      UserActions.userData({
+        id: this.context.router.getCurrentParams().userId,
+        data: {publicKeys: [{name: 'moirai', key: this.state.newPublicKey}]}
+      });
     },
-    handleClick: function(e) {
-       e.preventDefault();
-      e.stopPropagation();
-      console.log("key added");
+    getInitialState: function() {
+      return {
+        newPublicKey: ''
+      }
+    },
+    handleChange: function( event ) {
+      this.setState({newPublicKey: event.target.value})
     },
     render: function() {
       var userId = this.context.router.getCurrentParams().userId;
       var user = this.props.users.get(userId);
       var username = user.get('data').username;
+      var publicKeys = user.get('data').publicKeys
+      var publicKey = _.findWhere(publicKeys, {name: 'moirai'})
+      var PublicKey = (publicKey) ? <p>{publicKey}</p> : '';
       return (
         <div className="userPage">
           <h1>{username}</h1>
-          <h2>Assets</h2>
-          <textarea rows="4" columns="3"></textarea>
-          <Button label='Add public key' onClick={this.handleClick}/>
+          <h2>Public Key</h2>
+        {PublicKey}
+          <h3>Update key:</h3>
+          <textarea rows="4" columns="3" onChange={this.handleChange}></textarea>
+          <Button label='Update public key' onClick={this.handleClick} disabled={!this.state.newPublicKey.length} />
         </div>
       );
     }
