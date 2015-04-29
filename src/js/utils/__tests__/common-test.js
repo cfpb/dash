@@ -1,5 +1,4 @@
 jest.dontMock('../../utils/common');
-//.dontMock('../../utils/resources');
 
 describe('Get all teams method', function() {
   it('should call the teams URL', function() {
@@ -23,10 +22,10 @@ describe('User functions/actions', function() {
     common.getAllUsers();
     expect($.get).toBeCalledWith(resources.routes.ALL_USERS);
 
-    common.addUser(opts);
+    common.teamAddMember(opts);
     expect($.ajax).toBeCalled();
 
-    common.removeUser(opts);
+    common.teamRemoveMember(opts);
     expect($.ajax).toBeCalled();
 
     common.getCurrentUserInfo();

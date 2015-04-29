@@ -1,29 +1,18 @@
 var React = require('react');
-var $ = require('jquery');
 var AssetItem = require('./AssetItem.jsx');
 
 var AssetList = React.createClass({
 
-  propTypes: {
-    assets: React.PropTypes.array.isRequired
-  },
-  getDefaultProps: function() {
-    return {
-      assets: []
-    };
-  },
-
   render: function() {
-
-    var assets = this.props.assets;
-
-    assets = assets.map(function(asset) {
-      return <AssetItem name={asset.name} repo={asset.full_name} id={asset.id} key={asset.id} />;
+    var that = this;
+    var Assets = this.props.assets.map(function(asset) {
+      return <AssetItem asset={asset} key={asset.name} canRemove={that.props.canRemove} teamName={that.props.teamName} resourceName={that.props.resourceName} />;
     });
-
     return (
-      <div className="team-list">
-        {assets}
+      <div>
+        <ul className="asset-list">
+          {Assets}
+        </ul>
       </div>
     )
 

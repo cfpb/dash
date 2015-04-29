@@ -17,6 +17,7 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var filter = require('gulp-filter');
 var coveralls = require('gulp-coveralls');
+var source = require('vinyl-source-stream');
 
 var onError = function(err) {
   gutil.beep();
@@ -52,13 +53,12 @@ gulp.task('clean', function() {
 });
 
 gulp.task('bundle', function() {
-  var browserified = transform(function(filename) {
-    var b = browserify(filename);
-    return b.bundle();
-  });
-  return gulp.src('./src/js/app.js')
-    .pipe(browserified)
-    .pipe(rename('bundle.js'))
+  return browserify({
+      debug: true,
+      entries: './src/js/app.jsx'
+    })
+    .bundle()
+    .pipe(source('bundle.js'))
     .pipe(gulp.dest('./src/'));
 });
 
@@ -76,14 +76,11 @@ gulp.task('deploy', ['bundle'], function() {
   return gulp.src('./src/**/*')
     .pipe(cache('move'))
     .pipe(gulp.dest('../devdash/devdash/static'))
-    .pipe(filter('index.html'))
-    .pipe(rename('dash.html'))
-    .pipe(gulp.dest('../devdash/devdash/static'))
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['deploy', 'test']);
+  gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['deploy']);
 });
 
-gulp.task('test', ['lint', 'coverage']);
+gulp.task('test', ['jest']);
 gulp.task('default', ['test', 'build']);

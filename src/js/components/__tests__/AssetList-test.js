@@ -1,8 +1,8 @@
 jest.dontMock('../AssetList.jsx')
-    .dontMock('jquery');
+    .dontMock('../AssetItem.jsx');
 
-describe('List of teams', function() {
-  it('should contain some teams', function() {
+describe('List of assets', function() {
+  it('should contain 2 assets', function() {
     var React = require('react/addons');
     var AssetList = require('../AssetList.jsx');
     var TestUtils = React.addons.TestUtils;
@@ -25,11 +25,14 @@ describe('List of teams', function() {
     /* eslint-enable */
 
     var assetList = TestUtils.renderIntoDocument(
-      <AssetList assets={assets} />
+      <AssetList assets={assets} resourceName={'gh'} />
     );
 
-    var numAssets = TestUtils.scryRenderedDOMComponentsWithClass(assetList, 'asset-item').length;
-    expect(numAssets).toEqual(2);
+    var numAssets = TestUtils.scryRenderedDOMComponentsWithClass(assetList, 'asset-list');
+
+    expect(numAssets[0].props.children.length).toEqual(2);
+    expect(numAssets[0].props.children[0].type.displayName).toBe('AssetItem');
 
   });
+
 });

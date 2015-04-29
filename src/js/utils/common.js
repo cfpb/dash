@@ -3,6 +3,12 @@ var resources = require('./resources');
 
 var common = {};
 
+if ($(document)) {
+  $(document).ajaxError(function( event, xhr ) {
+    console.log('AJAX ERROR! Here\'s the response:', xhr)
+  });
+}
+
 common.getAllTeams = function() {
   return $.get(resources.routes.ALL_TEAMS);
 };
@@ -11,21 +17,60 @@ common.getAllUsers = function() {
   return $.get(resources.routes.ALL_USERS);
 };
 
-common.addUser = function(opts) {
+common.teamCreate = function( action ) {
   return $.ajax({
-    url: resources.routes.TEAM_USER_ACTION(opts),
+    url: resources.routes.team(action),
+    dataType: 'json',
+    type: 'PUT'
+  });
+}
+
+common.teamAddMember = function( action ) {
+  return $.ajax({
+    url: resources.routes.teamMember(action),
+    dataType: 'json',
     type: 'PUT'
   });
 };
 
-common.removeUser = function(opts) {
+common.teamRemoveMember = function( action ) {
   return $.ajax({
-    url: resources.routes.TEAM_USER_ACTION(opts),
+    url: resources.routes.teamMember(action),
+    dataType: 'json',
     type: 'DELETE'
   });
 };
-common.getCurrentUserInfo = function(){
+
+common.teamAddAsset = function( action ) {
+  return $.ajax({
+    url: resources.routes.teamAddAsset(action),
+    dataType: 'json',
+    contentType: 'application/json',
+    type: 'POST',
+    data: JSON.stringify(action.assetData)
+  });
+};
+
+common.teamRemoveAsset = function( action ) {
+  return $.ajax({
+    url: resources.routes.teamRemoveAsset(action),
+    dataType: 'json',
+    type: 'DELETE'
+  });
+};
+
+common.getCurrentUserInfo = function() {
   return $.get(resources.routes.CURRENT_USER_INFO)
 };
+
+common.userData = function( action ) {
+  return $.ajax({
+    url: resources.routes.userData(action),
+    method: 'POST',
+    dataType: 'json',
+    contentType: 'application/json',
+    data: JSON.stringify(action.data)
+  })
+}
 
 module.exports = common;

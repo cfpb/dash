@@ -1,72 +1,39 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var TeamConstants = require('../constants/TeamConstants');
 var common = require('../utils/common');
+var _ = require('lodash');
+
+
+function dispatch(action, actionType) {
+  action.actionType = actionType;
+  AppDispatcher.dispatch(action);
+}
 
 var TeamActions = {
 
   /**
    * @param  {string} text
    */
-  create: function(text) {
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_CREATE,
-      text: text
-    });
+  create: function(opts) {
+    var action = _.pick((opts || {}), 'teamName');
+    dispatch(action, TeamConstants.TEAM_CREATE);
   },
-
-  /**
-   * @param  {string} id
-   */
-  destroy: function(id) {
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_DESTROY,
-      id: id
-    });
+  addMember: function(opts) {
+    var action = _.pick((opts || {}), 'id', 'roleName', 'userId');
+    dispatch(action, TeamConstants.TEAM_ADD_MEMBER);
   },
-
-  addUser: function(opts) {
-    opts = opts || {};
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_ADD_USER_START,
-      orgName: opts.orgName,
-      teamName: opts.teamName,
-      roleType: opts.roleType,
-      userId: opts.userId
-    });
-
-    var userPromise = common.addUser(opts);
-    userPromise.done(function(data) {
-      AppDispatcher.dispatch({
-        actionType: TeamConstants.TEAM_ADD_USER_COMPLETE,
-        teamName: '',
-        userId: ''
-      });
-    });
+  removeMember: function(opts) {
+    var action = _.pick((opts || {}), 'id', 'roleName', 'userId');
+    dispatch(action, TeamConstants.TEAM_REMOVE_MEMBER);
   },
-
-  removeUser: function(opts) {
-
-    opts = opts || {};
-    AppDispatcher.dispatch({
-      actionType: TeamConstants.TEAM_REMOVE_USER_START,
-      payload: {
-        orgName: opts.orgName,
-        teamName: opts.teamName,
-        roleType: opts.roleType,
-        userId: opts.userId
-      }
-    });
-
-    var userPromise = common.removeUser(opts);
-    userPromise.done(function(data) {
-      AppDispatcher.dispatch({
-        actionType: TeamConstants.TEAM_REMOVE_USER_COMPLETE,
-        teamName: '',
-        userId: ''
-      });
-    });
+  addAsset: function(opts) {
+    var action = _.pick((opts || {}), 'id', 'resourceName', 'assetData');
+    dispatch(action, TeamConstants.TEAM_ADD_ASSET);
+  },
+  removeAsset: function(opts) {
+    var action = _.pick((opts || {}), 'id', 'resourceName', 'assetId');
+    dispatch(action, TeamConstants.TEAM_REMOVE_ASSET);
   }
-
 };
 
 module.exports = TeamActions;

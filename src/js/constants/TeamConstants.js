@@ -14,8 +14,8 @@ var keyMirror = require('keymirror');
 module.exports = keyMirror({
     TEAM_CREATE: null,
     TEAM_DESTROY: null,
-    TEAM_ADD_USER_START: null,
-    TEAM_ADD_USER_COMPLETE: null,
-    TEAM_REMOVE_USER_START: null,
-    TEAM_REMOVE_USER_COMPLETE: null
+    TEAM_ADD_MEMBER: null,
+    TEAM_REMOVE_MEMBER: null,
+    TEAM_ADD_ASSET: null,
+    TEAM_REMOVE_ASSET: null
 });
