@@ -66,7 +66,7 @@ common.getCurrentUserInfo = function() {
 common.userData = function( action ) {
   return $.ajax({
     url: resources.routes.userData(action),
-    method: 'POST',
+    method: 'PUT',
     dataType: 'json',
     contentType: 'application/json',
     data: JSON.stringify(action.data)
