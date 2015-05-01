@@ -63,17 +63,15 @@ var TeamStore = Store.Collection.extend({
   url: resources.routes.ALL_TEAMS,
   actions: {
     TEAM_CREATE: function(action) {
+
       if (!action.teamName) {
         throw new Error('Please provide a team name.');
       }
-      this.createTeam(action)
+      var that = this;
+      common.teamCreate(action).done(function(newTeamData) {
+        that.add(newTeamData);
+      });
     }
-  },
-  createTeam: function(action) {
-    var that = this;
-    common.teamCreate(action).done(function(newTeamData) {
-      that.add(newTeamData);
-    });
   }
 });
 

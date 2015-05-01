@@ -29,13 +29,15 @@ var modelStoreUtils = _.extend({}, storeUtils, {
 
 var collectionStoreUtils = _.extend({}, storeUtils, {
   handleAction: function( action ) {
-    console.log("invoked function", action);
+    console.log('store',action)
     if (action.id) {
       var model = this.get(action.id);
+      console.log('model',model)
       actions = (model) ? model.actions : {};
     } else {
       actions = this.actions;
     }
+    console.log('actions', actions)
     var actionHandler = actions[action.actionType];
     if (actionHandler) {
       return actionHandler.call(this, action);

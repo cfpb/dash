@@ -10,7 +10,8 @@ describe('TeamStore', function() {
     common,
     callback,
     AppDispatcher,
-    Backbone;
+    Backbone,
+    listener;
   var TeamConstants = require('../../constants/TeamConstants')
 
   var actionTeamDestroy = {
@@ -18,17 +19,17 @@ describe('TeamStore', function() {
     id: 'foo'
   };
   var actionTeamCreate = {
-    actionType: TeamConstants.TEAM_CREATE,
-    id: 'foo'
+    actionType: 'TEAM_CREATE',
+    id: 'foo',
+    teamName: 'foo'
   };
-  var removeUser = {
-    actionType: TeamConstants.TEAM_REMOVE_USER_START,
-    payload: {orgName: 'foo replace'}
+  var TEAM_ADD_MEMBER = {
+    id: 'foo',
+    actionType: 'TEAM_ADD_MEMBER',
+    orgName: 'foo replace',
+    roleName: 'member',
+    userId: 'GIJoe'
   };
-  var addUser = {
-    actionType: TeamConstants.TEAM_ADD_USER_START
-  };
-
 
   beforeEach(function() {
     TeamStore = require('../Classes/TeamStore');
@@ -36,9 +37,8 @@ describe('TeamStore', function() {
     Backbone = require('backbone');
     Backbone.$ = require('jquery');
     AppDispatcher = require('../../dispatcher/AppDispatcher');
-    var listener = jest.genMockFunction();
+    listener = jest.genMockFunction();
     AppDispatcher.register(listener);
-    // callback = listener.mock.calls[0][0];
   });
 
   it('should call common to get all teams', function() {
@@ -46,8 +46,9 @@ describe('TeamStore', function() {
     var result = new TeamStore();
     expect(result.fetch).toHaveBeenCalled();
   });
+
   it('registers a callback with the dispatcher', function() {
-    expect(AppDispatcher.register.mock.calls.length).toBe(1);
+    expect(AppDispatcher.register.mock.calls.length).toEqual(1);
   });
 
   it('should create team', function() {
@@ -63,78 +64,41 @@ describe('TeamStore', function() {
     expect(common.teamCreate).toBeCalled();
   });
 
-  xit('should filter all teams and user teams correctly', function() {
-    var currentUser = {name: 'im'},
-      otherUser = {name: 'cc'},
-      teams = [
-        {id: 'team-with-non-unique-members', roles: {member: {members: ['im', 'cm', 'im']}}},
-        {id: 'empty-team', roles: {member: {members: []}}},
-        {id: 'non-current-user-team', roles: {member: {members: ['cm']}}},
-        {id: 'happy-path-team', roles: {member: {members: ['im', 'cm']}}}
-      ]
-    var result = TeamStore.getFilteredTeams(teams, currentUser),
-      otherUserTeam = TeamStore.getFilteredTeams(teams, otherUser);
-
-    expect(result.myTeams.length).toEqual(2);
-    expect(result.myTeams).toContain(teams[0]);
-    expect(result.myTeams).toContain(teams[3]);
-
-    expect(otherUserTeam.myTeams.length).toEqual(0);
-    expect(otherUserTeam.otherTeams.length).toEqual(4);
-  });
-
-  xit('should extract assets from teams', function() {
-
-    /* eslint-disable */
+  it('should call create team through action handle', function() {
+    // spyOn(TeamStore.prototype, 'fetch');
     var team = {
-      rsrcs: {
-        gh: {
-          assets: [
-            {
-              id: 'id-1',
-              gh_id: 1,
-              name: 'repo_name',
-              full_name: 'url/repo_name'
-            },
-            {
-              id: 'id-2',
-              gh_id: 2,
-              name: 'repo_name2',
-              full_name: 'url/repo_name2'
-            }
-          ]
-        }
-      }
+      id: '123',
+      name: 'foo'
     };
-    /* eslint-enable */
-
-    var result = TeamStore.getTeamAssets(team);
-
-    expect(result.length).toEqual(2);
-    expect(result).toContain(team.rsrcs.gh.assets[0]);
-
+    var result = new TeamStore(team);
+    //common.teamCreate.mockImplementation(function() {
+    //  return {
+    //    done: function() {
+    //    }
+    //  };
+    //});
+    result.handleAction(actionTeamCreate)
+    expect(common.teamCreate).toBeCalled();
   });
 
-  xit('should produce team metadata', function() {
-    /* eslint-disable */
-    var currUserId = '1234',
-      currUser = {name: currUserId};
-    var users = [currUser];
+  it('should make a call to common to add a member and update the model with the result', function() {
     var team = {
-      name: "foo",
-      roles: {
-        member: {members: [currUserId]},
-        admin: {members: [currUserId]}
-      }
+      id: '123',
+      name: 'foo'
     };
-    /* eslint-enable */
+    var store = new TeamStore(team);
+    var teamModel = store.models[0];
+    var cut = teamModel.actions.TEAM_ADD_MEMBER;
 
-    var result = TeamStore.constructTeamAndUserMetadata(team, users, currUserId);
-    expect(result.userMembers.length).toEqual(1);
-    expect(result.adminMembers.length).toEqual(1);
-    expect(result.roles.member).toBeTruthy();
-    expect(result.roles.admin).toBeTruthy();
+    spyOn(common, 'teamAddMember').andReturn({done: function(cb) {cb({id: '123', name: 'foo', updatedKey: 'bar'})}});
+    cut.call(teamModel, 'TEAM_ADD_MEMBER')
+
+    expect(common.teamAddMember).toHaveBeenCalled();
+    expect(teamModel.get('updatedKey')).toEqual('bar')
   });
+  xit('should respond to dispatcher action calls', function() {
+    callback(TEAM_ADD_MEMBER);
+  })
   xit('should add team name and id to the member object', function() {
     var team = {
       _id: '123',
@@ -147,33 +111,18 @@ describe('TeamStore', function() {
     expect(result[0].teams[0].name).toBe(team.name);
     expect(result[0].teams[0]._id).toBe(team._id);
   });
+  xit('should add team via model', function() {
 
 
-  xit('should make a request to delete a user', function() {
-
-    var done = jest.genMockFunction().mockImplementation(function() {
-      return '';
-    });
-    common.removeUser.mockImplementation(function() {
+    common.teamAddMember.mockImplementation(function() {
       return {
         done: function() {
         }
       };
     });
-    callback(removeUser);
+    callback(TEAM_ADD_MEMBER);
     expect(common.removeUser).toBeCalled();
   });
-  xit('should make a request to add a user', function() {
 
-
-    common.addUser.mockImplementation(function() {
-      return {
-        done: function() {
-        }
-      };
-    });
-    callback(addUser);
-    expect(common.addUser).toBeCalled();
-  });
 
 });
