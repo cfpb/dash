@@ -1,15 +1,18 @@
 var meta = require('./package.json');
 var gulp = require('gulp');
 var browserify = require('browserify');
+var reactify = require('reactify');
+var watchify = require('watchify');
 var transform = require('vinyl-transform');
 var uglify = require('gulp-uglify');
 var less = require('gulp-less');
 var usemin = require('gulp-usemin');
 var minifyCss = require('gulp-minify-css');
 var rev = require('gulp-rev');
+var argv = require('yargs').argv;
 var eslint = require('gulp-eslint');
+var gwatch = require('gulp-watch');
 var jest = require('gulp-jest');
-var watch = require('gulp-watch');
 var cache = require('gulp-cached');
 var rimraf = require('gulp-rimraf');
 var rename = require('gulp-rename');
@@ -24,8 +27,39 @@ var onError = function(err) {
   return err;
 };
 
+var compileScripts = function() {
+  var bundler, rebundle;
+  bundler = browserify({
+    basedir: __dirname,
+    debug: argv.dev || argv.watch,
+    entries: './src/js/app.jsx',
+    cache: {},
+    packageCache: {},
+    fullPaths: argv.dev || argv.watch
+  });
+  if (argv.watch) {
+    bundler = watchify(bundler);
+  }
+  bundler.transform(reactify);
+  rebundle = function() {
+    var stream = bundler.bundle();
+    stream = stream.pipe(source('bundle.js'));
+    // Lint whenever a source JS file changes, change this to 'test' if you also
+    // want Jest to run.
+    if (argv.watch) {
+      gulp.start('lint');
+    }
+    return stream.pipe(gulp.dest('./dist'));
+  };
+  bundler.on('update', rebundle);
+  bundler.on('log', function(msg){
+    gutil.log('Browserify: ' + msg);
+  });
+  return rebundle();
+}
+
 gulp.task('lint', function() {
-  return gulp.src(['./src/js/**/*.jsx', './src/js/**/*.js', './src/js/**/**/*.js', './gulpfile.js', '!./src/js/bundle.js'])
+  return gulp.src(['./src/js/**/*.jsx', './src/js/**/*.js', './src/js/**/**/*.js', './gulpfile.js', '!./src/js/bundle.js', '!**/coverage/**/*'])
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -53,16 +87,34 @@ gulp.task('clean', function() {
 });
 
 gulp.task('bundle', function() {
-  return browserify({
-      debug: true,
-      entries: './src/js/app.jsx'
-    })
-    .bundle()
-    .pipe(source('bundle.js'))
-    .pipe(gulp.dest('./src/'));
+  return compileScripts();
+});
+
+gulp.task('watch-less', function() {
+  gwatch(['./src/**/*.html', './src/less/**/*.less'], function() {
+    gulp.start('copy-src');
+  });
+});
+
+gulp.task('watch-tests', function() {
+  gwatch(['./src/**/__tests__/**/*.js'], function() {
+    gulp.start('test');
+  });
+});
+
+gulp.task('copy-src', function() {
+  return gulp.src('./src/**/*')
+    .pipe(cache('move'))
+    .pipe(gulp.dest('./dist/'))
 });
 
 gulp.task('build', ['clean', 'bundle'], function() {
+  if (argv.watch) {
+    gulp.start(['watch-less', 'watch-tests']);
+  }
+  if (argv.dev) {
+    return gulp.start('copy-src');
+  }
   return gulp.src('./src/index.html')
     .pipe(cache('usemin'))
     .pipe(usemin({
@@ -72,15 +124,5 @@ gulp.task('build', ['clean', 'bundle'], function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('devbuild', ['bundle'], function() {
-  return gulp.src('./src/**/*')
-    .pipe(cache('move'))
-    .pipe(gulp.dest('./dev'))
-});
-
-gulp.task('watch', function() {
-  gulp.watch(['gulpfile.js', './src/js/**/*.jsx', './src/js/**/*.js', './src/less/**/*.less'], ['deploy']);
-});
-
-gulp.task('test', ['jest']);
+gulp.task('test', ['lint', 'jest']);
 gulp.task('default', ['test', 'build']);

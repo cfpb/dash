@@ -45,14 +45,15 @@ var App = React.createClass({
   _onChange: function() {
     this.setState(this.getAppState())
   },
-
   render: function() {
     var Body = <div></div>;
 
     if (this.isReady()) {
-      Body = <div>
-        <Router.RouteHandler {...this.state} />
-      </div>;
+      Body = (
+        <div>
+          <Router.RouteHandler {...this.state} />
+        </div>
+      );
     } else if (this.state.loggedInUser.isLoggedIn()) {
       Body = <div>Loading...</div>;
     }
@@ -65,7 +66,7 @@ var App = React.createClass({
           <div className="content_wrapper">
             <div className="content_main">
               <Breadcrumbs excludes={['Teams']}/>
-       {Body}
+              {Body}
             </div>
           </div>
         </main>

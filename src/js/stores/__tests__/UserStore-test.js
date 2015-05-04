@@ -28,7 +28,7 @@ describe('LoggedInUserStore', function() {
   });
   it('contain actions', function() {
     var result = new UserStore({id: '1', name: 'foo'});
-   expect(result.first().actions.USER_DATA).toBeDefined();
+    expect(result.first().actions.USER_DATA).toBeDefined();
   });
 
 });
