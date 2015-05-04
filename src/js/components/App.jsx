@@ -38,7 +38,7 @@ var App = React.createClass({
   },
   componentWillUnmount: function() {
     var that = this;
-    _.each(this.stores, function( store ) {
+    _.each(this.stores, function(store) {
       store.off(null, null, that)
     })
   },
