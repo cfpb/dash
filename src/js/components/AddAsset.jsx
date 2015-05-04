@@ -42,7 +42,7 @@ var AddAsset = React.createClass({
       return (
         <div className="add-asset-search">
           <input ref='input' onChange={this.onChange} onKeyDown={this.onKeyDown} />
-          <Icon  ref="plus-icon" type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd}/>
+          <Icon ref="plus-icon" type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd}/>
           <Icon ref="minus-icon" type='delete' onClick={this.handleClose} />
         </div>
       );

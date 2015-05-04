@@ -38,21 +38,22 @@ var App = React.createClass({
   },
   componentWillUnmount: function() {
     var that = this;
-    _.each(this.stores, function( store ) {
+    _.each(this.stores, function(store) {
       store.off(null, null, that)
     })
   },
   _onChange: function() {
     this.setState(this.getAppState())
   },
-
   render: function() {
     var Body = <div></div>;
 
     if (this.isReady()) {
-      Body = <div>
-        <Router.RouteHandler {...this.state} />
-      </div>;
+      Body = (
+        <div>
+          <Router.RouteHandler {...this.state} />
+        </div>
+      );
     } else if (this.state.loggedInUser.isLoggedIn()) {
       Body = <div>Loading...</div>;
     }
@@ -65,7 +66,7 @@ var App = React.createClass({
           <div className="content_wrapper">
             <div className="content_main">
               <Breadcrumbs excludes={['Teams']}/>
-       {Body}
+              {Body}
             </div>
           </div>
         </main>

@@ -11,9 +11,9 @@ function dispatch(action, actionType) {
 
 var UserActions = {
   userData: function(opts) {
-    var action = _.pick((opts || {}), 'path', 'data', 'id' );
+    var action = _.pick((opts || {}), 'path', 'data', 'id');
     dispatch(action, UserConstants.USER_DATA);
   }
 };
 
-module.exports= UserActions;
+module.exports = UserActions;
