@@ -72,10 +72,10 @@ gulp.task('build', ['clean', 'bundle'], function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('deploy', ['bundle'], function() {
+gulp.task('devbuild', ['bundle'], function() {
   return gulp.src('./src/**/*')
     .pipe(cache('move'))
-    .pipe(gulp.dest('../devdash/devdash/static'))
+    .pipe(gulp.dest('./dev'))
 });
 
 gulp.task('watch', function() {
