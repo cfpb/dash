@@ -10,10 +10,11 @@ describe('Page of teams', function() {
   beforeEach(function() {
     React = require('react/addons');
     TestUtils = React.addons.TestUtils;
+    /* eslint-disable */
     teams = {
       models: [
         {
-          get: function( name ) {
+          get: function(name) {
             return this.name;
           },
           name: 'foo1',
@@ -94,6 +95,7 @@ describe('Page of teams', function() {
         }
       ]
     };
+    /* eslint-enable */
 
   });
   it('should contain some teams and should AddAsset component', function() {
