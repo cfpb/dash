@@ -103,7 +103,7 @@ gulp.task('empty-dist-dir', function(cb) {
 gulp.task('styles', function() {
   return gulp.src(['./src/**/*', '!./src/vendor/**/*'])
     .pipe(cache('styles'))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./dev/'))
 });
 
 gulp.task('process-everything', ['browserify', 'empty-dist-dir'], function(cb) {

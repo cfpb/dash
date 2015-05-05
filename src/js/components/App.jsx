@@ -65,7 +65,6 @@ var App = React.createClass({
           <div className="content_bar"></div>
           <div className="content_wrapper">
             <div className="content_main">
-              <Breadcrumbs excludes={['Teams']}/>
               {Body}
             </div>
           </div>
