@@ -20,7 +20,7 @@ After you've set up [`devdash`](https://github.com/cfpb/devdash#installation) so
 * `npm test` to run ESLint and Jest tests.
 * `gulp build` to process and optimize all JavaScript and Less file and dump them into `dist/` for production use.
 * `gulp build --dev` to *quickly* process all JS and Less files and dump them into `dist/` (code won't be minified).
-* `gulp build --watch` to monitor source files and automatically `gulp build --dev` when any files are changed.
+* `gulp build --watch` to monitor source files and automatically lint and `gulp build --dev` when any files are changed.
 
 
 When files are edited, tests will be run and this repo will be copied over to the `devdash` directory to be served by nginx. Reload http://localhost:8000 to see your changes.

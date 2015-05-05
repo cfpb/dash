@@ -11,10 +11,9 @@ var minifyCss = require('gulp-minify-css');
 var rev = require('gulp-rev');
 var argv = require('yargs').argv;
 var eslint = require('gulp-eslint');
-var gwatch = require('gulp-watch');
 var jest = require('gulp-jest');
 var cache = require('gulp-cached');
-var rimraf = require('gulp-rimraf');
+var rimraf = require('rimraf');
 var rename = require('gulp-rename');
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
@@ -22,40 +21,39 @@ var filter = require('gulp-filter');
 var coveralls = require('gulp-coveralls');
 var source = require('vinyl-source-stream');
 
+var PROD = false;
+
 var onError = function(err) {
   gutil.beep();
   return err;
 };
 
-var compileScripts = function() {
-  var bundler, rebundle;
-  bundler = browserify({
-    basedir: __dirname,
+function compileScripts(prod) {
+  function bundle(bro) {
+    var dest = PROD ? './src' : './dist';
+    return bro.bundle()
+      .pipe(source('bundle.js'))
+      .pipe(gulp.dest(dest));
+  }
+  var b = browserify({
     debug: argv.dev || argv.watch,
-    entries: './src/js/app.jsx',
     cache: {},
     packageCache: {},
     fullPaths: argv.dev || argv.watch
   });
   if (argv.watch) {
-    bundler = watchify(bundler);
-  }
-  bundler.transform(reactify);
-  rebundle = function() {
-    var stream = bundler.bundle();
-    stream = stream.pipe(source('bundle.js'));
-    // Lint whenever a source JS file changes, change this to 'test' if you also
-    // want Jest to run.
-    if (argv.watch) {
+    // If watch is enabled, wrap this bundle inside watchify.
+    b = watchify(b);
+    b.on('update', function(){
       gulp.start('lint');
-    }
-    return stream.pipe(gulp.dest('./dist'));
-  };
-  bundler.on('update', rebundle);
-  bundler.on('log', function(msg){
-    gutil.log('Browserify: ' + msg);
-  });
-  return rebundle();
+      bundle(b);
+    });
+    b.on('log', function(msg){
+      gutil.log('Browserify: ' + msg);
+    });
+  }
+  b.add('./src/js/app.jsx');
+  return bundle(b);
 }
 
 gulp.task('lint', function() {
@@ -81,47 +79,52 @@ gulp.task('coverage', ['jest'], function() {
     .pipe(coveralls());
 });
 
-gulp.task('clean', function() {
-  return gulp.src('./dist', {read: false})
-    .pipe(rimraf());
-});
-
-gulp.task('bundle', function() {
-  return compileScripts();
-});
-
-gulp.task('watch-less', function() {
-  gwatch(['./src/**/*.html', './src/less/**/*.less'], function() {
-    gulp.start('copy-src');
-  });
-});
-
-gulp.task('watch-tests', function() {
-  gwatch(['./src/**/__tests__/**/*.js'], function() {
-    gulp.start('test');
-  });
-});
-
-gulp.task('copy-src', function() {
+gulp.task('copy-src-files', ['browserify'], function() {
   return gulp.src('./src/**/*')
     .pipe(cache('move'))
     .pipe(gulp.dest('./dist/'))
 });
 
-gulp.task('build', ['clean', 'bundle'], function() {
+gulp.task('browserify', ['empty-dist-dir'], function() {
+  return compileScripts();
+});
+
+gulp.task('empty-dist-dir', function(cb) {
+  rimraf('./dist', cb);
+});
+
+gulp.task('styles', function() {
+  return gulp.src(['./src/**/*', '!./src/vendor/**/*'])
+    .pipe(cache('styles'))
+    .pipe(gulp.dest('./dist/'))
+});
+
+gulp.task('process-everything', ['browserify'], function(cb) {
+  var u = gulp.src('./src/index.html')
+        .pipe(usemin({
+          less: [less(), minifyCss(), 'concat', rev()],
+          js: [uglify(), rev()]
+        }))
+        .pipe(gulp.dest('dist/'));
+
+  u.on('end', function(){
+    rimraf('./src/bundle.js', cb);
+  });
+
+});
+
+// Primary task
+gulp.task('build', function() {
   if (argv.watch) {
-    gulp.start(['watch-less', 'watch-tests']);
+    gulp.watch(['./src/**/*.html', './src/less/**/*.less'], ['styles']);
+    gulp.watch(['./src/**/__tests__/**/*.js'], ['test']);
   }
-  if (argv.dev) {
-    return gulp.start('copy-src');
+  if (argv.dev || argv.watch) {
+    return gulp.start(['copy-src-files']);
+  } else {
+    PROD = true;
+    return gulp.start(['process-everything']);
   }
-  return gulp.src('./src/index.html')
-    .pipe(cache('usemin'))
-    .pipe(usemin({
-      less: [less(), minifyCss(), 'concat', rev()],
-      js: [uglify(), rev()]
-    }))
-    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('test', ['lint', 'jest']);
