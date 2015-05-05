@@ -39,7 +39,7 @@ Thumbs.db
 
 # Built assets #
 ################
-dist
+dev
 src/bundle.js
 src/vendor
 src/fonts

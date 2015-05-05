@@ -11,7 +11,6 @@ var minifyCss = require('gulp-minify-css');
 var rev = require('gulp-rev');
 var argv = require('yargs').argv;
 var eslint = require('gulp-eslint');
-var gwatch = require('gulp-watch');
 var jest = require('gulp-jest');
 var cache = require('gulp-cached');
 var rimraf = require('rimraf');
@@ -22,31 +21,36 @@ var filter = require('gulp-filter');
 var coveralls = require('gulp-coveralls');
 var source = require('vinyl-source-stream');
 
-var PROD = false;
-
 var onError = function(err) {
   gutil.beep();
   return err;
 };
 
-function compileScripts(prod) {
-  function bundle(bro) {
-    var dest = PROD ? './src' : './dist';
+// Compile JS using Browserify.
+function compileScripts() {
+  function bundle(bro, opts) {
+    var dest = opts ? './dev' : './src';
     return bro.bundle()
       .pipe(source('bundle.js'))
       .pipe(gulp.dest(dest));
   }
   var b = browserify({
-    debug: argv.dev || argv.watch,
+    debug: true,
     cache: {},
     packageCache: {},
-    fullPaths: argv.dev || argv.watch
+    fullPaths: false
   });
   if (argv.watch) {
     // If watch is enabled, wrap this bundle inside watchify.
     b = watchify(b);
-    b.on('update', function(){
+    b.on('update', function(ids){
+      ids.forEach(function(id){
+        gutil.log(id + ' changed.');
+      });
       gulp.start('lint');
+      // Once for /dev
+      bundle(b, {dev: true});
+      // Again for /dist
       bundle(b);
     });
     b.on('log', function(msg){
@@ -54,6 +58,9 @@ function compileScripts(prod) {
     });
   }
   b.add('./src/js/app.jsx');
+  // Once for /dev
+  bundle(b, {dev: true});
+  // Again for /dist
   return bundle(b);
 }
 
@@ -80,13 +87,12 @@ gulp.task('coverage', ['jest'], function() {
     .pipe(coveralls());
 });
 
-gulp.task('copy-src-files', ['browserify'], function() {
+gulp.task('copy-src-files-to-dev', function() {
   return gulp.src('./src/**/*')
-    .pipe(cache('move'))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./dev/'))
 });
 
-gulp.task('browserify', ['empty-dist-dir'], function() {
+gulp.task('browserify', function(cb) {
   return compileScripts();
 });
 
@@ -97,21 +103,24 @@ gulp.task('empty-dist-dir', function(cb) {
 gulp.task('styles', function() {
   return gulp.src(['./src/**/*', '!./src/vendor/**/*'])
     .pipe(cache('styles'))
-    .pipe(gulp.dest('./dist/'))
+    .pipe(gulp.dest('./dev/'))
 });
 
-gulp.task('process-everything', ['browserify'], function(cb) {
-  var u = gulp.src('./src/index.html')
+gulp.task('process-everything', ['browserify', 'empty-dist-dir'], function(cb) {
+  // Copy all the src files over to /dev.
+  gulp.start('copy-src-files-to-dev');
+  // While that's happening, use usemin to process and optimize all assets and
+  // dump them into /dist.
+  var usem = gulp.src('./src/index.html')
         .pipe(usemin({
           less: [less(), minifyCss(), 'concat', rev()],
           js: [uglify(), rev()]
         }))
         .pipe(gulp.dest('dist/'));
-
-  u.on('end', function(){
+  // After usemin is done, delete the original bundle.js
+  usem.on('end', function(){
     rimraf('./src/bundle.js', cb);
   });
-
 });
 
 // Primary task
@@ -120,12 +129,7 @@ gulp.task('build', function() {
     gulp.watch(['./src/**/*.html', './src/less/**/*.less'], ['styles']);
     gulp.watch(['./src/**/__tests__/**/*.js'], ['test']);
   }
-  if (argv.dev || argv.watch) {
-    return gulp.start(['copy-src-files']);
-  } else {
-    PROD = true;
-    return gulp.start(['process-everything']);
-  }
+  return gulp.start(['process-everything']);
 });
 
 gulp.task('test', ['lint', 'jest']);
