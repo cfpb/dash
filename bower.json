@@ -16,5 +16,8 @@
   ],
   "devDependencies": {
     "less": "~2.4.0"
+  },
+  "dependencies": {
+    "cf-grid": "cfpb/cf-grid#1.0"
   }
 }

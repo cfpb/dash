@@ -17,7 +17,7 @@ var AddAsset = React.createClass({
   handleClose: function() {
     this.setState({isOpen: false});
   },
-  handleAdd: function( e ) {
+  handleAdd: function(e) {
     if (this.state.assetName.length < 3) {
       return;
     }
@@ -28,29 +28,29 @@ var AddAsset = React.createClass({
     });
     this.setState({isOpen: false});
   },
-  onKeyDown: function( e ) {
+  onKeyDown: function(e) {
     if (e.key === 'Enter') {
       this.handleAdd();
     }
   },
-  onChange: function( e ) {
+  onChange: function(e) {
     this.state.assetName = e.target.value;
     this.setState(this.state);
   },
   render: function() {
     if (this.state.isOpen) {
       return (
-        <div className="add-asset-search">
-          <input ref='input' onChange={this.onChange} onKeyDown={this.onKeyDown} />
-          <Icon ref="plus-icon" type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd}/>
-          <Icon ref="minus-icon" type='delete' onClick={this.handleClose} />
-        </div>
+        <span className="add-item">
+          <input type="text" ref="input" onChange={this.onChange} placeholder="Asset name" onKeyDown={this.onKeyDown} />
+          <Icon ref="plus-icon" type={['plus', 'action']} className="cf-form_input-icon" disabled={this.state.assetName.length < 3} title="Add new asset" onClick={this.handleAdd} />
+          <Icon ref="minus-icon" type={['delete', 'action']} className="cf-form_input-icon" title="Cancel" onClick={this.handleClose} />
+        </span>
       );
     } else {
       return (
-        <div className="add-asset">
-          <Icon ref="plus-icon" type='plus' onClick={this.handleOpen} />
-        </div>
+        <span className="add-item">
+          <Icon ref="plus-icon" type={['plus', 'action']} title="Add new asset" onClick={this.handleOpen} />
+        </span>
       )
     }
   }

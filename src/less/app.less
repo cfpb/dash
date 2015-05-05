@@ -1,5 +1,81 @@
+@import '../vendor/cf-grid/src/cf-grid.less';
+
 body {
-  
+
+}
+
+
+// Teams
+
+.teams-page-header {
+  min-height: 50px;
+  .cf-form_input-icon {
+    top: 0;
+  }
+}
+
+// Layout
+
+// @grid_total-columns: 4;
+
+// .teams-page {
+//   .grid_wrapper();
+// }
+
+// .teams-list-item {
+//   .grid_column(1);
+//   .responsive(1000px, {
+//     .grid_column(2);
+//   });
+//   .responsive(700px, {
+//     .grid_column(4);
+//   });
+// }
+
+// Actions
+
+.add-item {
+  margin-left: 5px;
+}
+
+// Icons
+
+.cf-icon {
+  &-action:hover {
+    cursor: pointer;
+  }
+  &.disabled:hover {
+    cursor: not-allowed;
+  }
+}
+
+// Third-party components
+
+.typeahead {
+  display: inline;
+  &-selector {
+    margin: 0;
+    padding-left: 10px;
+    position: absolute;
+    background-color: #fff;
+    width: 166px;
+    li {
+      list-style-type: none;
+    }
+  }
+}
+
+
+// Utils
+
+.responsive(@maxWidth; @rules) {
+    @media only screen and (max-width: @maxWidth) {
+        @rules();
+    }
+}
+
+.inline {
+  display: inline;
 }
 
 .disabled {

@@ -8,7 +8,7 @@ var RemoveMember = require('./RemoveMember.jsx');
 var MemberItem = React.createClass({
   render: function() {
     var name = this.props.user.get('data').username;
-    var deleteIcon = (this.props.canRemove) ? <RemoveMember teamName={this.props.teamName} roleName={this.props.roleName} userId={this.props.user.id} /> : '';
+    var deleteIcon = (this.props.canRemove) ? <RemoveMember teamName={this.props.teamName} roleName={this.props.roleName} userId={this.props.user.id} userName={name} /> : '';
     return (
       <li className='user-item'>
         {deleteIcon}
