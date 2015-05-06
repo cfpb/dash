@@ -1,17 +1,19 @@
 jest.dontMock('../../constants/TeamConstants');
 jest.dontMock('../Classes/TeamStore');
 jest.dontMock('../Classes/Store');
+jest.dontMock('lodash');
 
 jest.dontMock('object-assign');
 
 describe('TeamStore', function() {
 
   var TeamStore,
-      common,
-      callback,
-      AppDispatcher,
-      Backbone,
-      listener;
+    common,
+    callback,
+    AppDispatcher,
+    Backbone,
+    listener,
+    _;
 
   var TeamConstants = require('../../constants/TeamConstants')
 
@@ -28,7 +30,14 @@ describe('TeamStore', function() {
     userId: 'GIJoe'
   };
 
+  var team = {
+    id: '123',
+    name: 'foo'
+  };
+
+
   beforeEach(function() {
+    _ = require('lodash');
     TeamStore = require('../Classes/TeamStore');
     common = require('../../utils/common');
     Backbone = require('backbone');
@@ -49,7 +58,7 @@ describe('TeamStore', function() {
   });
 
   it('should create a team', function() {
-    var team = {
+    team = {
       id: 'cheesy',
       name: 'foo'
     };
@@ -61,56 +70,45 @@ describe('TeamStore', function() {
     var teamStore = new TeamStore(team);
     var action = teamStore.actions.TEAM_CREATE;
 
-    spyOn(common, 'teamCreate').andReturn({done: function(cb) {cb({})}});
+    spyOn(common, 'teamCreate').andReturn({
+      done: function( cb ) {
+        cb({})
+      }
+    });
     action.call(teamStore, TEAM_CREATE);
 
     expect(common.teamCreate).toHaveBeenCalled();
     expect(teamStore.get('foo').get('id')).toEqual('cheesy');
   });
 
-  it('should make a call to common to add a member and update the model with the result', function() {
-    var team = {
-      id: '123',
-      name: 'foo'
-    };
-
+  it('should make a call to common to for all model actions and update the model with the result', function() {
     var store = new TeamStore(team);
     var teamModel = store.models[0];
-    var action = teamModel.actions.TEAM_ADD_MEMBER;
 
-    spyOn(common, 'teamAddMember').andReturn({done: function(cb) {cb({id: '123', name: 'foo', updatedKey: 'bar'})}});
-    action.call(teamModel, 'TEAM_ADD_MEMBER')
+    var actionHash = {
+      TEAM_ADD_MEMBER: 'teamAddMember',
+      TEAM_REMOVE_MEMBER: 'teamRemoveMember',
+      TEAM_ADD_ASSET: 'teamAddAsset',
+      TEAM_REMOVE_ASSET: 'teamRemoveAsset'
+    }
 
-    expect(common.teamAddMember).toHaveBeenCalled();
-    expect(teamModel.get('updatedKey')).toEqual('bar')
+    _.forIn(teamModel.actions, function( value, key ) {
+      var action = teamModel.actions[key];
+
+      spyOn(common, actionHash[key]).andReturn({
+        done: function( cb ) {
+          cb({id: '123', name: 'foo', updatedKey: 'bar'})
+        }
+      });
+      action.call(teamModel, key)
+
+      expect(common[actionHash[key]]).toHaveBeenCalled();
+      expect(teamModel.get('updatedKey')).toEqual('bar');
+    });
   });
 
   xit('should respond to dispatcher action calls', function() {
     callback(TEAM_ADD_MEMBER);
-  });
-
-  xit('should add team name and id to the member object', function() {
-    var team = {
-      _id: '123',
-      name: 'foo'
-    };
-
-    var member = {},
-      members = [member];
-    var result = TeamStore.addTeamNames(team, members);
-    expect(result[0].teams[0].name).toBe(team.name);
-    expect(result[0].teams[0]._id).toBe(team._id);
-  });
-
-  xit('should add team via model', function() {
-    common.teamAddMember.mockImplementation(function() {
-      return {
-        done: function() {
-        }
-      };
-    });
-    callback(TEAM_ADD_MEMBER);
-    expect(common.removeUser).toBeCalled();
   });
 
 });
