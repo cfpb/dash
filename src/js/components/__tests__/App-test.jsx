@@ -1,4 +1,12 @@
-jest.dontMock('../App.jsx');
+jest.dontMock('../App.jsx')
+  .dontMock('../../stores/Classes/TeamStore')
+  .dontMock('../../stores/Classes/UserStore')
+  .dontMock('../../stores/Classes/LoggedInStore')
+  .dontMock('../../stores/Classes/Store')
+  .dontMock('../../stores/userStore')
+  .dontMock('../../stores/loggedInUserStore')
+  .dontMock('../../stores/teamStore')
+  .dontMock('backbone');
 
 describe('App', function() {
     var React, App, AppComponent, TestUtils, renderer;
@@ -7,16 +15,13 @@ describe('App', function() {
       React = require('react/addons');
       App = require('../App.jsx');
       TestUtils = React.addons.TestUtils;
-     // renderer = TestUtils.createRenderer()
       AppComponent = TestUtils.renderIntoDocument(
         <App/>
       );
-    // renderer.render(App);
     });
-    xit('should render the component', function() {
-      //var result = renderer.getRenderOutput();
+    it('should render the component', function() {
       var result = AppComponent.getDOMNode();
-      expect(result.className).toBe('app')
+      expect(result.className).toBe('app');
     });
   }
 );

@@ -5,6 +5,9 @@ var resources = {
     team: function( action ) {
       return resources.baseUrl + '/orgs/' + resources.orgName + '/teams/' + action.id
     },
+    teamDetail: function( action ) {
+      return resources.routes.team(action) + '/details';
+    },
     teamMember: function( action ) {
       return resources.routes.team(action) + '/roles/' + action.roleName + '/' + action.userId;
     },

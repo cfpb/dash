@@ -20,11 +20,14 @@ var TeamPage = React.createClass({
     var teamName = this.context.router.getCurrentParams().teamName;
     TeamDetailActions.refreshDetails({teamName: teamName, force: true});
   },
+  componentDidMount: function() {
+    //var teamName = this.context.router.getCurrentParams().teamName;
+   // TeamDetailActions.refreshDetails({teamName: teamName});
+  },
   render: function() {
-    var teamName = this.context.router.getCurrentParams().teamName;
-    TeamDetailActions.refreshDetails({teamName: teamName});
+    var teamName = this.context.router.getCurrentParams().teamName
     var team = this.props.teams.get(teamName);
-    var teamDetails = this.props.teamDetails.get(teamName); // this might be undefined
+    //var teamDetails = this.props.teamDetails.get(teamName); // this might be undefined
     if (!team) {
       return (<div />);
     }
@@ -47,9 +50,9 @@ var TeamPage = React.createClass({
     });
 
     var allAssets = team.get('rsrcs')
-    var allAssetDetails = (teamDetails) ? teamDetails.get('rsrcs') : {}
+   // var allAssetDetails = (teamDetails) ? teamDetails.get('rsrcs') : {}
     var Assets = _.map(allAssets, function( resource, resourceName ) {
-      var assetDetails = allAssetDetails[resourceName] || []
+     // var assetDetails = allAssetDetails[resourceName] || []
       var canAdd = resource.perms.add;
       var canRemove = resource.perms.remove;
       var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceName={resourceName} /> : '';

@@ -33,6 +33,7 @@ var AddMember = React.createClass({
     });
   },
   onKeyDown: function(e) {
+    console.log(e)
     if (e.keyCode === 13) {
       this.handleAdd();
     }
