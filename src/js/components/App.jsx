@@ -5,6 +5,7 @@ var Home = require('./Home.jsx');
 var _ = require('lodash');
 var Router = require('react-router');
 var teamStore = require('../stores/teamStore');
+var teamDetailStore = require('../stores/teamDetailStore');
 var userStore = require('../stores/userStore');
 var loggedInUserStore = require('../stores/loggedInUserStore');
 var Breadcrumbs = require('react-breadcrumbs');
@@ -13,7 +14,8 @@ var App = React.createClass({
   stores: {
     teams: teamStore,
     users: userStore,
-    loggedInUser: loggedInUserStore
+    loggedInUser: loggedInUserStore,
+    teamDetails: teamDetailStore
   },
   getAppState: function() {
     var state = {};
@@ -59,13 +61,13 @@ var App = React.createClass({
     }
 
     return (
-      <div>
+      <div className="app">
         <Header loggedInUser={this.state.loggedInUser} />
         <main className="content" id="main" role="main">
           <div className="content_bar"></div>
           <div className="content_wrapper">
             <div className="content_main">
-              <Breadcrumbs excludes={['Teams']}/>
+              <Breadcrumbs excludes={['App']}/>
               {Body}
             </div>
           </div>

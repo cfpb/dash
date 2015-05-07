@@ -46,7 +46,7 @@ var AddAsset = React.createClass({
       );
     } else {
       return (
-        <div>
+        <div className ="add-team">
           <Icon type='plus' onClick={this.handleOpen} />
         </div>
       )

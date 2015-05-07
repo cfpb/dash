@@ -1,6 +1,5 @@
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var TeamConstants = require('../constants/TeamConstants');
-var common = require('../utils/common');
 var _ = require('lodash');
 
 

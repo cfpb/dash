@@ -6,7 +6,9 @@ var AppDispatcher = require('../../dispatcher/AppDispatcher');
 var storeUtils = {
   initialize: function(attrs, opts) {
     AppDispatcher.register(_.bind(this.handleAction, this));
-    this.fetch();
+    if (this.url) {
+      this.fetch();
+    }
   },
   actions: {},
   onChange: function(handler, ctx) {

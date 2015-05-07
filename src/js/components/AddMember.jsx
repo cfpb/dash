@@ -56,7 +56,7 @@ var AddMember = React.createClass({
       );
     } else {
       return (
-        <div>
+        <div className="add-member">
           <Icon type='plus' onClick={this.handleOpen} />
         </div>
       )
