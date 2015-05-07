@@ -1,5 +1,6 @@
 var React = require('react');
 var _ = require('lodash');
+var capitalize = require('capitalize');
 var MemberList = require('./MemberList.jsx');
 var Icon = require('./Icon.jsx');
 var Button = require('./Button.jsx');
@@ -34,7 +35,7 @@ var TeamPage = React.createClass({
     }
     var allMembers = team.getMembersSortedByRole();
 
-    var Members = _.map(allMembers, function( members, roleName ) {
+    var Members = _.map(allMembers, function(members, roleName) {
       var nonMembers = team.getNonMembersByRole(roleName) || [];
       var canAdd = team.get('roles')[roleName].perms.add;
       var canRemove = team.get('roles')[roleName].perms.remove;
@@ -42,12 +43,12 @@ var TeamPage = React.createClass({
       return (
         <div>
           <div className="team-page-header">
-            <h3 className="inline">{roleName}</h3>
+            <h3 className="inline">{capitalize(roleName)}</h3>
             <span>{addMember}</span>
           </div>
           <MemberList users={members} canRemove={canRemove} teamName={teamName} roleName={roleName} />
         </div>
-      )
+      );
     });
 
     var allAssets = team.get('rsrcs');
@@ -73,12 +74,10 @@ var TeamPage = React.createClass({
     })
     return (
       <div>
-        <h1>{teamName}</h1>
-        <Button type="default" label="Refresh" onClick={this.handleRefresh}/>
-        <h2>Members</h2>
+        <h1>{teamName} <Button type="default" label="Refresh" onClick={this.handleRefresh} className="action-btn" /></h1>
+        <h2>Team Members</h2>
         {Members}
         <h2>Assets</h2>
-
         {Assets}
       </div>
     )

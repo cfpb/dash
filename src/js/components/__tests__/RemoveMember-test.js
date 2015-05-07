@@ -13,7 +13,7 @@ describe('Remove member icon', function() {
 
     it('should should render', function() {
       var result = RemoveMemberComponent.getDOMNode();
-      expect(result.className).toBe('remove-component')
+      expect(result.className).toBe('remove-item')
     });
   }
 );

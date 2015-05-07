@@ -28,7 +28,7 @@ var RemoveAsset = React.createClass({
   render: function() {
     if (this.state.isConfirming) {
       return (
-        <span className='remove-asset'>
+        <span className='remove-item'>
           <span>Are you sure?</span>
           <ul>
             <li onClick={this.handleRemove}>Yes</li>
@@ -38,7 +38,7 @@ var RemoveAsset = React.createClass({
       )
     } else {
       return (
-        <span className='remove-asset'>
+        <span className='remove-item'>
           <Icon type={['minus-round', 'action']} color='red' onClick={this.handleConfirm} />
         </span>
       );

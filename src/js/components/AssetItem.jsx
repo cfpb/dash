@@ -9,11 +9,11 @@ var AssetItem = React.createClass({
     var ResourceAssetItem = resources[this.props.resourceName].assetItem
     var deleteIcon = (this.props.canRemove) ? <RemoveAsset teamName={this.props.teamName} resourceName={this.props.resourceName} assetId={this.props.asset.id} /> : '';
     return (
-
-      <li className='asset-item'>
+      <li className='list-item asset-item'>
         {deleteIcon}
         <ResourceAssetItem {...this.props}/>
-      </li>)
+      </li>
+    )
   }
 });
 

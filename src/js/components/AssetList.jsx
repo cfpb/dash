@@ -5,16 +5,23 @@ var _ = require('lodash');
 var AssetList = React.createClass({
 
   render: function() {
-    var that = this;
-    var assetDetails = this.props.assetDetails;
-    var Assets = this.props.assets.map(function( asset ) {
-      var assetDetail = (_.findWhere(assetDetails, {id: asset.id}) || {details: {}}).details;
-      return <AssetItem asset={asset} key={asset.name}
-        canRemove={that.props.canRemove}
-        teamName={that.props.teamName}
-        resourceName={that.props.resourceName}
-        assetDetail={assetDetail} />;
-    });
+    var that = this,
+        assetDetails = this.props.assetDetails,
+        Assets;
+    if (this.props.assets.length > 0) {
+      Assets = this.props.assets.map(function(asset) {
+        var assetDetail = (_.findWhere(assetDetails, {id: asset.id}) || {details: {}}).details;
+        return (
+            <AssetItem asset={asset} key={asset.name}
+              canRemove={that.props.canRemove}
+              teamName={that.props.teamName}
+              resourceName={that.props.resourceName}
+              assetDetail={assetDetail} />
+          )
+      });
+    } else {
+      Assets = <li className="list-item"><em>no assets found</em></li>;
+    }
     return (
       <div>
         <ul className="asset-list">

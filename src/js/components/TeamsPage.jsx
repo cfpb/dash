@@ -18,7 +18,6 @@ var TeamsPage = React.createClass({
     var teams = this.props.teams;
 
     teams = teams.models.map(function(team) {
-
       return <TeamListItem team={team} canRemove={canRemove} key={team.get('name')} />;
     });
 

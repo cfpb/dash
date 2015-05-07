@@ -22,7 +22,7 @@ var CurrentUserInfo = React.createClass({
             </span>
             <div>
               <span className="user-role">
-                {roles.join(', ')}
+                {roles.join(', ').replace(/\|/g, ': ')}
               </span>
             </div>
           </span>

@@ -12,7 +12,7 @@ var TeamListItem = React.createClass({
     // var deleteIcon = (this.props.canRemove) ? <RemoveAsset teamName={this.props.teamName} resourceName={this.props.resourceName} assetId={this.props.asset.id} /> : '';
 
     return (
-      <li className="teams-list-item">
+      <li className="list-item teams-list-item">
         <Link to="Team" params={{teamName: this.props.team.get('name')}}>{this.props.team.get('name')}</Link>
       </li>
     )

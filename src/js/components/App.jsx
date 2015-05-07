@@ -2,6 +2,7 @@
 var Header = require('./Header.jsx');
 var React = require('react');
 var Home = require('./Home.jsx');
+var Crumbs = require('./Crumbs.jsx');
 var _ = require('lodash');
 var Router = require('react-router');
 var teamStore = require('../stores/teamStore');
@@ -66,6 +67,7 @@ var App = React.createClass({
           <div className="content_bar"></div>
           <div className="content_wrapper">
             <div className="content_main">
+              <Crumbs />
               {Body}
             </div>
           </div>

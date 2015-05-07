@@ -13,7 +13,7 @@ describe('Remove asset icon', function() {
 
     it('should render the component', function() {
       var result = RemoveAssetComponent.getDOMNode();
-      expect(result.className).toBe('remove-asset')
+      expect(result.className).toBe('remove-item')
     });
   }
 );

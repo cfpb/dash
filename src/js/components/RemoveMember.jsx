@@ -28,7 +28,7 @@ var RemoveMember = React.createClass({
   render: function() {
     if (this.state.isConfirming) {
       return (
-        <span className="remove-component">
+        <span className="remove-item">
           <span>Remove {this.props.userName}? Are you sure?</span>
           <ul>
             <li onClick={this.handleRemove}>Yes</li>
@@ -38,7 +38,7 @@ var RemoveMember = React.createClass({
       )
     } else {
       return (
-        <span className="remove-component">
+        <span className="remove-item">
           <Icon type={['minus-round', 'action']} color='red' onClick={this.handleConfirm} />
         </span>
       );

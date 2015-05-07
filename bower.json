@@ -18,6 +18,7 @@
     "less": "~2.4.0"
   },
   "dependencies": {
-    "cf-grid": "cfpb/cf-grid#1.0"
+    "cf-grid": "cfpb/cf-grid#dev",
+    "cf-breadcrumbs": "contolini/cf-breadcrumbs#dev"
   }
 }
