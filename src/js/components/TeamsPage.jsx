@@ -17,17 +17,20 @@ var TeamsPage = React.createClass({
     var addTeam = (canAdd) ? <AddTeam /> : '';
     var teams = this.props.teams;
 
-    teams = teams.models.map(function( team ) {
+    teams = teams.models.map(function(team) {
       return <TeamListItem team={team} canRemove={canRemove} key={team.get('name')} />;
     });
 
     return (
-      <div>
-        <ul className="teams">
-          {addTeam}
+      <section>
+        <div className="teams-page-header">
+          <h2 className="inline">Teams</h2>
+          <span>{addTeam}</span>
+        </div>
+        <ul className="teams-page">
           {teams}
         </ul>
-      </div>
+      </section>
     )
   }
 });

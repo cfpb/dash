@@ -21,6 +21,6 @@ describe('Add member component', function() {
 
   it('render the component properly', function() {
     var result = AddMemberComponent.getDOMNode();
-    expect(result.className).toBe('add-member')
+    expect(result.className).toBe('add-item')
   });
 });

@@ -17,20 +17,18 @@ var Button = React.createClass({
   },
   render: function() {
 
-    var buttonTypes = (this.props.type instanceof Array) ? this.props.type : [this.props.type]
-
-    var buttonClasses = 'btn' + buttonTypes.map(function( t ) {
+    var buttonTypes = (this.props.type instanceof Array) ? this.props.type : [this.props.type];
+    var buttonClasses = 'btn' + buttonTypes.map(function(t) {
         return ' btn__' + t
-      }).join('')
+      }).join('');
     var buttonProps = _.omit(this.props, 'label', 'type');
+
     if (this.props.href) {
       return (
-        <a className={buttonClasses} {...buttonProps}>
-      {this.props.label}</a>);
+        <a className={buttonClasses} {...buttonProps}>{this.props.label}</a>);
     } else {
       return (
-        <button className={buttonClasses} {...buttonProps}>
-      {this.props.label}</button>
+        <button className={buttonClasses} {...buttonProps}>{this.props.label}</button>
       );
     }
   }

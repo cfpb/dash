@@ -20,6 +20,6 @@ describe('Add team component', function() {
 
   it('render the component properly', function() {
     var result = AddTeamComponent.getDOMNode();
-    expect(result.className).toBe('add-team')
+    expect(result.className).toBe('add-item')
   });
 });

@@ -37,8 +37,10 @@ var TeamPage = React.createClass({
       var addMember = (canAdd) ? <AddMember users={nonMembers} teamName={teamName} roleName={roleName} /> : '';
       return (
         <div>
-          <h3>{roleName}</h3>
-          {addMember}
+          <div className="team-page-header">
+            <h3 className="inline">{roleName}</h3>
+            <span>{addMember}</span>
+          </div>
           <MemberList users={members} canRemove={canRemove} teamName={teamName} roleName={roleName} />
         </div>
       )
@@ -54,9 +56,11 @@ var TeamPage = React.createClass({
       var assets = resource.assets || [];
       return (
         <div>
-          <h3>{resources.teamResources[resourceName].assetTitle}</h3>
-          {addAsset}
-          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={assets} assetDetails={assetDetails} />
+          <div className="team-page-header">
+            <h3 className="inline">{resources.teamResources[resourceName].assetTitle}</h3>
+            <span>{addAsset}</span>
+          </div>
+          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={assets} />
         </div>
       )
     })
