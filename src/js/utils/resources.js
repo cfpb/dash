@@ -31,6 +31,9 @@ var resources = {
     moirai: {
       assetTitle: 'Virtual Machines'
     }
+  },
+  defaultTimeouts: {
+    refreshStore: 5 * 60 * 1000
   }
 
 };

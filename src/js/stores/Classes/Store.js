@@ -4,14 +4,14 @@ backbone.$ = require('jquery');
 var AppDispatcher = require('../../dispatcher/AppDispatcher');
 
 var storeUtils = {
-  initialize: function(attrs, opts) {
+  initialize: function( attrs, opts ) {
     AppDispatcher.register(_.bind(this.handleAction, this));
     if (this.url) {
       this.fetch();
     }
   },
   actions: {},
-  onChange: function(handler, ctx) {
+  onChange: function( handler, ctx ) {
     this.on('all', handler, ctx);
   },
   getState: function() {
@@ -20,7 +20,7 @@ var storeUtils = {
 };
 
 var modelStoreUtils = _.extend({}, storeUtils, {
-  handleAction: function(action) {
+  handleAction: function( action ) {
     var actions = this.actions;
     var actionHandler = actions[action.actionType];
     if (actionHandler) {
@@ -30,17 +30,19 @@ var modelStoreUtils = _.extend({}, storeUtils, {
 });
 
 var collectionStoreUtils = _.extend({}, storeUtils, {
-  handleAction: function(action) {
-    var actions;
+  handleAction: function( action ) {
+    var actions, model;
+
     if (action.id) {
-      var model = this.get(action.id);
+      model = this.get(action.id);
       actions = (model) ? model.actions : {};
+      actions = actions || {};
     } else {
       actions = this.actions;
     }
     var actionHandler = actions[action.actionType];
     if (actionHandler) {
-      return actionHandler.call(this, action);
+      return actionHandler.call(model || this, action);
     }
   }
 });

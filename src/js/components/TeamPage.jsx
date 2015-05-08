@@ -20,14 +20,15 @@ var TeamPage = React.createClass({
     var teamName = this.context.router.getCurrentParams().teamName;
     TeamDetailActions.refreshDetails({teamName: teamName, force: true});
   },
-  componentDidMount: function() {
-    //var teamName = this.context.router.getCurrentParams().teamName;
-   // TeamDetailActions.refreshDetails({teamName: teamName});
+  componentDidUpdate: function() {
+    var teamName = this.context.router.getCurrentParams().teamName
+    TeamDetailActions.refreshDetails({teamName: teamName});
   },
+
   render: function() {
     var teamName = this.context.router.getCurrentParams().teamName
     var team = this.props.teams.get(teamName);
-    //var teamDetails = this.props.teamDetails.get(teamName); // this might be undefined
+    var teamDetails = this.props.teamDetails.get(teamName); // this might be undefined
     if (!team) {
       return (<div />);
     }
@@ -49,13 +50,16 @@ var TeamPage = React.createClass({
       )
     });
 
-    var allAssets = team.get('rsrcs')
-   // var allAssetDetails = (teamDetails) ? teamDetails.get('rsrcs') : {}
+    var allAssets = team.get('rsrcs');
+    var allAssetDetails = (teamDetails) ? teamDetails.get('rsrcs') : {};
+    if (!allAssetDetails) {
+      allAssetDetails = {};
+    }
     var Assets = _.map(allAssets, function( resource, resourceName ) {
-     // var assetDetails = allAssetDetails[resourceName] || []
+      var assetDetails = allAssetDetails[resourceName] || [];
       var canAdd = resource.perms.add;
       var canRemove = resource.perms.remove;
-      var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceName={resourceName} /> : '';
+      var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceName={resourceName} isAddingAsset={team.isAddingAsset[resourceName]} /> : '';
       var assets = resource.assets || [];
       return (
         <div>
@@ -63,7 +67,7 @@ var TeamPage = React.createClass({
             <h3 className="inline">{resources.teamResources[resourceName].assetTitle}</h3>
             <span>{addAsset}</span>
           </div>
-          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={assets} />
+          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={assets} assetDetails={assetDetails}/>
         </div>
       )
     })

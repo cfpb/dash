@@ -21,7 +21,7 @@ var TeamDetailStore = Store.Collection.extend({
         team = new TeamDetail({name: action.teamName});
         this.add(team);
       }
-      if (action.force || !team.lastRequest || (+new Date() - team.lastRequest) > 5 * 60) {
+      if (action.force || !team.lastRequest || (+new Date() - team.lastRequest) > resources.defaultTimeouts.refreshStore) {
         team.fetch();
         team.lastRequest = +new Date();
       }

@@ -17,7 +17,7 @@ var AddAsset = React.createClass({
   handleClose: function() {
     this.setState({isOpen: false});
   },
-  handleAdd: function(e) {
+  handleAdd: function( e ) {
     if (this.state.assetName.length < 3) {
       return;
     }
@@ -28,12 +28,12 @@ var AddAsset = React.createClass({
     });
     this.setState({isOpen: false});
   },
-  onKeyDown: function(e) {
+  onKeyDown: function( e ) {
     if (e.key === 'Enter') {
       this.handleAdd();
     }
   },
-  onChange: function(e) {
+  onChange: function( e ) {
     this.state.assetName = e.target.value;
     this.setState(this.state);
   },
@@ -49,6 +49,7 @@ var AddAsset = React.createClass({
     } else {
       return (
         <span className="add-item">
+          <span>{this.props.isAddingAsset + '' }</span>
           <Icon ref="plus-icon" type={['plus', 'action']} title="Add new asset" onClick={this.handleOpen} />
         </span>
       )

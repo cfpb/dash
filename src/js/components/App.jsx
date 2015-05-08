@@ -8,7 +8,6 @@ var teamStore = require('../stores/teamStore');
 var teamDetailStore = require('../stores/teamDetailStore');
 var userStore = require('../stores/userStore');
 var loggedInUserStore = require('../stores/loggedInUserStore');
-var Breadcrumbs = require('react-breadcrumbs');
 
 var App = React.createClass({
   stores: {
