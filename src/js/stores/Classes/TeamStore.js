@@ -27,6 +27,7 @@ var Team = Store.backbone.Model.extend({
   },
   getMembersSortedByRole: function() {
     var members = {};
+
     for (var role in this.get('roles')) {
       members[role] = this.getMembersByRole(role);
     }
@@ -64,7 +65,6 @@ var Team = Store.backbone.Model.extend({
         that.set(newTeamData);
       });
     }
-
   }
 });
 

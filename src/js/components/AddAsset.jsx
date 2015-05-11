@@ -38,6 +38,9 @@ var AddAsset = React.createClass({
     this.setState(this.state);
   },
   render: function() {
+    var addOrLoadingIcon = this.props.isAddingAsset ?
+      <Icon ref="load" className="cf-icon__spin" type ={['update']} /> :
+      <Icon ref="plus-icon" type={['plus', 'action']} title="Add new asset" onClick={this.handleOpen} />
     if (this.state.isOpen) {
       return (
         <span className="add-item">
@@ -49,8 +52,8 @@ var AddAsset = React.createClass({
     } else {
       return (
         <span className="add-item">
-          <span>{this.props.isAddingAsset + '' }</span>
-          <Icon ref="plus-icon" type={['plus', 'action']} title="Add new asset" onClick={this.handleOpen} />
+        {addOrLoadingIcon}
+
         </span>
       )
     }

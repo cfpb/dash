@@ -20,8 +20,10 @@ var LoggedInStore = Store.Model.extend({
       if (oldError) {
         oldError(arguments);
       }
-    }
-    Store.Model.prototype.fetch.apply(this, arguments);
+    };
+    var args = args = Array.prototype.slice.call(arguments);
+    args[0] = opts;
+    Store.Model.prototype.fetch.apply(this, args);
   }
 });
 

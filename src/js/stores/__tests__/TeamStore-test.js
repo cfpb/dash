@@ -13,7 +13,8 @@ describe('TeamStore', function() {
     AppDispatcher,
     Backbone,
     listener,
-    _;
+    _,
+    userStore;
 
   var TeamConstants = require('../../constants/TeamConstants')
 
@@ -40,6 +41,7 @@ describe('TeamStore', function() {
     _ = require('lodash');
     TeamStore = require('../Classes/TeamStore');
     common = require('../../utils/common');
+    userStore = require('../userStore')
     Backbone = require('backbone');
     Backbone.$ = require('jquery');
     AppDispatcher = require('../../dispatcher/AppDispatcher');
@@ -95,10 +97,16 @@ describe('TeamStore', function() {
     _.forIn(teamModel.actions, function( value, key ) {
       var action = teamModel.actions[key];
 
+
       spyOn(common, actionHash[key]).andReturn({
         done: function( cb ) {
           cb({id: '123', name: 'foo', updatedKey: 'bar'})
+          return {
+            always: function() {
+            }
+          }
         }
+
       });
       action.call(teamModel, key)
 
@@ -106,7 +114,73 @@ describe('TeamStore', function() {
       expect(teamModel.get('updatedKey')).toEqual('bar');
     });
   });
+  it('should sort members by role', function() {
+    team.roles = {
+      'member': {
+        'members': []
+      },
+      'admin': {
+        'members': []
+      }
+    };
 
+    var store = new TeamStore(team);
+    var teamModel = store.models[0];
+    spyOn(userStore, 'filter').andCallFake(
+      function( user ) {
+        return [];
+      });
+    var result = teamModel.getMembersSortedByRole();
+
+    expect(result.member).not.toBeUndefined();
+    expect(result.admin).not.toBeUndefined();
+
+  });
+  it('should get non members by role', function() {
+    team.roles = {
+      'member': {
+        'members': [
+          '34af6d5a6e7ade14b3b1f46aa500264e',
+          '34af6d5a6e7ade14b3b1f46aa5006524',
+          '34af6d5a6e7ade14b3b1f46aa501a80a',
+          '34af6d5a6e7ade14b3b1f46aa501c078',
+          'b57e1ae2e9d7cbf724cd77c76b07f33c',
+          'b57e1ae2e9d7cbf724cd77c76b0827b5',
+          'b57e1ae2e9d7cbf724cd77c76b0a65de'
+        ]
+      },
+      'admin': {
+        'members': [
+          '34af6d5a6e7ade14b3b1f46aa500264e',
+          '34af6d5a6e7ade14b3b1f46aa5006524',
+          '34af6d5a6e7ade14b3b1f46aa501a80a',
+          '34af6d5a6e7ade14b3b1f46aa501c078',
+          'b57e1ae2e9d7cbf724cd77c76b07f33c',
+          'b57e1ae2e9d7cbf724cd77c76b0827b5',
+          'b57e1ae2e9d7cbf724cd77c76b0a65de']
+      }
+    };
+
+    var store = new TeamStore(team);
+    var teamModel = store.models[0];
+    spyOn(userStore, 'filter').andCallFake(
+      function( user ) {
+        return [
+          '34af6d5a6e7ade14b3b1f46aa500264e',
+          '34af6d5a6e7ade14b3b1f46aa5006524',
+          '34af6d5a6e7ade14b3b1f46aa501a80a',
+          '34af6d5a6e7ade14b3b1f46aa501c078',
+          'b57e1ae2e9d7cbf724cd77c76b07f33c',
+          'b57e1ae2e9d7cbf724cd77c76b0827b5',
+          'b57e1ae2e9d7cbf724cd77c76b0a65de'];
+      });
+    var members = teamModel.getNonMembersByRole('member');
+    var admins = teamModel.getNonMembersByRole('admin');
+
+    expect(members).not.toBeUndefined();
+    expect(admins).not.toBeUndefined();
+
+  });
   xit('should respond to dispatcher action calls', function() {
     callback(TEAM_ADD_MEMBER);
   });
