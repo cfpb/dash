@@ -1,4 +1,3 @@
-jest.dontMock('../../constants/UserConstants');
 jest.dontMock('../Classes/UserStore');
 jest.dontMock('../Classes/Store');
 jest.dontMock('object-assign');
@@ -27,7 +26,9 @@ describe('LoggedInUserStore', function() {
     var result = new UserStore();
     expect(result.fetch).toHaveBeenCalled();
   });
-
-  //move to future storeUtils-test.js
+  it('contain actions', function() {
+    var result = new UserStore({id: '1', name: 'foo'});
+    expect(result.first().actions.USER_DATA).toBeDefined();
+  });
 
 });

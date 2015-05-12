@@ -6,7 +6,9 @@ var AppDispatcher = require('../../dispatcher/AppDispatcher');
 var storeUtils = {
   initialize: function( attrs, opts ) {
     AppDispatcher.register(_.bind(this.handleAction, this));
-    this.fetch();
+    if (this.url) {
+      this.fetch();
+    }
   },
   actions: {},
   onChange: function( handler, ctx ) {
@@ -29,16 +31,18 @@ var modelStoreUtils = _.extend({}, storeUtils, {
 
 var collectionStoreUtils = _.extend({}, storeUtils, {
   handleAction: function( action ) {
-    console.log("invoked function", action);
+    var actions, model;
+
     if (action.id) {
-      var model = this.get(action.id);
+      model = this.get(action.id);
       actions = (model) ? model.actions : {};
+      actions = actions || {};
     } else {
       actions = this.actions;
     }
     var actionHandler = actions[action.actionType];
     if (actionHandler) {
-      return actionHandler.call(this, action);
+      return actionHandler.call(model || this, action);
     }
   }
 });

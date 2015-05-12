@@ -33,6 +33,7 @@ var AddMember = React.createClass({
     });
   },
   onKeyDown: function(e) {
+    console.log(e)
     if (e.keyCode === 13) {
       this.handleAdd();
     }
@@ -48,17 +49,17 @@ var AddMember = React.createClass({
     });
     if (this.state.isOpen) {
       return (
-        <div>
-          <ReactTypeahead.Typeahead ref='typeahead' options={users} onChange={this.onChange} onKeyDown={this.onKeyDown} onOptionSelected={this.onChange}/>
-          <Icon type='plus' disabled={!this.state.selectedUser} onClick={this.handleAdd} />
-          <Icon type='delete' onClick={this.handleClose} />
-        </div>
+        <span className="add-item">
+          <ReactTypeahead.Typeahead ref='typeahead' placeholder="Username" options={users} onChange={this.onChange} onKeyDown={this.onKeyDown} onOptionSelected={this.onChange}/>
+          <Icon ref="plus-icon" type={['plus', 'action']} className="cf-form_input-icon" disabled={!this.state.selectedUser} title="Add member" onClick={this.handleAdd} />
+          <Icon ref="minus-icon" type={['delete', 'action']} className="cf-form_input-icon" title="Cancel" onClick={this.handleClose} />
+        </span>
       );
     } else {
       return (
-        <div>
-          <Icon type='plus' onClick={this.handleOpen} />
-        </div>
+        <span className="add-item">
+          <Icon ref="plus-icon" type={['plus', 'action']} title="Add member to this team" onClick={this.handleOpen} />
+        </span>
       )
     }
   }

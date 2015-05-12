@@ -38,19 +38,23 @@ var AddAsset = React.createClass({
     this.setState(this.state);
   },
   render: function() {
+    var addOrLoadingIcon = this.props.isAddingAsset ?
+      <Icon ref="load" className="cf-icon__spin" type ={['update']} /> :
+      <Icon ref="plus-icon" type={['plus', 'action']} title="Add new asset" onClick={this.handleOpen} />
     if (this.state.isOpen) {
       return (
-        <div className="add-asset-search">
-          <input ref='input' onChange={this.onChange} onKeyDown={this.onKeyDown} />
-          <Icon  ref="plus-icon" type='plus' disabled={this.state.assetName.length < 3} onClick={this.handleAdd}/>
-          <Icon ref="minus-icon" type='delete' onClick={this.handleClose} />
-        </div>
+        <span className="add-item">
+          <input type="text" ref="input" onChange={this.onChange} placeholder="Asset name" onKeyDown={this.onKeyDown} />
+          <Icon ref="plus-icon" type={['plus', 'action']} className="cf-form_input-icon" disabled={this.state.assetName.length < 3} title="Add new asset" onClick={this.handleAdd} />
+          <Icon ref="minus-icon" type={['delete', 'action']} className="cf-form_input-icon" title="Cancel" onClick={this.handleClose} />
+        </span>
       );
     } else {
       return (
-        <div className="add-asset">
-          <Icon ref="plus-icon" type='plus' onClick={this.handleOpen} />
-        </div>
+        <span className="add-item">
+        {addOrLoadingIcon}
+
+        </span>
       )
     }
   }

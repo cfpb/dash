@@ -1,6 +1,7 @@
 jest.dontMock('../../constants/TeamConstants');
 jest.dontMock('../Classes/TeamStore');
 jest.dontMock('../Classes/Store');
+jest.dontMock('lodash');
 
 jest.dontMock('object-assign');
 
@@ -10,35 +11,42 @@ describe('TeamStore', function() {
     common,
     callback,
     AppDispatcher,
-    Backbone;
+    Backbone,
+    listener,
+    _,
+    userStore;
+
   var TeamConstants = require('../../constants/TeamConstants')
 
   var actionTeamDestroy = {
     actionType: TeamConstants.TEAM_DESTROY,
     id: 'foo'
   };
-  var actionTeamCreate = {
-    actionType: TeamConstants.TEAM_CREATE,
-    id: 'foo'
+
+  var TEAM_ADD_MEMBER = {
+    id: 'foo',
+    actionType: 'TEAM_ADD_MEMBER',
+    orgName: 'foo replace',
+    roleName: 'member',
+    userId: 'GIJoe'
   };
-  var removeUser = {
-    actionType: TeamConstants.TEAM_REMOVE_USER_START,
-    payload: {orgName: 'foo replace'}
-  };
-  var addUser = {
-    actionType: TeamConstants.TEAM_ADD_USER_START
+
+  var team = {
+    id: '123',
+    name: 'foo'
   };
 
 
   beforeEach(function() {
+    _ = require('lodash');
     TeamStore = require('../Classes/TeamStore');
     common = require('../../utils/common');
+    userStore = require('../userStore')
     Backbone = require('backbone');
     Backbone.$ = require('jquery');
     AppDispatcher = require('../../dispatcher/AppDispatcher');
-    var listener = jest.genMockFunction();
+    listener = jest.genMockFunction();
     AppDispatcher.register(listener);
-    // callback = listener.mock.calls[0][0];
   });
 
   it('should call common to get all teams', function() {
@@ -46,134 +54,135 @@ describe('TeamStore', function() {
     var result = new TeamStore();
     expect(result.fetch).toHaveBeenCalled();
   });
+
   it('registers a callback with the dispatcher', function() {
-    expect(AppDispatcher.register.mock.calls.length).toBe(1);
+    expect(AppDispatcher.register.mock.calls.length).toEqual(1);
   });
 
-  it('should create team', function() {
-    spyOn(TeamStore.prototype, 'fetch');
-    var result = new TeamStore();
-    common.teamCreate.mockImplementation(function() {
-      return {
-        done: function() {
-        }
-      };
-    });
-    result.createTeam(actionTeamDestroy)
-    expect(common.teamCreate).toBeCalled();
-  });
-
-  xit('should filter all teams and user teams correctly', function() {
-    var currentUser = {name: 'im'},
-      otherUser = {name: 'cc'},
-      teams = [
-        {id: 'team-with-non-unique-members', roles: {member: {members: ['im', 'cm', 'im']}}},
-        {id: 'empty-team', roles: {member: {members: []}}},
-        {id: 'non-current-user-team', roles: {member: {members: ['cm']}}},
-        {id: 'happy-path-team', roles: {member: {members: ['im', 'cm']}}}
-      ]
-    var result = TeamStore.getFilteredTeams(teams, currentUser),
-      otherUserTeam = TeamStore.getFilteredTeams(teams, otherUser);
-
-    expect(result.myTeams.length).toEqual(2);
-    expect(result.myTeams).toContain(teams[0]);
-    expect(result.myTeams).toContain(teams[3]);
-
-    expect(otherUserTeam.myTeams.length).toEqual(0);
-    expect(otherUserTeam.otherTeams.length).toEqual(4);
-  });
-
-  xit('should extract assets from teams', function() {
-
-    /* eslint-disable */
-    var team = {
-      rsrcs: {
-        gh: {
-          assets: [
-            {
-              id: 'id-1',
-              gh_id: 1,
-              name: 'repo_name',
-              full_name: 'url/repo_name'
-            },
-            {
-              id: 'id-2',
-              gh_id: 2,
-              name: 'repo_name2',
-              full_name: 'url/repo_name2'
-            }
-          ]
-        }
-      }
-    };
-    /* eslint-enable */
-
-    var result = TeamStore.getTeamAssets(team);
-
-    expect(result.length).toEqual(2);
-    expect(result).toContain(team.rsrcs.gh.assets[0]);
-
-  });
-
-  xit('should produce team metadata', function() {
-    /* eslint-disable */
-    var currUserId = '1234',
-      currUser = {name: currUserId};
-    var users = [currUser];
-    var team = {
-      name: "foo",
-      roles: {
-        member: {members: [currUserId]},
-        admin: {members: [currUserId]}
-      }
-    };
-    /* eslint-enable */
-
-    var result = TeamStore.constructTeamAndUserMetadata(team, users, currUserId);
-    expect(result.userMembers.length).toEqual(1);
-    expect(result.adminMembers.length).toEqual(1);
-    expect(result.roles.member).toBeTruthy();
-    expect(result.roles.admin).toBeTruthy();
-  });
-  xit('should add team name and id to the member object', function() {
-    var team = {
-      _id: '123',
+  it('should create a team', function() {
+    team = {
+      id: 'cheesy',
       name: 'foo'
     };
+    var TEAM_CREATE = {
+      actionType: 'TEAM_CREATE',
+      id: 'foo',
+      teamName: 'foo'
+    };
+    var teamStore = new TeamStore(team);
+    var action = teamStore.actions.TEAM_CREATE;
 
-    var member = {},
-      members = [member];
-    var result = TeamStore.addTeamNames(team, members);
-    expect(result[0].teams[0].name).toBe(team.name);
-    expect(result[0].teams[0]._id).toBe(team._id);
+    spyOn(common, 'teamCreate').andReturn({
+      done: function( cb ) {
+        cb({})
+      }
+    });
+    action.call(teamStore, TEAM_CREATE);
+
+    expect(common.teamCreate).toHaveBeenCalled();
+    expect(teamStore.get('foo').get('id')).toEqual('cheesy');
   });
 
+  it('should make a call to common to for all model actions and update the model with the result', function() {
+    var store = new TeamStore(team);
+    var teamModel = store.models[0];
 
-  xit('should make a request to delete a user', function() {
+    var actionHash = {
+      TEAM_ADD_MEMBER: 'teamAddMember',
+      TEAM_REMOVE_MEMBER: 'teamRemoveMember',
+      TEAM_ADD_ASSET: 'teamAddAsset',
+      TEAM_REMOVE_ASSET: 'teamRemoveAsset'
+    }
 
-    var done = jest.genMockFunction().mockImplementation(function() {
-      return '';
-    });
-    common.removeUser.mockImplementation(function() {
-      return {
-        done: function() {
+    _.forIn(teamModel.actions, function( value, key ) {
+      var action = teamModel.actions[key];
+
+
+      spyOn(common, actionHash[key]).andReturn({
+        done: function( cb ) {
+          cb({id: '123', name: 'foo', updatedKey: 'bar'})
+          return {
+            always: function() {
+            }
+          }
         }
-      };
+
+      });
+      action.call(teamModel, key)
+
+      expect(common[actionHash[key]]).toHaveBeenCalled();
+      expect(teamModel.get('updatedKey')).toEqual('bar');
     });
-    callback(removeUser);
-    expect(common.removeUser).toBeCalled();
   });
-  xit('should make a request to add a user', function() {
+  it('should sort members by role', function() {
+    team.roles = {
+      'member': {
+        'members': []
+      },
+      'admin': {
+        'members': []
+      }
+    };
 
+    var store = new TeamStore(team);
+    var teamModel = store.models[0];
+    spyOn(userStore, 'filter').andCallFake(
+      function( user ) {
+        return [];
+      });
+    var result = teamModel.getMembersSortedByRole();
 
-    common.addUser.mockImplementation(function() {
-      return {
-        done: function() {
-        }
-      };
-    });
-    callback(addUser);
-    expect(common.addUser).toBeCalled();
+    expect(result.member).not.toBeUndefined();
+    expect(result.admin).not.toBeUndefined();
+
+  });
+  it('should get non members by role', function() {
+    team.roles = {
+      'member': {
+        'members': [
+          '34af6d5a6e7ade14b3b1f46aa500264e',
+          '34af6d5a6e7ade14b3b1f46aa5006524',
+          '34af6d5a6e7ade14b3b1f46aa501a80a',
+          '34af6d5a6e7ade14b3b1f46aa501c078',
+          'b57e1ae2e9d7cbf724cd77c76b07f33c',
+          'b57e1ae2e9d7cbf724cd77c76b0827b5',
+          'b57e1ae2e9d7cbf724cd77c76b0a65de'
+        ]
+      },
+      'admin': {
+        'members': [
+          '34af6d5a6e7ade14b3b1f46aa500264e',
+          '34af6d5a6e7ade14b3b1f46aa5006524',
+          '34af6d5a6e7ade14b3b1f46aa501a80a',
+          '34af6d5a6e7ade14b3b1f46aa501c078',
+          'b57e1ae2e9d7cbf724cd77c76b07f33c',
+          'b57e1ae2e9d7cbf724cd77c76b0827b5',
+          'b57e1ae2e9d7cbf724cd77c76b0a65de']
+      }
+    };
+
+    var store = new TeamStore(team);
+    var teamModel = store.models[0];
+    spyOn(userStore, 'filter').andCallFake(
+      function( user ) {
+        return [
+          '34af6d5a6e7ade14b3b1f46aa500264e',
+          '34af6d5a6e7ade14b3b1f46aa5006524',
+          '34af6d5a6e7ade14b3b1f46aa501a80a',
+          '34af6d5a6e7ade14b3b1f46aa501c078',
+          'b57e1ae2e9d7cbf724cd77c76b07f33c',
+          'b57e1ae2e9d7cbf724cd77c76b0827b5',
+          'b57e1ae2e9d7cbf724cd77c76b0a65de'];
+      });
+    var members = teamModel.getNonMembersByRole('member');
+    var admins = teamModel.getNonMembersByRole('admin');
+
+    expect(members).not.toBeUndefined();
+    expect(admins).not.toBeUndefined();
+
+  });
+  xit('should respond to dispatcher action calls', function() {
+    callback(TEAM_ADD_MEMBER);
   });
 
 });

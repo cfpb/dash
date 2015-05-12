@@ -10,10 +10,11 @@ describe('Page of teams', function() {
   beforeEach(function() {
     React = require('react/addons');
     TestUtils = React.addons.TestUtils;
+    /* eslint-disable */
     teams = {
       models: [
         {
-          get: function( name ) {
+          get: function(name) {
             return this.name;
           },
           name: 'foo1',
@@ -94,6 +95,7 @@ describe('Page of teams', function() {
         }
       ]
     };
+    /* eslint-enable */
 
   });
   it('should contain some teams and should AddAsset component', function() {
@@ -110,14 +112,14 @@ describe('Page of teams', function() {
       }
     };
 
-    var teamList = TestUtils.renderIntoDocument(
+    var teamsPage = TestUtils.renderIntoDocument(
       <TeamsPage teams={teams} loggedInUser={loggedInUser} />
     );
 
-    var teamsPageComponent = TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'teams')[0].props.children;
-    var numTeams = teamsPageComponent[1].length;
+    var teamsPageComponent = TestUtils.scryRenderedDOMComponentsWithClass(teamsPage, 'teams-page')[0].props.children;
+    var numTeams = teamsPageComponent.length;
 
-    var canAdd = teamsPageComponent[0];
+    var canAdd = TestUtils.scryRenderedDOMComponentsWithClass(teamsPage, 'teams-page-header')[0].props.children[1].props.children;
 
     expect(numTeams).toEqual(2);
     expect(canAdd.type.displayName).toBe('AddAsset');
@@ -125,7 +127,7 @@ describe('Page of teams', function() {
 
   it('should not contain AddAsset if user is not logged in', function() {
     var loggedInUser = {
-      get: function( param ) {
+      get: function(param) {
         return {
           team: {
             add: false,
@@ -135,12 +137,12 @@ describe('Page of teams', function() {
       }
     };
 
-    var teamList = TestUtils.renderIntoDocument(
+    var teamsPage = TestUtils.renderIntoDocument(
       <TeamsPage teams={teams} loggedInUser={loggedInUser} />
     );
-    var teamsPageComponent = TestUtils.scryRenderedDOMComponentsWithClass(teamList, 'teams')[0].props.children;
+    var teamsPageComponent = TestUtils.scryRenderedDOMComponentsWithClass(teamsPage, 'teams-page')[0].props.children;
 
-    var canAdd = teamsPageComponent[0];
+    var canAdd = TestUtils.scryRenderedDOMComponentsWithClass(teamsPage, 'teams-page-header')[0].props.children[1].props.children;
     expect(canAdd).toBe('');
   });
 

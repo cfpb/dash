@@ -1,15 +1,19 @@
 jest.dontMock('../RemoveAsset.jsx');
 
 describe('Remove asset icon', function() {
-    var React, RemoveAssetComponent, TestUtils;
+    var React, RemoveAsset, RemoveAssetComponent, TestUtils;
     beforeEach(function() {
       React = require('react/addons');
-      RemoveAssetComponent = require('../RemoveAsset.jsx');
+      RemoveAsset = require('../RemoveAsset.jsx');
       TestUtils = React.addons.TestUtils;
+      RemoveAssetComponent = TestUtils.renderIntoDocument(
+        <RemoveAsset/>
+      );
     });
 
-    it('should show confirmation when clicked', function() {
-
+    it('should render the component', function() {
+      var result = RemoveAssetComponent.getDOMNode();
+      expect(result.className).toBe('remove-asset')
     });
   }
 );

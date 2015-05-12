@@ -15,11 +15,12 @@
 
 ## Developing
 
-* Set up [`devdash`](https://github.com/cfpb/devdash#installation) so that [http://localhost:8000](http://localhost:8000) is correctly serving DevDash.
-* `cd` back to this repo and `npm run watch`
+After you've set up [`devdash`](https://github.com/cfpb/devdash#installation) so that [http://localhost:8000](http://localhost:8000) is correctly serving DevDash, you may use the following commands:
 
-When files are edited, tests will be run and this repo will be copied over to the `devdash` directory to be served by nginx. Reload http://localhost:8000 to see your changes.
+* `npm test` to run ESLint and Jest tests.
+* `gulp build` process source files and dump them into `dist/` for production use and `dev/` for dev use.
+* `gulp build --watch` to monitor JS/Less files and automatically process them when changed.
 
 ## Build
 
-* Run `gulp` to build the minified files into the `dist` directory.
+* Run `gulp` to run tests and build everything (it runs `npm test` and `gulp build` from above).

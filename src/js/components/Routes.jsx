@@ -7,7 +7,7 @@ var Home = require('./Home.jsx');
 var TeamPage = require('./TeamPage.jsx');
 var TeamsPage = require('./TeamsPage.jsx');
 var MemberList = require('./MemberList.jsx');
-var UserPage =require('./UserPage.jsx');
+var UserPage = require('./UserPage.jsx');
 
 var Routes = (
   <Route name="Home" path="/" handler={App}>
