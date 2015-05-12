@@ -2,8 +2,12 @@ var React = require('react');
 
 var assetItem = React.createClass({
   render: function() {
-    var details = this.props.assetDetails || {instances: [{}]};
-    var instance = details.instances[0];
+    var instance
+    try {
+      instance = this.props.assetDetail.instances[0] || {};
+    } catch(e) {
+      instance = {}
+    }
     var name = this.props.asset.name;
     return (
       <span className="moirai-asset-detail">
