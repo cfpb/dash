@@ -2,12 +2,19 @@ var common = require('../../utils/common');
 var resources = require('../../utils/resources');
 var userStore = require('../userStore');
 var Store = require('./Store');
+var _ = require('lodash');
 
 var Team = Store.backbone.Model.extend({
   name: 'Team',
   idAttribute: 'name',
   initialize: function() {
     this.isAddingAsset = {}
+  },
+  isMember: function( userId ) {
+    var roles = this.get('roles');
+    return _.any(roles, function( roleData ) {
+      return (roleData.members || []).indexOf(userId) > 0
+    })
   },
   getMembersByRole: function( role ) {
     var roleData = this.get('roles')[role] || {};
@@ -71,6 +78,13 @@ var Team = Store.backbone.Model.extend({
 var TeamStore = Store.Collection.extend({
   model: Team,
   url: resources.routes.ALL_TEAMS,
+  myTeams: function() {
+    var loggedInUserStore = require('../loggedInUserStore');
+    var myId = loggedInUserStore.id;
+    return this.filter(function( model ) {
+      return model.isMember(myId);
+    })
+  },
   actions: {
     TEAM_CREATE: function( action ) {
       if (!action.teamName) {

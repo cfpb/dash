@@ -1,19 +1,15 @@
-jest.dontMock('../TeamsPage.jsx');
+jest.dontMock('../TeamList.jsx');
 
-var TeamsPage = require('../TeamsPage.jsx');
 
-describe('Page of teams', function() {
-  var React,
-    TestUtils,
-    teams;
+describe('Remove TeamList component', function() {
+  var React, TeamList, TestUtils, TeamListComponent;
   beforeEach(function() {
     React = require('react/addons');
+    TeamList = require('../TeamList.jsx');
     TestUtils = React.addons.TestUtils;
-    /* eslint-disable */
-    teams = {
-      models: [
+    var teams = [
         {
-          get: function(name) {
+          get: function( name ) {
             return this.name;
           },
           name: 'foo1',
@@ -92,59 +88,15 @@ describe('Page of teams', function() {
             }
           }
         }
-      ],
-      myTeams:function(){return this.models}
-    };
-    /* eslint-enable */
-
-  });
-  it('should contain some teams and should AddAsset component', function() {
-    var loggedInUser = {
-      get: function( param ) {
-        return {
-
-          team: {
-            add: true,
-            remove: true
-          }
-
-        };
-      }
-    };
-
-    var teamsPage = TestUtils.renderIntoDocument(
-      <TeamsPage teamStore={teams} loggedInUser={loggedInUser} />
+      ]
+      ;
+    TeamListComponent = TestUtils.renderIntoDocument(
+      <TeamList teams={teams} canRemove={true} />
     );
-
-    var teamsPageComponent = TestUtils.scryRenderedDOMComponentsWithClass(teamsPage, 'teams-page')[0].props.children;
-
-    var numTeams = teamsPageComponent.length;
-
-    var canAdd = TestUtils.scryRenderedDOMComponentsWithClass(teamsPage, 'teams-page-header')[0].props.children[1].props.children;
-
-    expect(numTeams).toEqual(4);
-    expect(canAdd.type.displayName).toBe('AddAsset');
   });
 
-  it('should not contain AddAsset if user is not logged in', function() {
-    var loggedInUser = {
-      get: function(param) {
-        return {
-          team: {
-            add: false,
-            remove: true
-          }
-        };
-      }
-    };
-
-    var teamsPage = TestUtils.renderIntoDocument(
-      <TeamsPage teamStore={teams} loggedInUser={loggedInUser} />
-    );
-    var teamsPageComponent = TestUtils.scryRenderedDOMComponentsWithClass(teamsPage, 'teams-page')[0].props.children;
-
-    var canAdd = TestUtils.scryRenderedDOMComponentsWithClass(teamsPage, 'teams-page-header')[0].props.children[1].props.children;
-    expect(canAdd).toBe('');
+  it('should should render', function() {
+    var result = TeamListComponent.getDOMNode();
+    expect(result.className).toBe('teams-list')
   });
-
 });

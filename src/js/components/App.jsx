@@ -12,7 +12,7 @@ var loggedInUserStore = require('../stores/loggedInUserStore');
 
 var App = React.createClass({
   stores: {
-    teams: teamStore,
+    teamStore: teamStore,
     users: userStore,
     loggedInUser: loggedInUserStore,
     teamDetails: teamDetailStore

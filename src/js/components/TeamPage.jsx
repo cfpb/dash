@@ -15,7 +15,7 @@ var TeamPage = React.createClass({
     router: React.PropTypes.func
   },
   propTypes: {
-    teams: React.PropTypes.object.isRequired
+    teamStore: React.PropTypes.object.isRequired
   },
   handleRefresh: function() {
     var teamName = this.context.router.getCurrentParams().teamName;
@@ -28,7 +28,7 @@ var TeamPage = React.createClass({
 
   render: function() {
     var teamName = this.context.router.getCurrentParams().teamName
-    var team = this.props.teams.get(teamName);
+    var team = this.props.teamStore.get(teamName);
     var teamDetails = this.props.teamDetails.get(teamName); // this might be undefined
     if (!team) {
       return (<div />);

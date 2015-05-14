@@ -1,0 +1,30 @@
+var React = require('react');
+var TeamListItem = require('./TeamListItem.jsx');
+var AddTeam = require('./AddTeam.jsx');
+
+var TeamList = React.createClass({
+
+  propTypes: {
+    teams: React.PropTypes.object.isRequired,
+    loggedInUser: React.PropTypes.object.isRequired
+  },
+
+  render: function() {
+    var teams = this.props.teams;
+    var canRemove = this.props.canRemove;
+
+    teams = teams.map(function( team ) {
+      return <TeamListItem team={team} canRemove={canRemove} key={team.get('name')} />;
+    });
+
+    return (
+      <ul className="teams-list">
+          {teams}
+      </ul>
+    )
+
+  }
+
+});
+
+module.exports = TeamList;
