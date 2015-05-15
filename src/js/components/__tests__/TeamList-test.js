@@ -7,6 +7,7 @@ describe('Remove TeamList component', function() {
     React = require('react/addons');
     TeamList = require('../TeamList.jsx');
     TestUtils = React.addons.TestUtils;
+    /* eslint-disable */
     var teams = [
         {
           get: function( name ) {
@@ -90,6 +91,7 @@ describe('Remove TeamList component', function() {
         }
       ]
       ;
+    /* eslint-enable */
     TeamListComponent = TestUtils.renderIntoDocument(
       <TeamList teams={teams} canRemove={true} />
     );

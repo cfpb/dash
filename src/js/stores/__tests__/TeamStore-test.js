@@ -97,7 +97,6 @@ describe('TeamStore', function() {
     _.forIn(teamModel.actions, function( value, key ) {
       var action = teamModel.actions[key];
 
-
       spyOn(common, actionHash[key]).andReturn({
         done: function( cb ) {
           cb({id: '123', name: 'foo', updatedKey: 'bar'})
