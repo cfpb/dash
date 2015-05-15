@@ -13,7 +13,6 @@ common.getAllUsers = function() {
 };
 
 common.teamCreate = function(action) {
-  console.log(action)
   return $.ajax({
     url: resources.routes.team(action),
     dataType: 'json',

@@ -36,7 +36,6 @@ describe('TeamStore', function() {
     name: 'foo'
   };
 
-
   beforeEach(function() {
     _ = require('lodash');
     TeamStore = require('../Classes/TeamStore');
@@ -73,7 +72,7 @@ describe('TeamStore', function() {
     var action = teamStore.actions.TEAM_CREATE;
 
     spyOn(common, 'teamCreate').andReturn({
-      done: function( cb ) {
+      done: function(cb) {
         cb({})
       }
     });
@@ -83,7 +82,7 @@ describe('TeamStore', function() {
     expect(teamStore.get('foo').get('id')).toEqual('cheesy');
   });
 
-  it('should make a call to common to for all model actions and update the model with the result', function() {
+  it('should make a call to common for all model actions and update the model with the result', function() {
     var store = new TeamStore(team);
     var teamModel = store.models[0];
 
@@ -94,25 +93,28 @@ describe('TeamStore', function() {
       TEAM_REMOVE_ASSET: 'teamRemoveAsset'
     }
 
-    _.forIn(teamModel.actions, function( value, key ) {
+    _.forIn(teamModel.actions, function(value, key) {
       var action = teamModel.actions[key];
 
+      teamModel.trigger = function noop(){};
+
       spyOn(common, actionHash[key]).andReturn({
-        done: function( cb ) {
+        done: function(cb) {
           cb({id: '123', name: 'foo', updatedKey: 'bar'})
           return {
             always: function() {
             }
           }
         }
-
       });
+
       action.call(teamModel, key)
 
       expect(common[actionHash[key]]).toHaveBeenCalled();
       expect(teamModel.get('updatedKey')).toEqual('bar');
     });
   });
+
   it('should sort members by role', function() {
     team.roles = {
       'member': {
@@ -126,7 +128,7 @@ describe('TeamStore', function() {
     var store = new TeamStore(team);
     var teamModel = store.models[0];
     spyOn(userStore, 'filter').andCallFake(
-      function( user ) {
+      function(user) {
         return [];
       });
     var result = teamModel.getMembersSortedByRole();
