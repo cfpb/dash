@@ -5,8 +5,7 @@ var AddTeam = require('./AddTeam.jsx');
 var TeamList = React.createClass({
 
   propTypes: {
-    teams: React.PropTypes.object.isRequired,
-    loggedInUser: React.PropTypes.object.isRequired
+    teams: React.PropTypes.array.isRequired
   },
 
   render: function() {

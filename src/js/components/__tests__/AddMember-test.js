@@ -71,7 +71,7 @@ describe('Add member component', function() {
   it('it should trigger typeahead', function() {
     AddMemberComponent.setState({isOpen: true});
     var typeahead = React.addons.TestUtils.scryRenderedDOMComponentsWithTag(AddMemberComponent, 'input')[0];
-   React.addons.TestUtils.Simulate.change(typeahead, {target: {value: 'foo'}});
+    React.addons.TestUtils.Simulate.change(typeahead, {target: {value: 'foo'}});
 
     expect(AddMemberComponent.state.selectedUser.data.username).toBe('foo')
   });
@@ -91,5 +91,29 @@ describe('Add member component', function() {
 
     expect(AddMemberComponent.state.isOpen).toBeFalsy();
     expect(AddMemberComponent.getDOMNode().className).toBe('add-item');
+  });
+
+  it('should trigger add when enter is pressed', function() {
+    var teamAction = require('../../actions/TeamActions.js');
+    spyOn(teamAction, 'addMember');
+    AddMemberComponent.setState({isOpen: true});
+    AddMemberComponent.setState({selectedUser: {id: 'haiiiii'}});
+    var searchInput = React.addons.TestUtils.scryRenderedDOMComponentsWithTag(AddMemberComponent, 'input')[0];
+
+    React.addons.TestUtils.Simulate.keyDown(searchInput, {key: 'Enter'});
+
+    expect(teamAction.addMember).toHaveBeenCalled();
+
+  });
+  it('should not trigger is there not selected user', function() {
+    var teamAction = require('../../actions/TeamActions.js');
+    spyOn(teamAction, 'addMember');
+    AddMemberComponent.setState({isOpen: true});
+    var searchInput = React.addons.TestUtils.scryRenderedDOMComponentsWithTag(AddMemberComponent, 'input')[0];
+
+    React.addons.TestUtils.Simulate.keyDown(searchInput, {key: 'Enter'});
+
+    expect(teamAction.addMember).not.toHaveBeenCalled();
+
   });
 });

@@ -2,7 +2,6 @@ jest.dontMock('../../constants/TeamConstants');
 jest.dontMock('../Classes/TeamStore');
 jest.dontMock('../Classes/Store');
 jest.dontMock('lodash');
-
 jest.dontMock('object-assign');
 
 describe('TeamStore', function() {

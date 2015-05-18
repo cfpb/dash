@@ -9,6 +9,7 @@ describe('Page of teams', function() {
   beforeEach(function() {
     React = require('react/addons');
     TestUtils = React.addons.TestUtils;
+
     /* eslint-disable */
     teams = {
       models: [
