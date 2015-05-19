@@ -22,11 +22,11 @@ describe('Add member component', function() {
         }
       },
       {
-        data: {username: "bar"},
+        data: {username: 'bar'},
         get: function( req ) {
           return this[req];
         }
-      },
+      }
 
     ];
     AddMemberComponent = TestUtils.renderIntoDocument(
