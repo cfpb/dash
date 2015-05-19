@@ -36,7 +36,7 @@ describe('Remove asset icon', function() {
     it('should close input box on cancel', function() {
       RemoveAssetComponent.setState({isConfirming: true});
 
-      var cancel = React.findDOMNode(RemoveAssetComponent.refs['cancel']);
+      var cancel = React.findDOMNode(RemoveAssetComponent.refs.cancel);
       React.addons.TestUtils.Simulate.click(cancel);
 
       expect(RemoveAssetComponent.state.isConfirming).toBeFalsy();
@@ -48,7 +48,7 @@ describe('Remove asset icon', function() {
       spyOn(teamAction, 'removeAsset');
       RemoveAssetComponent.setState({isConfirming: true});
 
-      var remove = React.findDOMNode(RemoveAssetComponent.refs['remove']);
+      var remove = React.findDOMNode(RemoveAssetComponent.refs.remove);
       React.addons.TestUtils.Simulate.click(remove);
 
       expect(teamAction.removeAsset).toHaveBeenCalled();
