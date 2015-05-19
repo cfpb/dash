@@ -16,7 +16,7 @@ describe('Add member component', function() {
     TestUtils = React.addons.TestUtils;
     var users = [
       {
-        data: {username: "foo"},
+        data: {username: 'foo'},
         get: function( req ) {
           return this[req];
         }
