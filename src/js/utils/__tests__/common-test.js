@@ -12,7 +12,7 @@ describe('Get all teams method', function() {
   });
 });
 
-describe('User functions/actions', function() {
+describe('User  and team functions/actions', function() {
   it('should call the correct routes when user actions are invoked', function() {
     var common = require('../../utils/common'),
       resources = require('../../utils/resources'),
@@ -28,8 +28,20 @@ describe('User functions/actions', function() {
     common.teamRemoveMember(opts);
     expect($.ajax).toBeCalled();
 
+    common.teamCreate();
+    expect($.ajax).toBeCalled();
+
+    common.teamRemoveAsset();
+    expect($.ajax).toBeCalled();
+
     common.getCurrentUserInfo();
     expect($.get).toBeCalledWith(resources.routes.CURRENT_USER_INFO);
+
+    common.teamAddAsset({assetData: 'foo'});
+    expect($.ajax).toBeCalled();
+
+    common.userData({userData: 'foo'});
+    expect($.ajax).toBeCalled();
 
   });
 });

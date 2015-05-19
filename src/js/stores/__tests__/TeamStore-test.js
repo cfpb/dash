@@ -13,7 +13,8 @@ describe('TeamStore', function() {
     Backbone,
     listener,
     _,
-    userStore;
+    userStore,
+    loggedInUserStore;
 
   var TeamConstants = require('../../constants/TeamConstants')
 
@@ -40,6 +41,7 @@ describe('TeamStore', function() {
     TeamStore = require('../Classes/TeamStore');
     common = require('../../utils/common');
     userStore = require('../userStore')
+    loggedInUserStore = require('../loggedInUserStore')
     Backbone = require('backbone');
     Backbone.$ = require('jquery');
     AppDispatcher = require('../../dispatcher/AppDispatcher');
@@ -71,7 +73,7 @@ describe('TeamStore', function() {
     var action = teamStore.actions.TEAM_CREATE;
 
     spyOn(common, 'teamCreate').andReturn({
-      done: function(cb) {
+      done: function( cb ) {
         cb({})
       }
     });
@@ -92,13 +94,14 @@ describe('TeamStore', function() {
       TEAM_REMOVE_ASSET: 'teamRemoveAsset'
     }
 
-    _.forIn(teamModel.actions, function(value, key) {
+    _.forIn(teamModel.actions, function( value, key ) {
       var action = teamModel.actions[key];
 
-      teamModel.trigger = function noop(){};
+      teamModel.trigger = function noop() {
+      };
 
       spyOn(common, actionHash[key]).andReturn({
-        done: function(cb) {
+        done: function( cb ) {
           cb({id: '123', name: 'foo', updatedKey: 'bar'})
           return {
             always: function() {
@@ -127,7 +130,7 @@ describe('TeamStore', function() {
     var store = new TeamStore(team);
     var teamModel = store.models[0];
     spyOn(userStore, 'filter').andCallFake(
-      function(user) {
+      function( user ) {
         return [];
       });
     var result = teamModel.getMembersSortedByRole();
@@ -180,6 +183,37 @@ describe('TeamStore', function() {
     expect(members).not.toBeUndefined();
     expect(admins).not.toBeUndefined();
 
+  });
+
+  it('should return my team correctly', function() {
+    team.roles = {
+      'member': {
+        'members': [
+          '34af6d5a6e7ade14b3b1f46aa500264e',
+          '34af6d5a6e7ade14b3b1f46aa5006524',
+          '34af6d5a6e7ade14b3b1f46aa501a80a',
+          '34af6d5a6e7ade14b3b1f46aa501c078',
+          'b57e1ae2e9d7cbf724cd77c76b07f33c',
+          'b57e1ae2e9d7cbf724cd77c76b0827b5',
+          'b57e1ae2e9d7cbf724cd77c76b0a65de'
+        ]
+      },
+      'admin': {
+        'members': [
+          '34af6d5a6e7ade14b3b1f46aa500264e',
+          '34af6d5a6e7ade14b3b1f46aa5006524',
+          '34af6d5a6e7ade14b3b1f46aa501a80a',
+          '34af6d5a6e7ade14b3b1f46aa501c078',
+          'b57e1ae2e9d7cbf724cd77c76b07f33c',
+          'b57e1ae2e9d7cbf724cd77c76b0827b5',
+          'b57e1ae2e9d7cbf724cd77c76b0a65de']
+      }
+    };
+    var store = new TeamStore(team);
+    loggedInUserStore.id = '34af6d5a6e7ade14b3b1f46aa500264e';
+
+    var result = store.myTeams();
+    expect(store.models[0]).toEqual(result[0]);
   });
   xit('should respond to dispatcher action calls', function() {
     callback(TEAM_ADD_MEMBER);
