@@ -20,12 +20,12 @@ describe('LoggedInStore', function() {
   });
 
   it('should return true when used model is loggedIn', function() {
-    /* eslint disable */
+    /*eslint-disable */
     var user = {
       name: 'spongey',
       loggedIn: true
     };
-    /* eslint enable */
+    /*eslint-enable */
 
     var store = new LoggedInStore(user);
     var result = store.isLoggedIn();
@@ -34,7 +34,7 @@ describe('LoggedInStore', function() {
   });
   xit('should log member out on ajax error', function() {
 
-    spyOn(Backbone, 'sync').andCallFake(function(e,  opts ) {
+    spyOn(Backbone, 'sync').andCallFake(function( e, opts ) {
       return opts.error(opts, {status: '401'})
     });
     var user = {
