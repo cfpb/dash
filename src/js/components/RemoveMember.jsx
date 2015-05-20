@@ -31,15 +31,15 @@ var RemoveMember = React.createClass({
         <span className="remove-item">
           <span>Remove {this.props.userName}? Are you sure?</span>
           <ul>
-            <li onClick={this.handleRemove}>Yes</li>
-            <li onClick={this.handleCancel}>No</li>
+            <li ref="remove" onClick={this.handleRemove}>Yes</li>
+            <li ref="cancel" onClick={this.handleCancel}>No</li>
           </ul>
         </span>
       )
     } else {
       return (
         <span className="remove-item">
-          <Icon type={['minus-round', 'action']} color='red' onClick={this.handleConfirm} />
+          <Icon ref= "minus-round" type={['minus-round', 'action']} color='red' onClick={this.handleConfirm} />
         </span>
       );
     }

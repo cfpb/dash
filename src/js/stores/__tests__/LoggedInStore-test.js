@@ -34,9 +34,6 @@ describe('LoggedInStore', function() {
   });
   xit('should log member out on ajax error', function() {
 
-    spyOn(Backbone, 'sync').andCallFake(function( e, opts ) {
-      return opts.error(opts, {status: '401'})
-    });
     var user = {
       name: 'spongey',
       loggedIn: true
