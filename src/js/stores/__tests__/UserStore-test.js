@@ -3,9 +3,10 @@ jest.dontMock('../Classes/Store');
 jest.dontMock('object-assign');
 
 
+
 describe('LoggedInUserStore', function() {
 
-  var UserStore, Backbone, common;
+  var UserStore, Backbone, common, sinon;
 
 
   beforeEach(function() {
@@ -13,6 +14,7 @@ describe('LoggedInUserStore', function() {
     Backbone.$ = require('jquery');
     UserStore = require('../Classes/UserStore');
     common = require('../../utils/common');
+
   });
   describe('foo', function() {
     it('should get all users', function() {

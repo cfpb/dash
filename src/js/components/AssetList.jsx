@@ -8,7 +8,7 @@ var AssetList = React.createClass({
     var that = this,
         assetDetails = this.props.assetDetails,
         Assets;
-    if (this.props.assets.length > 0) {
+    if (this.props.assets && this.props.assets.length > 0) {
       Assets = this.props.assets.map(function(asset) {
         var assetDetail = (_.findWhere(assetDetails, {id: asset.id}) || {details: {}}).details;
         return (
@@ -20,7 +20,7 @@ var AssetList = React.createClass({
           )
       });
     } else {
-      Assets = <li className="list-item"><em>no assets found</em></li>;
+      Assets = <li ref="no-assets" className="list-item"><em>no assets found</em></li>;
     }
     return (
       <div>

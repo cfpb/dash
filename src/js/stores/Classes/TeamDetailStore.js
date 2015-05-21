@@ -1,6 +1,4 @@
-var common = require('../../utils/common');
 var resources = require('../../utils/resources');
-var userStore = require('../userStore');
 var Store = require('./Store');
 
 var TeamDetail = Store.backbone.Model.extend({
@@ -15,7 +13,6 @@ var TeamDetailStore = Store.Collection.extend({
   model: TeamDetail,
   actions: {
     REFRESH_TEAM_DETAILS: function( action ) {
-      var that = this;
       var team = this.get(action.teamName);
       if (!team) {
         team = new TeamDetail({name: action.teamName});
@@ -27,7 +24,6 @@ var TeamDetailStore = Store.Collection.extend({
       }
     }
   }
-
 });
 
 module.exports = TeamDetailStore;

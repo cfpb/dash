@@ -1,11 +1,15 @@
 jest.dontMock('../AssetList.jsx')
-    .dontMock('../AssetItem.jsx');
+  .dontMock('../AssetItem.jsx');
+var React, AssetList, TestUtils;
 
 describe('List of assets', function() {
+  beforeEach(function() {
+    React = require('react/addons');
+    AssetList = require('../AssetList.jsx');
+    TestUtils = React.addons.TestUtils;
+  });
+
   it('should contain 2 assets', function() {
-    var React = require('react/addons');
-    var AssetList = require('../AssetList.jsx');
-    var TestUtils = React.addons.TestUtils;
 
     /* eslint-disable */
     var assets = [
@@ -33,6 +37,14 @@ describe('List of assets', function() {
     expect(numAssets[0].props.children.length).toEqual(2);
     expect(numAssets[0].props.children[0].type.displayName).toBe('AssetItem');
 
+  });
+
+  it('should display a message if there are no assets', function() {
+    var emptyAssetList = TestUtils.renderIntoDocument(
+      <AssetList resourceName={'gh'} />
+    );
+    var msg = emptyAssetList.getDOMNode().textContent;
+    expect(msg).toBe('no assets found');
   });
 
 });

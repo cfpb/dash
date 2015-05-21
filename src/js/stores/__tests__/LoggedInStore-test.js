@@ -4,13 +4,13 @@ jest.dontMock('object-assign');
 
 describe('LoggedInStore', function() {
   var LoggedInStore,
-    Backbone;
+    Backbone,
+    server;
 
   beforeEach(function() {
     Backbone = require('backbone');
     Backbone.$ = require('jquery');
     LoggedInStore = require('../Classes/LoggedInStore');
-
   });
 
   it('should get logged in user', function() {
@@ -32,7 +32,7 @@ describe('LoggedInStore', function() {
 
     expect(result).toBeTruthy();
   });
-  xit('should log member out on ajax error', function() {
+  it.only('should log member out on ajax error', function() {
 
     var user = {
       name: 'spongey',
