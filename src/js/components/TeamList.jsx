@@ -8,20 +8,24 @@ var TeamList = React.createClass({
     teams: React.PropTypes.array.isRequired
   },
 
-  render: function() {
+  render: function(){
     var teams = this.props.teams;
     var canRemove = this.props.canRemove;
+    if (teams.length > 0) {
+      teams = teams.map(function(team){
+        return <TeamListItem team={team} canRemove={canRemove} key={team.get('name')}/>;
+      })
+    }
 
-    teams = teams.map(function( team ) {
-      return <TeamListItem team={team} canRemove={canRemove} key={team.get('name')} />;
-    });
+    else {
+      teams = <li className="list-item teams-list-item"><em>no teams found</em></li>;
+    }
 
     return (
       <ul className="teams-list">
-          {teams}
+        {teams}
       </ul>
     )
-
   }
 
 });

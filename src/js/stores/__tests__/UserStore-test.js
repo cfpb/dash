@@ -3,8 +3,7 @@ jest.dontMock('../Classes/Store');
 jest.dontMock('object-assign');
 
 
-
-describe('LoggedInUserStore', function() {
+describe('UserStore', function() {
 
   var UserStore, Backbone, common, sinon;
 
@@ -16,7 +15,7 @@ describe('LoggedInUserStore', function() {
     common = require('../../utils/common');
 
   });
-  describe('foo', function() {
+  describe('Users Store', function() {
     it('should get all users', function() {
       spyOn(UserStore.prototype, 'fetch');
       var result = new UserStore();
@@ -52,4 +51,16 @@ describe('LoggedInUserStore', function() {
     expect(model.get('updatedKey')).toEqual('bar');
 
   });
+  it('should get teams from team store', function(){
+    var teamStore = require('../teamStore');
+    var user = {
+      name: 'cheesy'
+    };
+    var store = new UserStore(user);
+    var model = store.models[0];
+    spyOn(teamStore, 'userTeams');
+    model.getTeams()
+    expect(teamStore.userTeams).toHaveBeenCalledWith(user.name);
+  });
+
 });

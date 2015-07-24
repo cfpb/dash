@@ -2,7 +2,7 @@ jest.dontMock('../TeamList.jsx');
 
 
 describe('Remove TeamList component', function() {
-  var React, TeamList, TestUtils, TeamListComponent;
+  var React, TeamList, TestUtils, TeamListComponent, TeamListEmptyComponent;
   beforeEach(function() {
     React = require('react/addons');
     TeamList = require('../TeamList.jsx');
@@ -95,10 +95,20 @@ describe('Remove TeamList component', function() {
     TeamListComponent = TestUtils.renderIntoDocument(
       <TeamList teams={teams} canRemove={true} />
     );
+    TeamListEmptyComponent = TestUtils.renderIntoDocument(
+      <TeamList teams={[]} />
+    );
+
   });
 
-  it('should should render', function() {
+  it('should  render', function() {
     var result = TeamListComponent.getDOMNode();
     expect(result.className).toBe('teams-list')
+  });
+  it('should  render no teams', function() {
+    var result = TeamListEmptyComponent.getDOMNode();
+
+    expect(result.className).toBe('teams-list')
+    expect(result.textContent).toBe('no teams found')
   });
 });

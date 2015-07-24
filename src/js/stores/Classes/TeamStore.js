@@ -82,8 +82,11 @@ var TeamStore = Store.Collection.extend({
   myTeams: function() {
     var loggedInUserStore = require('../loggedInUserStore');
     var myId = loggedInUserStore.id;
+    return this.userTeams(myId);
+  },
+  userTeams: function(userId) {
     return this.filter(function( model ) {
-      return model.isMember(myId);
+      return model.isMember(userId);
     })
   },
   actions: {

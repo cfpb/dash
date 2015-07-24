@@ -1,36 +1,53 @@
 jest.dontMock('../MemberList.jsx');
 
-describe('List of users', function() {
-  it('should contain some users', function() {
-    var React = require('react/addons');
-    var MemberList = require('../MemberList.jsx');
-    var TestUtils = React.addons.TestUtils;
+describe('List of users', function(){
+  var React, MemberList, TestUtils;
 
+  beforeEach(function(){
+    React = require('react/addons');
+    MemberList = require('../MemberList.jsx');
+    TestUtils = React.addons.TestUtils;
+  });
+
+  it('should contain some users', function(){
     var memberUsers = [
       {
-        get: function() {
+        get: function(){
           return 'c7a9d8c1c0516c0910f7b2013e004675';
-        }, 'name': 'c7a9d8c1c0516c0910f7b2013e004675', 'data': {'username': 'ascott1'}
+        },
+        'name': 'c7a9d8c1c0516c0910f7b2013e004675',
+        'data': {'username': 'ascott1'}
       }
       ,
       {
-        get: function() {
+        get: function(){
           return 'c7a9d8c1c0516c0910f7b2013e0124b6';
-        }, 'name': 'c7a9d8c1c0516c0910f7b2013e0124b6', 'data': {'username': 'dpford'}
+        },
+        'name': 'c7a9d8c1c0516c0910f7b2013e0124b6', 'data': {'username': 'dpford'}
       },
       {
-        get: function() {
+        get: function(){
           return 'c7a9d8c1c0516c0910f7b2013e02c275';
-        }, 'name': 'c7a9d8c1c0516c0910f7b2013e02c275', 'data': {'username': 'virtix'}
+        },
+        'name': 'c7a9d8c1c0516c0910f7b2013e02c275',
+        'data': {'username': 'virtix'}
       }
     ];
 
     var userList = TestUtils.renderIntoDocument(
-      <MemberList users={memberUsers} />
+      <MemberList users={memberUsers}/>
     );
 
     var numUsers = TestUtils.scryRenderedDOMComponentsWithClass(userList, 'user-list');
     expect(numUsers[0].props.children.length).toEqual(3);
 
   });
+  it('should render no members found msg when there are no users', function(){
+    var userList = TestUtils.renderIntoDocument(
+      <MemberList users={[]} roleName='admin'/>
+    );
+
+    var numUsers = TestUtils.scryRenderedDOMComponentsWithClass(userList, 'user-list');
+    expect(numUsers[0].getDOMNode().innerHTML).toContain('no')
+  })
 });
