@@ -32,9 +32,6 @@ var UserPage = React.createClass({
     var userId = this.context.router.getCurrentParams().userId;
     var user = this.props.users.get(userId);
     var userTeams = user.getTeams();
-    console.log(userTeams);
-
-
     var username = user.get('data').username;
     var publicKeys = user.get('data').publicKeys
     var publicKey = _.findWhere(publicKeys, {name: 'moirai'})
@@ -57,9 +54,9 @@ var UserPage = React.createClass({
         <h1>{username}</h1>
 
         <h2>Teams</h2>
-        <ul className="teams-page">
+        <div className="teams-page">
           <TeamList teams={userTeams} canRemove={false}/>
-        </ul>
+        </div>
 
         <h2>Public Key</h2>
         {publicKey}

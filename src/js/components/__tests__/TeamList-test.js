@@ -101,11 +101,11 @@ describe('Remove TeamList component', function() {
 
   });
 
-  it('should  render', function() {
+  it('should render', function() {
     var result = TeamListComponent.getDOMNode();
     expect(result.className).toBe('teams-list')
   });
-  it('should  render no teams', function() {
+  it('should render no teams', function() {
     var result = TeamListEmptyComponent.getDOMNode();
 
     expect(result.className).toBe('teams-list')

@@ -48,6 +48,7 @@ describe('List of users', function(){
     );
 
     var numUsers = TestUtils.scryRenderedDOMComponentsWithClass(userList, 'user-list');
-    expect(numUsers[0].getDOMNode().innerHTML).toContain('no')
+    expect(numUsers[0].getDOMNode().innerHTML).toContain('no', 'admin', 'found' )
+    expect(numUsers[0].getDOMNode().children.length).toEqual(1);
   })
 });

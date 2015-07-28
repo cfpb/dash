@@ -2,7 +2,6 @@ var Store = require('./Store');
 
 var resources = require('../../utils/resources');
 var common = require('../../utils/common');
-var _ = require('lodash');
 
 var User = Store.backbone.Model.extend({
   name: 'User',
