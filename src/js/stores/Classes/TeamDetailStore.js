@@ -26,14 +26,14 @@ var TeamDetail = Store.backbone.Model.extend({
     opts.error = function(){
       that.fetchInProgress = false;
       if (oldError) {
-        oldError.apply(this, args)
+        oldError.apply(this, arguments)
       }
     };
 
     opts.success = function(){
       that.fetchInProgress = false;
       if (oldSuccess) {
-        oldSuccess.apply(this, args)
+        oldSuccess.apply(this, arguments)
       }
     };
 
