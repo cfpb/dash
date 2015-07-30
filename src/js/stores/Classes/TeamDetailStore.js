@@ -53,7 +53,7 @@ var TeamDetailStore = Store.Collection.extend({
         this.add(team);
 
       }
-      if (action.force|| !team.lastRequest||(+new Date()-team.lastRequest) > resources.defaultTimeouts.refreshStore) {
+      if (action.force || !team.lastRequest || (+new Date() - team.lastRequest) > resources.defaultTimeouts.refreshStore ) {
         team.fetch();
         team.lastRequest = +new Date();
       }
