@@ -17,16 +17,17 @@ var TeamPage = React.createClass({
   propTypes: {
     teamStore: React.PropTypes.object.isRequired
   },
-  handleRefresh: function() {
+
+  handleRefresh: function(){
     var teamName = this.context.router.getCurrentParams().teamName;
+    this.setState({refreshInProgress: true})
     TeamDetailActions.refreshDetails({teamName: teamName, force: true});
   },
-  componentDidUpdate: function() {
+  componentDidUpdate: function(){
     var teamName = this.context.router.getCurrentParams().teamName
     TeamDetailActions.refreshDetails({teamName: teamName});
   },
-
-  render: function() {
+  render: function(){
     var teamName = this.context.router.getCurrentParams().teamName
     var team = this.props.teamStore.get(teamName);
     var teamDetails = this.props.teamDetails.get(teamName); // this might be undefined
@@ -35,18 +36,23 @@ var TeamPage = React.createClass({
     }
     var allMembers = team.getMembersSortedByRole();
 
-    var Members = _.map(allMembers, function(members, roleName) {
+    var isInProgress = false;
+    if (teamDetails) {
+      console.log('model fetching?', teamDetails.fetchInProgress)
+      isInProgress = teamDetails.fetchInProgress;
+    }
+    var Members = _.map(allMembers, function(members, roleName){
       var nonMembers = team.getNonMembersByRole(roleName) || [];
       var canAdd = team.get('roles')[roleName].perms.add;
       var canRemove = team.get('roles')[roleName].perms.remove;
-      var addMember = (canAdd) ? <AddMember users={nonMembers} teamName={teamName} roleName={roleName} /> : '';
+      var addMember = (canAdd) ? <AddMember users={nonMembers} teamName={teamName} roleName={roleName}/> : '';
       return (
         <div>
           <div className="team-page-header">
             <h3 className="inline">{capitalize(roleName)}</h3>
             <span>{addMember}</span>
           </div>
-          <MemberList users={members} canRemove={canRemove} teamName={teamName} roleName={roleName} />
+          <MemberList users={members} canRemove={canRemove} teamName={teamName} roleName={roleName}/>
         </div>
       );
     });
@@ -56,11 +62,12 @@ var TeamPage = React.createClass({
     if (!allAssetDetails) {
       allAssetDetails = {};
     }
-    var Assets = _.map(allAssets, function( resource, resourceName ) {
+    var Assets = _.map(allAssets, function(resource, resourceName){
       var assetDetails = allAssetDetails[resourceName] || [];
       var canAdd = resource.perms.add;
       var canRemove = resource.perms.remove;
-      var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceName={resourceName} isAddingAsset={team.isAddingAsset[resourceName]} /> : '';
+      var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceNam={resourceName}
+                                          isAddingAsset={team.isAddingAsset[resourceName]}/> : '';
       var assets = resource.assets || [];
       return (
         <div>
@@ -68,13 +75,19 @@ var TeamPage = React.createClass({
             <h3 className="inline">{resources.teamResources[resourceName].assetTitle}</h3>
             <span>{addAsset}</span>
           </div>
-          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={assets} assetDetails={assetDetails}/>
+          <AssetList canRemove={canRemove} teamName={teamName} resourceName={resourceName} assets={assets}
+                     assetDetails={assetDetails}/>
         </div>
       )
     })
+    console.log('isInProgress', isInProgress)
     return (
-      <div>
-        <h1>{teamName} <Button type="default" label="Refresh" onClick={this.handleRefresh} className="action-btn" /></h1>
+      <div>{isInProgress}
+        <h1>{teamName}
+          {isInProgress}
+          <Button type={ isInProgress ? 'disabled' : 'default'} label="Refresh"
+                  onClick={this.handleRefresh} className="action-btn"/></h1>
+
         <h2>Team Members</h2>
         {Members}
         <h2>Assets</h2>
