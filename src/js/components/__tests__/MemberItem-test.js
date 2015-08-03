@@ -23,7 +23,7 @@ describe('Individual user item', function() {
     );
     var secondNodeInComponent = userItem.getDOMNode().childNodes[1];
     var removeIcon = userItem.getDOMNode().childNodes[0];
-    expect(removeIcon.className).toBe('remove-component')
+    expect(removeIcon.className).toBe('remove-item')
     expect(secondNodeInComponent.className).toEqual('user-link');
     expect(secondNodeInComponent.textContent).toEqual('Barbara Toothsmith');
   });

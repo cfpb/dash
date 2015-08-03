@@ -1,6 +1,6 @@
 # Dash
 
-[![Build Status](https://travis-ci.org/cfpb/dash.svg?branch=master)](https://travis-ci.org/cfpb/dash) [![Coverage Status](https://coveralls.io/repos/cfpb/dash/badge.svg?branch=master)](https://coveralls.io/r/cfpb/dash?branch=master)
+[![Build Status](https://img.shields.io/travis/cfpb/dash/master.svg?style=flat-square)](https://travis-ci.org/cfpb/dash) [![Coverage Status](https://img.shields.io/coveralls/cfpb/dash/master.svg?style=flat-square)](https://coveralls.io/r/cfpb/dash?branch=master) [![Dependency Status](https://img.shields.io/david/cfpb/dash/master.svg?style=flat-square)](https://david-dm.org/cfpb/dash)
 
 ## Installation
 
@@ -11,16 +11,15 @@
 
 * `npm test`
 
-[Jest](http://facebook.github.io/jest/) is used. Tests are located in `__test__` directories in `src`.
+[Jest](http://facebook.github.io/jest/) requires Node v0.10 :expressionless:. Tests are located in `__test__` directories in `src`.
 
 ## Developing
 
-After you've set up [`devdash`](https://github.com/cfpb/devdash#installation) so that [http://localhost:8000](http://localhost:8000) is correctly serving DevDash, you may use the following commands:
+First, set up [DevDash](https://github.com/cfpb/devdash#installation). You may use the following commands:
 
-* `npm test` to run ESLint and Jest tests.
-* `gulp build` process source files and dump them into `dist/` for production use and `dev/` for dev use.
-* `gulp build --watch` to monitor JS/Less files and automatically process them when changed.
+* `gulp build` to process source files and dump them into `dist/` for production.
+* `gulp build --watch` to monitor JS/Less files and build when changed.
 
 ## Build
 
-* Run `gulp` to run tests and build everything (it runs `npm test` and `gulp build` from above).
+* Run `gulp` to run tests and build everything.

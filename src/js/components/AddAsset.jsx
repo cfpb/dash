@@ -53,7 +53,6 @@ var AddAsset = React.createClass({
       return (
         <span className="add-item">
         {addOrLoadingIcon}
-
         </span>
       )
     }

@@ -12,7 +12,6 @@ var LoggedInStore = Store.Model.extend({
     var that = this;
     opts = opts || {};
     var oldError = opts.error
-
     opts.error = function( event, xhr ) {
       if (xhr.status == 401) {
         that.set('loggedIn', false);

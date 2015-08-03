@@ -10,11 +10,7 @@ var assetItem = React.createClass({
     }
     var name = this.props.asset.name;
     return (
-      <span className="moirai-asset-detail">
-        <h4>{name}</h4>
-        <span>{instance.ip}</span>
-        <span>{instance.state}</span>
-      </span>
+      <span className="moirai-asset-detail">{name} <code className="asset-meta">({instance.ip}, status: {instance.state})</code></span>
     );
   }
 });

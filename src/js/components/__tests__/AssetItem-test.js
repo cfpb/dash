@@ -27,8 +27,8 @@ describe('Individual asset item', function() {
       <AssetItem asset={asset} canRemove={canRemove} teamName={"foo"} resourceId={'123'} resourceName={'gh'} />
     );
     var removeAsset = assetItem.getDOMNode().childNodes[0];
-    expect(removeAsset.className).toBe('remove-asset')
-    expect(assetItem.getDOMNode().className).toEqual('asset-item');
+    expect(removeAsset.className).toBe('remove-item')
+    expect(assetItem.getDOMNode().className).toEqual('list-item asset-item');
   });
 
   it('should not display remove icon', function() {

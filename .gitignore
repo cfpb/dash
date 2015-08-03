@@ -44,6 +44,8 @@ src/bundle.js
 src/vendor
 src/fonts
 coverage
+.coverdata
+.coveralls.yml
 .coverrun
 
 # IP #

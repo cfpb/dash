@@ -1,9 +1,20 @@
 @import '../vendor/cf-grid/src/cf-grid.less';
+@import '../vendor/cf-breadcrumbs/src/cf-breadcrumbs.less';
+
+@import 'cfpb-brand-palette.less';
+@import 'cf-theme-overrides.less';
 
 body {
-
+  .webfont-regular();
 }
 
+// Header
+
+.masthead {
+  .cf-icon {
+    margin-right: .2em;
+  }
+}
 
 // Teams
 
@@ -12,6 +23,17 @@ body {
   .cf-form_input-icon {
     top: 0;
   }
+}
+
+// Lists
+
+ul {
+  margin: .5em 0 2em;
+  padding-left: .7em;
+}
+
+.list-item {
+  list-style-type: none;
 }
 
 // Layout
@@ -32,10 +54,24 @@ body {
 //   });
 // }
 
+// Assets
+
+.asset-meta {
+  font-size: .85em;
+}
+
 // Actions
+
+.action-btn {
+  font-size: .2em;
+}
 
 .add-item {
   margin-left: 5px;
+}
+
+.remove-item {
+  margin-right: .4em;
 }
 
 // Icons
@@ -64,7 +100,6 @@ body {
     }
   }
 }
-
 
 // Utils
 
