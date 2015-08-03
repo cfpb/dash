@@ -35,7 +35,7 @@ var UserPage = React.createClass({
     var username = user.get('data').username;
     var publicKeys = user.get('data').publicKeys
     var publicKey = _.findWhere(publicKeys, {name: 'moirai'})
-    publicKey = (publicKey) ? <p>{publicKey.key}</p> : '';
+    publicKey = (publicKey) ? <p class="public-key">{publicKey.key}</p> : '';
     var AddPubKey = '';
     if (this.props.loggedInUser.id == userId) {
       AddPubKey = (

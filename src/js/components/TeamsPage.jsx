@@ -29,7 +29,7 @@ var TeamsPage = React.createClass({
           <span>{addTeam}</span>
         </div>
         <ul className="teams-page">
-          <TeamList teams={myTeams} canRemove={canRemove} />
+          <TeamList teams={myTeams} canRemove={false} />
         </ul>
 
 
