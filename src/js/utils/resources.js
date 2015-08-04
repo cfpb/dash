@@ -37,7 +37,7 @@ var resources = {
     }
   },
   defaultTimeouts: {
-    refreshStore: 5*60*1000
+    refreshStore: 5 * 60 * 1000
   }
 
 };
