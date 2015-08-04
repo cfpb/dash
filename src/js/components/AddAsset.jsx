@@ -5,6 +5,12 @@ var TeamActions = require('../actions/TeamActions');
 var _ = require('lodash');
 
 var AddAsset = React.createClass({
+
+  propTypes: {
+    teamName: React.PropTypes.string.isRequired,
+    resourceName: React.PropTypes.string.isRequired,
+    isAddingAsset: React.PropTypes.bool.isRequired
+  },
   getInitialState: function() {
     return {
       isOpen: false,
