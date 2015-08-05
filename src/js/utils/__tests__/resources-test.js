@@ -41,5 +41,11 @@ describe('resources functions tests', function() {
     var expectedUrl = '/kratos/users/teamName/data/somePath',
       actualUrl = resources.routes.userData(opts);
     expect(actualUrl).toBe(expectedUrl);
+  });
+
+  it('should create a correct user action  request url from opt', function() {
+    var expectedUrl = '/kratos/users/userId',
+      actualUrl = resources.routes.userActions(opts.userId);
+    expect(actualUrl).toBe(expectedUrl);
   })
 });

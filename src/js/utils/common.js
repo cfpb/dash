@@ -4,15 +4,15 @@ var resources = require('./resources');
 var common = {};
 
 
-common.getAllTeams = function() {
+common.getAllTeams = function(){
   return $.get(resources.routes.ALL_TEAMS);
 };
 
-common.getAllUsers = function() {
+common.getAllUsers = function(){
   return $.get(resources.routes.ALL_USERS);
 };
 
-common.teamCreate = function(action) {
+common.teamCreate = function(action){
   return $.ajax({
     url: resources.routes.team(action),
     dataType: 'json',
@@ -20,7 +20,7 @@ common.teamCreate = function(action) {
   });
 }
 
-common.teamAddMember = function(action) {
+common.teamAddMember = function(action){
   return $.ajax({
     url: resources.routes.teamMember(action),
     dataType: 'json',
@@ -28,7 +28,7 @@ common.teamAddMember = function(action) {
   });
 };
 
-common.teamRemoveMember = function(action) {
+common.teamRemoveMember = function(action){
   return $.ajax({
     url: resources.routes.teamMember(action),
     dataType: 'json',
@@ -36,7 +36,7 @@ common.teamRemoveMember = function(action) {
   });
 };
 
-common.teamAddAsset = function(action) {
+common.teamAddAsset = function(action){
   return $.ajax({
     url: resources.routes.teamAddAsset(action),
     dataType: 'json',
@@ -46,7 +46,7 @@ common.teamAddAsset = function(action) {
   });
 };
 
-common.teamRemoveAsset = function(action) {
+common.teamRemoveAsset = function(action){
   return $.ajax({
     url: resources.routes.teamRemoveAsset(action),
     dataType: 'json',
@@ -54,11 +54,28 @@ common.teamRemoveAsset = function(action) {
   });
 };
 
-common.getCurrentUserInfo = function() {
+common.getCurrentUserInfo = function(){
   return $.get(resources.routes.CURRENT_USER_INFO)
 };
 
-common.userData = function(action) {
+common.deactivateUser = function(userId){
+  return $.ajax({
+    url: resources.routes.userActions(userId),
+    dataType: 'json',
+    type: 'DELETE'
+  });
+};
+
+common.reactivateUser = function(userId){
+  return $.ajax({
+    url: resources.routes.userActions(userId),
+    dataType: 'json',
+    type: 'PUT'
+  });
+};
+
+
+common.userData = function(action){
   return $.ajax({
     url: resources.routes.userData(action),
     method: 'PUT',

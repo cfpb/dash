@@ -1,23 +1,27 @@
 jest.dontMock('../../utils/common');
+var common, resources, $, userId;
 
-describe('Get all teams method', function() {
-  it('should call the teams URL', function() {
-    var common = require('../../utils/common'),
-      resources = require('../../utils/resources'),
-      $ = require('jquery');
+beforeEach(function(){
+  common = require('../../utils/common');
+  resources = require('../../utils/resources');
+  $ = require('jquery');
+  userId = '123';
+});
+
+
+describe('Get all teams method', function(){
+  it('should call the teams URL', function(){
     common.getAllTeams();
-
     expect($.get).toBeCalledWith(resources.routes.ALL_TEAMS);
 
   });
 });
 
-describe('User  and team functions/actions', function() {
-  it('should call the correct routes when user actions are invoked', function() {
-    var common = require('../../utils/common'),
-      resources = require('../../utils/resources'),
-      $ = require('jquery');
+describe('User  and team functions/actions', function(){
+  it('should call the correct routes when user actions are invoked', function(){
+
     var opts = {'foo': 'boo'};
+
 
     common.getAllUsers();
     expect($.get).toBeCalledWith(resources.routes.ALL_USERS);
@@ -42,6 +46,32 @@ describe('User  and team functions/actions', function() {
 
     common.userData({userData: 'foo'});
     expect($.ajax).toBeCalled();
+
+  });
+
+});
+
+describe('User manipulations', function(){
+  it('should deactivate user', function(){
+    resources.routes = {
+      userActions: function(user){
+        return '/kratos/users/' + userId
+      }
+    };
+    common.deactivateUser(userId);
+    expect($.ajax.mock.calls[0][0].url).toBe('/kratos/users/' + userId);
+    expect($.ajax.mock.calls[0][0].type).toEqual('DELETE');
+
+  });
+  it('should reactivate user', function(){
+    resources.routes = {
+      userActions: function(user){
+        return '/kratos/users/' + userId
+      }
+    };
+    common.reactivateUser(userId);
+    expect($.ajax.mock.calls[0][0].url).toBe('/kratos/users/' + userId);
+    expect($.ajax.mock.calls[0][0].type).toEqual('PUT');
 
   });
 });

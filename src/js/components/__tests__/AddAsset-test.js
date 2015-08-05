@@ -16,7 +16,7 @@ describe('Add asset component', function() {
     TestUtils = React.addons.TestUtils;
 
     addAssetComponent = TestUtils.renderIntoDocument(
-      <AddAsset/>
+      <AddAsset teamName={''}/>
     );
   });
 

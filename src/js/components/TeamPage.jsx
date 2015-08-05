@@ -66,7 +66,7 @@ var TeamPage = React.createClass({
       var assetDetails = allAssetDetails[resourceName] || [];
       var canAdd = resource.perms.add;
       var canRemove = resource.perms.remove;
-      var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceNam={resourceName}
+      var addAsset = (canAdd) ? <AddAsset teamName={teamName} resourceName={resourceName}
                                           isAddingAsset={team.isAddingAsset[resourceName]}/> : '';
       var assets = resource.assets || [];
       return (
@@ -80,7 +80,6 @@ var TeamPage = React.createClass({
         </div>
       )
     })
-    console.log('isInProgress', isInProgress)
     return (
       <div>{isInProgress}
         <h1>{teamName}

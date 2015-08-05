@@ -20,6 +20,10 @@ var resources = {
     userData: function( action ) {
       return resources.baseUrl + '/users/' + action.id + '/data/' + (action.path || '');
     },
+    userActions: function( userId ){
+      return resources.routes.ALL_USERS + '/' + userId
+    },
+
     ALL_TEAMS: '/kratos/orgs/devdesign/teams',
     ALL_USERS: '/kratos/users',
     CURRENT_USER_INFO: '/kratos/user'
