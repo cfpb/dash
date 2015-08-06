@@ -38,7 +38,6 @@ var TeamPage = React.createClass({
 
     var isInProgress = false;
     if (teamDetails) {
-      console.log('model fetching?', teamDetails.fetchInProgress)
       isInProgress = teamDetails.fetchInProgress;
     }
     var Members = _.map(allMembers, function(members, roleName){
